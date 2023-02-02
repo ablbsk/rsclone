@@ -1,7 +1,13 @@
 import "./dashboard.scss";
 import { FunctionComponent } from "react";
+import Header from "../Header";
 
 const Dashboard: FunctionComponent = () => {
-  return <div>Dashboard</div>;
+  return (
+    <>
+      <Header />
+      <main></main>
+    </>
+  );
 };
 export default Dashboard;

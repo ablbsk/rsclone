@@ -1,2 +1,20 @@
 @import './normalize';
 @import './mixins';
+@import './variables';
+
+body {
+  font-family: $font-family-base;
+  color: $font-color-dark;
+  background-color: $color-page-background-light;
+  min-width: 390px;
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 $indent*6;
+
+  @include media-small-mobile {
+    padding: 0 $indent*3;
+  }
+}

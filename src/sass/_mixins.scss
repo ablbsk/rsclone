@@ -5,11 +5,21 @@
 @mixin media-tablet {
   @media (max-width: 1099px) { @content; }
 }
-  
+
 @mixin media-mobile {
   @media (max-width: 767px) { @content; }
 }
 
 @mixin media-small-mobile {
   @media (max-width: 690px) { @content; }
+}
+
+@mixin icon-background($url, $height, $width: $height) {
+  display: inline-block;
+  height: $height;
+  width: $width;
+  background-image: url($url);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }

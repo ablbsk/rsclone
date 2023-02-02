@@ -1,0 +1,70 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.header {
+  background-color: $color-accent;
+  box-shadow: 0 16px 40px 0 rgb(0 0 0 / 4%);
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__hamburger {
+  @include icon-background('../../assets/images/svg/hamburger.svg', 32px);
+  min-width: 32px;
+  min-height: 32px;
+  cursor: pointer;
+}
+
+.header__logo {
+  @include icon-background('../../assets/images/png/logo.png', 50px, 200px);
+  margin: $indent*3;
+  cursor: pointer;
+
+  @include media-small-mobile {
+    width: 150px;
+    height: 40px;
+  }
+}
+
+.header__list {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-grow: 2;
+  gap: $indent*6;
+
+  @include media-small-mobile {
+    gap: $indent*4;
+  }
+}
+
+.header__profile {
+  @include icon-background('../../assets/images/jpg/user.jpg', 50px);
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+}
+
+
+.language {
+  display: flex;
+  align-items: flex-start;
+  gap: $indent*2;
+  color: $font-color-white;
+  cursor: pointer;
+}
+
+.language__icon {
+  display: inline-block;
+  width: 24px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.language__title {
+  font-size: $font-size-md;
+  text-transform: uppercase;
+}

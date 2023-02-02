@@ -1,8 +1,26 @@
+$indent: 5px; // base constant of padding & margin
+$transition: .4s ease-in-out; // base transition
 
+$color-accent: #4788ff;
+$color-accent-hover: #0058fa;
+$color-green: #659157;
+$color-green-hover: #4c8c38;
+$color-purple: #9e7fbd;
+$color-purple-hover: #9061bf;
+$color-coffee: #a77e58;
+$color-coffee-hover: #b87f4a;
 
+$color-element-background-light: #ffffff;
 
+$color-page-background-light: #fafbfe;
 
+$font-family-base: Roboto, sans-serif;
 
+$font-color-dark: #535f6b;
+$font-color-light: #d5d6d7;
+$font-color-white: #ffffff;
+
+$font-color-header-dark: #303030;
 
 $font-weight-light: 300;
 $font-weight-normal: 400;
@@ -20,6 +38,9 @@ $font-size-xxxlg: 36px;
 $font-size-xxxxlg: 48px;
 $font-size-megaxlg: 90px;
 
-$line-height-xs:0.8em;
+$line-height-xs: 0.8em;
 $line-height-sm: 1.2;
-$line-height-m:1.25;
+$line-height-m: 1.25;
+$line-height-l: 1.5;
+
+$border-radius-sm: 5px;
