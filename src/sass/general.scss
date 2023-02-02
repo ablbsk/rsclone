@@ -7,7 +7,20 @@ body {
   color: $font-color-dark;
   background-color: $color-page-background-light;
   min-width: 390px;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $font-color-header-dark;
+  font-weight: $font-weight-bolder;
+  line-height: $line-height-m;
+  text-transform: capitalize;
+  cursor: default;
 }
 
 .container {
@@ -16,5 +29,21 @@ body {
 
   @include media-small-mobile {
     padding: 0 $indent*3;
+  }
+}
+
+.button {
+  padding: $indent*2 $indent*4;
+  color: $font-color-white;
+  background-color: $color-accent;
+  font-size: $font-size-lg;
+  border: none;
+  border-radius: $border-radius-sm;
+  transition: $transition;
+  text-transform: capitalize;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-accent-hover;
   }
 }

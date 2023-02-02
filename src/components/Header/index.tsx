@@ -1,10 +1,17 @@
 import "./header.scss";
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
+import Profile from "../Profile";
 import flagUS from "../../assets/images/jpg/flag-us.jpg";
 import flagRU from "../../assets/images/jpg/flag-ru.jpg";
 
 const Header: FunctionComponent = () => {
+  // TODO Temporary
+  const showProfile = (): void => {
+    const profile = document.querySelector(".profile") as HTMLElement;
+    profile.classList.toggle("profile--show");
+  };
+
   const language = "en";
 
   return (
@@ -26,12 +33,13 @@ const Header: FunctionComponent = () => {
                 <span className="language__title">en</span>
               </div>
             </li>
-            <li className="header__item">
+            <li className="header__item" onClick={showProfile}>
               <span className="header__profile"></span>
             </li>
           </ul>
         </div>
       </div>
+      <Profile />
     </header>
   );
 };
