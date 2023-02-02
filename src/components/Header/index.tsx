@@ -5,29 +5,15 @@ import flagUS from "../../assets/images/jpg/flag-us.jpg";
 import flagRU from "../../assets/images/jpg/flag-ru.jpg";
 
 const Header: FunctionComponent = () => {
-  // TODO Temporary
-  const showProfile = (): void => {
-    const profile = document.querySelector(".profile") as HTMLElement;
-    profile.classList.toggle("profile--show");
+  const showBlock = (name: string): void => {
+    const element = document.querySelector(`.${name}`) as HTMLElement;
+    element.classList.toggle(`${name}--show`);
 
     window.addEventListener("click", (e: Event): void => {
       const target = e.target as HTMLElement;
 
-      if (target.contains(profile) && target !== profile) {
-        profile.classList.remove("profile--show");
-      }
-    });
-  };
-
-  const showSidebar = (): void => {
-    const sidebar = document.querySelector(".sidebar") as HTMLElement;
-    sidebar.classList.toggle("sidebar--show");
-
-    window.addEventListener("click", (e: Event): void => {
-      const target = e.target as HTMLElement;
-
-      if (target.contains(sidebar) && target !== sidebar) {
-        sidebar.classList.remove("sidebar--show");
+      if (target.contains(element) && target !== element) {
+        element.classList.remove(`${name}--show`);
       }
     });
   };
@@ -38,7 +24,10 @@ const Header: FunctionComponent = () => {
     <header className="header">
       <div className="container">
         <div className="header__wrapper">
-          <span className="header__hamburger" onClick={showSidebar}></span>
+          <span
+            className="header__hamburger"
+            onClick={() => showBlock("sidebar")}
+          ></span>
           <Link className="header__link" to="/dashboard">
             <span className="header__logo"></span>
           </Link>
@@ -53,7 +42,7 @@ const Header: FunctionComponent = () => {
                 <span className="language__title">en</span>
               </div>
             </li>
-            <li className="header__item" onClick={showProfile}>
+            <li className="header__item" onClick={() => showBlock("profile")}>
               <span className="header__profile"></span>
             </li>
           </ul>
