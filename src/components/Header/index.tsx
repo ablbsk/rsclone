@@ -1,7 +1,6 @@
 import "./header.scss";
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import Profile from "../Profile";
 import flagUS from "../../assets/images/jpg/flag-us.jpg";
 import flagRU from "../../assets/images/jpg/flag-ru.jpg";
 
@@ -10,6 +9,27 @@ const Header: FunctionComponent = () => {
   const showProfile = (): void => {
     const profile = document.querySelector(".profile") as HTMLElement;
     profile.classList.toggle("profile--show");
+
+    window.addEventListener("click", (e: Event): void => {
+      const target = e.target as HTMLElement;
+
+      if (target.contains(profile) && target !== profile) {
+        profile.classList.remove("profile--show");
+      }
+    });
+  };
+
+  const showSidebar = (): void => {
+    const sidebar = document.querySelector(".sidebar") as HTMLElement;
+    sidebar.classList.toggle("sidebar--show");
+
+    window.addEventListener("click", (e: Event): void => {
+      const target = e.target as HTMLElement;
+
+      if (target.contains(sidebar) && target !== sidebar) {
+        sidebar.classList.remove("sidebar--show");
+      }
+    });
   };
 
   const language = "en";
@@ -18,7 +38,7 @@ const Header: FunctionComponent = () => {
     <header className="header">
       <div className="container">
         <div className="header__wrapper">
-          <span className="header__hamburger"></span>
+          <span className="header__hamburger" onClick={showSidebar}></span>
           <Link className="header__link" to="/dashboard">
             <span className="header__logo"></span>
           </Link>
@@ -39,7 +59,6 @@ const Header: FunctionComponent = () => {
           </ul>
         </div>
       </div>
-      <Profile />
     </header>
   );
 };

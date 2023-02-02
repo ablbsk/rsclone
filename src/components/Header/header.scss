@@ -2,8 +2,10 @@
 @import "../../sass/variables";
 
 .header {
+  position: relative;
   background-color: $color-accent;
-  box-shadow: 0 16px 40px 0 rgb(0 0 0 / 4%);
+  box-shadow: $box-shadow;
+  z-index: 10;
 }
 
 .header__wrapper {

@@ -13,8 +13,9 @@
   background-color: $color-element-background-light;
   transition: $transition;
   transform: translateX(350px);
+  box-shadow: $box-shadow;
   overflow: auto;
-  z-index: 10;
+  z-index: 25;
 
   &--show {
     opacity: 1;

@@ -1,0 +1,73 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.sidebar {
+  width: 200px;
+  height: calc(100vh - 80px);
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: $font-color-white;
+  transition: $transition;
+  transform: translateX(-200px);
+  box-shadow: $box-shadow;
+  overflow: hidden;
+  z-index: 5;
+
+  &--fixed {
+    width: 85px;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &--show {
+    width: 200px;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sidebar__wrapper {
+  padding: $indent*6;
+}
+
+.sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: $indent*8;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: $indent*5;
+  cursor: pointer;
+
+  &:hover {
+    .sidebar__name {
+      color: $color-accent-hover;
+    }
+
+    & > svg {
+      stroke: $color-accent-hover;
+    }
+  }
+}
+
+.sidebar__icon {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  display: inline-block;
+  transition: $transition;
+}
+
+.sidebar__name {
+  font-size: $font-size-lg;
+  transition: $transition;
+}
