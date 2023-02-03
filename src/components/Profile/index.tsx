@@ -1,6 +1,8 @@
 import "./profile.scss";
 import { FunctionComponent } from "react";
 import { useDispatch } from "react-redux";
+import Switch from "./Switch";
+import { ProfileType } from "../../types";
 import {
   updateFixedSidebar,
   updateNightMode,
@@ -8,11 +10,6 @@ import {
   updateAccentColor,
   updateNavbarNightMode,
 } from "../../actions";
-import Switch from "./Switch";
-
-export type ProfileType = {
-  accentColor: string;
-};
 
 const Profile: FunctionComponent<ProfileType> = ({
   accentColor,

@@ -1,7 +1,7 @@
 import "./dashboard.scss";
 import { FunctionComponent } from "react";
 import { useSelector } from "react-redux";
-import { IStore } from "@/src/interfaces/store";
+import { IStore } from "../../interfaces/store";
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 import Profile from "../Profile";

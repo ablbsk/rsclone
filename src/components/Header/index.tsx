@@ -3,11 +3,7 @@ import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import flagUS from "../../assets/images/jpg/flag-us.jpg";
 import flagRU from "../../assets/images/jpg/flag-ru.jpg";
-
-export type HeaderType = {
-  accentColor: string;
-  isNavbarNightMode: boolean;
-};
+import { HeaderType } from "../../types";
 
 const Header: FunctionComponent<HeaderType> = ({
   accentColor,
@@ -26,14 +22,12 @@ const Header: FunctionComponent<HeaderType> = ({
     });
   };
 
-  const headerBackgroundColor = isNavbarNightMode ? "#1e272e" : accentColor;
-
   const language = "en";
 
   return (
     <header
       className="header"
-      style={{ backgroundColor: headerBackgroundColor }}
+      style={{ backgroundColor: isNavbarNightMode ? "#1e272e" : accentColor }}
     >
       <div className="container">
         <div className="header__wrapper">
@@ -52,7 +46,9 @@ const Header: FunctionComponent<HeaderType> = ({
                   src={language === "en" ? flagUS : flagRU}
                   alt="Current language"
                 />
-                <span className="language__title">en</span>
+                <span className="language__title">
+                  {language === "en" ? "en" : "ru"}
+                </span>
               </div>
             </li>
             <li className="header__item" onClick={() => showBlock("profile")}>

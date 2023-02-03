@@ -1,11 +1,7 @@
 import "./switch.scss";
 import { FunctionComponent } from "react";
 import { useDispatch } from "react-redux";
-import { ActionCreator, AnyAction } from "redux";
-
-export type SwitchType = {
-  action: ActionCreator<AnyAction>;
-};
+import { SwitchType } from "../../../types";
 
 const Switch: FunctionComponent<SwitchType> = ({ action }: SwitchType) => {
   const dispatch = useDispatch();

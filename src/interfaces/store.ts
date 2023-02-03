@@ -1,13 +1,5 @@
 export interface IStore {
-  test: {
-    interface: {
-      isSidebarFixed: boolean;
-      isNightMode: boolean;
-      isSidebarAccentMode: boolean;
-      isNavbarNightMode: boolean;
-      accentColor: string;
-    };
-  };
+  test: ITest;
 }
 
 export interface ITest {

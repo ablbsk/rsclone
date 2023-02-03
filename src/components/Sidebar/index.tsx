@@ -1,30 +1,26 @@
 import "./sidebar.scss";
 import { FunctionComponent } from "react";
-
-export type SidebarType = {
-  accentColor: string;
-  isSidebarFixed: boolean;
-  isSidebarAccentMode: boolean;
-};
+import { SidebarType } from "../../types";
 
 const Sidebar: FunctionComponent<SidebarType> = ({
   accentColor,
   isSidebarFixed,
   isSidebarAccentMode,
 }: SidebarType) => {
-  const isSidebarFixedClass = isSidebarFixed ? "sidebar--fixed" : "";
-  const updateSidebarStyle = () => {
+  const white = "#ffffff";
+
+  const updateSidebarColor = () => {
     return isSidebarAccentMode
-      ? { backgroundColor: accentColor, color: "#ffffff" }
-      : { backgroundColor: "#ffffff", color: accentColor };
+      ? { backgroundColor: accentColor, color: white }
+      : { backgroundColor: white, color: accentColor };
   };
 
-  const itemColor = isSidebarAccentMode ? "#ffffff" : accentColor;
+  const itemColor = isSidebarAccentMode ? white : accentColor;
 
   return (
     <nav
-      className={"sidebar " + isSidebarFixedClass}
-      style={updateSidebarStyle()}
+      className={isSidebarFixed ? "sidebar sidebar--fixed" : "sidebar"}
+      style={updateSidebarColor()}
     >
       <div className="sidebar__wrapper">
         <ul className="sidebar__list">
