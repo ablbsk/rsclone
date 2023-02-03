@@ -7,7 +7,6 @@ export type SidebarType = {
   isSidebarAccentMode: boolean;
 };
 
-// @ts-ignore
 const Sidebar: FunctionComponent<SidebarType> = ({
   accentColor,
   isSidebarFixed,

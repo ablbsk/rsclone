@@ -33,15 +33,15 @@ h6 {
 
 .container {
   margin: 0 auto;
-  padding: 0 $indent*6;
+  padding: 0 30px;
 
   @include media-small-mobile {
-    padding: 0 $indent*3;
+    padding: 0 15px;
   }
 }
 
 .button {
-  padding: $indent*2 $indent*4;
+  padding: 10px 20px;
   color: $font-color-white;
   background-color: $color-accent;
   font-size: $font-size-lg;

@@ -4,6 +4,7 @@ export interface IStore {
       isSidebarFixed: boolean;
       isNightMode: boolean;
       isSidebarAccentMode: boolean;
+      isNavbarNightMode: boolean;
       accentColor: string;
     };
   };

@@ -24,7 +24,7 @@
 }
 
 .profile__header {
-  padding: $indent*3;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,12 +32,12 @@
 }
 
 .profile__close {
-  padding: $indent $indent*2;
+  padding: 5px 10px;
   font-size: $font-size-xs;
 }
 
 .profile__wrapper {
-  padding: $indent*3;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -45,11 +45,11 @@
 }
 
 .profile__user {
-  margin: $indent*6 0;
+  margin: 30px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $indent*2;
+  gap: 10px;
 }
 
 .profile__image {
@@ -76,10 +76,10 @@
 
 
 .settings__list {
-  margin: $indent*6 0;
+  margin: 30px 0;
   display: flex;
   flex-direction: column;
-  gap: $indent*3;
+  gap: 15px;
 
   &--row {
     flex-direction: unset;
@@ -98,7 +98,7 @@
 }
 
 .settings__colors {
-  margin: $indent*6 0;
+  margin: 30px 0;
 }
 
 .settings__subtitle {
@@ -120,26 +120,26 @@
   }
 
   &--forest {
-    background-color: $color-green;
+    background-color: $color-accent-green;
 
     &:hover {
-      background-color: $color-green-hover;
+      background-color: $color-accent-green-hover;
     }
   }
 
   &--purple {
-    background-color: $color-purple;
+    background-color: $color-accent-purple;
 
     &:hover {
-      background-color: $color-purple-hover;
+      background-color: $color-accent-purple-hover;
     }
   }
 
   &--coffee {
-    background-color: $color-coffee;
+    background-color: $color-accent-coffee;
 
     &:hover {
-      background-color: $color-coffee-hover;
+      background-color: $color-accent-coffee-hover;
     }
   }
 }

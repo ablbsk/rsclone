@@ -7,10 +7,6 @@
   box-shadow: $box-shadow;
   transition: $transition;
   z-index: 10;
-
-  //&--night-mode {
-  //  background-color: $color-element-background-night;
-  //}
 }
 
 .header__wrapper {
@@ -28,7 +24,7 @@
 
 .header__logo {
   @include icon-background('../../assets/images/png/logo.png', 50px, 200px);
-  margin: $indent*3;
+  margin: 15px;
   cursor: pointer;
 
   @include media-small-mobile {
@@ -42,10 +38,10 @@
   justify-content: end;
   align-items: center;
   flex-grow: 2;
-  gap: $indent*6;
+  gap: 30px;
 
   @include media-small-mobile {
-    gap: $indent*4;
+    gap: 20px;
   }
 }
 
@@ -59,7 +55,7 @@
 .language {
   display: flex;
   align-items: flex-start;
-  gap: $indent*2;
+  gap: 10px;
   color: $font-color-white;
   cursor: pointer;
 }
@@ -73,5 +69,6 @@
 
 .language__title {
   font-size: $font-size-md;
+  font-weight: $font-weight-bold;
   text-transform: uppercase;
 }

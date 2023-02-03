@@ -6,10 +6,6 @@
   display: inline-block;
   width: 60px;
   height: 30px;
-
-  @include media-small-mobile {
-    display: none;
-  }
 }
 
 .switch__checkbox {
@@ -24,7 +20,7 @@
 
   &:checked + .switch__slider:before {
     transform: translateX(30px);
-    background-color: $font-color-white;
+    background-color: $color-element-background-light;
   }
 
   &:focus + .switch__slider {
