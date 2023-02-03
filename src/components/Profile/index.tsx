@@ -1,5 +1,6 @@
 import "./profile.scss";
 import { FunctionComponent } from "react";
+import { updateFixedSidebar } from "../../actions";
 import Switch from "./Switch";
 
 const Profile: FunctionComponent = () => {
@@ -33,7 +34,7 @@ const Profile: FunctionComponent = () => {
             </li>
             <li className="settings__item">
               <span className="settings__name">Sidebar fixed</span>
-              <Switch />
+              <Switch action={updateFixedSidebar} />
             </li>
             <li className="settings__item">
               <span className="settings__name">Sidebar night mode</span>

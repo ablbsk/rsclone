@@ -1,11 +1,19 @@
 import "./sidebar.scss";
 import { FunctionComponent } from "react";
+import { useSelector } from "react-redux";
+import { IStore } from "../../interfaces/store";
 
 const Sidebar: FunctionComponent = () => {
-  const color = "#4788ff";
+  const interfaceSettings = useSelector(
+    (state: IStore) => state.test.interface
+  );
+
+  const sideBarClasses = interfaceSettings.isSidebarFixed
+    ? "sidebar--fixed"
+    : "";
 
   return (
-    <nav className="sidebar">
+    <nav className={"sidebar " + sideBarClasses}>
       <div className="sidebar__wrapper">
         <ul className="sidebar__list">
           <li className="sidebar__item">
@@ -13,7 +21,7 @@ const Sidebar: FunctionComponent = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke={color}
+              stroke={interfaceSettings.accentColor}
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -29,7 +37,7 @@ const Sidebar: FunctionComponent = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke={color}
+              stroke={interfaceSettings.accentColor}
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -47,7 +55,7 @@ const Sidebar: FunctionComponent = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke={color}
+              stroke={interfaceSettings.accentColor}
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -64,7 +72,7 @@ const Sidebar: FunctionComponent = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke={color}
+              stroke={interfaceSettings.accentColor}
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
