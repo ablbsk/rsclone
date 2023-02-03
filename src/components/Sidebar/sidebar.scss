@@ -28,6 +28,10 @@
     opacity: 1;
     transform: translateX(0);
   }
+
+  &--night-mode {
+    background-color: $color-accent;
+  }
 }
 
 .sidebar__wrapper {

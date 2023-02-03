@@ -7,9 +7,30 @@ export const updateFixedSidebar = (isSidebarFixed: boolean) => {
   };
 };
 
-export const updateAccentColor = (color: string) => {
+export const updateNightMode = (isNightMode: boolean) => {
+  return {
+    type: ActionTypes.updateNightMode,
+    payload: isNightMode,
+  };
+};
+
+export const updateSidebarAccentMode = (isSidebarAccentMode: boolean) => {
+  return {
+    type: ActionTypes.updateSidebarAccentMode,
+    payload: isSidebarAccentMode,
+  };
+};
+
+export const updateNavbarNightMode = (isNavbarNightMode: string) => {
+  return {
+    type: ActionTypes.updateNavbarNightMode,
+    payload: isNavbarNightMode,
+  };
+};
+
+export const updateAccentColor = (accentColor: string) => {
   return {
     type: ActionTypes.updateAccentColor,
-    payload: color,
+    payload: accentColor,
   };
 };

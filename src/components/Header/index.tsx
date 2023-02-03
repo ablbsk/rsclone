@@ -4,7 +4,15 @@ import { Link } from "react-router-dom";
 import flagUS from "../../assets/images/jpg/flag-us.jpg";
 import flagRU from "../../assets/images/jpg/flag-ru.jpg";
 
-const Header: FunctionComponent = () => {
+export type HeaderType = {
+  accentColor: string;
+  isNavbarNightMode: boolean;
+};
+
+const Header: FunctionComponent<HeaderType> = ({
+  accentColor,
+  isNavbarNightMode,
+}: HeaderType) => {
   const showBlock = (name: string): void => {
     const element = document.querySelector(`.${name}`) as HTMLElement;
     element.classList.toggle(`${name}--show`);
@@ -18,10 +26,15 @@ const Header: FunctionComponent = () => {
     });
   };
 
+  const headerBackgroundColor = isNavbarNightMode ? "#1e272e" : accentColor;
+
   const language = "en";
 
   return (
-    <header className="header">
+    <header
+      className="header"
+      style={{ backgroundColor: headerBackgroundColor }}
+    >
       <div className="container">
         <div className="header__wrapper">
           <span

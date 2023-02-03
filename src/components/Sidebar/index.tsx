@@ -1,19 +1,32 @@
 import "./sidebar.scss";
 import { FunctionComponent } from "react";
-import { useSelector } from "react-redux";
-import { IStore } from "../../interfaces/store";
 
-const Sidebar: FunctionComponent = () => {
-  const interfaceSettings = useSelector(
-    (state: IStore) => state.test.interface
-  );
+export type SidebarType = {
+  accentColor: string;
+  isSidebarFixed: boolean;
+  isSidebarAccentMode: boolean;
+};
 
-  const sideBarClasses = interfaceSettings.isSidebarFixed
-    ? "sidebar--fixed"
-    : "";
+// @ts-ignore
+const Sidebar: FunctionComponent<SidebarType> = ({
+  accentColor,
+  isSidebarFixed,
+  isSidebarAccentMode,
+}: SidebarType) => {
+  const isSidebarFixedClass = isSidebarFixed ? "sidebar--fixed" : "";
+  const updateSidebarStyle = () => {
+    return isSidebarAccentMode
+      ? { backgroundColor: accentColor, color: "#ffffff" }
+      : { backgroundColor: "#ffffff", color: accentColor };
+  };
+
+  const itemColor = isSidebarAccentMode ? "#ffffff" : accentColor;
 
   return (
-    <nav className={"sidebar " + sideBarClasses}>
+    <nav
+      className={"sidebar " + isSidebarFixedClass}
+      style={updateSidebarStyle()}
+    >
       <div className="sidebar__wrapper">
         <ul className="sidebar__list">
           <li className="sidebar__item">
@@ -21,7 +34,7 @@ const Sidebar: FunctionComponent = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke={interfaceSettings.accentColor}
+              stroke={itemColor}
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -37,7 +50,7 @@ const Sidebar: FunctionComponent = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke={interfaceSettings.accentColor}
+              stroke={itemColor}
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -55,7 +68,7 @@ const Sidebar: FunctionComponent = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke={interfaceSettings.accentColor}
+              stroke={itemColor}
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -72,7 +85,7 @@ const Sidebar: FunctionComponent = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke={interfaceSettings.accentColor}
+              stroke={itemColor}
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"

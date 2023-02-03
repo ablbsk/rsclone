@@ -2,6 +2,8 @@ export interface IStore {
   test: {
     interface: {
       isSidebarFixed: boolean;
+      isNightMode: boolean;
+      isSidebarAccentMode: boolean;
       accentColor: string;
     };
   };
@@ -10,11 +12,17 @@ export interface IStore {
 export interface ITest {
   interface: {
     isSidebarFixed: boolean;
+    isNightMode: boolean;
+    isSidebarAccentMode: boolean;
+    isNavbarNightMode: boolean;
     accentColor: string;
   };
 }
 
 export enum ActionTypes {
   updateFixedSidebar = "UPDATE_FIXED_SIDEBAR",
+  updateNightMode = "UPDATE_NIGHT_MODE",
+  updateSidebarAccentMode = "UPDATE_SIDEBAR_ACCENT_MODE",
   updateAccentColor = "UPDATE_ACCENT_COLOR",
+  updateNavbarNightMode = "UPDATE_NAVBAR_NIGHT_MODE",
 }

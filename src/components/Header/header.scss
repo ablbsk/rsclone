@@ -5,7 +5,12 @@
   position: relative;
   background-color: $color-accent;
   box-shadow: $box-shadow;
+  transition: $transition;
   z-index: 10;
+
+  //&--night-mode {
+  //  background-color: $color-element-background-night;
+  //}
 }
 
 .header__wrapper {
