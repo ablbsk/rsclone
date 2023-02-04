@@ -1,39 +1,34 @@
 import "./header.scss";
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import flagUS from "../../assets/images/jpg/flag-us.jpg";
 import flagRU from "../../assets/images/jpg/flag-ru.jpg";
 import { HeaderType } from "../../types";
+import { showSidebar, showProfile } from "../../actions";
+import { styleConstants } from "../../data/constants";
 
 const Header: FunctionComponent<HeaderType> = ({
   accentColor,
   isNavbarNightMode,
 }: HeaderType) => {
-  const showBlock = (name: string): void => {
-    const element = document.querySelector(`.${name}`) as HTMLElement;
-    element.classList.toggle(`${name}--show`);
+  const dispatch = useDispatch();
 
-    window.addEventListener("click", (e: Event): void => {
-      const target = e.target as HTMLElement;
-
-      if (target.contains(element) && target !== element) {
-        element.classList.remove(`${name}--show`);
-      }
-    });
-  };
-
-  const language = "en";
+  const backgroundColor = styleConstants.colors.background.elementNight;
+  const language = "en"; // TODO Temporary
 
   return (
     <header
       className="header"
-      style={{ backgroundColor: isNavbarNightMode ? "#1e272e" : accentColor }}
+      style={{
+        backgroundColor: isNavbarNightMode ? backgroundColor : accentColor,
+      }}
     >
       <div className="container">
         <div className="header__wrapper">
           <span
             className="header__hamburger"
-            onClick={() => showBlock("sidebar")}
+            onClick={() => dispatch(showSidebar())}
           ></span>
           <Link className="header__link" to="/dashboard">
             <span className="header__logo"></span>
@@ -51,7 +46,10 @@ const Header: FunctionComponent<HeaderType> = ({
                 </span>
               </div>
             </li>
-            <li className="header__item" onClick={() => showBlock("profile")}>
+            <li
+              className="header__item"
+              onClick={() => dispatch(showProfile())}
+            >
               <span className="header__profile"></span>
             </li>
           </ul>

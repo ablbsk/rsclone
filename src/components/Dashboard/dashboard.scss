@@ -3,6 +3,10 @@
 
 .dashboard {
   transition: $transition;
+
+  &--indent {
+    margin-left: 100px;
+  }
 }
 
 .dashboard__header {

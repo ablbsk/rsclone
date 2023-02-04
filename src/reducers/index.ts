@@ -7,6 +7,8 @@ const initialState: ITest = {
     isNightMode: false,
     isSidebarAccentMode: false,
     isNavbarNightMode: false,
+    isProfileShow: false,
+    isSidebarShow: false,
     accentColor: "#4788ff",
   },
 };
@@ -55,6 +57,24 @@ const test = (state: ITest = initialState, action: AnyAction) => {
         interface: {
           ...state.interface,
           accentColor: action.payload,
+        },
+      };
+
+    case ActionTypes.showProfile:
+      return {
+        ...state,
+        interface: {
+          ...state.interface,
+          isProfileShow: !state.interface.isProfileShow,
+        },
+      };
+
+    case ActionTypes.showSidebar:
+      return {
+        ...state,
+        interface: {
+          ...state.interface,
+          isSidebarShow: !state.interface.isSidebarShow,
         },
       };
 

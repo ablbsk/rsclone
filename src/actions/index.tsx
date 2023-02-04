@@ -34,3 +34,15 @@ export const updateAccentColor = (accentColor: string) => {
     payload: accentColor,
   };
 };
+
+export const showProfile = () => {
+  return {
+    type: ActionTypes.showProfile,
+  };
+};
+
+export const showSidebar = () => {
+  return {
+    type: ActionTypes.showSidebar,
+  };
+};

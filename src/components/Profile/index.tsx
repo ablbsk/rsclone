@@ -1,36 +1,35 @@
 import "./profile.scss";
 import { FunctionComponent } from "react";
+import classNames from "classnames";
 import { useDispatch } from "react-redux";
 import Switch from "./Switch";
 import { ProfileType } from "../../types";
+import { styleConstants } from "../../data/constants";
 import {
   updateFixedSidebar,
   updateNightMode,
   updateSidebarAccentMode,
   updateAccentColor,
   updateNavbarNightMode,
+  showProfile,
 } from "../../actions";
 
 const Profile: FunctionComponent<ProfileType> = ({
   accentColor,
+  isProfileShow,
 }: ProfileType) => {
+  const accentColorConstants = styleConstants.colors.accentColors;
   const dispatch = useDispatch();
-
-  const closeProfile = () => {
-    const profile = document.querySelector(".profile") as HTMLElement;
-    profile.classList.remove("profile--show");
-  };
-
   const updateColor = (color: string) => dispatch(updateAccentColor(color));
 
   return (
-    <div className="profile">
+    <div className={classNames("profile", { "profile--show": isProfileShow })}>
       <div className="profile__header">
         <h2 className="profile__title">Profile</h2>
         <button
           className="button profile__close"
           style={{ backgroundColor: accentColor }}
-          onClick={closeProfile}
+          onClick={() => dispatch(showProfile())}
         >
           X
         </button>
@@ -73,25 +72,33 @@ const Profile: FunctionComponent<ProfileType> = ({
               <li className="settings__item">
                 <span
                   className="settings__color settings__color--default"
-                  onClick={() => updateColor("#4788ff")}
+                  onClick={() =>
+                    updateColor(accentColorConstants.default.static)
+                  }
                 ></span>
               </li>
               <li className="settings__item">
                 <span
                   className="settings__color settings__color--forest"
-                  onClick={() => updateColor("#659157")}
+                  onClick={() =>
+                    updateColor(accentColorConstants.forest.static)
+                  }
                 ></span>
               </li>
               <li className="settings__item">
                 <span
                   className="settings__color settings__color--purple"
-                  onClick={() => updateColor("#9e7fbd")}
+                  onClick={() =>
+                    updateColor(accentColorConstants.purple.static)
+                  }
                 ></span>
               </li>
               <li className="settings__item">
                 <span
                   className="settings__color settings__color--coffee"
-                  onClick={() => updateColor("#a77e58")}
+                  onClick={() =>
+                    updateColor(accentColorConstants.coffee.static)
+                  }
                 ></span>
               </li>
             </ul>

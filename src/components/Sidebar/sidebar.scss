@@ -44,7 +44,6 @@
 
 .sidebar__wrapper {
   margin: 35px;
-  transition: $transition;
 
   @include media-small-mobile {
     margin: 35px 20px;
@@ -55,7 +54,6 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
-  transition: $transition;
 }
 
 .sidebar__item {
@@ -87,5 +85,4 @@
 .sidebar__name {
   font-size: $font-size-lg;
   font-weight: $font-weight-bold;
-  transition: $transition;
 }

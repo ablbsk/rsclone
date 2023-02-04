@@ -8,6 +8,8 @@ export interface ITest {
     isNightMode: boolean;
     isSidebarAccentMode: boolean;
     isNavbarNightMode: boolean;
+    isProfileShow: boolean;
+    isSidebarShow: boolean;
     accentColor: string;
   };
 }
@@ -18,4 +20,6 @@ export enum ActionTypes {
   updateSidebarAccentMode = "UPDATE_SIDEBAR_ACCENT_MODE",
   updateAccentColor = "UPDATE_ACCENT_COLOR",
   updateNavbarNightMode = "UPDATE_NAVBAR_NIGHT_MODE",
+  showProfile = "SHOW_PROFILE",
+  showSidebar = "SHOW_SIDEBAR",
 }

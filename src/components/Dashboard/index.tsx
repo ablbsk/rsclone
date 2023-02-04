@@ -5,6 +5,7 @@ import { IStore } from "../../interfaces/store";
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 import Profile from "../Profile";
+import classNames from "classnames";
 
 const Dashboard: FunctionComponent = () => {
   const interfaceSettings = useSelector(
@@ -16,24 +17,25 @@ const Dashboard: FunctionComponent = () => {
     isSidebarFixed,
     isSidebarAccentMode,
     isNavbarNightMode,
+    isProfileShow,
+    isSidebarShow,
   } = interfaceSettings;
-
-  const whenSidebarFixed = () => {
-    if (isSidebarFixed) {
-      return { marginLeft: "100px" };
-    }
-  };
 
   return (
     <>
       <Header accentColor={accentColor} isNavbarNightMode={isNavbarNightMode} />
-      <Profile accentColor={accentColor} />
+      <Profile accentColor={accentColor} isProfileShow={isProfileShow} />
       <Sidebar
         accentColor={accentColor}
         isSidebarFixed={isSidebarFixed}
         isSidebarAccentMode={isSidebarAccentMode}
+        isSidebarShow={isSidebarShow}
       />
-      <main className="dashboard" style={whenSidebarFixed()}>
+      <main
+        className={classNames("dashboard", {
+          "dashboard--indent": isSidebarFixed,
+        })}
+      >
         <div className="container">
           <h1 className="dashboard__header">h1: Welcome to dashboard</h1>
           <p className="dashboard__breadcrumbs">
