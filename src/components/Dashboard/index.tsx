@@ -8,9 +8,7 @@ import Profile from "../Profile";
 import classNames from "classnames";
 
 const Dashboard: FunctionComponent = () => {
-  const interfaceSettings = useSelector(
-    (state: IStore) => state.test.interface
-  );
+  const interfaceSettings = useSelector((state: IStore) => state.appInterface);
 
   const {
     accentColor,

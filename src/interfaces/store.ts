@@ -1,17 +1,15 @@
 export interface IStore {
-  test: ITest;
+  appInterface: IAppInterface;
 }
 
-export interface ITest {
-  interface: {
-    isSidebarFixed: boolean;
-    isNightMode: boolean;
-    isSidebarAccentMode: boolean;
-    isNavbarNightMode: boolean;
-    isProfileShow: boolean;
-    isSidebarShow: boolean;
-    accentColor: string;
-  };
+export interface IAppInterface {
+  isSidebarFixed: boolean;
+  isNightMode: boolean;
+  isSidebarAccentMode: boolean;
+  isNavbarNightMode: boolean;
+  isProfileShow: boolean;
+  isSidebarShow: boolean;
+  accentColor: string;
 }
 
 export enum ActionTypes {

@@ -4,7 +4,6 @@ $border: 1px solid #f1f1f1;
 $border-radius-sm: 5px;
 $box-shadow: 0 16px 40px 0 rgb(0 0 0 / 4%);
 
-
 // ================= Accent Colors =================
 $color-accent: #4788ff;
 $color-accent-hover: #0058fa;
@@ -24,8 +23,6 @@ $color-special-2: #37e6b0;
 $color-special-3: #4788ff;
 $color-special-4: #fe721c;
 $color-special-5: #876cfe;
-
-// non-paid, paid, declined, in progress, finished
 
 // ===================== Font =====================
 $font-family-base: Nunito, Roboto, sans-serif;
@@ -51,14 +48,12 @@ $line-height-sm: 1.2em;
 $line-height-m: 1.25em;
 $line-height-l: 1.5em;
 
-
 // ================== Light Mode ==================
 $color-page-background-light: #fafbfe;
 $color-element-background-light: #ffffff;
 
 $font-color-header-dark: #303030;
 $font-color-dark: #535f6b; // regular
-
 
 // ================== Night Mode ==================
 $color-page-background-night: #1e272e;
@@ -67,6 +62,3 @@ $color-element-background-night: #2b343b;
 $font-color-header-light: #ffffff;
 $font-color-light: #d5d6d7; // regular
 $font-color-white: #ffffff; // for links, buttons etc.
-
-
-
