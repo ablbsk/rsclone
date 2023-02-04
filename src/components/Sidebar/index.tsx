@@ -3,7 +3,7 @@ import { FunctionComponent } from "react";
 import { SidebarType } from "../../types";
 import classNames from "classnames";
 import { SidebarIcon } from "./SidebarIcon";
-import { styleConstants } from "../../data/constants";
+import { lightTheme } from "../../data/constants";
 
 const Sidebar: FunctionComponent<SidebarType> = ({
   accentColor,
@@ -11,7 +11,7 @@ const Sidebar: FunctionComponent<SidebarType> = ({
   isSidebarAccentMode,
   isSidebarShow,
 }: SidebarType) => {
-  const backgroundColor = styleConstants.colors.background.elementLight;
+  const backgroundColor = lightTheme.background.element;
 
   const itemColor = isSidebarAccentMode ? backgroundColor : accentColor;
 

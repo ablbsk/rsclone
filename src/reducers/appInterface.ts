@@ -1,5 +1,6 @@
 import { ActionTypes, IAppInterface } from "../interfaces/store";
 import { AnyAction } from "redux";
+import { accentColors } from "../data/constants";
 
 const initialState: IAppInterface = {
   isSidebarFixed: false,
@@ -8,7 +9,7 @@ const initialState: IAppInterface = {
   isNavbarNightMode: false,
   isProfileShow: false,
   isSidebarShow: false,
-  accentColor: "#4788ff",
+  accentColor: accentColors.default.static,
 };
 
 export const appInterface = (

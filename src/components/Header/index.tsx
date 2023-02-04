@@ -6,7 +6,7 @@ import flagUS from "../../assets/images/jpg/flag-us.jpg";
 import flagRU from "../../assets/images/jpg/flag-ru.jpg";
 import { HeaderType } from "../../types";
 import { showSidebar, showProfile } from "../../actions";
-import { styleConstants } from "../../data/constants";
+import { nightTheme } from "../../data/constants";
 
 const Header: FunctionComponent<HeaderType> = ({
   accentColor,
@@ -14,7 +14,7 @@ const Header: FunctionComponent<HeaderType> = ({
 }: HeaderType) => {
   const dispatch = useDispatch();
 
-  const backgroundColor = styleConstants.colors.background.elementNight;
+  const backgroundColor = nightTheme.background.element;
   const language = "en"; // TODO Temporary
 
   return (

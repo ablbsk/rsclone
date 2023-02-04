@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { useDispatch } from "react-redux";
 import Switch from "./Switch";
 import { ProfileType } from "../../types";
-import { styleConstants } from "../../data/constants";
+import { accentColors } from "../../data/constants";
 import {
   updateFixedSidebar,
   updateNightMode,
@@ -18,7 +18,6 @@ const Profile: FunctionComponent<ProfileType> = ({
   accentColor,
   isProfileShow,
 }: ProfileType) => {
-  const accentColorConstants = styleConstants.colors.accentColors;
   const dispatch = useDispatch();
   const updateColor = (color: string) => dispatch(updateAccentColor(color));
 
@@ -72,33 +71,25 @@ const Profile: FunctionComponent<ProfileType> = ({
               <li className="settings__item">
                 <span
                   className="settings__color settings__color--default"
-                  onClick={() =>
-                    updateColor(accentColorConstants.default.static)
-                  }
+                  onClick={() => updateColor(accentColors.default.static)}
                 ></span>
               </li>
               <li className="settings__item">
                 <span
                   className="settings__color settings__color--forest"
-                  onClick={() =>
-                    updateColor(accentColorConstants.forest.static)
-                  }
+                  onClick={() => updateColor(accentColors.forest.static)}
                 ></span>
               </li>
               <li className="settings__item">
                 <span
                   className="settings__color settings__color--purple"
-                  onClick={() =>
-                    updateColor(accentColorConstants.purple.static)
-                  }
+                  onClick={() => updateColor(accentColors.purple.static)}
                 ></span>
               </li>
               <li className="settings__item">
                 <span
                   className="settings__color settings__color--coffee"
-                  onClick={() =>
-                    updateColor(accentColorConstants.coffee.static)
-                  }
+                  onClick={() => updateColor(accentColors.coffee.static)}
                 ></span>
               </li>
             </ul>
