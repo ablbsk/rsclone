@@ -1,10 +1,57 @@
 @import './normalize';
 @import './mixins';
+@import './variables';
 
+body {
+  font-family: $font-family-base;
+  color: $font-color-dark;
+  background-color: $color-page-background-light;
+  min-width: 390px;
+  overflow-x: hidden;
+}
+
+.body--night-mode {
+  background-color: $color-page-background-night;
+
+  .header {
+    background-color: $color-element-background-night;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $font-color-header-dark;
+  font-weight: $font-weight-bolder;
+  line-height: $line-height-m;
+  text-transform: capitalize;
+  cursor: default;
+}
 
 .container {
-  max-width: 1200px;
   margin: 0 auto;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 0 30px;
+
+  @include media-small-mobile {
+    padding: 0 15px;
+  }
+}
+
+.button {
+  padding: 10px 20px;
+  color: $font-color-white;
+  background-color: $color-accent;
+  font-size: $font-size-lg;
+  border: none;
+  border-radius: $border-radius-sm;
+  transition: $transition;
+  text-transform: capitalize;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-accent-hover;
+  }
 }
