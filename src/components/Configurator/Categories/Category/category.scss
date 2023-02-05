@@ -1,0 +1,27 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.category__list_item {
+  width: 25%;
+}
+
+.category-blok {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+ 
+}
+
+.category-img {
+  width: 100%;
+  height: auto;
+}
+
+
+.category-name {
+  background: #898989;
+  padding: 4px 70px;
+  line-height: 1.5;
+  border-radius: 5px;
+  cursor: pointer;
+}

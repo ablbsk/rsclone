@@ -5,12 +5,14 @@ import Dashboard from "../Dashboard";
 import SingIn from "../SingIn";
 import SingUp from "../SingUp";
 import Home from "../Home";
+import Configurator from "../Configurator";
 
 const App: FunctionComponent = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/configurator" element={<Configurator />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/singin" element={<SingIn />} />
         <Route path="/singup" element={<SingUp />} />

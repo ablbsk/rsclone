@@ -1,0 +1,199 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.plants__blok-wrapper {
+  background: #e1e4e4;
+  display: flex;
+}
+
+.preview-panel {
+  width: 30%;
+}
+
+.image__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-panel {
+  width: 70%;
+  padding-top: 20px;
+  padding-right: 40px;
+}
+
+.title__edit-panel_list {
+  list-style: none;
+  display: flex;
+  color: #959595;
+  border: none;
+  padding: 1px 0 8px 5px;
+  text-align: left;
+  margin: 0;
+  font-family: "Roboto",sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.title-item {
+  padding-right: 10px;
+}
+
+.wizard__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wizard-item__title {
+  color: #898989;
+  font-size: 22px;
+  line-height: 33px;
+  font-weight: 300;
+  text-transform: capitalize;
+  background: none;
+  padding: 10px 0 10px 5px;
+  border-bottom: 1px solid #eee;
+  margin: 0;
+  cursor: pointer;
+  margin-bottom: 15px;
+
+  &::after {
+    content: url(https://api.kitbuilder.co.uk/client/css-tiecreators/round-bullet.png);
+    opacity: .5;
+    -webkit-transition: all .3s ease-in-out;
+    float: right;
+    cursor: pointer;
+    padding-left: 50px;
+  }
+}
+
+.form-color__wrapper {
+  display: none;
+}
+
+.title-form {
+  font-family: "Roboto",sans-serif;
+  color: #898989;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
+.colors-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  
+}
+
+.color-label {
+  display: inline-block;  
+    
+  &:hover {
+      background: linear-gradient(45deg, #f4e9ffa6, #af44bd00);
+  }   
+}
+
+.color-input {
+  opacity: 0;
+  margin: 5px 8px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.tile-picker {
+  border: none;
+  height: 22px;
+  width: 22px;
+  margin: 0 0 4px 4px;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-next__wrapper {
+  font-family: "Roboto",sans-serif;
+  color: #898989;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+
+.btn-link {
+  background-color: #d5d4d4;
+  float: right;
+  width: 120px;
+  color: #877979;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 6px 0;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in-out;
+
+  &:hover {
+    background-color:#000000;
+    color: #ffffff
+
+  }
+}
+
+.active {
+  display: block;
+}
+
+.weave-list-wrapper {
+  display: flex;
+}
+
+.weave-list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+
+.weave__label {
+  overflow: visible;
+  margin: 0;
+  display: block;
+}
+
+.weave__input {
+  opacity: 0;
+}
+
+.weave-span {
+  border-color: #999;
+  height: 128px;
+  width: 128px;
+  cursor: pointer;
+  float: left;
+  margin: 0 0 4px 4px; 
+  position: relative;
+  border: solid 1px #ccc;
+   
+}
+
+.selected {
+  // content: url(https://api.kitbuilder.co.uk/client/css/skin/tick.png); //нужно
+  position: absolute;
+  right: -6px;
+  top: -8px;
+  border: 1px solid rgb(227, 16, 16);
+   
+}
