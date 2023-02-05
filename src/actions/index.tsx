@@ -20,7 +20,10 @@ export const updateNavbarNightMode = (isNavbarNightMode: string) => ({
   payload: isNavbarNightMode,
 });
 
-export const updateAccentColor = (accentColor: string) => ({
+export const updateAccentColor = (accentColor: {
+  static: string;
+  hover: string;
+}) => ({
   type: ActionTypes.updateAccentColor,
   payload: accentColor,
 });

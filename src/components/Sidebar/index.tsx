@@ -13,7 +13,7 @@ const Sidebar: FunctionComponent<SidebarType> = ({
 }: SidebarType) => {
   const backgroundColor = lightTheme.background.element;
 
-  const itemColor = isSidebarAccentMode ? backgroundColor : accentColor;
+  const itemColor = isSidebarAccentMode ? backgroundColor : accentColor.static;
 
   return (
     <nav
@@ -24,8 +24,8 @@ const Sidebar: FunctionComponent<SidebarType> = ({
       )}
       style={
         isSidebarAccentMode
-          ? { backgroundColor: accentColor, color: backgroundColor }
-          : { backgroundColor: backgroundColor, color: accentColor }
+          ? { backgroundColor: accentColor.static, color: backgroundColor }
+          : { backgroundColor: backgroundColor, color: accentColor.static }
       }
     >
       <div className="sidebar__wrapper">

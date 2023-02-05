@@ -1,12 +1,28 @@
 import "./switch.scss";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { SwitchType } from "../../../types";
+import { lightTheme } from "../../../data/constants";
 
-const Switch: FunctionComponent<SwitchType> = ({ action }: SwitchType) => {
+const Switch: FunctionComponent<SwitchType> = ({
+  action,
+  accentColor,
+}: SwitchType) => {
   const dispatch = useDispatch();
 
-  const updateState = (isChecked: boolean) => dispatch(action(isChecked));
+  const [isChecked, setIsChecked] = useState(false);
+
+  const updateState = (isChecked: boolean) => {
+    setIsChecked(isChecked);
+    dispatch(action(isChecked));
+  };
+
+  const styles = {
+    backgroundColor: isChecked
+      ? accentColor.static
+      : lightTheme.background.element,
+    borderColor: isChecked ? accentColor.static : lightTheme.fontColor,
+  };
 
   return (
     <label className="switch">
@@ -15,7 +31,7 @@ const Switch: FunctionComponent<SwitchType> = ({ action }: SwitchType) => {
         type="checkbox"
         onClick={(e) => updateState((e.target as HTMLInputElement).checked)}
       />
-      <span className="switch__slider"></span>
+      <span className="switch__slider" style={styles}></span>
     </label>
   );
 };

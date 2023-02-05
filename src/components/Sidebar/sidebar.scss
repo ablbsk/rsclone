@@ -61,16 +61,6 @@
   align-items: center;
   gap: 25px;
   cursor: pointer;
-
-  &:hover {
-    .sidebar__name {
-      color: $color-accent-hover;
-    }
-
-    & > svg {
-      stroke: $color-accent-hover;
-    }
-  }
 }
 
 .sidebar__icon {

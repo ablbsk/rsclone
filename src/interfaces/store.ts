@@ -9,7 +9,10 @@ export interface IAppInterface {
   isNavbarNightMode: boolean;
   isProfileShow: boolean;
   isSidebarShow: boolean;
-  accentColor: string;
+  accentColor: {
+    static: string;
+    hover: string;
+  };
 }
 
 export enum ActionTypes {

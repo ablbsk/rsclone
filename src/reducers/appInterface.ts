@@ -9,7 +9,10 @@ const initialState: IAppInterface = {
   isNavbarNightMode: false,
   isProfileShow: false,
   isSidebarShow: false,
-  accentColor: accentColors.default.static,
+  accentColor: {
+    static: accentColors.default.static,
+    hover: accentColors.default.hover,
+  },
 };
 
 export const appInterface = (

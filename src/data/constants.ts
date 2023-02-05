@@ -22,6 +22,7 @@ export const lightTheme = {
     element: "#ffffff",
     page: "#2b343b",
   },
+  fontColor: "#535f6b",
 };
 
 export const nightTheme = {
@@ -29,4 +30,5 @@ export const nightTheme = {
     element: "#1e272e",
     page: "#fafbfe",
   },
+  fontColor: "#d5d6d7",
 };
