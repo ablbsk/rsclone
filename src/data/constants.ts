@@ -20,15 +20,15 @@ export const accentColors = {
 export const lightTheme = {
   background: {
     element: "#ffffff",
-    page: "#2b343b",
+    page: "#fafbfe",
   },
   fontColor: "#535f6b",
 };
 
 export const nightTheme = {
   background: {
-    element: "#1e272e",
-    page: "#fafbfe",
+    element: "#2b343b",
+    page: "#1e272e",
   },
   fontColor: "#d5d6d7",
 };
