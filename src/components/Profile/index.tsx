@@ -1,11 +1,12 @@
 import "./profile.scss";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useRef } from "react";
 import classNames from "classnames";
 import Hover from "../Hover";
 import { useDispatch } from "react-redux";
 import Switch from "./Switch";
 import { ProfileType } from "../../types";
 import { accentColors } from "../../data/constants";
+import useOnClickOutside from "../../hook/useOnClickOutside";
 import {
   updateFixedSidebar,
   updateNightMode,
@@ -25,11 +26,18 @@ const Profile: FunctionComponent<ProfileType> = ({
   isNightMode,
 }: ProfileType) => {
   const dispatch = useDispatch();
+  const ref = useRef<HTMLDivElement>(null);
+
   const updateColor = (color: { static: string; hover: string }) =>
     dispatch(updateAccentColor(color));
 
+  useOnClickOutside(ref, () => dispatch(showProfile()), isProfileShow);
+
   return (
-    <div className={classNames("profile", { "profile--show": isProfileShow })}>
+    <div
+      className={classNames("profile", { "profile--show": isProfileShow })}
+      ref={ref}
+    >
       <div className="profile__header">
         <h2 className="profile__title">Profile</h2>
         <Hover>

@@ -15,6 +15,19 @@ export interface IAppInterface {
   };
 }
 
+export interface IAppInterfaceLocalStorage {
+  isSidebarFixed: boolean;
+  isNightMode: boolean;
+  isSidebarAccentMode: boolean;
+  isNavbarNightMode: boolean;
+  isProfileShow?: boolean;
+  isSidebarShow?: boolean;
+  accentColor: {
+    static: string;
+    hover: string;
+  };
+}
+
 export enum ActionTypes {
   updateFixedSidebar = "UPDATE_FIXED_SIDEBAR",
   updateNightMode = "UPDATE_NIGHT_MODE",
