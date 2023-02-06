@@ -36,6 +36,7 @@ const Dashboard: FunctionComponent = () => {
         isSidebarFixed={isSidebarFixed}
         isSidebarAccentMode={isSidebarAccentMode}
         isSidebarShow={isSidebarShow}
+        isNightMode={isNightMode}
       />
       <main
         className={classNames("dashboard", {

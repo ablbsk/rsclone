@@ -3,17 +3,22 @@ import { FunctionComponent } from "react";
 import { SidebarType } from "../../types";
 import classNames from "classnames";
 import { SidebarIcon } from "./SidebarIcon";
-import { lightTheme } from "../../data/constants";
+import { lightTheme, nightTheme } from "../../data/constants";
 
 const Sidebar: FunctionComponent<SidebarType> = ({
   accentColor,
   isSidebarFixed,
   isSidebarAccentMode,
   isSidebarShow,
+  isNightMode,
 }: SidebarType) => {
-  const backgroundColor = lightTheme.background.element;
+  const backgroundColor = isNightMode
+    ? nightTheme.background.element
+    : lightTheme.background.element;
 
-  const itemColor = isSidebarAccentMode ? backgroundColor : accentColor.static;
+  const itemColor = isSidebarAccentMode
+    ? nightTheme.sidebarFontColor
+    : accentColor.static;
 
   return (
     <nav
@@ -24,7 +29,7 @@ const Sidebar: FunctionComponent<SidebarType> = ({
       )}
       style={
         isSidebarAccentMode
-          ? { backgroundColor: accentColor.static, color: backgroundColor }
+          ? { backgroundColor: accentColor.static, color: itemColor }
           : { backgroundColor: backgroundColor, color: accentColor.static }
       }
     >

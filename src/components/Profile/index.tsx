@@ -59,6 +59,7 @@ const Profile: FunctionComponent<ProfileType> = ({
                 action={updateNightMode}
                 accentColor={accentColor}
                 isChecked={isNightMode}
+                isNightMode={isNightMode}
               />
             </li>
             <li className="settings__item">
@@ -67,6 +68,7 @@ const Profile: FunctionComponent<ProfileType> = ({
                 action={updateFixedSidebar}
                 accentColor={accentColor}
                 isChecked={isSidebarFixed}
+                isNightMode={isNightMode}
               />
             </li>
             <li className="settings__item">
@@ -75,6 +77,7 @@ const Profile: FunctionComponent<ProfileType> = ({
                 action={updateSidebarAccentMode}
                 accentColor={accentColor}
                 isChecked={isSidebarAccentMode}
+                isNightMode={isNightMode}
               />
             </li>
             <li className="settings__item">
@@ -83,6 +86,7 @@ const Profile: FunctionComponent<ProfileType> = ({
                 action={updateNavbarNightMode}
                 accentColor={accentColor}
                 isChecked={isNavbarNightMode}
+                isNightMode={isNightMode}
               />
             </li>
           </ul>

@@ -31,4 +31,5 @@ export const nightTheme = {
     page: "#1e272e",
   },
   fontColor: "#d5d6d7",
+  sidebarFontColor: "#ffffff",
 };

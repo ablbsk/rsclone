@@ -1,22 +1,25 @@
 import "./switch.scss";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import { useDispatch } from "react-redux";
 import { SwitchType } from "../../../types";
-import { lightTheme } from "../../../data/constants";
+import { lightTheme, nightTheme } from "../../../data/constants";
 
 const Switch: FunctionComponent<SwitchType> = ({
   action,
   accentColor,
   isChecked,
+  isNightMode,
 }: SwitchType) => {
   const dispatch = useDispatch();
 
   const updateState = (a: boolean) => dispatch(action(a));
 
+  const backgroundColor = isNightMode
+    ? nightTheme.background.page
+    : lightTheme.background.element;
+
   const styles = {
-    backgroundColor: isChecked
-      ? accentColor.static
-      : lightTheme.background.element,
+    backgroundColor: isChecked ? accentColor.static : backgroundColor,
     borderColor: isChecked ? accentColor.static : lightTheme.fontColor,
   };
 

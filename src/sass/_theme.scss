@@ -1,0 +1,25 @@
+@import './variables';
+
+.body--night-mode {
+  background-color: $color-page-background-night;
+  color: $font-color-light;
+
+  .header,
+  .profile,
+  .sidebar {
+    background-color: $color-element-background-night;
+  }
+
+  .profile__header {
+    border-color: #3f4b54;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $font-color-header-light;
+  }
+}

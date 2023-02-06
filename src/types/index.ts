@@ -16,6 +16,7 @@ export type SidebarType = {
   isSidebarFixed: boolean;
   isSidebarAccentMode: boolean;
   isSidebarShow: boolean;
+  isNightMode: boolean;
 };
 
 export type ProfileType = {
@@ -33,6 +34,7 @@ export type ProfileType = {
 export type SwitchType = {
   action: ActionCreator<AnyAction>;
   isChecked: boolean;
+  isNightMode: boolean;
   accentColor: {
     static: string;
     hover: string;
