@@ -62,6 +62,19 @@ export const appInterface = (
         isSidebarShow: !state.isSidebarShow,
       };
 
+    case ActionTypes.resetInterfaceToDefault:
+      return {
+        ...state,
+        isSidebarFixed: false,
+        isNightMode: false,
+        isSidebarAccentMode: false,
+        isNavbarNightMode: false,
+        accentColor: {
+          static: accentColors.default.static,
+          hover: accentColors.default.hover,
+        },
+      };
+
     default:
       return state;
   }

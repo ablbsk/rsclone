@@ -12,9 +12,14 @@ body {
 
 .body--night-mode {
   background-color: $color-page-background-night;
+  color: white;
 
-  .header {
+  .header,
+  .sidebar,
+  .footer,
+  .profile {
     background-color: $color-element-background-night;
+    color: white
   }
 }
 

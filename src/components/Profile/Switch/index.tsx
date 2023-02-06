@@ -7,15 +7,11 @@ import { lightTheme } from "../../../data/constants";
 const Switch: FunctionComponent<SwitchType> = ({
   action,
   accentColor,
+  isChecked,
 }: SwitchType) => {
   const dispatch = useDispatch();
 
-  const [isChecked, setIsChecked] = useState(false);
-
-  const updateState = (isChecked: boolean) => {
-    setIsChecked(isChecked);
-    dispatch(action(isChecked));
-  };
+  const updateState = (a: boolean) => dispatch(action(a));
 
   const styles = {
     backgroundColor: isChecked
@@ -29,7 +25,8 @@ const Switch: FunctionComponent<SwitchType> = ({
       <input
         className="switch__checkbox"
         type="checkbox"
-        onClick={(e) => updateState((e.target as HTMLInputElement).checked)}
+        onChange={(e) => updateState((e.target as HTMLInputElement).checked)}
+        checked={isChecked}
       />
       <span className="switch__slider" style={styles}></span>
     </label>

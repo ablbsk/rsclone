@@ -23,11 +23,16 @@ export type ProfileType = {
     static: string;
     hover: string;
   };
+  isNightMode: boolean;
+  isSidebarFixed: boolean;
+  isSidebarAccentMode: boolean;
+  isNavbarNightMode: boolean;
   isProfileShow: boolean;
 };
 
 export type SwitchType = {
   action: ActionCreator<AnyAction>;
+  isChecked: boolean;
   accentColor: {
     static: string;
     hover: string;
@@ -41,4 +46,4 @@ export type SidebarIconType = {
 
 export type HoverType = {
   children: JSX.Element;
-}
+};

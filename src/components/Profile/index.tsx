@@ -13,11 +13,16 @@ import {
   updateAccentColor,
   updateNavbarNightMode,
   showProfile,
+  resetInterfaceToDefault,
 } from "../../actions";
 
 const Profile: FunctionComponent<ProfileType> = ({
   accentColor,
   isProfileShow,
+  isSidebarFixed,
+  isSidebarAccentMode,
+  isNavbarNightMode,
+  isNightMode,
 }: ProfileType) => {
   const dispatch = useDispatch();
   const updateColor = (color: { static: string; hover: string }) =>
@@ -50,17 +55,26 @@ const Profile: FunctionComponent<ProfileType> = ({
           <ul className="settings__list">
             <li className="settings__item">
               <span className="settings__name">Night mode</span>
-              <Switch action={updateNightMode} accentColor={accentColor} />
+              <Switch
+                action={updateNightMode}
+                accentColor={accentColor}
+                isChecked={isNightMode}
+              />
             </li>
             <li className="settings__item">
               <span className="settings__name">Sidebar fixed</span>
-              <Switch action={updateFixedSidebar} accentColor={accentColor} />
+              <Switch
+                action={updateFixedSidebar}
+                accentColor={accentColor}
+                isChecked={isSidebarFixed}
+              />
             </li>
             <li className="settings__item">
               <span className="settings__name">Sidebar accent mode</span>
               <Switch
                 action={updateSidebarAccentMode}
                 accentColor={accentColor}
+                isChecked={isSidebarAccentMode}
               />
             </li>
             <li className="settings__item">
@@ -68,6 +82,7 @@ const Profile: FunctionComponent<ProfileType> = ({
               <Switch
                 action={updateNavbarNightMode}
                 accentColor={accentColor}
+                isChecked={isNavbarNightMode}
               />
             </li>
           </ul>
@@ -101,7 +116,10 @@ const Profile: FunctionComponent<ProfileType> = ({
             </ul>
           </div>
           <Hover>
-            <button className="button settings__button">
+            <button
+              className="button settings__button"
+              onClick={() => dispatch(resetInterfaceToDefault())}
+            >
               Reset to default
             </button>
           </Hover>

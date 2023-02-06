@@ -31,3 +31,7 @@ export const updateAccentColor = (accentColor: {
 export const showProfile = () => ({ type: ActionTypes.showProfile });
 
 export const showSidebar = () => ({ type: ActionTypes.showSidebar });
+
+export const resetInterfaceToDefault = () => ({
+  type: ActionTypes.resetInterfaceToDefault,
+});

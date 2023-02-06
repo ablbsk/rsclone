@@ -23,4 +23,5 @@ export enum ActionTypes {
   updateNavbarNightMode = "UPDATE_NAVBAR_NIGHT_MODE",
   showProfile = "SHOW_PROFILE",
   showSidebar = "SHOW_SIDEBAR",
+  resetInterfaceToDefault = "RESET_INTERFACE_TO_DEFAULT",
 }
