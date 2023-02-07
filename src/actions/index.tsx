@@ -1,4 +1,5 @@
 import { ActionTypes } from "../interfaces/store";
+import { ILogin } from "../interfaces/store";
 
 export const updateFixedSidebar = (isSidebarFixed: boolean) => ({
   type: ActionTypes.updateFixedSidebar,
@@ -28,3 +29,10 @@ export const updateAccentColor = (accentColor: string) => ({
 export const showProfile = () => ({ type: ActionTypes.showProfile });
 
 export const showSidebar = () => ({ type: ActionTypes.showSidebar });
+
+export const authorise = () => ({ type: ActionTypes.authorization });
+
+export const login = (user: ILogin, isLogin: boolean) => ({
+  type: ActionTypes.login,
+  payload: { user, isLogin },
+});

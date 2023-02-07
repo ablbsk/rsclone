@@ -20,4 +20,16 @@ export enum ActionTypes {
   updateNavbarNightMode = "UPDATE_NAVBAR_NIGHT_MODE",
   showProfile = "SHOW_PROFILE",
   showSidebar = "SHOW_SIDEBAR",
+  login = "LOGIN",
+  authorization = "AUTHORIZATION",
+}
+
+export type User = {
+  email: string;
+  role: string;
+};
+
+export interface ILogin {
+  user: User;
+  isLogin: boolean;
 }
