@@ -49,3 +49,13 @@ export type SidebarIconType = {
 export type HoverType = {
   children: JSX.Element;
 };
+
+export type CardType = {
+  colors: {
+    background: string;
+    font: string;
+  };
+  value: string;
+  title: string;
+  icon: string;
+};

@@ -6,6 +6,7 @@ import Header from "../Header";
 import Sidebar from "../Sidebar";
 import Profile from "../Profile";
 import classNames from "classnames";
+import Index from "./Index/index";
 
 const Dashboard: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -44,11 +45,7 @@ const Dashboard: FunctionComponent = () => {
         })}
       >
         <div className="container">
-          <h1 className="dashboard__header">h1: Welcome to dashboard</h1>
-          <p className="dashboard__breadcrumbs">
-            Breadcrumbs: Home - Dashboard
-          </p>
-          <p className="dashboard__text">Regular text size</p>
+          <Index />
         </div>
       </main>
     </>

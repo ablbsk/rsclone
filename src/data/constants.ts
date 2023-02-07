@@ -17,6 +17,25 @@ export const accentColors = {
   },
 };
 
+export const specialColors = {
+  red: {
+    background: "#ff4b4b40",
+    font: "#ff4b4b",
+  },
+  aqua: {
+    background: "#37e6b040",
+    font: "#37e6b0",
+  },
+  blue: {
+    background: "#4788ff40",
+    font: "#4788ff",
+  },
+  orange: {
+    background: "#fe721b40",
+    font: "#fe721c",
+  },
+};
+
 export const lightTheme = {
   background: {
     element: "#ffffff",
