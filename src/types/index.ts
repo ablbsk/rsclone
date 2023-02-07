@@ -59,3 +59,7 @@ export type CardType = {
   title: string;
   icon: string;
 };
+
+export type CircularProgressType = {
+  progress: number;
+};
