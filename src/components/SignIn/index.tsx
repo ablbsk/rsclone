@@ -1,29 +1,43 @@
 import { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
 
 import { IUser } from "../../interfaces/user";
-import { ILogin } from "../../interfaces/login";
 import { login } from "../../services/apiAuth";
+import { authorization } from "../../actions";
 
 import "./signin.scss";
 
 const SignIn: FunctionComponent = () => {
+  const [error, setError] = useState<string>("");
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => setError(""), 5000);
+  }, [error]);
+
   const click = async (body: Pick<IUser, "email" | "password">) => {
     try {
       const data = await login(body);
+      if (data) {
+        dispatch(authorization(data, true));
+        setTimeout(() => navigate("/"), 3000);
+      }
     } catch (e) {
-      console.log(e);
+      setError(e as string);
     }
   };
+
   return (
     <div className="sign__wrapper">
       <div className="sign__image">
         <div className="image-wrapper"></div>
       </div>
-      {/* {error ? <div>error</div>: ''} */}
       <div className="sign__content-wrapper">
         <div className="sign__content">
           <h2 className="sign__title">Sign In</h2>
@@ -68,6 +82,7 @@ const SignIn: FunctionComponent = () => {
               <button className="sign__button" type="submit">
                 Sign In
               </button>
+              {error && <div className="error-tooltip">{error}</div>}
             </Form>
           </Formik>
           <div className="sign__text-link">

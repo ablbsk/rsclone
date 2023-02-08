@@ -30,14 +30,9 @@ export const showProfile = () => ({ type: ActionTypes.showProfile });
 
 export const showSidebar = () => ({ type: ActionTypes.showSidebar });
 
-export const authorise = () => ({ type: ActionTypes.authorization });
+export const registration = () => ({ type: ActionTypes.registration });
 
-export const login = (user: ILogin, isLogin: boolean) => ({
-  type: ActionTypes.login,
+export const authorization = (user: ILogin, isLogin: boolean) => ({
+  type: ActionTypes.authorization,
   payload: { user, isLogin },
-});
-
-export const addError = (error: string) => ({
-  type: ActionTypes.addError,
-  payload: error,
 });

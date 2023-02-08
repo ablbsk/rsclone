@@ -20,7 +20,6 @@ export enum ActionTypes {
   updateNavbarNightMode = "UPDATE_NAVBAR_NIGHT_MODE",
   showProfile = "SHOW_PROFILE",
   showSidebar = "SHOW_SIDEBAR",
-  login = "LOGIN",
+  registration = "REGISTRATION",
   authorization = "AUTHORIZATION",
-  addError = "ADD_ERROR",
 }

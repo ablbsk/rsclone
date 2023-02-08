@@ -4,18 +4,28 @@ import { _apiBase } from "./apiBase";
 
 export const registration = async (
   body: Pick<IUser, "email" | "password" | "role">
-): Promise<IResponce> => {
-  const responce: Response = await fetch(`${_apiBase}/api/auth/registration`, {
-    method: "POST",
-    body: JSON.stringify(body),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  if (responce.status !== 200) {
-    return { success: false };
-  } else {
-    return { success: true };
+) => {
+  try {
+    const response: Response = await fetch(
+      `${_apiBase}/api/auth/registration`,
+      {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const { message } = await response.json();
+    if (!response.ok) {
+      throw new Error(message);
+    } else {
+      return message;
+    }
+  } catch (e) {
+    if (e instanceof Error) {
+      throw e.message;
+    }
   }
 };
 
@@ -39,7 +49,7 @@ export const login = async (body: Pick<IUser, "email" | "password">) => {
     }
   } catch (e) {
     if (e instanceof Error) {
-      throw e;
+      throw e.message;
     }
   }
 };

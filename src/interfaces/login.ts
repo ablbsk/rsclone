@@ -6,5 +6,4 @@ export type User = {
 export interface ILogin {
   user: User;
   isLogin: boolean;
-  error: string;
 }

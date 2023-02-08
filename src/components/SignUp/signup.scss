@@ -153,3 +153,13 @@
         color: $color-accent-hover;
     }
 }
+
+.error-tooltip {
+    margin-bottom: 30px;
+    color: $color-special-1;
+}
+
+.message-tooltip {
+    margin-bottom: 30px;
+    color: $color-accent-green;
+}

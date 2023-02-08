@@ -1,11 +1,34 @@
-import { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
+import { FunctionComponent, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+
+import { IUser } from "../../interfaces/user";
+import { registration } from "../../services/apiAuth";
 
 import "./signup.scss";
 
 const SignUp: FunctionComponent = () => {
+  const [message, setMessage] = useState<string>("");
+  const [error, setError] = useState<string>("");
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => setMessage(""), 5000);
+    setTimeout(() => setError(""), 5000);
+  }, [message, error]);
+
+  const click = async (body: Pick<IUser, "email" | "password" | "role">) => {
+    try {
+      const message = await registration(body);
+      setMessage(message);
+      setTimeout(() => navigate("/sign-in"), 3000);
+    } catch (e) {
+      setError(e as string);
+    }
+  };
+
   return (
     <div className="sign__wrapper">
       <div className="sign__image">
@@ -21,7 +44,7 @@ const SignUp: FunctionComponent = () => {
             initialValues={{
               email: "",
               password: "",
-              role: "user",
+              role: "USER",
             }}
             validationSchema={Yup.object({
               email: Yup.string()
@@ -32,7 +55,9 @@ const SignUp: FunctionComponent = () => {
                 .max(10, "Maximum 10 symbols")
                 .required("Required field"),
             })}
-            onSubmit={(values) => console.log(JSON.stringify(values, null, 2))}
+            onSubmit={(values) => {
+              click(values);
+            }}
           >
             <Form className="form">
               <Field
@@ -57,7 +82,7 @@ const SignUp: FunctionComponent = () => {
                     className="radio-field"
                     type="radio"
                     name="role"
-                    value="user"
+                    value="USER"
                   />
                   I am BUYER
                 </label>
@@ -66,7 +91,7 @@ const SignUp: FunctionComponent = () => {
                     className="radio-field"
                     type="radio"
                     name="role"
-                    value="seller"
+                    value="SELLER"
                   />
                   I am SELLER
                 </label>
@@ -74,6 +99,8 @@ const SignUp: FunctionComponent = () => {
               <button className="sign__button" type="submit">
                 Sign Up
               </button>
+              {message && <div className="message-tooltip">{message}</div>}
+              {error && <div className="error-tooltip">{error}</div>}
             </Form>
           </Formik>
           <div className="sign__text-link">
