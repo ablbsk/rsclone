@@ -21,6 +21,7 @@ const SignUp: FunctionComponent = () => {
             initialValues={{
               email: "",
               password: "",
+              role: "user",
             }}
             validationSchema={Yup.object({
               email: Yup.string()
@@ -50,21 +51,26 @@ const SignUp: FunctionComponent = () => {
                 placeholder="Password"
               />
               <ErrorMessage className="error" name="password" component="div" />
-
-
+              <div className="sign__radio">
                 <label>
-                  <Field type="radio" name="role" value="user" checked />I am
-                  BUYER
+                  <Field
+                    className="radio-field"
+                    type="radio"
+                    name="role"
+                    value="user"
+                  />
+                  I am BUYER
                 </label>
                 <label>
-                  <Field type="radio" name="role" value="seller" />I am SELLER
-                </label> 
-
-              
-
-
-
-
+                  <Field
+                    className="radio-field"
+                    type="radio"
+                    name="role"
+                    value="seller"
+                  />
+                  I am SELLER
+                </label>
+              </div>
               <button className="sign__button" type="submit">
                 Sign Up
               </button>

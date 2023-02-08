@@ -22,14 +22,5 @@ export enum ActionTypes {
   showSidebar = "SHOW_SIDEBAR",
   login = "LOGIN",
   authorization = "AUTHORIZATION",
-}
-
-export type User = {
-  email: string;
-  role: string;
-};
-
-export interface ILogin {
-  user: User;
-  isLogin: boolean;
+  addError = "ADD_ERROR",
 }
