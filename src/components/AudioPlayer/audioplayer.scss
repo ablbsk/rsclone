@@ -1,0 +1,106 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+
+
+.voice-btn-fixed {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  margin-bottom: 60px;
+  border: none;
+  color: #fff;
+  background: transparent;
+  z-index: 999;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  overflow: visible;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      display: block;
+      background: rgba(209,25,25,.3);
+      border-radius: 50%;
+      animation: mb 1.5s ease-out infinite;
+      width: 70px;
+      height: 70px;
+    }
+
+    &::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    background: rgba(209,25,25,.3);
+    border-radius: 50%;
+    animation: mb 1.5s ease-out infinite;
+    width: 50px;
+    height: 50px;
+    }
+}
+
+
+.voice-btn-fixed .voice-btn {
+  width: 45px;
+  height: 45px;
+  line-height: 50px;
+  background: #ff4b4b;
+  -ms-box-shadow: 0 2px 4px rgba(0,0,0,.07);
+  -o-box-shadow: 0 2px 4px rgba(0,0,0,.07);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+  border-radius: 50%;
+  z-index: 9;
+  cursor: pointer;
+}
+
+// .voice-btn-fixed i {
+//   font-size: 18px;
+//   transition: all .3s ease-in-out;
+// }
+
+
+
+.volume-up {
+  background: url(../../assets/images/png/on.png);
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-size: 18px;
+  display: inline;
+  transition: all .3s ease-in-out;
+  width: 18px;
+  height: 18px;
+  background-repeat: no-repeat;
+}
+
+
+
+.volume-mute {
+  font-weight: 900;
+  display: inline;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  transition: all .3s ease-in-out;
+  background:  url(../../assets/images/png/off.png);
+  background-repeat: no-repeat;
+   
+  }
+
+.none {
+  display: none;
+}

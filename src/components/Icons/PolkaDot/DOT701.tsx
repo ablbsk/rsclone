@@ -4,7 +4,6 @@ import { ConfiguratorIconType } from "../../../types/configurator";
 const DOT701: FunctionComponent<ConfiguratorIconType> = ({
   settings,
 }: ConfiguratorIconType) => {
-  console.log(settings);
   return (
     <svg
       version="1.1"

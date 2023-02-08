@@ -1,0 +1,112 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.footer {
+  width: 100%;
+  float: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: #4788ff;
+  padding: 0;
+  position: relative;
+}
+
+.footer-wrapper {
+  padding-top: 100px;
+  padding-bottom: 45px;
+}
+
+.footer__columns_section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.section__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo {
+  display: inline-block;
+  height: 50px;
+  width: 200px;
+  background-image: url(../../assets/images/png/logo.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 0px 1px 15px;
+  cursor: pointer;
+}
+
+.section__logo_text {
+  font-size: $font-size-xlg;
+  font-family: $font-family-base;
+  color: white;
+}
+
+
+
+.footer-title {
+  font-size: $font-size-xlg;
+  font-family: $font-family-base;
+  color: white;
+  padding-bottom: 10px;
+}
+
+.footer__list_item {
+  font-size: $font-size-llg;
+  color: #cfc1c1;
+  padding-bottom: 10px;
+}
+
+.item-link__social_face {
+  background: url(../../assets/images/png/face.webp);
+}
+
+.item-link__social_twit {
+  background: url(../../assets/images/png/twit.png);
+}
+
+.item-link__social_inst {
+  background: url(../../assets/images/png/inst1.png);
+}
+
+.section__contact_link {
+  list-style: none;
+  color: #cfc1c1;
+}
+
+.copyright-footer {
+  padding: 30px 1px;
+  border-top: 3px solid rgb(255 255 255 / 40%);
+}
+
+.copyright-wrapper {
+  display: flex;
+  padding: 0 30px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright-text {
+  font-size: $font-size-xlg;
+  font-family: $font-family-base;
+  color: white;
+}
+
+.copyright-footer__link {
+  background-image: url(../../assets/images/png/pngwin.png);
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+}
+
+.logo-link {
+  background-image: url(../../assets/images/svg/rs_school_js.svg);
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 40px;
+}

@@ -1,6 +1,7 @@
 import { ActionTypes, IAppInterface } from "../interfaces/store";
 import { AnyAction } from "redux";
 import { accentColors } from "../data/constants";
+import { ReactNode } from "react";
 
 const initialState: IAppInterface = {
   isSidebarFixed: false,
@@ -10,6 +11,7 @@ const initialState: IAppInterface = {
   isProfileShow: false,
   isSidebarShow: false,
   accentColor: accentColors.default.static,
+  renderLinks: true,
 };
 
 export const appInterface = (

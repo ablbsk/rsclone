@@ -1,0 +1,289 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.main {
+  position: relative;
+}
+
+
+// ======nav================================nav================= 
+.nav-block {
+  left: 0;
+  right: 0;
+  z-index: 99;
+  position: absolute;
+  background: #b9b9ff00;
+}
+
+.container-fluid{
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 130px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.nav-wrapper {
+  margin-left: 15px;
+
+}
+
+.logo {
+  display: inline-block;
+  height: 50px;
+  width: 200px;
+  background-image: url(../../assets/images/png/logo.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 15px;
+  cursor: pointer;
+}
+
+.list-wrapper {
+  flex-grow: 1;
+  align-items: center;
+}
+
+.list-nav {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  transition: all .3s ease-in-out;
+  width: 100%;
+}
+
+.nav-item {
+  margin: 0 30px 0 0;
+  position: relative;
+}
+
+.nav-link {
+  display: block;
+  padding: 3px 0;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: $font-size-xxlg;
+  font-family: $font-family-base;
+  background-color: transparent;
+
+
+  &:hover {
+    color: #06ed98;
+    background: none;
+    // -ms-box-shadow: none;
+    // -o-box-shadow: none;
+    box-shadow: none;
+  }
+  &:hover::before {
+    width: 100%;
+    // -webkit-opacity: 1;
+    // -moz-opacity: 1;
+    // -ms-opacity: 1;
+    // -o-opacity: 1;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  &:hover::after {
+    // -webkit-opacity: 1;
+    // -moz-opacity: 1;
+    // -ms-opacity: 1;
+    // -o-opacity: 1;
+    opacity: 1;
+    transform: translateY(0);
+}
+  
+  &::before {
+    background: #ffffff;
+    bottom: 39;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 0;
+    transition: all .3s ease-in-out;
+  }
+
+  &::after {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    content: "";
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    transform: translateY(-10px);
+    bottom: 0;
+    transform: translateY(10px);
+  }
+}
+
+.link-active {
+  color: #4788ff;
+  text-decoration: none;
+  background-color: transparent;
+
+  &::before {
+  width: 100%;
+  opacity: 1;
+  transform: translateY(0);
+  }
+
+  &::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ a.nav-link-login {
+  background-image:  url(https://cdn.shopify.com/s/files/1/0182/8937/files/account-icon-v1_small.png?v=16694207373365200438) !important;
+}
+
+.nav-link-login {
+  background-size: contain ;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  outline: 0;
+  display: block;
+  height: 46px;
+  width: 32px;
+  background-size: 32px;
+  cursor: pointer;
+
+    &:hover {
+      background-size: 36px;
+      transition: all .3s ease-in-out;
+      height: 52px;
+      width: 38px;
+    }
+}
+
+// =================video============
+
+.service-first {
+  background-image: url(https://www.thetiehub.com/wp-content/uploads/2022/11/ezgif.com-gif-maker-1-2.gif);
+  background-repeat: no-repeat;
+  background-position: 50% 2px;
+  padding-top:500px;
+  background-size: 100%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.service-second {
+  opacity: 0.0;
+}
+
+// ===================mus======================================
+
+// .voice-btn-fixed {
+//   position: fixed;
+//   bottom: 40px;
+//   left: 40px;
+//   margin-bottom: 60px;
+//   border: none;
+//   color: #fff;
+//   background: transparent;
+//   z-index: 999;
+//   color: #fff!important;
+//   transition: all .3s ease-in-out;
+//   cursor: pointer;
+//   overflow: visible;
+//     &:hover {
+      
+//     }
+
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       z-index: 0;
+//       left: 50%;
+//       top: 50%;
+//       transform: translateX(-50%) translateY(-50%);
+//       display: block;
+//       background: rgba(209,25,25,.3);
+//       border-radius: 50%;
+//       animation: mb 1.5s ease-out infinite;
+//       width: 70px;
+//       height: 70px;
+//     }
+
+//     &::after {
+//     content: "";
+//     position: absolute;
+//     z-index: 0;
+//     left: 50%;
+//     top: 50%;
+//     transform: translateX(-50%) translateY(-50%);
+//     display: block;
+//     background: rgba(209,25,25,.3);
+//     border-radius: 50%;
+//     animation: mb 1.5s ease-out infinite;
+//     width: 50px;
+//     height: 50px;
+//     }
+// }
+
+
+// .voice-btn {
+//   width: 45px;
+//   height: 45px;
+//   line-height: 50px;
+//   background: #ff4b4b;
+//   -ms-box-shadow: 0 2px 4px rgba(0,0,0,.07);
+//   -o-box-shadow: 0 2px 4px rgba(0,0,0,.07);
+//   box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+//   border-radius: 50%;
+//   z-index: 9;
+//   cursor: pointer;
+// }
+
+// .voice-btn-fixed i {
+//   font-size: 18px;
+//   transition: all .3s ease-in-out;
+// }
+
+
+// .fas {
+//   font-weight: 900;
+//   font-style: normal;
+//   font-variant: normal;
+//   text-rendering: auto;
+//   line-height: 1;
+// }
+
+// .none {
+//   display: none;
+// }
+
+// .fa-volume-mute::before {
+//   content: url(../../assets/images/png/voloff.png);
+// }
+
+
+.banner-wrapper {
+  background-image: url(../../assets/images/png/TIESBANNERFINAL23.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-top: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
+  padding: 125px 0px;
+}

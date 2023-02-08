@@ -1,8 +1,10 @@
 import { ActionCreator, AnyAction } from "redux";
+import { ReactNode } from "react";
 
 export type HeaderType = {
   accentColor: string;
   isNavbarNightMode: boolean;
+  renderLinks: true;
 };
 
 export type SidebarType = {

@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 export interface IStore {
   appInterface: IAppInterface;
 }
@@ -10,6 +11,7 @@ export interface IAppInterface {
   isProfileShow: boolean;
   isSidebarShow: boolean;
   accentColor: string;
+  renderLinks: true;
 }
 
 export enum ActionTypes {

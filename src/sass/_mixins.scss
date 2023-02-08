@@ -14,6 +14,8 @@
   @media (max-width: 690px) { @content; }
 }
 
+
+
 @mixin icon-background($url, $height, $width: $height) {
   display: inline-block;
   height: $height;
@@ -23,3 +25,10 @@
   background-position: center center;
   background-repeat: no-repeat;
 }
+
+// mobile 390px
+// sm-tablet 767
+// tablet 992
+// desktop 1200
+// large desktop 1600
+// 576

@@ -4,7 +4,7 @@ import "./app.scss";
 import Dashboard from "../Dashboard";
 import SingIn from "../SingIn";
 import SingUp from "../SingUp";
-import Home from "../Home";
+import Home from "../HomeLanding";
 import Configurator from "../Configurator";
 
 const App: FunctionComponent = () => {

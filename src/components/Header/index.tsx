@@ -1,5 +1,5 @@
 import "./header.scss";
-import { FunctionComponent } from "react";
+import { Children, FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import flagUS from "../../assets/images/jpg/flag-us.jpg";
@@ -11,6 +11,7 @@ import { nightTheme } from "../../data/constants";
 const Header: FunctionComponent<HeaderType> = ({
   accentColor,
   isNavbarNightMode,
+  renderLinks,
 }: HeaderType) => {
   const dispatch = useDispatch();
 
@@ -33,6 +34,7 @@ const Header: FunctionComponent<HeaderType> = ({
           <Link className="header__link" to="/dashboard">
             <span className="header__logo"></span>
           </Link>
+          {Children}
           <ul className="header__list">
             <li className="header__item">
               <div className="language">
