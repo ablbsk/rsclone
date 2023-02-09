@@ -21,7 +21,7 @@ const Configurator: FunctionComponent = () => {
   const hasSubCategories = !!typeCategory?.subCategories?.length;
 
   return (
-    <div className="configurator-wrapper">
+    <div className="configurator">
       <div className="container">
         <div className="tie-category">
           {!type && !hasSubCategories ? (

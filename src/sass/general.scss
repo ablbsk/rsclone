@@ -2,20 +2,16 @@
 @import './mixins';
 @import './variables';
 
+#root {
+  position: relative;
+}
+
 body {
   font-family: $font-family-base;
   color: $font-color-dark;
   background-color: $color-page-background-light;
   min-width: 390px;
   overflow-x: hidden;
-}
-
-.body--night-mode {
-  background-color: $color-page-background-night;
-
-  .header {
-    background-color: $color-element-background-night;
-  }
 }
 
 h1,

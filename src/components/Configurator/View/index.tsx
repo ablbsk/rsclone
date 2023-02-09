@@ -35,8 +35,8 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
   }, []);
 
   return (
-    <div className="container">
-      <div className="plants__blok-wrapper">
+    <div className="container tie__container">
+      <div className="plants__block-wrapper">
         <div className="preview-panel">
           <div className="image__wrapper">
             <IconFactory

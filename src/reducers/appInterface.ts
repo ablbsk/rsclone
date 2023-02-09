@@ -1,16 +1,28 @@
-import { ActionTypes, IAppInterface } from "../interfaces/store";
 import { AnyAction } from "redux";
 import { accentColors } from "../data/constants";
+import {
+  ActionTypes,
+  IAppInterface,
+  IAppInterfaceLocalStorage,
+} from "../interfaces/store";
 
-const initialState: IAppInterface = {
-  isSidebarFixed: false,
-  isNightMode: false,
-  isSidebarAccentMode: false,
-  isNavbarNightMode: false,
-  isProfileShow: false,
-  isSidebarShow: false,
-  accentColor: accentColors.default.static,
-};
+const initialState = localStorage.interface
+  ? Object.assign(JSON.parse(localStorage.interface), {
+      isProfileShow: false,
+      isSidebarShow: false,
+    })
+  : {
+      isProfileShow: false,
+      isSidebarShow: false,
+      isSidebarFixed: false,
+      isNightMode: false,
+      isSidebarAccentMode: false,
+      isNavbarNightMode: false,
+      accentColor: {
+        static: accentColors.default.static,
+        hover: accentColors.default.hover,
+      },
+    };
 
 export const appInterface = (
   state: IAppInterface = initialState,
@@ -18,48 +30,82 @@ export const appInterface = (
 ) => {
   switch (action.type) {
     case ActionTypes.updateFixedSidebar:
-      return {
+      state = {
         ...state,
         isSidebarFixed: action.payload,
       };
+      break;
 
     case ActionTypes.updateNightMode:
-      return {
+      state = {
         ...state,
         isNightMode: action.payload,
       };
+      break;
 
     case ActionTypes.updateSidebarAccentMode:
-      return {
+      state = {
         ...state,
         isSidebarAccentMode: action.payload,
       };
+      break;
 
     case ActionTypes.updateNavbarNightMode:
-      return {
+      state = {
         ...state,
         isNavbarNightMode: action.payload,
       };
+      break;
 
     case ActionTypes.updateAccentColor:
-      return {
+      state = {
         ...state,
         accentColor: action.payload,
       };
+      break;
 
     case ActionTypes.showProfile:
-      return {
+      state = {
         ...state,
         isProfileShow: !state.isProfileShow,
       };
+      break;
 
     case ActionTypes.showSidebar:
-      return {
+      state = {
         ...state,
         isSidebarShow: !state.isSidebarShow,
       };
+      break;
+
+    case ActionTypes.resetInterfaceToDefault:
+      state = {
+        ...state,
+        isSidebarFixed: false,
+        isNightMode: false,
+        isSidebarAccentMode: false,
+        isNavbarNightMode: false,
+        accentColor: {
+          static: accentColors.default.static,
+          hover: accentColors.default.hover,
+        },
+      };
+      break;
 
     default:
       return state;
   }
+
+  setToLocalStorage(state);
+
+  return state;
+};
+
+const setToLocalStorage = (state: IAppInterface) => {
+  const newStorage = Object.assign({}, state) as IAppInterfaceLocalStorage;
+
+  delete newStorage.isProfileShow;
+  delete newStorage.isSidebarShow;
+
+  localStorage.interface = JSON.stringify(newStorage);
 };
