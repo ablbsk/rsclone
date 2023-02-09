@@ -6,24 +6,23 @@ import {
   IAppInterfaceLocalStorage,
 } from "../interfaces/store";
 
-const initialLocalStorage = localStorage.interface
-  ? JSON.parse(localStorage.interface)
-  : {};
-
-const initialState: IAppInterface = {
-  isProfileShow: false,
-  isSidebarShow: false,
-  isSidebarFixed: initialLocalStorage?.isSidebarFixed || false,
-  isNightMode: initialLocalStorage?.isNightMode || false,
-  isSidebarAccentMode: initialLocalStorage?.isSidebarAccentMode || false,
-  isNavbarNightMode: initialLocalStorage?.isNavbarNightMode || false,
-  accentColor: {
-    static:
-      initialLocalStorage?.accentColor?.static || accentColors.default.static,
-    hover:
-      initialLocalStorage?.accentColor?.hover || accentColors.default.hover,
-  },
-};
+const initialState = localStorage.interface
+  ? Object.assign(JSON.parse(localStorage.interface), {
+      isProfileShow: false,
+      isSidebarShow: false,
+    })
+  : {
+      isProfileShow: false,
+      isSidebarShow: false,
+      isSidebarFixed: false,
+      isNightMode: false,
+      isSidebarAccentMode: false,
+      isNavbarNightMode: false,
+      accentColor: {
+        static: accentColors.default.static,
+        hover: accentColors.default.hover,
+      },
+    };
 
 export const appInterface = (
   state: IAppInterface = initialState,
