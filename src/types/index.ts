@@ -63,3 +63,7 @@ export type CardType = {
 export type CircularProgressType = {
   progress: number;
 };
+
+export type GraphType = {
+  isNightMode: boolean;
+};

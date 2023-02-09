@@ -42,6 +42,9 @@ export const lightTheme = {
     page: "#fafbfe",
   },
   fontColor: "#535f6b",
+  graph: {
+    gridColor: "#b6b6b633",
+  },
 };
 
 export const nightTheme = {
@@ -51,4 +54,7 @@ export const nightTheme = {
   },
   fontColor: "#d5d6d7",
   sidebarFontColor: "#ffffff",
+  graph: {
+    gridColor: "#b6b6b61a",
+  },
 };

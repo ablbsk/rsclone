@@ -8,6 +8,7 @@
   padding: 25px;
   display: flex;
   justify-content: space-between;
+  gap: 25px;
   background-color: $color-element-background-light;
   border-radius: $border-radius-sm;
   box-shadow: $box-shadow;
@@ -23,7 +24,6 @@
 }
 
 .card__column {
-  padding: 0 10px;
   text-align: right;
 }
 

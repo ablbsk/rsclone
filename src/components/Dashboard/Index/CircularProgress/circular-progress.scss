@@ -2,11 +2,15 @@
 @import "../../../../sass/variables";
 
 .circular-progress {
-  flex-grow: 1;
+  width: 30%;
   padding: 25px;
   background-color: $color-element-background-light;
   border-radius: $border-radius-sm;
   box-shadow: $box-shadow;
+
+  @include media-tablet {
+    width: 100%;
+  }
 }
 
 .circular-progress__container {
