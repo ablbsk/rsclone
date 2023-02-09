@@ -8,6 +8,7 @@ import InfoBlock from "../InfoBlock";
 import AudioPlayer from "../AudioPlayer";
 import Footer from "../Footer";
 import Сarousel from "../Carousel";
+import { Link } from "react-router-dom";
 
 const Home: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -15,28 +16,24 @@ const Home: FunctionComponent = () => {
 
   return (
     <>
-      <Header
-        accentColor={accentColor}
-        isNavbarNightMode={isNavbarNightMode}
-        renderLinks={true}
-      >
+      <Header accentColor={accentColor} isNavbarNightMode={isNavbarNightMode}>
         <nav className="nav-wrapper">
           <div className="list-wrapper">
             <ul className="list-nav">
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <Link className="nav-link" to="">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/configurator">
+                <Link className="nav-link" to="/configurator">
                   Configurator
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="">
+                <Link className="nav-link" to="">
                   Tie Market
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

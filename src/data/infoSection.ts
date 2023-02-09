@@ -34,3 +34,4 @@ const infoSection = [
     ],
   },
 ];
+export default infoSection;

@@ -10,7 +10,7 @@ const Сarousel: FunctionComponent<СarouselType> = ({
   const testimonial = ["1", "2", "3"];
   const delay = 2500;
   const [index, setIndex] = useState(0);
-  const timeoutRef = useRef(null);
+  const timeoutRef = useRef<null>(null);
   const backgroundColor = nightTheme.background.element;
 
   const resetTimeout = () => {

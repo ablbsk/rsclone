@@ -17,16 +17,11 @@ const Dashboard: FunctionComponent = () => {
     isNavbarNightMode,
     isProfileShow,
     isSidebarShow,
-    children,
   } = interfaceSettings;
 
   return (
     <>
-      <Header
-        accentColor={accentColor}
-        isNavbarNightMode={isNavbarNightMode}
-        children={children}
-      />
+      <Header accentColor={accentColor} isNavbarNightMode={isNavbarNightMode} />
       <Profile accentColor={accentColor} isProfileShow={isProfileShow} />
       <Sidebar
         accentColor={accentColor}

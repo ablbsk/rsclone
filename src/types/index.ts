@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 export type HeaderType = {
   accentColor: string;
   isNavbarNightMode: boolean;
-  renderLinks: true;
+  children?: ReactNode;
 };
 
 export type SidebarType = {

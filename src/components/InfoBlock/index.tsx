@@ -1,6 +1,7 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import "./infoblock.scss";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 const InfoBlock: FunctionComponent = () => {
   const [pointActive, setPointActive] = useState<boolean>(false);
@@ -16,73 +17,65 @@ const InfoBlock: FunctionComponent = () => {
                     className="custom-tab__item "
                     // onClick={() => setPointActive(pointActive)}
                   >
-                    <a>
-                      <h5
-                        className={classNames("tab-title", {
-                          active:
-                            pointActive === true
-                              ? !pointActive
-                              : pointActive === false,
-                        })}
-                        onClick={() => setPointActive(true)}
-                      >
-                        Blok Information 1
-                      </h5>
-                    </a>
+                    <h5
+                      className={classNames("tab-title", {
+                        active:
+                          pointActive === true
+                            ? !pointActive
+                            : pointActive === false,
+                      })}
+                      onClick={() => setPointActive(true)}
+                    >
+                      Blok Information 1
+                    </h5>
                   </li>
                   <li
                     className="custom-tab__item"
                     // onClick={() => setPointActive(pointActive)}
                   >
-                    <a>
-                      <h5
-                        className={classNames("tab-title ", {
-                          active:
-                            pointActive === true
-                              ? !pointActive
-                              : pointActive === false,
-                        })}
-                        onClick={() => setPointActive(true)}
-                      >
-                        Blok Information 2
-                      </h5>
-                    </a>
+                    <h5
+                      className={classNames("tab-title ", {
+                        active:
+                          pointActive === true
+                            ? !pointActive
+                            : pointActive === false,
+                      })}
+                      onClick={() => setPointActive(true)}
+                    >
+                      Blok Information 2
+                    </h5>
                   </li>
                   <li
                     className="custom-tab__item"
                     // onClick={() => setPointActive(pointActive)}
                   >
-                    <a>
-                      <h5
-                        className={classNames("tab-title ", {
-                          active:
-                            pointActive === true
-                              ? !pointActive
-                              : pointActive === false,
-                        })}
-                        onClick={() => setPointActive(true)}
-                      >
-                        Blok Information 3
-                      </h5>
-                    </a>
+                    <h5
+                      className={classNames("tab-title ", {
+                        active:
+                          pointActive === true
+                            ? !pointActive
+                            : pointActive === false,
+                      })}
+                      onClick={() => setPointActive(true)}
+                    >
+                      Blok Information 3
+                    </h5>
                   </li>
                   <li
                     className="custom-tab__item"
                     // onClick={() => setPointActive(pointActive)}
                   >
-                    <a>
-                      <h5
-                        className={classNames("tab-title ", {
-                          active:
-                            pointActive === true
-                              ? !pointActive
-                              : pointActive === false,
-                        })}
-                        onClick={() => setPointActive(true)}
-                      >
-                        Blok Information 4
-                      </h5>
-                    </a>
+                    <h5
+                      className={classNames("tab-title ", {
+                        active:
+                          pointActive === true
+                            ? !pointActive
+                            : pointActive === false,
+                      })}
+                      onClick={() => setPointActive(true)}
+                    >
+                      Blok Information 4
+                    </h5>
                   </li>
                 </ul>
               </div>
