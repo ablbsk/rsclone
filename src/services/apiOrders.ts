@@ -40,7 +40,6 @@ export const getOrdersByUserId = async (id: string): Promise<IOrder[]> => {
       }
     );
     const orders = await response.json();
-    console.log(orders);
     return orders;
   } catch (e) {
     throw e;
@@ -94,7 +93,6 @@ export const deleteOrder = async (id: string): Promise<boolean> => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    console.log(response.status);
     if (response.status === 200) {
       return true;
     } else {
