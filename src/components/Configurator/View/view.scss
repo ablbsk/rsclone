@@ -1,14 +1,12 @@
 @import "../../../sass/variables";
 @import "../../../sass/mixins";
 
-.container {
+.tie__container {
   max-width: 1200px;
   margin: 0 auto;
-  padding-right: 15px;
-  padding-left: 15px;
 }
 
-.plants__blok-wrapper {
+.plants__block-wrapper {
   background: #e1e4e4;
   display: flex;
 }
@@ -91,15 +89,15 @@
   display: flex;
   flex-wrap: wrap;
   padding: 0;
-  
+
 }
 
 .color-label {
-  display: inline-block;  
-    
+  display: inline-block;
+
   &:hover {
       background: linear-gradient(45deg, #f4e9ffa6, #af44bd00);
-  }   
+  }
 }
 
 .color-input {
@@ -183,10 +181,10 @@
   width: 128px;
   cursor: pointer;
   float: left;
-  margin: 0 0 4px 4px; 
+  margin: 0 0 4px 4px;
   position: relative;
   border: solid 1px #ccc;
-   
+
 }
 
 .selected {
@@ -195,5 +193,4 @@
   right: -6px;
   top: -8px;
   border: 1px solid rgb(227, 16, 16);
-   
 }

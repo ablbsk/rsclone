@@ -21,9 +21,16 @@ export const updateNavbarNightMode = (isNavbarNightMode: string) => ({
   payload: isNavbarNightMode,
 });
 
-export const updateAccentColor = (accentColor: string) => ({
+export const updateAccentColor = (accentColor: {
+  static: string;
+  hover: string;
+}) => ({
   type: ActionTypes.updateAccentColor,
   payload: accentColor,
+});
+
+export const resetInterfaceToDefault = () => ({
+  type: ActionTypes.resetInterfaceToDefault,
 });
 
 export const showProfile = () => ({ type: ActionTypes.showProfile });

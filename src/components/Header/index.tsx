@@ -21,7 +21,9 @@ const Header: FunctionComponent<HeaderType> = ({
     <header
       className="header"
       style={{
-        backgroundColor: isNavbarNightMode ? backgroundColor : accentColor,
+        backgroundColor: isNavbarNightMode
+          ? backgroundColor
+          : accentColor.static,
       }}
     >
       <div className="container">

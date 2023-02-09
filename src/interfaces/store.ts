@@ -9,7 +9,23 @@ export interface IAppInterface {
   isNavbarNightMode: boolean;
   isProfileShow: boolean;
   isSidebarShow: boolean;
-  accentColor: string;
+  accentColor: {
+    static: string;
+    hover: string;
+  };
+}
+
+export interface IAppInterfaceLocalStorage {
+  isSidebarFixed: boolean;
+  isNightMode: boolean;
+  isSidebarAccentMode: boolean;
+  isNavbarNightMode: boolean;
+  isProfileShow?: boolean;
+  isSidebarShow?: boolean;
+  accentColor: {
+    static: string;
+    hover: string;
+  };
 }
 
 export enum ActionTypes {
@@ -20,6 +36,7 @@ export enum ActionTypes {
   updateNavbarNightMode = "UPDATE_NAVBAR_NIGHT_MODE",
   showProfile = "SHOW_PROFILE",
   showSidebar = "SHOW_SIDEBAR",
+  resetInterfaceToDefault = "RESET_INTERFACE_TO_DEFAULT",
   registration = "REGISTRATION",
   authorization = "AUTHORIZATION",
 }

@@ -17,16 +17,44 @@ export const accentColors = {
   },
 };
 
+export const specialColors = {
+  red: {
+    background: "#ff4b4b40",
+    font: "#ff4b4b",
+  },
+  aqua: {
+    background: "#37e6b040",
+    font: "#37e6b0",
+  },
+  blue: {
+    background: "#4788ff40",
+    font: "#4788ff",
+  },
+  orange: {
+    background: "#fe721b40",
+    font: "#fe721c",
+  },
+};
+
 export const lightTheme = {
   background: {
     element: "#ffffff",
-    page: "#2b343b",
+    page: "#fafbfe",
+  },
+  fontColor: "#535f6b",
+  graph: {
+    gridColor: "#b6b6b633",
   },
 };
 
 export const nightTheme = {
   background: {
-    element: "#1e272e",
-    page: "#fafbfe",
+    element: "#2b343b",
+    page: "#1e272e",
+  },
+  fontColor: "#d5d6d7",
+  sidebarFontColor: "#ffffff",
+  graph: {
+    gridColor: "#b6b6b61a",
   },
 };
