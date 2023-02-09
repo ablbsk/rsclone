@@ -6,6 +6,10 @@
 
   &--indent {
     margin-left: 100px;
+
+    @include media-small-mobile {
+      margin-left: 70px;
+    }
   }
 }
 

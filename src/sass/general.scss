@@ -2,6 +2,10 @@
 @import './mixins';
 @import './variables';
 
+#root {
+  position: relative;
+}
+
 body {
   font-family: $font-family-base;
   color: $font-color-dark;
