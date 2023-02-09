@@ -37,4 +37,6 @@ export enum ActionTypes {
   showProfile = "SHOW_PROFILE",
   showSidebar = "SHOW_SIDEBAR",
   resetInterfaceToDefault = "RESET_INTERFACE_TO_DEFAULT",
+  registration = "REGISTRATION",
+  authorization = "AUTHORIZATION",
 }
