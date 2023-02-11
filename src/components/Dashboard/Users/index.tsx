@@ -22,6 +22,8 @@ const Users: FunctionComponent = () => {
     (state: IUsersReducer) => state.usersReducer.usersLoadingStatus
   );
 
+  const users = useSelector((state: IUsersReducer) => state.usersReducer.users);
+
   const dispatch = useDispatch();
 
   const getUsersList = async (role: string) => {
@@ -41,12 +43,12 @@ const Users: FunctionComponent = () => {
   const toggleHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    const id = e.currentTarget.dataset.id;
-    setActiveButton(id);
+    setActiveButton(e.currentTarget.dataset.id);
   };
 
   const spinner = usersLoadingStatus === "loading" ? <Spinner /> : null;
-  const usersList = usersLoadingStatus === "idle" ? <UsersList /> : null;
+  const usersList =
+    usersLoadingStatus === "idle" ? <UsersList users={users} /> : null;
 
   return (
     <div className="users__wrapper">

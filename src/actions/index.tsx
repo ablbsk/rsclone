@@ -1,5 +1,6 @@
 import { ActionTypes } from "../interfaces/store";
 import { ILogin } from "../interfaces/login";
+import { IUser } from "../interfaces/user";
 
 export const updateFixedSidebar = (isSidebarFixed: boolean) => ({
   type: ActionTypes.updateFixedSidebar,
@@ -43,3 +44,29 @@ export const authorization = (user: ILogin, isLogin: boolean) => ({
   type: ActionTypes.authorization,
   payload: { user, isLogin },
 });
+
+export const usersFetching = () => {
+  return {
+    type: ActionTypes.usersFetching,
+  };
+};
+
+export const usersFetched = (users: IUser[]) => {
+  return {
+    type: ActionTypes.usersFetched,
+    payload: users,
+  };
+};
+
+export const usersFetchingError = () => {
+  return {
+    type: ActionTypes.usersFetchingError,
+  };
+};
+
+export const userDeleted = (id: string) => {
+  return {
+    type: ActionTypes.userDeleted,
+    payload: id,
+  };
+};
