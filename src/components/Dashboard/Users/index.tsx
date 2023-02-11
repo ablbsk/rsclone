@@ -8,8 +8,6 @@ import {
   usersFetchingError,
 } from "../../../actions";
 
-import { IUser } from "../../../interfaces/user";
-import { IUsersList } from "../../../interfaces/usersList";
 import { IUsersReducer } from "../../../interfaces/usersReducer";
 import UsersList from "./UsersList";
 import Spinner from "../../Spinner";
@@ -17,7 +15,7 @@ import Spinner from "../../Spinner";
 import "./users.scss";
 
 const Users: FunctionComponent = () => {
-  const [activeButton, setActiveButton] = useState<string | undefined>("1");
+  const [activeButton, setActiveButton] = useState<string>("1");
   const usersLoadingStatus = useSelector(
     (state: IUsersReducer) => state.usersReducer.usersLoadingStatus
   );
@@ -40,15 +38,14 @@ const Users: FunctionComponent = () => {
     getUsersList("USER");
   }, []);
 
-  const toggleHandler = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    setActiveButton(e.currentTarget.dataset.id);
+  const toggleHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const id = e.currentTarget.dataset.id;
+    if (typeof id === "string") {
+      setActiveButton(id);
+    }
   };
 
   const spinner = usersLoadingStatus === "loading" ? <Spinner /> : null;
-  const usersList =
-    usersLoadingStatus === "idle" ? <UsersList users={users} /> : null;
 
   return (
     <div className="users__wrapper">
@@ -79,8 +76,11 @@ const Users: FunctionComponent = () => {
         </button>
       </div>
       {spinner}
-      {usersList}
+      {usersLoadingStatus === "idle" ? (
+        <UsersList users={users} activeButton={activeButton} />
+      ) : null}
     </div>
   );
 };
+
 export default Users;

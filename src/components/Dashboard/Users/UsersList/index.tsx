@@ -1,29 +1,34 @@
 import { FunctionComponent } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { IUsersReducer } from "../../../../interfaces/usersReducer";
-import { IUsersList } from "../../../../interfaces/usersList";
-import { IF } from "../../../../interfaces/f";
-import { deleteUser } from "../../../../services/apiUsers";
-
-import { userDeleted } from "../../../../actions";
+import { deleteUser, getUsers } from "../../../../services/apiUsers";
+import { userDeleted, usersFetching, usersFetched, usersFetchingError } from "../../../../actions";
+import { IUsersListComponent } from "../../../../interfaces/usersListComponent";
 
 import "./usersList.scss";
 
-const UsersList: FunctionComponent<IF> = ({ users }) => {
-  // const users = useSelector((state: IUsersReducer) => state.usersReducer.users);
-
+const UsersList: FunctionComponent<IUsersListComponent> = ({
+  users,
+  activeButton,
+}) => {
   const dispatch = useDispatch();
+  const role = activeButton === "1" ? "USER" : "SELLER";
 
   const deleteItem = async (id: string) => {
-    await deleteUser(id);
-    dispatch(userDeleted(id));
+    try {
+      await deleteUser(id);
+      dispatch(userDeleted(id));
+      dispatch(usersFetching());
+      const users = await getUsers(role);
+      dispatch(usersFetched(users));
+    } catch {
+      dispatch(usersFetchingError());
+    }
   };
 
   return (
     <>
       <div className="users-list__wrapper">
-        {/* // {users.map((item, i) => ( */}
         <div className="users-list__item">
           <table>
             <tbody>
@@ -51,9 +56,9 @@ const UsersList: FunctionComponent<IF> = ({ users }) => {
             </tbody>
           </table>
         </div>
-        {/* ))} */}
       </div>
     </>
   );
 };
+
 export default UsersList;
