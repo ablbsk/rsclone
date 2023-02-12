@@ -3,6 +3,7 @@ export type HomeType = {
   isNavbarNightMode: boolean;
   isProfileShow: boolean;
 };
-export type FooterType = { accentColor: string; isNavbarNightMode: boolean };
 
 export type СarouselType = { accentColor: string; isNavbarNightMode: boolean };
+
+export type InfoBlockType = { accentColor: string; isNavbarNightMode: boolean };

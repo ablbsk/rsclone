@@ -1,9 +1,13 @@
-@mixin media-small-desktop {
-  @media (max-width: 1599px) { @content; }
+@mixin media-desktop {
+  @media (max-width: 1600px) { @content; }
 }
 
 @mixin media-tablet {
-  @media (max-width: 1099px) { @content; }
+  @media (max-width: 1200px) { @content; }
+}
+
+@mixin media-small-tablet {
+  @media (max-width: 992px) { @content; }
 }
 
 @mixin media-mobile {
@@ -11,7 +15,7 @@
 }
 
 @mixin media-small-mobile {
-  @media (max-width: 690px) { @content; }
+  @media (max-width: 576px) { @content; }
 }
 
 
@@ -25,10 +29,3 @@
   background-position: center center;
   background-repeat: no-repeat;
 }
-
-// mobile 390px
-// sm-tablet 767
-// tablet 992
-// desktop 1200
-// large desktop 1600
-// 576

@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useSound from "use-sound";
 import classNames from "classnames";
-import soundUrl from "../../assets/mp3/Eric Clapton & B.B.King - Three O`Clock BLues.mp3";
+import soundUrl from "../../../assets/mp3/Eric Clapton & B.B.King - Three O`Clock BLues.mp3";
 import "./audioplayer.scss";
 
 const AudioPlayer = () => {
   const [play, { stop }] = useSound(soundUrl, { volume: 0.5 });
   const [on, setOn] = useState(false);
 
-  const handleClick = () => {
-    setOn(true);
-    play();
-  };
-  const Click = () => {
-    setOn(false);
-    stop();
+  const hand = (on: boolean) => {
+    setOn(on) === play();
+    setOn(!on) === stop();
   };
 
   return (
@@ -22,8 +18,7 @@ const AudioPlayer = () => {
       type="button"
       className="voice-btn-fixed"
       id="my_audio"
-      onClick={() => handleClick()}
-      onMouseEnter={() => Click()}
+      onClick={() => hand(on)}
     >
       <div className="voice-btn">
         <img className={classNames("volume-up", { none: on === false })} />

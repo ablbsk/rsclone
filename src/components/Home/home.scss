@@ -5,7 +5,6 @@
   position: relative;
 }
 
-
 // ======nav================================nav================= 
 .nav-block {
   left: 0;
@@ -34,6 +33,83 @@
 .nav-wrapper {
   margin-left: 15px;
 
+  @include media-small-tablet {
+    display: none;
+  }
+}
+// ============================sidebar
+
+.nav__hamburger {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  background-image: url(../../assets/images/svg/hamburger.svg);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-width: 32px;
+  min-height: 32px;
+  cursor: pointer;
+  display: none;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include media-small-tablet {
+    display: block;
+  }
+}
+
+.nav-sidebar {
+  height: calc(20vh - 22px);
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  opacity: 0;
+  background-color: #ffffff;
+  transition: 0.4s ease-in-out;
+  transform: translateY(-225px);
+  box-shadow: 0 16px 40px 0 rgb(0 0 0 / 4%);
+  overflow: hidden;
+  z-index: 5;
+  display: none;
+
+  @include media-small-tablet {
+      display: block;
+  }
+  @include media-small-mobile {
+    top:-2px
+  }
+  
+}
+
+.sidebaropen {
+  width: 100%;
+  opacity: 1;
+  transform: translateY(0);
+  background: black;
+}
+
+.nav-sidebar-item {
+  padding-left: 20px;
+}
+
+.nav-sidebar-link {
+  display: block;
+  padding: 3px 0;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: $font-size-xxlg;
+  font-family: $font-family-base;
+  background-color: transparent;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 .logo {
@@ -79,26 +155,16 @@
 
 
   &:hover {
-    color: #06ed98;
+    color: #ffffff;
     background: none;
-    // -ms-box-shadow: none;
-    // -o-box-shadow: none;
     box-shadow: none;
   }
   &:hover::before {
     width: 100%;
-    // -webkit-opacity: 1;
-    // -moz-opacity: 1;
-    // -ms-opacity: 1;
-    // -o-opacity: 1;
     opacity: 1;
     transform: translateY(0);
   }
   &:hover::after {
-    // -webkit-opacity: 1;
-    // -moz-opacity: 1;
-    // -ms-opacity: 1;
-    // -o-opacity: 1;
     opacity: 1;
     transform: translateY(0);
 }
@@ -161,30 +227,30 @@
   background-size: 32px;
   cursor: pointer;
 
-    &:hover {
-      background-size: 36px;
-      transition: all .3s ease-in-out;
-      height: 52px;
-      width: 38px;
-    }
+  &:hover {
+    background-size: 36px;
+    transition: all .3s ease-in-out;
+    height: 52px;
+    width: 38px;
+  }
 }
 
 // =================video============
 
-.service-first {
+.video-block {
   background-image: url(https://www.thetiehub.com/wp-content/uploads/2022/11/ezgif.com-gif-maker-1-2.gif);
   background-repeat: no-repeat;
   background-position: 50% 2px;
-  padding-top:500px;
+  padding-top: 674px;
   background-size: 100%;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  @include media-small-tablet {
+    padding-top: 430px;
+  }
+
+  @include media-mobile {
+    padding-top:320px;
+    background-size: 150%;
   }
 }
 
@@ -192,98 +258,27 @@
   opacity: 0.0;
 }
 
-// ===================mus======================================
-
-// .voice-btn-fixed {
-//   position: fixed;
-//   bottom: 40px;
-//   left: 40px;
-//   margin-bottom: 60px;
-//   border: none;
-//   color: #fff;
-//   background: transparent;
-//   z-index: 999;
-//   color: #fff!important;
-//   transition: all .3s ease-in-out;
-//   cursor: pointer;
-//   overflow: visible;
-//     &:hover {
-      
-//     }
-
-//     &::before {
-//       content: "";
-//       position: absolute;
-//       z-index: 0;
-//       left: 50%;
-//       top: 50%;
-//       transform: translateX(-50%) translateY(-50%);
-//       display: block;
-//       background: rgba(209,25,25,.3);
-//       border-radius: 50%;
-//       animation: mb 1.5s ease-out infinite;
-//       width: 70px;
-//       height: 70px;
-//     }
-
-//     &::after {
-//     content: "";
-//     position: absolute;
-//     z-index: 0;
-//     left: 50%;
-//     top: 50%;
-//     transform: translateX(-50%) translateY(-50%);
-//     display: block;
-//     background: rgba(209,25,25,.3);
-//     border-radius: 50%;
-//     animation: mb 1.5s ease-out infinite;
-//     width: 50px;
-//     height: 50px;
-//     }
-// }
-
-
-// .voice-btn {
-//   width: 45px;
-//   height: 45px;
-//   line-height: 50px;
-//   background: #ff4b4b;
-//   -ms-box-shadow: 0 2px 4px rgba(0,0,0,.07);
-//   -o-box-shadow: 0 2px 4px rgba(0,0,0,.07);
-//   box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
-//   border-radius: 50%;
-//   z-index: 9;
-//   cursor: pointer;
-// }
-
-// .voice-btn-fixed i {
-//   font-size: 18px;
-//   transition: all .3s ease-in-out;
-// }
-
-
-// .fas {
-//   font-weight: 900;
-//   font-style: normal;
-//   font-variant: normal;
-//   text-rendering: auto;
-//   line-height: 1;
-// }
-
-// .none {
-//   display: none;
-// }
-
-// .fa-volume-mute::before {
-//   content: url(../../assets/images/png/voloff.png);
-// }
-
-
 .banner-wrapper {
   background-image: url(../../assets/images/png/TIESBANNERFINAL23.png);
   background-repeat: no-repeat;
   background-size: 100%;
   border-top: 3px solid #ffffff;
   border-bottom: 3px solid #ffffff;
-  padding: 125px 0px;
+  padding: 195px 0px;
+
+  @include media-tablet {
+    padding: 125px 0px;
+  }
+
+  @include media-small-tablet {
+    padding: 100px 0px;
+  }
+
+  @include media-mobile {
+    padding: 80px 0px;
+  }
+  
+  @include media-small-mobile {
+    padding: 63px 0px;
+  }
 }

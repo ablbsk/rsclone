@@ -16,17 +16,24 @@ export type CategoriesType = {
   tieList: IConfigurator;
   type: string;
   setType: (type: string) => void;
+  accentColor: string;
+  isNavbarNightMode: boolean;
 };
 
 export type CategoryType = {
   tie: ICategory;
   setType: (type: string) => void;
+  accentColor: string;
+  isNavbarNightMode: boolean;
 };
 
 export type SubCategoriesType = {
   subCategories: ISubcategory[];
+  price: string | undefined;
   type: string;
   setType: (type: string) => void;
+  accentColor: string;
+  isNavbarNightMode: boolean;
 };
 
 export type ConfiguratorIconType = {
@@ -35,12 +42,17 @@ export type ConfiguratorIconType = {
 
 export type ConfiguratorViewType = {
   type: string;
+  price: string | undefined;
+  accentColor: string;
+  isNavbarNightMode: boolean;
 };
 
 export type SubCategoryType = {
   subCategory: ISubcategory;
   type: string;
   setType: (type: string) => void;
+  accentColor: string;
+  isNavbarNightMode: boolean;
 };
 
 export type IconFactoryType = {

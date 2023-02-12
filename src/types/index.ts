@@ -5,6 +5,7 @@ export type HeaderType = {
   accentColor: string;
   isNavbarNightMode: boolean;
   children?: ReactNode;
+  isButtonVisible: boolean;
 };
 
 export type SidebarType = {

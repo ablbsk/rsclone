@@ -7,25 +7,40 @@ import SubCategory from "./SubCategory";
 
 const SubCategories: FunctionComponent<SubCategoriesType> = ({
   type,
+  price,
   setType,
   subCategories,
+  accentColor,
+  isNavbarNightMode,
 }: SubCategoriesType) => (
-  <div className="subcategories-wrapper">
-    <h4 className="title">Tie Creators | Woven Ties | Select a Design</h4>
-    {type && subCategories.length ? (
-      <ul className="images-list">
-        {subCategories.map((subCategory: ISubcategory) => (
-          <SubCategory
-            setType={setType}
-            subCategory={subCategory}
-            key={subCategory.id}
-            type={type}
-          />
-        ))}
-      </ul>
-    ) : (
-      <View type={type} />
-    )}
+  <div className="tie-category-wrapper">
+    <div className="subcategories-wrapper">
+      <h4 className="title-subcategories">
+        Tie Creators | Woven Ties | Select a Design
+      </h4>
+      {type && subCategories.length ? (
+        <ul className="images-list">
+          {subCategories.map((subCategory: ISubcategory) => (
+            <SubCategory
+              setType={setType}
+              subCategory={subCategory}
+              key={subCategory.id}
+              type={type}
+              accentColor={accentColor}
+              isNavbarNightMode={isNavbarNightMode}
+            />
+          ))}
+        </ul>
+      ) : (
+        <View
+          type={type}
+          price={price}
+          // subCategories={subCategories}
+          accentColor={accentColor}
+          isNavbarNightMode={isNavbarNightMode}
+        />
+      )}
+    </div>
   </div>
 );
 

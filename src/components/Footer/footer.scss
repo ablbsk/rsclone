@@ -20,6 +20,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+    @include media-small-mobile {
+      flex-direction: column;
+      align-items: center;
+    }
 }
 
 .section__logo {
@@ -38,6 +43,11 @@
   background-repeat: no-repeat;
   margin: 0px 1px 15px;
   cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1.2); 
+  }
 }
 
 .section__logo_text {
@@ -45,8 +55,6 @@
   font-family: $font-family-base;
   color: white;
 }
-
-
 
 .footer-title {
   font-size: $font-size-xlg;
@@ -59,6 +67,15 @@
   font-size: $font-size-llg;
   color: #cfc1c1;
   padding-bottom: 10px;
+}
+
+.footer__list_item-link {
+  color: #ffffff;
+  list-style: none;
+
+  &:hover {
+    opacity: 0.6; 
+  }
 }
 
 .item-link__social_face {
@@ -76,6 +93,10 @@
 .section__contact_link {
   list-style: none;
   color: #cfc1c1;
+
+  &:hover {
+    color: #ffffff;
+  }
 }
 
 .copyright-footer {
@@ -89,6 +110,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @include media-small-mobile {
+    flex-direction: column;
+  }
 }
 
 .copyright-text {
@@ -102,6 +127,13 @@
   background-repeat: no-repeat;
   width: 50px;
   height: 50px;
+  display: inline-block; 
+  overflow: hidden; 
+  transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.2); 
+    }
 }
 
 .logo-link {
@@ -109,4 +141,11 @@
   background-repeat: no-repeat;
   width: 100px;
   height: 40px;
+  display: inline-block; 
+  overflow: hidden; 
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1.2); 
+  }
 }

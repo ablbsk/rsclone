@@ -2,9 +2,9 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { FunctionComponent } from "react";
 import "./app.scss";
 import Dashboard from "../Dashboard";
-import SingIn from "../SingIn";
-import SingUp from "../SingUp";
-import Home from "../HomeLanding";
+import SignUp from "../SignUp";
+import SignIn from "../SignIn";
+import Home from "../Home";
 import Configurator from "../Configurator";
 
 const App: FunctionComponent = () => {
@@ -14,8 +14,8 @@ const App: FunctionComponent = () => {
         <Route path="/" element={<Home />} />
         <Route path="/configurator" element={<Configurator />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/singin" element={<SingIn />} />
-        <Route path="/singup" element={<SingUp />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
       </Routes>
     </BrowserRouter>
   );
