@@ -1,5 +1,6 @@
 import { ActionTypes } from "../interfaces/store";
 import { AnyAction } from "redux";
+
 import { IUsersList } from "../interfaces/usersList";
 
 const initialState: IUsersList = {
@@ -24,6 +25,10 @@ export const usersReducer = (
     case ActionTypes.usersFetchingError:
       return {
         usersLoadingStatus: "error",
+      };
+    case ActionTypes.userDeleted:
+      return {
+        users: state.users.filter((item) => item._id !== action.payload),
       };
     default:
       return state;
