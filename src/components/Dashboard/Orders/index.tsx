@@ -54,7 +54,6 @@ const Orders: FunctionComponent = () => {
   //   };
 
   const spinner = ordersLoadingStatus === "loading" ? <Spinner /> : null;
-  console.log(orders);
 
   return (
     <div className="orders__wrapper" style={{ backgroundColor }}>

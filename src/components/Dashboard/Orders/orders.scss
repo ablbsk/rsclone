@@ -6,7 +6,7 @@
 }
 
 .orders__wrapper {
-    width: 500px;
+    width: 560px;
     margin: 20px auto 0;
     display: flex;
     flex-direction: column;
@@ -14,6 +14,10 @@
     background-color: $color-element-background-light;
     padding: 0 0 10px 5px;
     border-radius: 5px;
+
+    @include media-mobile {
+        width: 500px;
+    }
 
     @include media-small-mobile {
         width: 360px;

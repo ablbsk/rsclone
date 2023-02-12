@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
@@ -17,12 +17,16 @@ import { IStore } from "../../../../interfaces/store";
 // import { IAuthReducer } from "../../../../interfaces/authReducer";
 import { IOrdersListComponent } from "../../../../interfaces/ordersListComponent";
 //import { IOrder } from "../../../../interfaces/order";
+import OrdersListItem from "../OrdersListItem";
 
 import "./ordersList.scss";
 
 const OrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
   const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
   const { isNightMode } = appInterfaceStore;
+
+  // const [selectedValue, setSelectedValue] = useState('EMPTY');
+
   //   const authStore = useSelector((state: IAuthReducer) => state.auth);
   //   const { user } = authStore;
 
@@ -32,28 +36,28 @@ const OrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
 
   const dispatch = useDispatch();
 
-  //   const deleteItem = async (id: string) => {
-  //     try {
-  //       await deleteOrder(id);
-  //       dispatch(orderDeleted(id));
-  //       dispatch(ordersFetching());
-  //       const orders = await getOrders();
-  //       dispatch(ordersFetched(orders));
-  //     } catch {
-  //       dispatch(ordersFetchingError());
-  //     }
-  //   };
+  const deleteItem = async (id: string) => {
+    try {
+      await deleteOrder(id);
+      dispatch(orderDeleted(id));
+      dispatch(ordersFetching());
+      const orders = await getOrders();
+      dispatch(ordersFetched(orders));
+    } catch {
+      dispatch(ordersFetchingError());
+    }
+  };
 
-  //   const updateItem = async (id: string) => {
-  //     try {
-  //       await updateUser(id, { role: "MANAGER" });
-  //       dispatch(ordersFetching());
-  //       const orders = await getOrders();
-  //       dispatch(ordersFetched(orders));
-  //     } catch {
-  //       dispatch(ordersFetchingError());
-  //     }
-  //   };
+  const updateItem = async (id: string, status: string) => {
+    try {
+      await updateOrder(id, { status: status });
+      dispatch(ordersFetching());
+      const orders = await getOrders();
+      dispatch(ordersFetched(orders));
+    } catch {
+      dispatch(ordersFetchingError());
+    }
+  };
 
   return (
     <>
@@ -69,22 +73,13 @@ const OrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
               </tr>
               {orders.map((item, i) => {
                 return (
-                  <tr key={item._id}>
-                    <th>{i + 1}</th>
-                    <th>{item.date}</th>
-                    <th>{item.price}</th>
-                    <th>{item.status}</th>
-                    <th>
-                      <button
-                        style={{ backgroundColor }}
-                        className="icon"
-                        // onClick={() => deleteItem(item._id)}
-                      ></button>
-                    </th>
-                    <th className="table-promotion">
-                      <button>Promote</button>
-                    </th>
-                  </tr>
+                  <OrdersListItem
+                    key={item._id}
+                    item={item}
+                    i={i}
+                    deleteItem={deleteItem}
+                    updateItem={updateItem}
+                  />
                 );
               })}
             </tbody>
