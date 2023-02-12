@@ -39,4 +39,8 @@ export enum ActionTypes {
   resetInterfaceToDefault = "RESET_INTERFACE_TO_DEFAULT",
   registration = "REGISTRATION",
   authorization = "AUTHORIZATION",
+  usersFetching = "USERS_FETCHING",
+  usersFetched = "USERS_FETCHED",
+  usersFetchingError = "USERS_FETCHING",
+  userDeleted = "USER_DELETED",
 }

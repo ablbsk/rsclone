@@ -14,6 +14,7 @@ import {
 } from "../../../../actions";
 import { lightTheme, nightTheme } from "../../../../data/constants";
 import { IStore } from "../../../../interfaces/store";
+import { IAuthReducer } from "../../../../interfaces/authReducer";
 import { IUsersListComponent } from "../../../../interfaces/usersListComponent";
 
 import "./usersList.scss";
@@ -24,11 +25,12 @@ const UsersList: FunctionComponent<IUsersListComponent> = ({
 }) => {
   const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
   const { isNightMode } = appInterfaceStore;
+  const authStore = useSelector((state: IAuthReducer) => state.auth);
+  const { user } = authStore;
 
   const backgroundColor = isNightMode
     ? nightTheme.background.element
     : lightTheme.background.element;
-
 
   const dispatch = useDispatch();
   const role = activeButton === "1" ? "USER" : "SELLER";
@@ -66,8 +68,12 @@ const UsersList: FunctionComponent<IUsersListComponent> = ({
                 <th>#</th>
                 <th>Email</th>
                 <th>Id</th>
-                <th className="image-column"></th>
-                <th className="table-promotion"></th>
+                {user.role === "ADMIN" ? (
+                  <>
+                    <th className="image-column"></th>
+                    <th className="table-promotion"></th>
+                  </>
+                ) : null}
               </tr>
               {users.map((item, i) => {
                 return (
@@ -75,18 +81,22 @@ const UsersList: FunctionComponent<IUsersListComponent> = ({
                     <th>{i + 1}</th>
                     <th>{item.email}</th>
                     <th>{item._id.slice(0, 8).toLocaleUpperCase()}</th>
-                    <th>
-                      <button
-                      style={{ backgroundColor }}
-                        className="icon"
-                        onClick={() => deleteItem(item._id)}
-                      ></button>
-                    </th>
-                    <th className="table-promotion">
-                      <button onClick={() => deleteItem(item._id)}>
-                        Promote
-                      </button>
-                    </th>
+                    {user.role === "ADMIN" ? (
+                      <>
+                        <th>
+                          <button
+                            style={{ backgroundColor }}
+                            className="icon"
+                            onClick={() => deleteItem(item._id)}
+                          ></button>
+                        </th>
+                        <th className="table-promotion">
+                          <button onClick={() => updateItem(item._id)}>
+                            Promote
+                          </button>
+                        </th>
+                      </>
+                    ) : null}
                   </tr>
                 );
               })}
