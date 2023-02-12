@@ -35,7 +35,6 @@ const SubCategories: FunctionComponent<SubCategoriesType> = ({
         <View
           type={type}
           price={price}
-          // subCategories={subCategories}
           accentColor={accentColor}
           isNavbarNightMode={isNavbarNightMode}
         />

@@ -117,7 +117,7 @@ const Сarousel: FunctionComponent<СarouselType> = ({
                       backgroundColor: isNavbarNightMode
                         ? backgroundColor
                         : index === idx
-                        ? accentColor
+                        ? accentColor.static
                         : "#959393",
                     }}
                     onClick={() => {

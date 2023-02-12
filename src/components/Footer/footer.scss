@@ -6,7 +6,6 @@
   float: left;
   background-repeat: no-repeat;
   background-size: cover;
-  background: #4788ff;
   padding: 0;
   position: relative;
 }
@@ -53,24 +52,24 @@
 .section__logo_text {
   font-size: $font-size-xlg;
   font-family: $font-family-base;
-  color: white;
+  color: $color-white1;
 }
 
 .footer-title {
   font-size: $font-size-xlg;
   font-family: $font-family-base;
-  color: white;
+  color:$color-white1;
   padding-bottom: 10px;
 }
 
 .footer__list_item {
   font-size: $font-size-llg;
-  color: #cfc1c1;
+  color: $color-grey2;
   padding-bottom: 10px;
 }
 
 .footer__list_item-link {
-  color: #ffffff;
+  color: $color-white1;
   list-style: none;
 
   &:hover {
@@ -92,16 +91,16 @@
 
 .section__contact_link {
   list-style: none;
-  color: #cfc1c1;
+  color: $color-grey2;
 
   &:hover {
-    color: #ffffff;
+    color: $color-white1;
   }
 }
 
 .copyright-footer {
   padding: 30px 1px;
-  border-top: 3px solid rgb(255 255 255 / 40%);
+  border-top: 3px solid #ffffff66;
 }
 
 .copyright-wrapper {
@@ -119,7 +118,7 @@
 .copyright-text {
   font-size: $font-size-xlg;
   font-family: $font-family-base;
-  color: white;
+  color: $color-white1;
 }
 
 .copyright-footer__link {

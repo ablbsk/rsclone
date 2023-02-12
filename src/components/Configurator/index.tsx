@@ -8,12 +8,18 @@ import View from "./View";
 import Header from "../Header";
 import Profile from "../Profile";
 import Footer from "../Footer";
-import { IConfigurator } from "../../interfaces/configurator";
 import "./configurator.scss";
 
 const Configurator: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
-  const { accentColor, isNavbarNightMode, isProfileShow } = interfaceSettings;
+  const {
+    accentColor,
+    isSidebarFixed,
+    isSidebarAccentMode,
+    isNavbarNightMode,
+    isProfileShow,
+    isNightMode,
+  } = interfaceSettings;
 
   const lang = "ru";
   const [type, setType] = useState<string>("");
@@ -23,8 +29,6 @@ const Configurator: FunctionComponent = () => {
   const subCategories = typeCategory?.subCategories;
   const hasSubCategories = !!typeCategory?.subCategories?.length;
 
-  // console.log("typeCategory", typeCategory);
-
   return (
     <>
       <Header
@@ -32,7 +36,14 @@ const Configurator: FunctionComponent = () => {
         isNavbarNightMode={isNavbarNightMode}
         isButtonVisible={false}
       />
-      <Profile accentColor={accentColor} isProfileShow={isProfileShow} />
+      <Profile
+        accentColor={accentColor}
+        isProfileShow={isProfileShow}
+        isSidebarFixed={isSidebarFixed}
+        isSidebarAccentMode={isSidebarAccentMode}
+        isNavbarNightMode={isNavbarNightMode}
+        isNightMode={isNightMode}
+      />
       <div className="configurator-wrapper">
         <div className="tie-category-banner">
           <div className="container">

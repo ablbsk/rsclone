@@ -6,6 +6,7 @@ import Header from "../Header";
 import Sidebar from "../Sidebar";
 import Profile from "../Profile";
 import classNames from "classnames";
+import Index from "./Index/index";
 
 const Dashboard: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -17,6 +18,7 @@ const Dashboard: FunctionComponent = () => {
     isNavbarNightMode,
     isProfileShow,
     isSidebarShow,
+    isNightMode,
   } = interfaceSettings;
 
   return (
@@ -26,12 +28,20 @@ const Dashboard: FunctionComponent = () => {
         isNavbarNightMode={isNavbarNightMode}
         isButtonVisible={true}
       />
-      <Profile accentColor={accentColor} isProfileShow={isProfileShow} />
+      <Profile
+        accentColor={accentColor}
+        isProfileShow={isProfileShow}
+        isSidebarFixed={isSidebarFixed}
+        isSidebarAccentMode={isSidebarAccentMode}
+        isNavbarNightMode={isNavbarNightMode}
+        isNightMode={isNightMode}
+      />
       <Sidebar
         accentColor={accentColor}
         isSidebarFixed={isSidebarFixed}
         isSidebarAccentMode={isSidebarAccentMode}
         isSidebarShow={isSidebarShow}
+        isNightMode={isNightMode}
       />
       <main
         className={classNames("dashboard", {
@@ -39,11 +49,7 @@ const Dashboard: FunctionComponent = () => {
         })}
       >
         <div className="container">
-          <h1 className="dashboard__header">h1: Welcome to dashboard</h1>
-          <p className="dashboard__breadcrumbs">
-            Breadcrumbs: Home - Dashboard
-          </p>
-          <p className="dashboard__text">Regular text size</p>
+          <Index />
         </div>
       </main>
     </>

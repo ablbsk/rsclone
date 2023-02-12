@@ -1,52 +1,15 @@
 @import "../../sass/variables";
 @import "../../sass/mixins";
 
-
-
-
-// .container {
-//   max-width: 1200px;
-//   margin: 0 auto;
-//   padding-right: 15px;
-//   padding-left: 15px;
-// }
 .tie-category-banner {
-  background: #e1e0e0;
+  background: $color-grey4;
+}
+
+.configurator {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .tie-category {
   padding: 40px 0;
 }
-
-// .category__list {
-//   list-style: none;
-//   display: flex;
-//   text-align: center;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   margin: 0;
-//   padding: 0;
-// }
-
-// .category__list_item {
-//   width: 25%;
-// }
-
-// .category-blok {
-//   color: #fff;
-//   display: block;
-//   text-decoration: none;
-// }
-
-// .category-img {
-//   width: 100%;
-//   height: auto;
-// }
-
-// .category-name {
-//   background: #898989;
-//   padding: 4px 70px;
-//   line-height: 1.5;
-//   border-radius: 5px;
-//   cursor: pointer;
-// }

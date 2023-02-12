@@ -22,7 +22,9 @@ const SubCategory: FunctionComponent<SubCategoryType> = ({
       <div className="btn-wrapper">
         <button
           style={{
-            backgroundColor: isNavbarNightMode ? backgroundColor : accentColor,
+            backgroundColor: isNavbarNightMode
+              ? backgroundColor
+              : accentColor.static,
           }}
           className="category-name"
         >

@@ -10,6 +10,7 @@ const Category: FunctionComponent<CategoryType> = ({
   isNavbarNightMode,
 }: CategoryType) => {
   const backgroundColor = nightTheme.background.element;
+
   return (
     <li className="category__list_item">
       <div className="category-blok">
@@ -17,7 +18,9 @@ const Category: FunctionComponent<CategoryType> = ({
 
         <button
           style={{
-            backgroundColor: isNavbarNightMode ? backgroundColor : accentColor,
+            backgroundColor: isNavbarNightMode
+              ? backgroundColor
+              : accentColor.static,
           }}
           className="category-name"
           onClick={() => setType(tie.type)}
@@ -28,4 +31,5 @@ const Category: FunctionComponent<CategoryType> = ({
     </li>
   );
 };
+
 export default Category;

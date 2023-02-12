@@ -1,1 +1,7 @@
-export type FooterType = { accentColor: string; isNavbarNightMode: boolean };
+export type FooterType = {
+  accentColor: {
+    static: string;
+    hover: string;
+  };
+  isNavbarNightMode: boolean;
+};

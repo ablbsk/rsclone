@@ -4,12 +4,12 @@
 .section-space {
   background:url(../../../assets/images/png/06-TIE-STORE-BANNER-MIXED-1920-6.png);
   padding: 100px 0;
-  border-top: 3px solid #ffffff;
-  border-bottom: 3px solid #ffffff;
+  border-top: 3px solid $color-white1;
+  border-bottom: 3px solid $color-white1;
 }
 
 .section-space__banner {
-  background: #eff1fe8c;
+  background: $color-grey8;
   padding: 30px 0;
 }
 
@@ -26,9 +26,10 @@
 .points-wrapper {
   width: 33%;
   text-align: center;
-  background:#eff1fee6;
+  background:$color-white3;
   z-index: 1;
   padding: 15px 15px 15px 15px;
+  
   
   @include media-mobile {
     width: 100%;
@@ -48,9 +49,9 @@
 .custom-tab__nav_list {
   border-radius: 0;
   width: 100%;
-  -ms-box-shadow: 0 22px 40px 0 rgba(0,0,0,.05);
-  -o-box-shadow: 0 22px 40px 0 rgba(0,0,0,.05);
-  box-shadow: 0 22px 40px 0 rgb(0 0 0 / 5%);
+  -ms-box-shadow: 0 22px 40px 0 $color-black3;
+  -o-box-shadow: 0 22px 40px 0 $color-black3;
+  box-shadow: 0 22px 40px 0 $color-black3;
   background: transparent;
   overflow: hidden;
   display: flex;
@@ -58,10 +59,11 @@
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  border-radius: 5px;
 }
 
 .custom-tab__item {
-  border: 1px solid #fff;
+  border: 1px solid $color-white1;
   width: 100%;
   vertical-align: middle;
   float: left;
@@ -74,7 +76,7 @@
 }
 
 .select {
-  color: #fff;
+  color: $color-white1;
 }
 
 .tab-title {
@@ -83,8 +85,8 @@
   font-family: $font-family-base;
   cursor: pointer;
 
-  &:hover { 
-    color: #fff;
+  &:hover {
+    opacity: 0.7;
   }
 
   @include media-mobile {
@@ -94,7 +96,7 @@
 
 .points-info-block {
   width: 66%;
-  background:#eff1fee6;
+  background:$color-white3;
   z-index: 1;
   padding: 18px 19px 1px 0px;
 
@@ -125,7 +127,7 @@
   font-size: $font-size-lgg;
   font-weight: $font-weight-normal;
   margin-bottom: 10px;
-  color:#000000;
+  color:$color-black1;
 }
 
 .tab-pane__list {
@@ -146,12 +148,3 @@
   font-size: $font-size-llg;
 }
 
-.check-circle {
-  color: #4788ff;
-  left: 0;
-  position: absolute;
-  
-  &::before {
-    content: url(../../../assets/images/png/check-mark.png);
-  }
-}

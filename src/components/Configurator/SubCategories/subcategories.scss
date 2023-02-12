@@ -4,18 +4,12 @@
 
 
 
-// .tie-category-wrapper {
-//   background: #b9b6b6;
-//   padding: 50px 40px;
-// }
-
 .subcategories-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px 0px;
-  // padding-top: 50px;
-  background: #ffffff;
+  background: $color-white1;
 }
 
 .title-subcategories {
@@ -23,14 +17,9 @@
   line-height: 33px;
   font-weight: 300;
   text-transform: capitalize;
-  color: #000;
+  color: $color-black1;
   padding-bottom: 15px;
 }
-
-// .designs-wrapper {
-//   width: 85%;
-  
-// }
 
 .images-list {
   list-style: none;
@@ -48,15 +37,13 @@
 }
 
 .image-item {
-  // background: #ffffff;
-  // width: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .tie-tipe {
-  background: #767373;
+  background: $color-grey3;
   padding: 3px 30px;
   border-radius: 5px;
 }

@@ -16,14 +16,20 @@ export type CategoriesType = {
   tieList: IConfigurator;
   type: string;
   setType: (type: string) => void;
-  accentColor: string;
+  accentColor: {
+    static: string;
+    hover: string;
+  };
   isNavbarNightMode: boolean;
 };
 
 export type CategoryType = {
   tie: ICategory;
   setType: (type: string) => void;
-  accentColor: string;
+  accentColor: {
+    static: string;
+    hover: string;
+  };
   isNavbarNightMode: boolean;
 };
 
@@ -32,7 +38,10 @@ export type SubCategoriesType = {
   price: string | undefined;
   type: string;
   setType: (type: string) => void;
-  accentColor: string;
+  accentColor: {
+    static: string;
+    hover: string;
+  };
   isNavbarNightMode: boolean;
 };
 
@@ -43,7 +52,10 @@ export type ConfiguratorIconType = {
 export type ConfiguratorViewType = {
   type: string;
   price: string | undefined;
-  accentColor: string;
+  accentColor: {
+    static: string;
+    hover: string;
+  };
   isNavbarNightMode: boolean;
 };
 
@@ -51,7 +63,10 @@ export type SubCategoryType = {
   subCategory: ISubcategory;
   type: string;
   setType: (type: string) => void;
-  accentColor: string;
+  accentColor: {
+    static: string;
+    hover: string;
+  };
   isNavbarNightMode: boolean;
 };
 

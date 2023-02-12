@@ -27,7 +27,7 @@ const InfoBlock: FunctionComponent<InfoBlockType> = ({
                         backgroundColor: isNavbarNightMode
                           ? backgroundColor
                           : tab === 1
-                          ? accentColor
+                          ? accentColor.static
                           : "",
                       }}
                       onClick={() => setTab(1)}
@@ -44,7 +44,7 @@ const InfoBlock: FunctionComponent<InfoBlockType> = ({
                         backgroundColor: isNavbarNightMode
                           ? backgroundColor
                           : tab === 2
-                          ? accentColor
+                          ? accentColor.static
                           : "",
                       }}
                       onClick={() => setTab(2)}
@@ -61,7 +61,7 @@ const InfoBlock: FunctionComponent<InfoBlockType> = ({
                         backgroundColor: isNavbarNightMode
                           ? backgroundColor
                           : tab === 3
-                          ? accentColor
+                          ? accentColor.static
                           : "",
                       }}
                       onClick={() => setTab(3)}
@@ -79,7 +79,7 @@ const InfoBlock: FunctionComponent<InfoBlockType> = ({
                         backgroundColor: isNavbarNightMode
                           ? backgroundColor
                           : tab === 4
-                          ? accentColor
+                          ? accentColor.static
                           : "",
                       }}
                       onClick={() => setTab(4)}

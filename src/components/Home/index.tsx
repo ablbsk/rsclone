@@ -17,9 +17,15 @@ import OrderProcess from "./OrderProcess";
 
 const Home: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
-  const { accentColor, isNavbarNightMode, isProfileShow } = interfaceSettings;
   const [open, setOpen] = useState(false);
-
+  const {
+    accentColor,
+    isSidebarFixed,
+    isSidebarAccentMode,
+    isNavbarNightMode,
+    isProfileShow,
+    isNightMode,
+  } = interfaceSettings;
   const backgroundColor = nightTheme.background.element;
 
   const ref = useRef(null);
@@ -62,7 +68,9 @@ const Home: FunctionComponent = () => {
           ref={ref}
           className={classNames("nav-sidebar", { sidebaropen: open })}
           style={{
-            backgroundColor: isNavbarNightMode ? backgroundColor : accentColor,
+            backgroundColor: isNavbarNightMode
+              ? backgroundColor
+              : accentColor.static,
           }}
         >
           <div className="nav-sidebar-wrapper">
@@ -86,7 +94,14 @@ const Home: FunctionComponent = () => {
           </div>
         </div>
       </Header>
-      <Profile accentColor={accentColor} isProfileShow={isProfileShow} />
+      <Profile
+        accentColor={accentColor}
+        isProfileShow={isProfileShow}
+        isSidebarFixed={isSidebarFixed}
+        isSidebarAccentMode={isSidebarAccentMode}
+        isNavbarNightMode={isNavbarNightMode}
+        isNightMode={isNightMode}
+      />
       <AudioPlayer />
       <main className="main">
         <div className="nav-block">

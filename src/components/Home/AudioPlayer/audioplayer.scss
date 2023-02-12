@@ -7,7 +7,7 @@
   left: 40px;
   margin-bottom: 60px;
   border: none;
-  color: #fff;
+  color: $color-white1;
   background: transparent;
   z-index: 999;
   transition: all .3s ease-in-out;
@@ -22,7 +22,7 @@
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     display: block;
-    background: rgba(209,25,25,.3);
+    background: $color-red2;
     border-radius: 50%;
     animation: mb 1.5s ease-out infinite;
     width: 70px;
@@ -37,7 +37,7 @@
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     display: block;
-    background: rgba(209,25,25,.3);
+    background: $color-red2;
     border-radius: 50%;
     animation: mb 1.5s ease-out infinite;
     width: 50px;
@@ -49,16 +49,16 @@
   width: 45px;
   height: 45px;
   line-height: 50px;
-  background: #ff4b4b;
-  -ms-box-shadow: 0 2px 4px rgba(0,0,0,.07);
-  -o-box-shadow: 0 2px 4px rgba(0,0,0,.07);
-  box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+  background: $color-special-1;
+  -ms-box-shadow: 0 2px 4px $color-black2;
+  -o-box-shadow: 0 2px 4px $color-black2;
+  box-shadow: 0 2px 4px $color-black2;
   border-radius: 50%;
   z-index: 9;
   cursor: pointer;
 
   &:hover {
-    background: #fff;
+    background: $color-white1;
   }
 }
 

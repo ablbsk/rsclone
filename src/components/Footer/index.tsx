@@ -14,7 +14,9 @@ const Footer: FunctionComponent<FooterType> = ({
     <div
       className="footer"
       style={{
-        backgroundColor: isNavbarNightMode ? backgroundColor : accentColor,
+        backgroundColor: isNavbarNightMode
+          ? backgroundColor
+          : accentColor.static,
       }}
     >
       <div className="container">

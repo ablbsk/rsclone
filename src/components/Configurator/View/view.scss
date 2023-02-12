@@ -1,12 +1,16 @@
 @import "../../../sass/variables";
 @import "../../../sass/mixins";
 
-
+.tie__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .plants__block-wrapper {
+  background: $color-grey5;
   display: flex;
   width: 100%;
-  background:#ffffff;
+  background:$color-white1;
 }
 
 .preview-panel {
@@ -34,9 +38,8 @@
   }
 }
 
-
 .title-item {
-  color: #777777;
+  color: $color-grey6;
   font-family: $font-family-base;
   font-size:$font-size-xlg;
 
@@ -52,14 +55,14 @@
 }
 
 .wizard-item__title {
-  color: #777777;
+  color: $color-grey6;
   font-size: $font-size-xlg;
   line-height: 33px;
   font-weight: $font-weight-light;
   text-transform: capitalize;
   background: none;
   padding: 10px 0 10px 5px;
-  border-bottom: 1px solid #777777;
+  border-bottom: 1px solid $color-grey6;
   margin: 0;
   cursor: pointer;
   margin-bottom: 15px;
@@ -88,7 +91,7 @@
 
 .title-form {
   font-family: $font-family-base;
-  color: #777777;
+  color: $color-grey6;
   font-size: $font-size-xs;
   padding-bottom: 10px;
 }
@@ -97,15 +100,16 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  padding: 0; 
+  padding: 0;
+
 }
 
 .color-label {
-  display: inline-block;  
-    
+  display: inline-block;
+
   &:hover {
       background: linear-gradient(45deg, #f4e9ffa6, #af44bd00);
-  }   
+  }
 }
 
 .color-input {
@@ -122,7 +126,7 @@
   border-radius: 5px;
   display: inline-block;
   cursor: pointer;
-  border: 1px solid #0000009e;;
+  border: 1px solid $color-black1;
 
   @include media-small-mobile {
     width:19px;
@@ -132,8 +136,7 @@
 }
 
 .btn-next__wrapper {
-  font-family: "Roboto",sans-serif;
-  color: #898989;
+  font-family: $font-family-base;
   overflow: hidden;
   padding: 10px 0;
 }
@@ -142,8 +145,8 @@
 .btn-link {
   float: right;
   width: 120px;
-  color: #ffffff;
-  border: 1px solid #ccc;
+  color: $color-white1;
+  border: 1px solid $color-grey4;
   font-size: 13px;
   font-weight: bold;
   text-transform: uppercase;
@@ -157,9 +160,8 @@
   -webkit-transition: all .3s ease-in-out;
 
   &:hover {
-    color: #ffffff;
+    color: $color-white1;
     opacity: 0.8;
-
   }
 }
 
@@ -202,14 +204,13 @@
 }
 
 .weave-span {
-  border-color: #999;
   height: 128px;
   width: 128px;
   cursor: pointer;
   float: left;
-  margin: 0 0 4px 4px; 
+  margin: 0 0 4px 4px;
   position: relative;
-  border: solid 1px #ccc;
+  border: solid 1px $color-grey5;
 
   @include media-small-tablet {
     height: 100px;
@@ -227,6 +228,5 @@
   position: absolute;
   right: -2px;
   top: -4px;
-  border: 1px solid rgb(227, 16, 16);
-   
+  border: 1px solid $color-red1;
 }
