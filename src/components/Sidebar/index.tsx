@@ -46,10 +46,12 @@ const Sidebar: FunctionComponent<SidebarType> = ({
             <SidebarIcon color={itemColor} type={"calendar"} />
             <span className="sidebar__name">Calendar</span>
           </li>
-          <li className="sidebar__item">
-            <SidebarIcon color={itemColor} type={"orders"} />
-            <span className="sidebar__name">Orders</span>
-          </li>
+          <Link className="header__link" to="orders">
+            <li className="sidebar__item">
+              <SidebarIcon color={itemColor} type={"orders"} />
+              <span className="sidebar__name">Orders</span>
+            </li>
+          </Link>
           <Link className="header__link" to="users">
             <li className="sidebar__item">
               <SidebarIcon color={itemColor} type={"users"} />

@@ -9,6 +9,7 @@ import Profile from "../Profile";
 import classNames from "classnames";
 import Index from "./Index/index";
 import Users from "./Users";
+import Orders from "./Orders";
 
 const Dashboard: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -50,6 +51,7 @@ const Dashboard: FunctionComponent = () => {
           <Routes>
             <Route path="" element={<Index />} />
             <Route path="users" element={<Users />} />
+            <Route path="orders" element={<Orders />} />
           </Routes>
         </div>
       </main>

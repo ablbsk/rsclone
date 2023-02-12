@@ -1,0 +1,51 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+
+* > {
+    box-sizing: border-box;
+}
+
+.orders__wrapper {
+    width: 500px;
+    margin: 20px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $color-element-background-light;
+    padding: 0 0 10px 5px;
+    border-radius: 5px;
+
+    @include media-small-mobile {
+        width: 360px;
+    }
+}
+
+// .users__header {
+//     margin-bottom: 20px;
+// }
+
+// .users__header-button {
+//     margin-top: 30px;
+//     margin-bottom: 15px;
+//     width: 110px;
+//     height: 45px;
+//     color: $font-color-white;
+//     border: none;
+//     border-radius: 5px;
+//     background-color: $color-accent;
+//     font-size: 20px;
+//     cursor: pointer;
+
+//     &_active {
+//        background-color: $color-accent-hover; 
+//     }
+
+//     &:first-child {
+//         margin-right: 20px;
+//     }
+
+//     &:hover,
+//     &:active {
+//         background-color: $color-accent-hover;
+//     }
+// }

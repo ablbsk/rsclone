@@ -43,4 +43,8 @@ export enum ActionTypes {
   usersFetched = "USERS_FETCHED",
   usersFetchingError = "USERS_FETCHING",
   userDeleted = "USER_DELETED",
+  ordersFetching = "ORDERS_FETCHING",
+  ordersFetched = "ORDERS_FETCHED",
+  ordersFetchingError = "ORDERS_FETCHING",
+  orderDeleted = "ORDER_DELETED",
 }
