@@ -4,7 +4,6 @@ import { FunctionComponent } from "react";
 const DOT702: FunctionComponent<ConfiguratorIconType> = ({
   settings,
 }: ConfiguratorIconType) => {
-  console.log(settings);
   return (
     <svg
       version="1.1"

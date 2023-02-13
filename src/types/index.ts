@@ -1,4 +1,5 @@
 import { ActionCreator, AnyAction } from "redux";
+import { ReactNode } from "react";
 
 export type HeaderType = {
   accentColor: {
@@ -6,6 +7,8 @@ export type HeaderType = {
     hover: string;
   };
   isNavbarNightMode: boolean;
+  children?: ReactNode;
+  isButtonVisible: boolean;
 };
 
 export type SidebarType = {
