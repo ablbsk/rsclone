@@ -26,7 +26,11 @@ const Dashboard: FunctionComponent = () => {
 
   return (
     <>
-      <Header accentColor={accentColor} isNavbarNightMode={isNavbarNightMode} />
+      <Header
+        accentColor={accentColor}
+        isNavbarNightMode={isNavbarNightMode}
+        isButtonVisible={true}
+      />
       <Profile
         accentColor={accentColor}
         isProfileShow={isProfileShow}

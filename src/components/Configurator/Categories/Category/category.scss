@@ -1,12 +1,22 @@
-@import "../../sass/variables";
-@import "../../sass/mixins";
+@import "../../../../sass/variables";
+@import "../../../../sass/mixins";
 
 .category__list_item {
-  width: 25%;
+  width: calc(33.3% - 15px);
+  padding: 15px;
+  background: $color-white1;
+  border-radius: 5px;
+  margin: 7px;
+
+
+  @include media-mobile {
+    padding: 0;
+    margin: 10px 10px;
+  }
 }
 
 .category-blok {
-  color: #fff;
+  color: $color-white1;
   display: block;
   text-decoration: none;
  
@@ -17,11 +27,15 @@
   height: auto;
 }
 
-
 .category-name {
-  background: #898989;
-  padding: 4px 70px;
+  color: $color-white1;
+  padding: 4px 10px;
   line-height: 1.5;
   border-radius: 5px;
   cursor: pointer;
+  border: none;
+
+  &:hover {
+   opacity: 0.8;
+  }
 }

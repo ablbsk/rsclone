@@ -7,12 +7,14 @@ const configurator = [
         image: "https://i.ibb.co/t2bhZVY/plains.jpg",
         id: 1,
         type: "plains",
+        price: "8",
       },
       {
         categoryName: "Узоры",
         image: "https://i.ibb.co/NCtWNn0/patterns.jpg",
         id: 2,
         type: "patterns",
+        price: "10",
         subCategories: [
           {
             name: "PTN 309",
@@ -49,6 +51,7 @@ const configurator = [
         image: "https://i.ibb.co/t4RqPjL/centered.jpg",
         id: 3,
         type: "centred",
+        price: "12",
         subCategories: [
           {
             name: "CENT 507",
@@ -96,6 +99,7 @@ const configurator = [
         image: "https://i.ibb.co/2vbQXvV/simple.jpg",
         id: 4,
         type: "simple",
+        price: "11",
         subCategories: [
           {
             name: "PLN 802",
@@ -135,6 +139,7 @@ const configurator = [
         image: "https://i.ibb.co/KG8Zfhm/tartan.jpg",
         id: 5,
         type: "tartan",
+        price: "20",
         subCategories: [
           {
             name: "Tartan 001",
@@ -178,6 +183,7 @@ const configurator = [
         image: "https://i.ibb.co/0Jtdxqs/polkadot.jpg",
         id: 6,
         type: "polkadot",
+        price: "14",
         subCategories: [
           {
             name: "DOT 701",
@@ -221,6 +227,7 @@ const configurator = [
         image: "https://i.ibb.co/rGPgqBx/stripedtieps.jpg",
         id: 7,
         type: "stripedtieps",
+        price: "25",
         subCategories: [
           {
             name: "STR 301",
@@ -311,12 +318,14 @@ const configurator = [
         image: "../../assets/jpg/plains.jpg",
         id: 111,
         type: "plains",
+        price: "8",
       },
       {
         categoryName: "Patterns",
         image: "../../assets/jpg/patterns.jpg",
         id: 222,
         type: "patterns",
+        price: "10",
         subCategories: [
           {
             name: "PTN 309",
@@ -353,6 +362,7 @@ const configurator = [
         image: "../../assets/jpg/centered.jpg",
         id: 333,
         type: "centred",
+        price: "12",
         subCategories: [
           {
             name: "CENT 507",
@@ -400,6 +410,7 @@ const configurator = [
         image: "../../assets/jpg/simple.jpg",
         id: 400,
         type: "simple",
+        price: "11",
         subCategories: [
           {
             name: "PLN 802",
@@ -439,6 +450,7 @@ const configurator = [
         image: "../../assets/jpg/tartan.jpg",
         id: 500,
         type: "tartan",
+        price: "20",
         subCategories: [
           {
             name: "Tartan 001",
@@ -482,6 +494,7 @@ const configurator = [
         image: "../../assets/jpg/polkadot.jpg",
         id: 600,
         type: "polkadot",
+        price: "14",
         subCategories: [
           {
             name: "DOT 701",
@@ -525,6 +538,7 @@ const configurator = [
         image: "../../assets/jpg/stripedtieps.jpg",
         id: 700,
         type: "stripedtieps",
+        price: "25",
         subCategories: [
           {
             name: "STR 301",

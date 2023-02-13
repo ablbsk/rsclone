@@ -11,10 +11,18 @@ import Accordion from "../../Accordion";
 import configuratorSettings from "../../../helpers/configuratorSettings";
 import iconMapping from "../../../helpers/iconMapping";
 import IconFactory from "../IconFactory";
+import configurator from "../../../data/configurator";
+import { IConfigurator } from "../../../interfaces/configurator";
+import { nightTheme } from "../../../data/constants";
+import { Link } from "react-router-dom";
 
 const View: FunctionComponent<ConfiguratorViewType> = ({
   type,
+  price,
+  accentColor,
+  isNavbarNightMode,
 }: ConfiguratorViewType) => {
+  const backgroundColor = nightTheme.background.element;
   const [settings, setSettings] = useState<IIconSetting>({
     weave: "",
     bgColor: "",
@@ -35,7 +43,7 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
   }, []);
 
   return (
-    <div className="container tie__container">
+    <div className="tie__container">
       <div className="plants__block-wrapper">
         <div className="preview-panel">
           <div className="image__wrapper">
@@ -46,11 +54,10 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
             />
           </div>
         </div>
+
         <div className="edit-panel">
-          <div className="title__edit-panel">
-            <ul className="title__edit-panel_list">
-              <li className="title-item">Color and Weave</li>
-            </ul>
+          <div className="edit-panel__title-wrapper">
+            <h3 className="title-item">Color and Weave</h3>
           </div>
           <div className="form-wrapper">
             {configuratorSettings(type).map((setting: IViewSetting) => {
@@ -126,9 +133,18 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
             })}
           </div>
           <div className="btn-next__wrapper">
-            <a href="" className="btn-link">
+            <p className="tie-price">Price: {price}$</p>
+            <Link
+              to=""
+              className="btn-link"
+              style={{
+                backgroundColor: isNavbarNightMode
+                  ? backgroundColor
+                  : accentColor.static,
+              }}
+            >
               Buy
-            </a>
+            </Link>
           </div>
         </div>
       </div>

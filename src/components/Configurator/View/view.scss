@@ -7,12 +7,18 @@
 }
 
 .plants__block-wrapper {
-  background: #e1e4e4;
+  background: $color-grey5;
   display: flex;
+  width: 100%;
+  background:$color-white1;
 }
 
 .preview-panel {
   width: 30%;
+
+  @include media-small-mobile {
+    width: 40%;
+  }
 }
 
 .image__wrapper {
@@ -25,23 +31,21 @@
   width: 70%;
   padding-top: 20px;
   padding-right: 40px;
-}
 
-.title__edit-panel_list {
-  list-style: none;
-  display: flex;
-  color: #959595;
-  border: none;
-  padding: 1px 0 8px 5px;
-  text-align: left;
-  margin: 0;
-  font-family: "Roboto",sans-serif;
-  font-size: 14px;
-  font-weight: bold;
+  @include media-small-mobile {
+    width: 60%;
+    padding-right: 10px;
+  }
 }
 
 .title-item {
-  padding-right: 10px;
+  color: $color-grey6;
+  font-family: $font-family-base;
+  font-size:$font-size-xlg;
+
+  @include media-small-mobile {
+    font-size: $font-size-llg;
+  }
 }
 
 .wizard__list {
@@ -51,14 +55,14 @@
 }
 
 .wizard-item__title {
-  color: #898989;
-  font-size: 22px;
+  color: $color-grey6;
+  font-size: $font-size-xlg;
   line-height: 33px;
-  font-weight: 300;
+  font-weight: $font-weight-light;
   text-transform: capitalize;
   background: none;
   padding: 10px 0 10px 5px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $color-grey6;
   margin: 0;
   cursor: pointer;
   margin-bottom: 15px;
@@ -69,8 +73,16 @@
     -webkit-transition: all .3s ease-in-out;
     float: right;
     cursor: pointer;
-    padding-left: 50px;
+    
+
+    @include media-small-mobile {
+    content: "";
+    } 
   }
+
+  @include media-small-mobile {
+    font-size: $font-size-llg;
+  }  
 }
 
 .form-color__wrapper {
@@ -78,9 +90,9 @@
 }
 
 .title-form {
-  font-family: "Roboto",sans-serif;
-  color: #898989;
-  font-size: 12px;
+  font-family: $font-family-base;
+  color: $color-grey6;
+  font-size: $font-size-xs;
   padding-bottom: 10px;
 }
 
@@ -108,29 +120,33 @@
 }
 
 .tile-picker {
-  border: none;
   height: 22px;
   width: 22px;
   margin: 0 0 4px 4px;
   border-radius: 5px;
   display: inline-block;
   cursor: pointer;
+  border: 1px solid $color-black1;
+
+  @include media-small-mobile {
+    width:19px;
+    width: 20px;
+    margin: 0 0 2px 2px;
+  }
 }
 
 .btn-next__wrapper {
-  font-family: "Roboto",sans-serif;
-  color: #898989;
+  font-family: $font-family-base;
   overflow: hidden;
   padding: 10px 0;
 }
 
 
 .btn-link {
-  background-color: #d5d4d4;
   float: right;
   width: 120px;
-  color: #877979;
-  border: 1px solid #ccc;
+  color: $color-white1;
+  border: 1px solid $color-grey4;
   font-size: 13px;
   font-weight: bold;
   text-transform: uppercase;
@@ -144,14 +160,19 @@
   -webkit-transition: all .3s ease-in-out;
 
   &:hover {
-    background-color:#000000;
-    color: #ffffff
-
+    color: $color-white1;
+    opacity: 0.8;
   }
 }
 
 .active {
   display: block;
+}
+
+.active-btn {
+  &::after {
+    content: url(https://api.kitbuilder.co.uk/client/css-tiecreators/green-bullet.png);
+  }
 }
 
 .weave-list-wrapper {
@@ -162,8 +183,15 @@
   list-style: none;
   display: flex;
   padding: 0;
+
+  @include media-small-tablet {
+    flex-direction: column;
+  }
 }
 
+.weave-list__item {
+  padding-bottom: 5px;
+}
 
 .weave__label {
   overflow: visible;
@@ -176,21 +204,29 @@
 }
 
 .weave-span {
-  border-color: #999;
   height: 128px;
   width: 128px;
   cursor: pointer;
   float: left;
   margin: 0 0 4px 4px;
   position: relative;
-  border: solid 1px #ccc;
+  border: solid 1px $color-grey5;
 
+  @include media-small-tablet {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+.weave-img {
+  height: 100%;
+  width: 100%;
 }
 
 .selected {
   // content: url(https://api.kitbuilder.co.uk/client/css/skin/tick.png); //нужно
   position: absolute;
-  right: -6px;
-  top: -8px;
-  border: 1px solid rgb(227, 16, 16);
+  right: -2px;
+  top: -4px;
+  border: 1px solid $color-red1;
 }
