@@ -20,36 +20,6 @@
     }
 
     @include media-small-mobile {
-        width: 360px;
+        width: 350px;
     }
 }
-
-// .users__header {
-//     margin-bottom: 20px;
-// }
-
-// .users__header-button {
-//     margin-top: 30px;
-//     margin-bottom: 15px;
-//     width: 110px;
-//     height: 45px;
-//     color: $font-color-white;
-//     border: none;
-//     border-radius: 5px;
-//     background-color: $color-accent;
-//     font-size: 20px;
-//     cursor: pointer;
-
-//     &_active {
-//        background-color: $color-accent-hover; 
-//     }
-
-//     &:first-child {
-//         margin-right: 20px;
-//     }
-
-//     &:hover,
-//     &:active {
-//         background-color: $color-accent-hover;
-//     }
-// }

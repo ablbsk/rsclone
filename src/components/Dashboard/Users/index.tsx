@@ -13,6 +13,7 @@ import { IUsersReducer } from "../../../interfaces/usersReducer";
 import { lightTheme, nightTheme } from "../../../data/constants";
 import UsersList from "./UsersList";
 import Spinner from "../../Spinner";
+import ErrorMessage from "../../ErrorMessage";
 import Hover from "../../Hover";
 
 import "./users.scss";
@@ -92,6 +93,7 @@ const Users: FunctionComponent = () => {
       {usersLoadingStatus === "idle" ? (
         <UsersList users={users} activeButton={activeButton} />
       ) : null}
+      {usersLoadingStatus === "error" ? <ErrorMessage /> : null}
     </div>
   );
 };

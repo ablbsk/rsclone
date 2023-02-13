@@ -1,4 +1,4 @@
-import { FunctionComponent, useState, useEffect } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getOrders } from "../../../services/apiOrders";
@@ -13,7 +13,7 @@ import { IOrdersReducer } from "../../../interfaces/ordersReducer";
 import { lightTheme, nightTheme } from "../../../data/constants";
 import OrdersList from "./OrdersList";
 import Spinner from "../../Spinner";
-// import Hover from "../../Hover";
+import ErrorMessage from "../../ErrorMessage";
 
 import "./orders.scss";
 
@@ -23,7 +23,7 @@ const Orders: FunctionComponent = () => {
   );
   const { ordersLoadingStatus, orders } = ordersStore;
   const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
-  const { accentColor, isNightMode } = appInterfaceStore;
+  const { isNightMode } = appInterfaceStore;
 
   const backgroundColor = isNightMode
     ? nightTheme.background.element
@@ -35,10 +35,9 @@ const Orders: FunctionComponent = () => {
     try {
       dispatch(ordersFetching());
       const orders = await getOrders();
-      console.log(orders);
       dispatch(ordersFetched(orders));
     } catch {
-      //dispatch(ordersFetchingError());
+      dispatch(ordersFetchingError());
     }
   };
 
@@ -46,19 +45,13 @@ const Orders: FunctionComponent = () => {
     getOrdersList();
   }, []);
 
-  //   const toggleHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-  //     const id = e.currentTarget.dataset.id;
-  //     if (typeof id === "string") {
-  //       setActiveButton(id);
-  //     }
-  //   };
-
   const spinner = ordersLoadingStatus === "loading" ? <Spinner /> : null;
 
   return (
     <div className="orders__wrapper" style={{ backgroundColor }}>
       {spinner}
       {ordersLoadingStatus === "idle" ? <OrdersList orders={orders} /> : null}
+      {ordersLoadingStatus === "error" ? <ErrorMessage /> : null}
     </div>
   );
 };

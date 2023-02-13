@@ -10,16 +10,16 @@
 
 .users-list__item {
     width: 100%;
+
     table {
         width: 100%;
 
         th {
             height: 35px;
             vertical-align: middle;
-            // &:nth-child(5) {
-            //     width: 100px;
-            // }
+
             @include media-small-mobile {
+
                 &:nth-child(2) {
                     width: 190px;
                 }
@@ -37,11 +37,11 @@
 
 .image-column {
     width: 50px;
+
     @include media-small-mobile {
         width: 30px; 
     }
 }
-
 
 .table-header {
     height: 50px;
@@ -69,4 +69,3 @@
         cursor: pointer;
     }
 }
-

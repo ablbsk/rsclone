@@ -1,5 +1,5 @@
-import { FunctionComponent, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { FunctionComponent } from "react";
+import { useDispatch } from "react-redux";
 
 import {
   deleteOrder,
@@ -12,28 +12,12 @@ import {
   ordersFetched,
   ordersFetchingError,
 } from "../../../../actions";
-import { lightTheme, nightTheme } from "../../../../data/constants";
-import { IStore } from "../../../../interfaces/store";
-// import { IAuthReducer } from "../../../../interfaces/authReducer";
 import { IOrdersListComponent } from "../../../../interfaces/ordersListComponent";
-//import { IOrder } from "../../../../interfaces/order";
 import OrdersListItem from "../OrdersListItem";
 
 import "./ordersList.scss";
 
 const OrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
-  const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
-  const { isNightMode } = appInterfaceStore;
-
-  // const [selectedValue, setSelectedValue] = useState('EMPTY');
-
-  //   const authStore = useSelector((state: IAuthReducer) => state.auth);
-  //   const { user } = authStore;
-
-  const backgroundColor = isNightMode
-    ? nightTheme.background.element
-    : lightTheme.background.element;
-
   const dispatch = useDispatch();
 
   const deleteItem = async (id: string) => {

@@ -10,6 +10,7 @@
 
 .orders-list__item {
     width: 100%;
+
     table {
         width: 100%;
 
@@ -22,45 +23,44 @@
             }
 
             @include media-mobile {
+
                 &:nth-child(2) {
                     display: none;
                 }
+
                 &:nth-child(3) {
                     width: 40px;
                 }
             }
 
-            // @include media-small-mobile {
-            //     &:nth-child(2) {
-            //         width: 190px;
-            //     }
-            //     &:nth-child(3) {
-            //         display: none;
-            //     }
+            @include media-small-mobile {
+                
+            &:first-child {
+                width: 20px;
+            }
+                &:nth-child(3) {
+                    display: none;
+                }
 
-            // }
+            }
         }
         tr {
             vertical-align: middle;
         }
     }
 }
-.sel {
-    font-size: 18px;
+
+.select {
+
+    @include media-mobile {
+        max-width: 120px;    
+    }  
+
+    @include media-small-mobile {
+        max-width: 80px;    
+    }  
+    
 }
-
-// .image-column {
-//     width: 50px;
-//     @include media-small-mobile {
-//         width: 30px; 
-//     }
-// }
-
-
-// .table-header {
-//     height: 50px;
-//     font-size: 22px;
-// }
 
 .icon {
     background-image: url("../../../../assets/images/png/icon-1.png");
@@ -81,11 +81,3 @@
     cursor: pointer;
     border-radius: 5px;
 }
-
-// .table-promotion {
-
-//     button {
-//         cursor: pointer;
-//     }
-// }
-
