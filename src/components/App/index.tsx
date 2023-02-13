@@ -19,7 +19,7 @@ const App: FunctionComponent = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/configurator" element={<Configurator />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/*" element={<Dashboard />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
       </Routes>

@@ -1,5 +1,7 @@
 import { ActionTypes } from "../interfaces/store";
 import { ILogin } from "../interfaces/login";
+import { IUser } from "../interfaces/user";
+import { IOrder } from "../interfaces/order";
 
 export const updateFixedSidebar = (isSidebarFixed: boolean) => ({
   type: ActionTypes.updateFixedSidebar,
@@ -43,3 +45,55 @@ export const authorization = (user: ILogin, isLogin: boolean) => ({
   type: ActionTypes.authorization,
   payload: { user, isLogin },
 });
+
+export const usersFetching = () => {
+  return {
+    type: ActionTypes.usersFetching,
+  };
+};
+
+export const usersFetched = (users: IUser[]) => {
+  return {
+    type: ActionTypes.usersFetched,
+    payload: users,
+  };
+};
+
+export const usersFetchingError = () => {
+  return {
+    type: ActionTypes.usersFetchingError,
+  };
+};
+
+export const userDeleted = (id: string) => {
+  return {
+    type: ActionTypes.userDeleted,
+    payload: id,
+  };
+};
+
+export const ordersFetching = () => {
+  return {
+    type: ActionTypes.ordersFetching,
+  };
+};
+
+export const ordersFetched = (orders: IOrder[]) => {
+  return {
+    type: ActionTypes.ordersFetched,
+    payload: orders,
+  };
+};
+
+export const ordersFetchingError = () => {
+  return {
+    type: ActionTypes.ordersFetchingError,
+  };
+};
+
+export const orderDeleted = (id: string) => {
+  return {
+    type: ActionTypes.orderDeleted,
+    payload: id,
+  };
+};

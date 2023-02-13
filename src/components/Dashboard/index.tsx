@@ -1,4 +1,5 @@
 import "./dashboard.scss";
+import { Routes, Route } from "react-router-dom";
 import { FunctionComponent } from "react";
 import { useSelector } from "react-redux";
 import { IStore } from "../../interfaces/store";
@@ -7,6 +8,8 @@ import Sidebar from "../Sidebar";
 import Profile from "../Profile";
 import classNames from "classnames";
 import Index from "./Index/index";
+import Users from "./Users";
+import Orders from "./Orders";
 
 const Dashboard: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -49,10 +52,15 @@ const Dashboard: FunctionComponent = () => {
         })}
       >
         <div className="container">
-          <Index />
+          <Routes>
+            <Route path="" element={<Index />} />
+            <Route path="users" element={<Users />} />
+            <Route path="orders" element={<Orders />} />
+          </Routes>
         </div>
       </main>
     </>
   );
 };
+
 export default Dashboard;
