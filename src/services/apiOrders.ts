@@ -46,8 +46,25 @@ export const getOrdersByUserId = async (id: string): Promise<IOrder[]> => {
   }
 };
 
+export const getOrdersBySellerId = async (id: string): Promise<IOrder[]> => {
+  try {
+    const response: Response = await fetch(
+      `${_apiBase}/api/orders/seller/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+    const orders = await response.json();
+    return orders;
+  } catch (e) {
+    throw e;
+  }
+};
+
 export const createOrder = async (
-  body: Pick<IOrder, "userId" | "image" | "price">
+  body: Pick<IOrder, "userId" | "image" | "price" | "sellerId">
 ): Promise<IOrder> => {
   try {
     const response: Response = await fetch(`${_apiBase}/api/orders`, {
