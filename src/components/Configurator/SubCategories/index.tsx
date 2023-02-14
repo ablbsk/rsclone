@@ -4,6 +4,7 @@ import { ISubcategory } from "../../../interfaces/configurator";
 import { SubCategoriesType } from "../../../types/configurator";
 import View from "../View";
 import SubCategory from "./SubCategory";
+import subcategoriesLang from "../../../data/subcategories";
 
 const SubCategories: FunctionComponent<SubCategoriesType> = ({
   type,
@@ -12,35 +13,38 @@ const SubCategories: FunctionComponent<SubCategoriesType> = ({
   subCategories,
   accentColor,
   isNavbarNightMode,
-}: SubCategoriesType) => (
-  <div className="tie-category-wrapper">
-    <div className="subcategories-wrapper">
-      <h4 className="title-subcategories">
-        Tie Creators | Woven Ties | Select a Design
-      </h4>
-      {type && subCategories.length ? (
-        <ul className="images-list">
-          {subCategories.map((subCategory: ISubcategory) => (
-            <SubCategory
-              setType={setType}
-              subCategory={subCategory}
-              key={subCategory.id}
-              type={type}
-              accentColor={accentColor}
-              isNavbarNightMode={isNavbarNightMode}
-            />
-          ))}
-        </ul>
-      ) : (
-        <View
-          type={type}
-          price={price}
-          accentColor={accentColor}
-          isNavbarNightMode={isNavbarNightMode}
-        />
-      )}
+}: SubCategoriesType) => {
+  const lang = "ru";
+  const list = subcategoriesLang.find((c) => c.lang === lang)!;
+  return (
+    <div className="tie-category-wrapper">
+      <div className="subcategories-wrapper">
+        <h4 className="title-subcategories">
+          {list.data.titleTie} | {list.data.titleWoven} |{list.data.titleDesign}
+        </h4>
+        {type && subCategories.length ? (
+          <ul className="images-list">
+            {subCategories.map((subCategory: ISubcategory) => (
+              <SubCategory
+                setType={setType}
+                subCategory={subCategory}
+                key={subCategory.id}
+                type={type}
+                accentColor={accentColor}
+                isNavbarNightMode={isNavbarNightMode}
+              />
+            ))}
+          </ul>
+        ) : (
+          <View
+            type={type}
+            price={price}
+            accentColor={accentColor}
+            isNavbarNightMode={isNavbarNightMode}
+          />
+        )}
+      </div>
     </div>
-  </div>
-);
-
+  );
+};
 export default SubCategories;

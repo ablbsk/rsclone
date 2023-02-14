@@ -1,14 +1,18 @@
-import { FunctionComponent, useState, useEffect } from "react";
+import { FunctionComponent, useState } from "react";
+import { Link } from "react-router-dom";
+import classNames from "classnames";
+import { useSelector } from "react-redux";
+import "./configurator.scss";
 import configurator from "../../data/configurator";
 import Categories from "./Categories";
 import SubCategories from "./SubCategories";
 import { IStore } from "../../interfaces/store";
-import { useSelector } from "react-redux";
+import { nightTheme } from "../../data/constants";
 import View from "./View";
 import Header from "../Header";
 import Profile from "../Profile";
 import Footer from "../Footer";
-import "./configurator.scss";
+import navMenu from "../../data/navmenu";
 
 const Configurator: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -20,14 +24,17 @@ const Configurator: FunctionComponent = () => {
     isProfileShow,
     isNightMode,
   } = interfaceSettings;
+  const backgroundColor = nightTheme.background.element;
 
   const lang = "ru";
   const [type, setType] = useState<string>("");
-
+  const [open, setOpen] = useState(false);
   const tieList = configurator.find((c) => c.lang === lang)!;
   const typeCategory = tieList.data.find((tie) => tie.type === type)!;
   const subCategories = typeCategory?.subCategories;
   const hasSubCategories = !!typeCategory?.subCategories?.length;
+  const listNav = navMenu.find((c) => c.lang === lang)!;
+  const currentURL = window.location.pathname;
 
   return (
     <>
@@ -35,7 +42,35 @@ const Configurator: FunctionComponent = () => {
         accentColor={accentColor}
         isNavbarNightMode={isNavbarNightMode}
         isButtonVisible={false}
-      />
+      >
+        <div className="nav__hamburger_wrapper">
+          <span className="nav__hamburger" onClick={() => setOpen(!open)} />
+        </div>
+        <div
+          className={classNames("nav-sidebar", { sidebaropen: open })}
+          style={{
+            backgroundColor: isNavbarNightMode
+              ? backgroundColor
+              : accentColor.static,
+          }}
+        >
+          <div className="nav-sidebar-wrapper">
+            <ul className="list-nav-sidebar">
+              {listNav.data.map((item) => (
+                <li className="nav-sidebar-item" key={item.name}>
+                  {currentURL === item.path ? (
+                    <span className="active-link">{item.name}</span>
+                  ) : (
+                    <Link className="nav-sidebar-link" to={item.path}>
+                      {item.name}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Header>
       <Profile
         accentColor={accentColor}
         isProfileShow={isProfileShow}

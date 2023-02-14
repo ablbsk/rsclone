@@ -20,8 +20,8 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
           <g id="large_stripes_2">
             <path
               id="one_1_"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill={settings.colorOne}
               d="M267.353,1336.078l200.33-200.269
 			c-1.123-32.598-2.225-66.306-3.332-98.41l-248.588,247.076c16.092,16.094,26.549,26.557,49.399,49.41l1.809,1.809
@@ -29,40 +29,40 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
             ></path>
             <path
               id="two_1_"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill="#C40017"
               d="M205.548,1157.136L459.57,903.1
 			c-1.155-31.742-2.357-65.37-3.632-98.12l-246.734,246.732c-1.207,34.34-2.408,69.828-3.636,104.857L205.548,1157.136z"
             ></path>
             <path
               id="three_1_"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill="#C40017"
               d="M214.424,907.679l235.977-235.416
 			c-1.348-31.065-2.781-65.016-4.32-97.955L218.448,801.441c-1.408,35.387-2.732,71.506-4.005,105.727L214.424,907.679z"
             ></path>
             <path
               id="four_1_"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill="#C40017"
               d="M224.553,657.389l210.624-210.711
 			c-4.94-32.493-11.754-61.668-18.526-84.469L229.413,550.741c-1.72,36.201-3.32,71.832-4.82,105.747L224.553,657.389z"
             ></path>
             <path
               id="five_1_"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill="#C40017"
               d="M250.042,390.511l124.77-124.771
 			c-2.645-4.789-5.118-9.278-7.355-13.565h-60.543C292.35,280.08,267.877,316.371,250.042,390.511L250.042,390.511z"
             ></path>
             <path
               id="six_1_"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill="#C40017"
               d="M306.918,252.175
 			c-1.286-0.183-1.392-1.118-1.631-2.103c-8.066-33.132-22.499-48.872-41.541-97.843c4.785-2.88,10.327-6.021,15.095-8.602
@@ -72,8 +72,8 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
           <g id="large_stripes_1">
             <path
               id="one"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill={settings.bgColor}
               d="M342.107,1400.867l68.561-68.561l1.053-1.053
 			l26.125-26.127l0.735-0.734c7.596-7.6,15.068-15.08,24.236-24.248c0.296-0.295,0.577-0.572,0.851-0.838l4.463-4.465
@@ -82,8 +82,8 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
             ></path>
             <path
               id="two"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill="#004D9E"
               d="M216.866,1285.579l247.484-247.486
 			c-1.111-32.252-2.232-64.42-3.387-96.832L204.106,1198.12c-0.746,21.111-1.505,42.469-2.285,64.156
@@ -91,16 +91,16 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
             ></path>
             <path
               id="three"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill="#004D9E"
               d="M209.204,1052.712L455.938,805.98
 			c-1.224-31.417-2.514-63.436-3.897-96.325L212.913,948.784C211.647,983.544,210.423,1018.054,209.204,1052.712L209.204,1052.712z"
             ></path>
             <path
               id="four"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill="#004D9E"
               d="M218.448,802.941l227.633-227.632
 			c-0.426-9.099-0.858-18.279-1.301-27.542c-1.148-24.067-2.889-46.083-5.096-66.284L222.766,698.401
@@ -108,8 +108,8 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
             ></path>
             <path
               id="five"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill="#004D9E"
               d="M229.413,551.447l187.738-187.738
 			c-9.035-30.425-19.062-53.36-28.374-71.847L240.151,440.488c-4.857,30.448-8.585,65.834-10.563,107.279L229.413,551.447
@@ -117,8 +117,8 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
             ></path>
             <path
               id="six"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               fill="#004D9E"
               d="M372.409,238.368l-94.33-94.329
 			c20.146-10.908,40.059-19.148,59.109-24.706c8.223,2.398,16.606,5.298,25.099,8.694l41.327,41.326
@@ -127,8 +127,8 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
           </g>
           <path
             id="small_stripes"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorTwo}
             d="M266.97,1335.695l200.713-200.711
 		c0.443,12.844,0.89,25.754,1.342,38.746l-182.01,182.01C279.407,1348.132,272.363,1341.087,266.97,1335.695L266.97,1335.695z
@@ -151,7 +151,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="str326AOOmask_1_">
                 <use xlinkHref="#str326AOOmask" overflow="visible"></use>
               </clipPath>
-              <g id="str326AOO" clip-path="url(#str326AOOmask_1_)">
+              <g id="str326AOO" clipPath="url(#str326AOOmask_1_)">
                 <image
                   overflow="visible"
                   width="400"
@@ -369,7 +369,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
                   <clipPath id="ukmask_2_">
                     <use xlinkHref="#ukmask_1_" overflow="visible"></use>
                   </clipPath>
-                  <g clip-path="url(#ukmask_2_)">
+                  <g clipPath="url(#ukmask_2_)">
                     <image
                       overflow="visible"
                       width="400"
@@ -398,7 +398,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="str326AOTmask_1_">
                 <use xlinkHref="#str326AOTmask" overflow="visible"></use>
               </clipPath>
-              <g id="str326AOT" clip-path="url(#str326AOTmask_1_)">
+              <g id="str326AOT" clipPath="url(#str326AOTmask_1_)">
                 <image
                   overflow="visible"
                   width="400"
@@ -600,7 +600,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
                   <clipPath id="uk326mask_1_">
                     <use xlinkHref="#uk326mask" overflow="visible"></use>
                   </clipPath>
-                  <g clip-path="url(#uk326mask_1_)">
+                  <g clipPath="url(#uk326mask_1_)">
                     <image
                       overflow="visible"
                       width="400"
@@ -611,7 +611,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
                   </g>
                   <g
                     transform="matrix(1 0 0 1 -1.525879e-005 1.525879e-005)"
-                    clip-path="url(#uk326mask_1_)"
+                    clipPath="url(#uk326mask_1_)"
                   >
                     <image
                       overflow="visible"
@@ -647,7 +647,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               </clipPath>
               <g
                 transform="matrix(1 0 0 1 0 3.051758e-005)"
-                clip-path="url(#str326UKmask_2_)"
+                clipPath="url(#str326UKmask_2_)"
               >
                 <image
                   overflow="visible"
@@ -692,7 +692,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               </clipPath>
               <g
                 transform="matrix(1 0 0 1 1.525879e-005 0)"
-                clip-path="url(#str326Cmask_1_)"
+                clipPath="url(#str326Cmask_1_)"
               >
                 <image
                   overflow="visible"
@@ -730,7 +730,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="str326BRmask_1_">
                 <use xlinkHref="#str326BRmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#str326BRmask_1_)">
+              <g clipPath="url(#str326BRmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -758,12 +758,12 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               ></use>
             </clipPath>
 
-            <g clip-path="url(#textmask_1_)" fill="rgb(34, 34, 34);">
+            <g clipPath="url(#textmask_1_)" fill="rgb(34, 34, 34);">
               <text
                 id="tietext"
                 transform="matrix(1 0 0 1 337 700)   matrix(1,0,0,1,0,0) translate(0 0)"
-                text-anchor="middle"
-                font-size="40"
+                textAnchor="middle"
+                fontSize="40"
                 original-transform="matrix(1 0 0 1 337 700)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -775,12 +775,12 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmasktwo_1_">
               <use xlinkHref="#textmasktwo" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmasktwo_1_)">
+            <g clipPath="url(#textmasktwo_1_)">
               <text
                 id="tietexttwo"
                 transform="matrix(1 0 0 1 337 800)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 800)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -790,12 +790,12 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
                 <clipPath id="textmaskthree_1_">
                   <use xlinkHref="#textmaskthree" overflow="visible"></use>
                 </clipPath>
-                <g clip-path="url(#textmaskthree_1_)">
+                <g clipPath="url(#textmaskthree_1_)">
                   <text
                     id="tietextthree"
                     transform="matrix(1 0 0 1 337 900)   matrix(1,0,0,1,0,0) translate(0 0)"
-                    font-size="40"
-                    text-anchor="middle"
+                    fontSize="40"
+                    textAnchor="middle"
                     original-transform="matrix(1 0 0 1 337 900)"
                     fill="rgb(34, 34, 34);"
                   ></text>

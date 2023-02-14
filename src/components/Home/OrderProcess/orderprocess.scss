@@ -24,7 +24,7 @@
 
 .order-title {
   font-weight: 200;
-  color: color-grey9;
+  color: $color-grey9;
   font-size: 52px;
   padding-bottom: 15px;
 }
@@ -40,7 +40,6 @@
   font-family: $font-family-base;
   font-size: $font-size-llg;
 }
-
 
 .order-instruction-block {
   display: flex;
@@ -91,5 +90,24 @@
   background-image: url(https://cdn-bhllc.nitrocdn.com/tzrfwdCzhtOBUBnOQehAKoYljbaDwzgQ/assets/static/optimized/rev-c439613/wp-content/uploads/2019/11/0000176-finish.png);
 }
 
+.button-link-wrapper {
+  text-align: center;
+  padding-bottom: 20px;
+}
 
+.button-link {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.4s ease-in-out;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-family: $font-family-base;
+}
+
+.btn-video-link {
+  text-decoration: none;
+  color: $color-white1;
+}
 

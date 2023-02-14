@@ -99,7 +99,7 @@ const SRT301: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="str301AOOmask_1_">
                 <use xlinkHref="#str301AOOmask" overflow="visible"></use>
               </clipPath>
-              <g id="str301AOO" clip-path="url(#str301AOOmask_1_)">
+              <g id="str301AOO" clipPath="url(#str301AOOmask_1_)">
                 <image
                   overflow="visible"
                   width="400"
@@ -262,7 +262,7 @@ const SRT301: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="str301AOTmask_1_">
                 <use xlinkHref="#str301AOTmask" overflow="visible"></use>
               </clipPath>
-              <g id="str301AOT" clip-path="url(#str301AOTmask_1_)">
+              <g id="str301AOT" clipPath="url(#str301AOTmask_1_)">
                 <image
                   overflow="visible"
                   width="400"
@@ -455,7 +455,7 @@ const SRT301: FunctionComponent<ConfiguratorIconType> = ({
               </clipPath>
               <g
                 transform="matrix(1 0 0 1 0 3.051758e-005)"
-                clip-path="url(#str301UKmask_1_)"
+                clipPath="url(#str301UKmask_1_)"
               >
                 <image
                   overflow="visible"
@@ -490,7 +490,7 @@ const SRT301: FunctionComponent<ConfiguratorIconType> = ({
               </clipPath>
               <g
                 transform="matrix(1 0 0 1 1.525879e-005 0)"
-                clip-path="url(#str301Cmask_1_)"
+                clipPath="url(#str301Cmask_1_)"
               >
                 <image
                   overflow="visible"
@@ -526,7 +526,7 @@ const SRT301: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="str301BRmask_1_">
                 <use xlinkHref="#str301BRmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#str301BRmask_1_)">
+              <g clipPath="url(#str301BRmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -554,12 +554,12 @@ const SRT301: FunctionComponent<ConfiguratorIconType> = ({
               ></use>
             </clipPath>
 
-            <g clip-path="url(#textmask_1_)" fill="rgb(34, 34, 34);">
+            <g clipPath="url(#textmask_1_)" fill="rgb(34, 34, 34);">
               <text
                 id="tietext"
                 transform="matrix(1 0 0 1 337 700)   matrix(1,0,0,1,0,0) translate(0 0)"
-                text-anchor="middle"
-                font-size="40"
+                textAnchor="middle"
+                fontSize="40"
                 original-transform="matrix(1 0 0 1 337 700)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -571,12 +571,12 @@ const SRT301: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmasktwo_1_">
               <use xlinkHref="#textmasktwo" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmasktwo_1_)">
+            <g clipPath="url(#textmasktwo_1_)">
               <text
                 id="tietexttwo"
                 transform="matrix(1 0 0 1 337 800)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 800)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -586,12 +586,12 @@ const SRT301: FunctionComponent<ConfiguratorIconType> = ({
                 <clipPath id="textmaskthree_1_">
                   <use xlinkHref="#textmaskthree" overflow="visible"></use>
                 </clipPath>
-                <g clip-path="url(#textmaskthree_1_)">
+                <g clipPath="url(#textmaskthree_1_)">
                   <text
                     id="tietextthree"
                     transform="matrix(1 0 0 1 337 900)   matrix(1,0,0,1,0,0) translate(0 0)"
-                    font-size="40"
-                    text-anchor="middle"
+                    fontSize="40"
+                    textAnchor="middle"
                     original-transform="matrix(1 0 0 1 337 900)"
                     fill="rgb(34, 34, 34);"
                   ></text>

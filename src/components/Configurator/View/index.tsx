@@ -4,6 +4,7 @@ import "./view.scss";
 
 import colors from "../../../data/colors";
 import tieWeaves from "../../../data/tieWeaves";
+import Hover from "../../Hover";
 import { IIconSetting, IViewSetting } from "../../../interfaces/configurator";
 import { ConfiguratorViewType } from "../../../types/configurator";
 import getTieColor from "../../../helpers/getTieColor";
@@ -15,6 +16,7 @@ import configurator from "../../../data/configurator";
 import { IConfigurator } from "../../../interfaces/configurator";
 import { nightTheme } from "../../../data/constants";
 import { Link } from "react-router-dom";
+import plainsLang from "../../../data/plaints";
 
 const View: FunctionComponent<ConfiguratorViewType> = ({
   type,
@@ -22,6 +24,11 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
   accentColor,
   isNavbarNightMode,
 }: ConfiguratorViewType) => {
+  const lang = "ru";
+  // const [language, setLanguage] = useState<string>("");
+  const list = plainsLang.find((c) => c.lang === lang)!;
+  // const Title = List.data.find((tie) => tie.title === language)!;
+
   const backgroundColor = nightTheme.background.element;
   const [settings, setSettings] = useState<IIconSetting>({
     weave: "",
@@ -54,17 +61,19 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
             />
           </div>
         </div>
-
         <div className="edit-panel">
           <div className="edit-panel__title-wrapper">
-            <h3 className="title-item">Color and Weave</h3>
+            <h3 className="title-item">{list.data.title}</h3>
           </div>
           <div className="form-wrapper">
             {configuratorSettings(type).map((setting: IViewSetting) => {
               if (setting.type === "color") {
                 return (
-                  <Accordion title={setting.title} key={setting.title}>
-                    <div className="title-form">Apply Color</div>
+                  <Accordion
+                    title={setting.data[lang]}
+                    key={setting.data[lang]}
+                  >
+                    <div className="title-form">{list.data.titleform}</div>
                     <ul className="colors-list ">
                       {colors.map((elem) => (
                         <li className="colors-item" key={elem.name}>
@@ -96,9 +105,12 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
                 );
               } else {
                 return (
-                  <Accordion title={setting.title} key={setting.title}>
+                  <Accordion
+                    title={setting.data[lang]}
+                    key={setting.data[lang]}
+                  >
                     <div className="weave-form__wrapper">
-                      <div className="title-form">Apply Weave</div>
+                      <div className="title-form">{list.data.wizardform}</div>
                       <div className="weave-list-wrapper">
                         <ul className="weave-list">
                           {tieWeaves.map((tieWeave) => (
@@ -133,18 +145,22 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
             })}
           </div>
           <div className="btn-next__wrapper">
-            <p className="tie-price">Price: {price}$</p>
-            <Link
-              to=""
-              className="btn-link"
-              style={{
-                backgroundColor: isNavbarNightMode
-                  ? backgroundColor
-                  : accentColor.static,
-              }}
-            >
-              Buy
-            </Link>
+            <p className="tie-price">
+              {list.data.price}: {price}$
+            </p>
+            <Hover>
+              <Link
+                to=""
+                className="btn-link"
+                style={{
+                  backgroundColor: isNavbarNightMode
+                    ? backgroundColor
+                    : accentColor.static,
+                }}
+              >
+                {list.data.btn}
+              </Link>
+            </Hover>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import Dashboard from "../Dashboard";
 import SignUp from "../SignUp";
 import SignIn from "../SignIn";
 import Home from "../Home";
+import TieMarket from "../TieMarket";
 import { IStore } from "../../interfaces/store";
 import classNames from "classnames";
 import Configurator from "../Configurator";
@@ -19,6 +20,7 @@ const App: FunctionComponent = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/configurator" element={<Configurator />} />
+        <Route path="/tiemarket" element={<TieMarket />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
