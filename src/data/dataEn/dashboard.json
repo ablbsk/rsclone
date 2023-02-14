@@ -1,0 +1,30 @@
+{
+    "ordersTable": {
+        "date": "Date",
+        "price": "Price",
+        "status": "Status",
+        "apply": "Apply"
+    },
+    "select": {
+        "nonPaid": "NON-PAID",
+        "paid": "PAID",
+        "declined": "DECLINED",
+        "inProgress": "IN PROGRESS",
+        "finished": "FINISHED"
+    },
+    "buttonsUsersList": {
+        "users": "Users",
+        "sellers": "Sellers"
+    },
+    "usersTable": {
+        "email": "Email",
+        "id": "Id",
+        "promote": "Promote"
+    },
+    "menu": {
+        "dashboard": "Dashboard",
+        "calendar": "Calendar",
+        "orders": "Orders",
+        "users": "Users"
+    }    
+}

@@ -2,6 +2,7 @@ import { ActionTypes } from "../interfaces/store";
 import { ILogin } from "../interfaces/login";
 import { IUser } from "../interfaces/user";
 import { IOrder } from "../interfaces/order";
+import { ILang } from "../interfaces/lang";
 
 export const updateFixedSidebar = (isSidebarFixed: boolean) => ({
   type: ActionTypes.updateFixedSidebar,
@@ -95,5 +96,12 @@ export const orderDeleted = (id: string) => {
   return {
     type: ActionTypes.orderDeleted,
     payload: id,
+  };
+};
+
+export const changeLanguage = (lang: ILang) => {
+  return {
+    type: ActionTypes.changeLanguage,
+    payload: lang,
   };
 };
