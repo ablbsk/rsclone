@@ -78,7 +78,6 @@ export const deleteUser = async (id: string): Promise<boolean> => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    console.log(response.status);
     if (response.status === 200) {
       return true;
     } else {

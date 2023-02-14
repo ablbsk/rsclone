@@ -1,5 +1,6 @@
 import "./sidebar.scss";
 import { FunctionComponent } from "react";
+import { Link } from "react-router-dom";
 import { SidebarType } from "../../types";
 import classNames from "classnames";
 import { SidebarIcon } from "./SidebarIcon";
@@ -35,22 +36,28 @@ const Sidebar: FunctionComponent<SidebarType> = ({
     >
       <div className="sidebar__wrapper">
         <ul className="sidebar__list">
-          <li className="sidebar__item">
-            <SidebarIcon color={itemColor} type={"dashboard"} />
-            <span className="sidebar__name">Dashboard</span>
-          </li>
+          <Link className="header__link" to="">
+            <li className="sidebar__item">
+              <SidebarIcon color={itemColor} type={"dashboard"} />
+              <span className="sidebar__name">Dashboard</span>
+            </li>
+          </Link>
           <li className="sidebar__item">
             <SidebarIcon color={itemColor} type={"calendar"} />
             <span className="sidebar__name">Calendar</span>
           </li>
-          <li className="sidebar__item">
-            <SidebarIcon color={itemColor} type={"orders"} />
-            <span className="sidebar__name">Orders</span>
-          </li>
-          <li className="sidebar__item">
-            <SidebarIcon color={itemColor} type={"users"} />
-            <span className="sidebar__name">Users</span>
-          </li>
+          <Link className="header__link" to="orders">
+            <li className="sidebar__item">
+              <SidebarIcon color={itemColor} type={"orders"} />
+              <span className="sidebar__name">Orders</span>
+            </li>
+          </Link>
+          <Link className="header__link" to="users">
+            <li className="sidebar__item">
+              <SidebarIcon color={itemColor} type={"users"} />
+              <span className="sidebar__name">Users</span>
+            </li>
+          </Link>
         </ul>
       </div>
     </nav>
