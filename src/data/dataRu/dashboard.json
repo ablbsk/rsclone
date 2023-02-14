@@ -26,5 +26,16 @@
         "calendar": "Календарь",
         "orders": "Заказы",
         "users": "Пользователи"
-    }    
+    },
+    "profile": {
+        "profile": "Профиль",
+        "signOut": "Выйти",
+        "settings": "Настройки",
+        "nightMode": "Ночной режим",
+        "sidebarFixed": "Фиксированная панель",
+        "sidebarAccentMode": "Акцент на панели",
+        "navbarNightMode": "Ночной режим меню",
+        "changeAccentColor": "Сменить цвет акцента",
+        "reset": "Сбросить"
+    }      
 }    

@@ -26,5 +26,16 @@
         "calendar": "Calendar",
         "orders": "Orders",
         "users": "Users"
+    },
+    "profile": {
+        "profile": "Profile",
+        "signOut": "Sign out",
+        "settings": "Settings",
+        "nightMode": "Night mode",
+        "sidebarFixed": "Sidebar fixed",
+        "sidebarAccentMode": "Sidebar accent mode",
+        "navbarNightMode": "Navbar night mode",
+        "changeAccentColor": "Change accent color",
+        "reset": "Reset to default"
     }    
 }
