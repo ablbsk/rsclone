@@ -1,12 +1,16 @@
 import "./header.scss";
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import flagUS from "../../assets/images/jpg/flag-us.jpg";
 import flagRU from "../../assets/images/jpg/flag-ru.jpg";
 import { HeaderType } from "../../types";
 import { showSidebar, showProfile } from "../../actions";
 import { nightTheme } from "../../data/constants";
+
+import i18n from "../../i18n";
+import { ILangReducer } from "../../interfaces/langReducer";
+import { changeLanguage } from "../../actions";
 
 const Header: FunctionComponent<HeaderType> = ({
   accentColor,
@@ -16,7 +20,18 @@ const Header: FunctionComponent<HeaderType> = ({
 }: HeaderType) => {
   const dispatch = useDispatch();
   const backgroundColor = nightTheme.background.element;
-  const language = "en"; // TODO Temporary
+
+  const lang = useSelector((state: ILangReducer) => state.langReducer);
+
+  const handleLenguageChange = () => {
+    if (lang.lang === "en") {
+      i18n.changeLanguage("ru");
+      dispatch(changeLanguage({ lang: "ru" }));
+    } else if (lang.lang === "ru") {
+      i18n.changeLanguage("en");
+      dispatch(changeLanguage({ lang: "en" }));
+    }
+  };
 
   return (
     <header
@@ -42,13 +57,15 @@ const Header: FunctionComponent<HeaderType> = ({
           <ul className="header__list">
             <li className="header__item">
               <div className="language">
-                <img
-                  className="language__icon"
-                  src={language === "en" ? flagUS : flagRU}
-                  alt="Current language"
-                />
+                <button className="button__lang" onClick={handleLenguageChange}>
+                  <img
+                    className="language__icon"
+                    src={lang.lang === "en" ? flagUS : flagRU}
+                    alt="Current language"
+                  />
+                </button>
                 <span className="language__title">
-                  {language === "en" ? "en" : "ru"}
+                  {lang.lang === "en" ? "en" : "ru"}
                 </span>
               </div>
             </li>

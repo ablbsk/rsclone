@@ -1,5 +1,6 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import classNames from "classnames";
+import { useSelector } from "react-redux";
 import "./view.scss";
 
 import colors from "../../../data/colors";
@@ -17,6 +18,7 @@ import { IConfigurator } from "../../../interfaces/configurator";
 import { nightTheme } from "../../../data/constants";
 import { Link } from "react-router-dom";
 import plainsLang from "../../../data/plaints";
+import { ILangReducer } from "../../../interfaces/langReducer";
 
 const View: FunctionComponent<ConfiguratorViewType> = ({
   type,
@@ -24,7 +26,8 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
   accentColor,
   isNavbarNightMode,
 }: ConfiguratorViewType) => {
-  const lang = "ru";
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
+  const language: "ru" | "en" = lang as "ru" | "en";
   // const [language, setLanguage] = useState<string>("");
   const list = plainsLang.find((c) => c.lang === lang)!;
   // const Title = List.data.find((tie) => tie.title === language)!;
@@ -70,8 +73,8 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
               if (setting.type === "color") {
                 return (
                   <Accordion
-                    title={setting.data[lang]}
-                    key={setting.data[lang]}
+                    title={setting.data[language]}
+                    key={setting.data[language]}
                   >
                     <div className="title-form">{list.data.titleform}</div>
                     <ul className="colors-list ">
@@ -106,8 +109,8 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
               } else {
                 return (
                   <Accordion
-                    title={setting.data[lang]}
-                    key={setting.data[lang]}
+                    title={setting.data[language]}
+                    key={setting.data[language]}
                   >
                     <div className="weave-form__wrapper">
                       <div className="title-form">{list.data.wizardform}</div>

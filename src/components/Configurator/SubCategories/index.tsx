@@ -1,10 +1,12 @@
 import { FunctionComponent } from "react";
+import { useSelector } from "react-redux";
 import "./subcategories.scss";
 import { ISubcategory } from "../../../interfaces/configurator";
 import { SubCategoriesType } from "../../../types/configurator";
 import View from "../View";
 import SubCategory from "./SubCategory";
 import subcategoriesLang from "../../../data/subcategories";
+import { ILangReducer } from "../../../interfaces/langReducer";
 
 const SubCategories: FunctionComponent<SubCategoriesType> = ({
   type,
@@ -14,7 +16,7 @@ const SubCategories: FunctionComponent<SubCategoriesType> = ({
   accentColor,
   isNavbarNightMode,
 }: SubCategoriesType) => {
-  const lang = "ru";
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const list = subcategoriesLang.find((c) => c.lang === lang)!;
   return (
     <div className="tie-category-wrapper">

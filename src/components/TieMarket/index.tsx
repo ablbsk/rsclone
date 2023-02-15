@@ -22,6 +22,7 @@ import {
 } from "../../actions/tiemarket-actions/index";
 import { getTies } from "../../services/apiTies";
 import { ITiesReducer } from "../../interfaces/tieReducer";
+import { ILangReducer } from "../../interfaces/langReducer";
 
 const TieMarket: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -42,7 +43,7 @@ const TieMarket: FunctionComponent = () => {
   useOnClickOutside(popupRef, () => setOpenPopup(!openPopup), openPopup);
   useOnClickOutside(ref, () => setOpen(!open), open);
   const currentURL = window.location.pathname;
-  const lang = "en";
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const list = navMenu.find((c) => c.lang === lang)!;
   const listLang = tieMarketLang.find((c) => c.lang === lang)!;
 

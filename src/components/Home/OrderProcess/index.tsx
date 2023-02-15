@@ -1,16 +1,18 @@
 import { FunctionComponent } from "react";
+import { useSelector } from "react-redux";
 import "./orderprocess.scss";
 import orderprocess from "../../../data/orderprocess";
 import Hover from "../../Hover";
 import { Link } from "react-router-dom";
 import { nightTheme } from "../../../data/constants";
 import { OrderProcessType } from "../../../types/home";
+import { ILangReducer } from "../../../interfaces/langReducer";
 
 const OrderProcess: FunctionComponent<OrderProcessType> = ({
   accentColor,
   isNavbarNightMode,
 }: OrderProcessType) => {
-  const lang = "ru";
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const list = orderprocess.find((c) => c.lang === lang)!;
   const backgroundColor = nightTheme.background.element;
 
@@ -57,7 +59,11 @@ const OrderProcess: FunctionComponent<OrderProcessType> = ({
                 }}
               >
                 <Link className="btn-video-link" to="/cofigurator">
+<<<<<<< HEAD
                   {list.data.btn}
+=======
+                  {list.data.button}
+>>>>>>> d38781abb8a146210846349b13842786b0e046cb
                 </Link>
               </button>
             </Hover>

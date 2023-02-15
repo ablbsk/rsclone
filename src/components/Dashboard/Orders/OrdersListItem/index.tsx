@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { lightTheme, nightTheme } from "../../../../data/constants";
 import { IStore } from "../../../../interfaces/store";
 import { IOrdersListItem } from "@/src/interfaces/ordersListItem";
+import { useTranslation } from "react-i18next";
 
 const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
   item,
@@ -13,6 +14,8 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
 }) => {
   const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
   const { isNightMode } = appInterfaceStore;
+
+  const { t } = useTranslation("dashboard");
 
   const [selectedValue, setSelectedValue] = useState("EMPTY");
 
@@ -41,11 +44,11 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
             onChange={(e) => setSelectedValue(e.target.value)}
           >
             <option value="EMPTY" disabled hidden></option>
-            <option value="NON-PAID">NON-PAID</option>
-            <option value="PAID">PAID</option>
-            <option value="DECLINED">DECLINED</option>
-            <option value="IN-PROGRESS">IN PROGRESS</option>
-            <option value="FINISHED">FINISHED</option>
+            <option value="NON-PAID">{t("select.nonPaid")}</option>
+            <option value="PAID">{t("select.paid")}</option>
+            <option value="DECLINED">{t("select.declined")}</option>
+            <option value="IN-PROGRESS">{t("select.inProgress")}</option>
+            <option value="FINISHED">{t("select.finished")}</option>
           </select>
         </th>
         <th>
@@ -53,7 +56,7 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
             className="button-apply"
             onClick={() => updateItem(item._id, selectedValue)}
           >
-            Apply
+            {t("ordersTable.apply")}
           </button>
         </th>
       </tr>
