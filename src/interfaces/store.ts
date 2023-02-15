@@ -47,4 +47,5 @@ export enum ActionTypes {
   ordersFetched = "ORDERS_FETCHED",
   ordersFetchingError = "ORDERS_FETCHING",
   orderDeleted = "ORDER_DELETED",
+  changeLanguage = "CHANGE_LANGUAGE",
 }

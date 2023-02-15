@@ -15,6 +15,7 @@ import UsersList from "./UsersList";
 import Spinner from "../../Spinner";
 import ErrorMessage from "../../ErrorMessage";
 import Hover from "../../Hover";
+import { useTranslation } from "react-i18next";
 
 import "./users.scss";
 
@@ -30,6 +31,8 @@ const Users: FunctionComponent = () => {
     : lightTheme.background.element;
 
   const dispatch = useDispatch();
+
+  const { t } = useTranslation("dashboard");
 
   const getUsersList = async (role: string) => {
     try {
@@ -69,7 +72,7 @@ const Users: FunctionComponent = () => {
               toggleHandler(e);
             }}
           >
-            Users
+            {t("buttonsUsersList.users")}
           </button>
         </Hover>
         <Hover>
@@ -84,7 +87,7 @@ const Users: FunctionComponent = () => {
               toggleHandler(e);
             }}
           >
-            Sellers
+            {t("buttonsUsersList.sellers")}
           </button>
         </Hover>
       </div>

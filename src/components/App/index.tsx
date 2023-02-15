@@ -21,7 +21,7 @@ const App: FunctionComponent = () => {
         <Route path="/" element={<Home />} />
         <Route path="/configurator" element={<Configurator />} />
         <Route path="/tiemarket" element={<TieMarket />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/*" element={<Dashboard />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
       </Routes>

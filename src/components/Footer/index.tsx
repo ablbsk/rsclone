@@ -1,16 +1,18 @@
 import { FunctionComponent } from "react";
+import { useSelector } from "react-redux";
 import "./footer.scss";
 import { FooterType } from "../../types/footer";
 import { nightTheme } from "../../data/constants";
 import { Link } from "react-router-dom";
 import footer from "../../data/footer";
+import { ILangReducer } from "../../interfaces/langReducer";
 
 const Footer: FunctionComponent<FooterType> = ({
   accentColor,
   isNavbarNightMode,
 }: FooterType) => {
   const backgroundColor = nightTheme.background.element;
-  const lang = "ru";
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const list = footer.find((c) => c.lang === lang)!;
 
   return (

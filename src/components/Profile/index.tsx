@@ -16,6 +16,7 @@ import {
   showProfile,
   resetInterfaceToDefault,
 } from "../../actions";
+import { useTranslation } from "react-i18next";
 
 const Profile: FunctionComponent<ProfileType> = ({
   accentColor,
@@ -33,13 +34,15 @@ const Profile: FunctionComponent<ProfileType> = ({
 
   useOnClickOutside(ref, () => dispatch(showProfile()), isProfileShow);
 
+  const { t } = useTranslation("dashboard");
+
   return (
     <div
       className={classNames("profile", { "profile--show": isProfileShow })}
       ref={ref}
     >
       <div className="profile__header">
-        <h2 className="profile__title">Profile</h2>
+        <h2 className="profile__title">{t("profile.profile")}</h2>
         <Hover>
           <button
             className="button profile__close"
@@ -55,14 +58,16 @@ const Profile: FunctionComponent<ProfileType> = ({
           <p className="profile__email">user_ok@gmail.com</p>
           <p className="profile__role">Admin</p>
           <Hover>
-            <button className="button profile__sign-out">Sign out</button>
+            <button className="button profile__sign-out">
+              {t("profile.signOut")}
+            </button>
           </Hover>
         </div>
         <div className="settings">
-          <h2 className="settings__title">Settings</h2>
+          <h2 className="settings__title">{t("profile.settings")}</h2>
           <ul className="settings__list">
             <li className="settings__item">
-              <span className="settings__name">Night mode</span>
+              <span className="settings__name">{t("profile.nightMode")}</span>
               <Switch
                 action={updateNightMode}
                 accentColor={accentColor}
@@ -71,7 +76,9 @@ const Profile: FunctionComponent<ProfileType> = ({
               />
             </li>
             <li className="settings__item">
-              <span className="settings__name">Sidebar fixed</span>
+              <span className="settings__name">
+                {t("profile.sidebarFixed")}
+              </span>
               <Switch
                 action={updateFixedSidebar}
                 accentColor={accentColor}
@@ -80,7 +87,9 @@ const Profile: FunctionComponent<ProfileType> = ({
               />
             </li>
             <li className="settings__item">
-              <span className="settings__name">Sidebar accent mode</span>
+              <span className="settings__name">
+                {t("profile.sidebarAccentMode")}
+              </span>
               <Switch
                 action={updateSidebarAccentMode}
                 accentColor={accentColor}
@@ -89,7 +98,9 @@ const Profile: FunctionComponent<ProfileType> = ({
               />
             </li>
             <li className="settings__item">
-              <span className="settings__name">Navbar night mode</span>
+              <span className="settings__name">
+                {t("profile.navbarNightMode")}
+              </span>
               <Switch
                 action={updateNavbarNightMode}
                 accentColor={accentColor}
@@ -99,7 +110,9 @@ const Profile: FunctionComponent<ProfileType> = ({
             </li>
           </ul>
           <div className="settings__colors">
-            <h4 className="settings__subtitle">Change accent color</h4>
+            <h4 className="settings__subtitle">
+              {t("profile.changeAccentColor")}
+            </h4>
             <ul className="settings__list settings__list--row">
               <li className="settings__item">
                 <span
@@ -132,7 +145,7 @@ const Profile: FunctionComponent<ProfileType> = ({
               className="button settings__button"
               onClick={() => dispatch(resetInterfaceToDefault())}
             >
-              Reset to default
+              {t("profile.reset")}
             </button>
           </Hover>
         </div>

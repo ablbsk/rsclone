@@ -14,11 +14,14 @@ import {
 } from "../../../../actions";
 import { IOrdersListComponent } from "../../../../interfaces/ordersListComponent";
 import OrdersListItem from "../OrdersListItem";
+import { useTranslation } from "react-i18next";
 
 import "./ordersList.scss";
 
 const OrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
   const dispatch = useDispatch();
+
+  const { t } = useTranslation("dashboard");
 
   const deleteItem = async (id: string) => {
     try {
@@ -51,9 +54,9 @@ const OrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
             <tbody>
               <tr className="table-header">
                 <th>#</th>
-                <th>Date</th>
-                <th>Price</th>
-                <th>Status</th>
+                <th>{t("ordersTable.date")}</th>
+                <th>{t("ordersTable.price")}</th>
+                <th>{t("ordersTable.status")}</th>
               </tr>
               {orders.map((item, i) => {
                 return (

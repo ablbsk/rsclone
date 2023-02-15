@@ -1,16 +1,19 @@
 import { FunctionComponent, useState } from "react";
+import { useSelector } from "react-redux";
 import "./infoblock.scss";
 import classNames from "classnames";
 import { nightTheme } from "../../../data/constants";
 import { InfoBlockType } from "../../../types/home";
 import infoSection from "../../../data/infoSection";
+import { ILangReducer } from "../../../interfaces/langReducer";
+
 const InfoBlock: FunctionComponent<InfoBlockType> = ({
   accentColor,
   isNavbarNightMode,
 }: InfoBlockType) => {
   const [tab, setTab] = useState<number>(1);
   const backgroundColor = nightTheme.background.element;
-  const lang = "ru";
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const list = infoSection.find((c) => c.lang === lang)!;
 
   return (
