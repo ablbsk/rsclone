@@ -5,12 +5,17 @@ import soundUrl from "../../../assets/mp3/Eric Clapton & B.B.King - Three O`Cloc
 import "./audioplayer.scss";
 
 const AudioPlayer = () => {
-  const [play, { stop }] = useSound(soundUrl, { volume: 0.5 });
+  const [play, { stop }] = useSound(soundUrl, { volume: 0.3 });
   const [on, setOn] = useState(false);
 
   const hand = (on: boolean) => {
-    setOn(on) === play();
-    setOn(!on) === stop();
+    if (on) {
+      stop();
+      setOn(false);
+    } else {
+      play();
+      setOn(true);
+    }
   };
 
   return (
@@ -21,8 +26,8 @@ const AudioPlayer = () => {
       onClick={() => hand(on)}
     >
       <div className="voice-btn">
-        <img className={classNames("volume-up", { none: on === false })} />
-        <img className={classNames("volume-mute", { none: on === true })} />
+        <div className={classNames("volume-up", { none: on === false })}></div>
+        <div className={classNames("volume-mute", { none: on === true })}></div>
       </div>
     </button>
   );

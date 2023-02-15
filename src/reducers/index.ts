@@ -3,6 +3,7 @@ import { appInterface } from "./appInterface";
 import { auth } from "./auth";
 import { usersReducer } from "./users";
 import { ordersReducer } from "./orders";
+import { tiesReducer } from "./ties";
 import { langReducer } from "./lang";
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   auth,
   usersReducer,
   ordersReducer,
+  tiesReducer,
   langReducer,
 });
 
