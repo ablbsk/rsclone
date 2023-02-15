@@ -57,7 +57,7 @@ const OrderProcess: FunctionComponent<OrderProcessType> = ({
                 }}
               >
                 <Link className="btn-video-link" to="/cofigurator">
-                  Go to Configurator
+                  {list.data.btn}
                 </Link>
               </button>
             </Hover>

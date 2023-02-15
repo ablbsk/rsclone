@@ -47,4 +47,8 @@ export enum ActionTypes {
   ordersFetched = "ORDERS_FETCHED",
   ordersFetchingError = "ORDERS_FETCHING",
   orderDeleted = "ORDER_DELETED",
+  tieFetching = "TIE_FETCHING",
+  tieFetched = "TIE_FETCHED",
+  tieFetchingError = "TIE_FETCHING",
+  tieDeleted = "ORDER_DELETED",
 }
