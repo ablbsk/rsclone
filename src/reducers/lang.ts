@@ -2,14 +2,10 @@ import { ActionTypes } from "../interfaces/store";
 import { AnyAction } from "redux";
 import { ILang } from "../interfaces/lang";
 
-// const initialState: ILang = {
-//   lang: localStorage.getItem("lang")
-//     ? JSON.parse(localStorage.getItem("lang")!).lang
-//     : "ru",
-// };
-
 const initialState: ILang = {
-  lang: "ru",
+  lang: localStorage.getItem("lang")
+    ? JSON.parse(localStorage.getItem("lang")!).lang
+    : "ru",
 };
 
 export const langReducer = (state: ILang = initialState, action: AnyAction) => {
