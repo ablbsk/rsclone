@@ -52,8 +52,8 @@ const DOT702: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_2_20_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorOne}
             d="M350.9,1392.176l-5.45,5.455
           c-2.051-0.451-3.585-2.277-3.585-4.465c0-2.523,2.048-4.57,4.572-4.57C348.622,1388.596,350.448,1390.127,350.9,1392.176z
@@ -1200,7 +1200,7 @@ const DOT702: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="dotmaskUK_1_">
                 <use xlinkHref="#dotmaskUK" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#dotmaskUK_1_)">
+              <g clipPath="url(#dotmaskUK_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -1236,7 +1236,7 @@ const DOT702: FunctionComponent<ConfiguratorIconType> = ({
               </clipPath>
               <g
                 transform="matrix(1 0 0 1 1.525879e-005 0)"
-                clip-path="url(#dotCmask_1_)"
+                clipPath="url(#dotCmask_1_)"
               >
                 <image
                   overflow="visible"
@@ -1268,7 +1268,7 @@ const DOT702: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="dotBRmask_1_">
                 <use xlinkHref="#dotBRmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#dotBRmask_1_)">
+              <g clipPath="url(#dotBRmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -1287,12 +1287,12 @@ const DOT702: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmask_1_">
               <use xlinkHref="#textmask" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmask_1_)">
+            <g clipPath="url(#textmask_1_)">
               <text
                 id="tietext"
                 transform="matrix(1 0 0 1 337 700)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 700)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -1304,12 +1304,12 @@ const DOT702: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmasktwo_1_">
               <use xlinkHref="#textmasktwo" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmasktwo_1_)">
+            <g clipPath="url(#textmasktwo_1_)">
               <text
                 id="tietexttwo"
                 transform="matrix(1 0 0 1 337 800)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 800)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -1319,12 +1319,12 @@ const DOT702: FunctionComponent<ConfiguratorIconType> = ({
                 <clipPath id="textmaskthree_1_">
                   <use xlinkHref="#textmaskthree" overflow="visible"></use>
                 </clipPath>
-                <g clip-path="url(#textmaskthree_1_)">
+                <g clipPath="url(#textmaskthree_1_)">
                   <text
                     id="tietextthree"
                     transform="matrix(1 0 0 1 337 900)   matrix(1,0,0,1,0,0) translate(0 0)"
-                    font-size="40"
-                    text-anchor="middle"
+                    fontSize="40"
+                    textAnchor="middle"
                     original-transform="matrix(1 0 0 1 337 900)"
                     fill="rgb(34, 34, 34);"
                   ></text>

@@ -1,5 +1,5 @@
 import "./header.scss";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import flagUS from "../../assets/images/jpg/flag-us.jpg";
@@ -35,7 +35,7 @@ const Header: FunctionComponent<HeaderType> = ({
               onClick={() => dispatch(showSidebar())}
             ></span>
           )}
-          <Link className="header__link" to="/dashboard">
+          <Link className="header__link" to="/">
             <span className="header__logo"></span>
           </Link>
           {children}

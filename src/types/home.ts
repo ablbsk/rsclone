@@ -22,3 +22,11 @@ export type InfoBlockType = {
   };
   isNavbarNightMode: boolean;
 };
+
+export type OrderProcessType = {
+  accentColor: {
+    static: string;
+    hover: string;
+  };
+  isNavbarNightMode: boolean;
+};

@@ -52,8 +52,8 @@ const Tartan001: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_2_28_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorOne}
             d="M360.888,252.782h2.694l-1.347-1.348
 			L360.888,252.782L360.888,252.782z M371.017,243.465c0.113-0.388,0.228-0.773,0.344-1.157l-0.75,0.751L371.017,243.465
@@ -97,8 +97,8 @@ const Tartan001: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_3_17_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorTwo}
             d="M264.187,154.027l-0.441-1.179
 			c3.516-2.117,7.027-4.139,10.536-6.095l96.735,96.765c-0.68,2.322-1.322,4.772-1.932,7.27c-0.24,0.983-0.346,2.212-1.63,2.212
@@ -146,8 +146,8 @@ const Tartan001: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_4_2_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorThree}
             d="M382.451,214.469l-36.001-36.003l39.302-39.301
 			c8.248,4.105,16.554,8.66,24.875,13.668C399.562,181.286,390.058,198.522,382.451,214.469z M371.358,242.319
@@ -216,7 +216,7 @@ const Tartan001: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="br1mask_1_">
                 <use xlinkHref="#br1mask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#br1mask_1_)">
+              <g clipPath="url(#br1mask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -243,12 +243,12 @@ const Tartan001: FunctionComponent<ConfiguratorIconType> = ({
                 fill="rgb(34, 34, 34);"
               ></use>
             </clipPath>
-            <g clip-path="url(#textmask_1_)" fill="rgb(34, 34, 34);">
+            <g clipPath="url(#textmask_1_)" fill="rgb(34, 34, 34);">
               <text
                 id="tietext"
                 transform="matrix(1 0 0 1 337 700)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 700)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -293,12 +293,12 @@ const Tartan001: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmasktwo_1_">
               <use xlinkHref="#textmasktwo" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmasktwo_1_)">
+            <g clipPath="url(#textmasktwo_1_)">
               <text
                 id="tietexttwo"
                 transform="matrix(1 0 0 1 337 800)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 800)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -308,12 +308,12 @@ const Tartan001: FunctionComponent<ConfiguratorIconType> = ({
                 <clipPath id="textmaskthree_1_">
                   <use xlinkHref="#textmaskthree" overflow="visible"></use>
                 </clipPath>
-                <g clip-path="url(#textmaskthree_1_)">
+                <g clipPath="url(#textmaskthree_1_)">
                   <text
                     id="tietextthree"
                     transform="matrix(1 0 0 1 337 900)   matrix(1,0,0,1,0,0) translate(0 0)"
-                    font-size="40"
-                    text-anchor="middle"
+                    fontSize="40"
+                    textAnchor="middle"
                     original-transform="matrix(1 0 0 1 337 900)"
                     fill="rgb(34, 34, 34);"
                   ></text>

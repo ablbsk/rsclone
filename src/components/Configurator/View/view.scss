@@ -101,7 +101,6 @@
   display: flex;
   flex-wrap: wrap;
   padding: 0;
-
 }
 
 .color-label {
@@ -141,23 +140,20 @@
   padding: 10px 0;
 }
 
-
 .btn-link {
   float: right;
   width: 120px;
+  padding: 10px 20px;
   color: $color-white1;
-  border: 1px solid $color-grey4;
-  font-size: 13px;
-  font-weight: bold;
-  text-transform: uppercase;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  padding: 6px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  text-transform: capitalize;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  -webkit-transition: all .3s ease-in-out;
+  transition: 0.4s ease-in-out;
+
 
   &:hover {
     color: $color-white1;

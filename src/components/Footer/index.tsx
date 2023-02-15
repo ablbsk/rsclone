@@ -3,12 +3,15 @@ import "./footer.scss";
 import { FooterType } from "../../types/footer";
 import { nightTheme } from "../../data/constants";
 import { Link } from "react-router-dom";
+import footer from "../../data/footer";
 
 const Footer: FunctionComponent<FooterType> = ({
   accentColor,
   isNavbarNightMode,
 }: FooterType) => {
   const backgroundColor = nightTheme.background.element;
+  const lang = "ru";
+  const list = footer.find((c) => c.lang === lang)!;
 
   return (
     <div
@@ -26,7 +29,7 @@ const Footer: FunctionComponent<FooterType> = ({
               <Link to={"/"}>
                 <span className="footer-logo"></span>
               </Link>
-              <p className="section__logo_text">Thank you for choosing us</p>
+              <p className="section__logo_text">{list.data.title}</p>
               <ul className="footer__section__list">
                 <li className="footer__list_item">
                   <Link className="item-link_sci" to=""></Link>
@@ -40,27 +43,27 @@ const Footer: FunctionComponent<FooterType> = ({
               </ul>
             </div>
             <div className="section__menu">
-              <h3 className="footer-title">Menu</h3>
+              <h3 className="footer-title">{list.data.menu}</h3>
               <ul className="footer__section__list">
                 <li className="footer__list_item">
                   <Link className="footer__list_item-link" to={"/"}>
-                    Home
+                    {list.data.home}
                   </Link>
                 </li>
                 <li className="footer__list_item">
                   <Link className="footer__list_item-link" to={"/configurator"}>
-                    Configurator
+                    {list.data.config}
                   </Link>
                 </li>
                 <li className="footer__list_item">
                   <Link className="footer__list_item-link" to={"/tiemarket"}>
-                    Tie Market
+                    {list.data.market}
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="section__contact">
-              <h3 className="footer-title">Contact us</h3>
+              <h3 className="footer-title">{list.data.contact}</h3>
               <ul className="footer__section__list">
                 <li className="footer__list_item">
                   <Link className="section__contact_link" to="">

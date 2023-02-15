@@ -15,7 +15,6 @@ const Category: FunctionComponent<CategoryType> = ({
     <li className="category__list_item">
       <div className="category-blok">
         <img className="category-img" src={tie.image} alt="img-ties" />
-
         <button
           style={{
             backgroundColor: isNavbarNightMode
