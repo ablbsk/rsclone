@@ -24,7 +24,6 @@ const Header: FunctionComponent<HeaderType> = ({
   const lang = useSelector((state: ILangReducer) => state.langReducer);
 
   const handleLenguageChange = () => {
-    console.log(lang.lang);
     if (lang.lang === "en") {
       i18n.changeLanguage("ru");
       dispatch(changeLanguage({ lang: "ru" }));
