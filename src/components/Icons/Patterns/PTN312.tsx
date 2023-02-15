@@ -52,8 +52,8 @@ const PTN312: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_2_35_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorOne}
             d="M342.142,1364.068
 			c1.411-0.771,2.866-0.885,2.923,0.375c0.205,4.566-5.209,1.475-10.549,1.77c-6.869,0.383-9.077,4.75-8.497,9.014
@@ -310,8 +310,8 @@ const PTN312: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_3_24_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorTwo}
             d="M343.916,1371.342
 			c-0.794,1.355-1.911,2.543-3.106,3.354c-2.086,1.418-4.705,2.201-7.225,1.787c-0.916-0.15-2.729-0.727-3.102-1.699
@@ -465,7 +465,7 @@ const PTN312: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="ptn312UKmask_1_">
                 <use xlinkHref="#ptn312UKmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#ptn312UKmask_1_)">
+              <g clipPath="url(#ptn312UKmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -506,7 +506,7 @@ const PTN312: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="ptn312Cmask_1_">
                 <use xlinkHref="#ptn312Cmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#ptn312Cmask_1_)">
+              <g clipPath="url(#ptn312Cmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -553,7 +553,7 @@ const PTN312: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="ptn312BRmask_1_">
                 <use xlinkHref="#ptn312BRmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#ptn312BRmask_1_)">
+              <g clipPath="url(#ptn312BRmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -605,12 +605,12 @@ const PTN312: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmask_1_">
               <use xlinkHref="#textmask" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmask_1_)">
+            <g clipPath="url(#textmask_1_)">
               <text
                 id="tietext"
                 transform="matrix(1 0 0 1 337 700)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 700)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -655,12 +655,12 @@ const PTN312: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmasktwo_1_">
               <use xlinkHref="#textmasktwo" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmasktwo_1_)">
+            <g clipPath="url(#textmasktwo_1_)">
               <text
                 id="tietexttwo"
                 transform="matrix(1 0 0 1 337 800)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 800)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -701,12 +701,12 @@ const PTN312: FunctionComponent<ConfiguratorIconType> = ({
                 <clipPath id="textmaskthree_1_">
                   <use xlinkHref="#textmaskthree" overflow="visible"></use>
                 </clipPath>
-                <g clip-path="url(#textmaskthree_1_)">
+                <g clipPath="url(#textmaskthree_1_)">
                   <text
                     id="tietextthree"
                     transform="matrix(1 0 0 1 337 900)   matrix(1,0,0,1,0,0) translate(0 0)"
-                    font-size="40"
-                    text-anchor="middle"
+                    fontSize="40"
+                    textAnchor="middle"
                     original-transform="matrix(1 0 0 1 337 900)"
                     fill="rgb(34, 34, 34);"
                   ></text>

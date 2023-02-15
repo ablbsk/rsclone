@@ -59,8 +59,8 @@ const CENT507: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_3_10_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorTwo}
             d="M405.102,166c-1.261,3-2.499,6-3.712,9
 			H273.177c-1.213-3-2.451-6-3.712-9H405.102z M287.906,205h98.753c1.362-2,2.774-5,4.235-8H283.671
@@ -69,8 +69,8 @@ const CENT507: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_4_1_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorThree}
             d="M410.727,152.249
 			c-0.942,2.423-1.874,4.751-2.793,6.751H266.631c-0.92-2-1.849-4.329-2.791-6.751c0.853-0.513,1.704-1.249,2.557-1.249h141.772
@@ -122,7 +122,7 @@ const CENT507: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="centUKmask_1_">
                 <use xlinkHref="#centUKmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#centUKmask_1_)">
+              <g clipPath="url(#centUKmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -179,7 +179,7 @@ const CENT507: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="centCmask_1_">
                 <use xlinkHref="#centCmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#centCmask_1_)">
+              <g clipPath="url(#centCmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -236,7 +236,7 @@ const CENT507: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="centBmask_1_">
                 <use xlinkHref="#centBmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#centBmask_1_)">
+              <g clipPath="url(#centBmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -263,12 +263,12 @@ const CENT507: FunctionComponent<ConfiguratorIconType> = ({
                 fill="rgb(34, 34, 34);"
               ></use>
             </clipPath>
-            <g clip-path="url(#textmask_1_)" fill="rgb(34, 34, 34);">
+            <g clipPath="url(#textmask_1_)" fill="rgb(34, 34, 34);">
               <text
                 id="tietext"
                 transform="matrix(1 0 0 1 337 700)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 700)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -313,12 +313,12 @@ const CENT507: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmasktwo_1_">
               <use xlinkHref="#textmasktwo" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmasktwo_1_)">
+            <g clipPath="url(#textmasktwo_1_)">
               <text
                 id="tietexttwo"
                 transform="matrix(1 0 0 1 337 800)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 800)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -359,12 +359,12 @@ const CENT507: FunctionComponent<ConfiguratorIconType> = ({
                 <clipPath id="textmaskthree_1_">
                   <use xlinkHref="#textmaskthree" overflow="visible"></use>
                 </clipPath>
-                <g clip-path="url(#textmaskthree_1_)">
+                <g clipPath="url(#textmaskthree_1_)">
                   <text
                     id="tietextthree"
                     transform="matrix(1 0 0 1 337 900)   matrix(1,0,0,1,0,0) translate(0 0)"
-                    font-size="40"
-                    text-anchor="middle"
+                    fontSize="40"
+                    textAnchor="middle"
                     original-transform="matrix(1 0 0 1 337 900)"
                     fill="rgb(34, 34, 34);"
                   ></text>

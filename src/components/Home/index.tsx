@@ -1,8 +1,8 @@
-import { FunctionComponent, useState, useRef } from "react";
+import { FunctionComponent, useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import { useClickAway } from "react-use";
+import { useLocation } from "react-router-dom";
 
 import "./home.scss";
 import { IStore } from "../../interfaces/store";
@@ -14,8 +14,13 @@ import AudioPlayer from "./AudioPlayer";
 import Footer from "../Footer";
 import Сarousel from "./Carousel";
 import OrderProcess from "./OrderProcess";
+import videoTie from "../../assets/video/videoTie.mp4";
+import useOnClickOutside from "../../hook/useOnClickOutside";
+import navMenu from "../../data/navmenu";
 
 const Home: FunctionComponent = () => {
+  const lang = "ru";
+  const list = navMenu.find((c) => c.lang === lang)!;
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
   const [open, setOpen] = useState(false);
   const {
@@ -28,11 +33,10 @@ const Home: FunctionComponent = () => {
   } = interfaceSettings;
   const backgroundColor = nightTheme.background.element;
 
-  const ref = useRef(null);
-  useClickAway(ref, () => {
-    setOpen(false);
-  });
+  const ref = useRef<HTMLDivElement>(null);
+  useOnClickOutside(ref, () => setOpen(!open), open);
 
+  const currentURL = window.location.pathname;
   return (
     <>
       <Header
@@ -40,32 +44,10 @@ const Home: FunctionComponent = () => {
         isNavbarNightMode={isNavbarNightMode}
         isButtonVisible={false}
       >
-        <nav className="nav-wrapper">
-          <div className="list-wrapper">
-            <ul className="list-nav">
-              <li className="nav-item">
-                <Link className="nav-link" to="">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/configurator">
-                  Configurator
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="">
-                  Tie Market
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <div className="nav__hamburger_wrapper">
+        <div className="nav__hamburger_wrapper" ref={ref}>
           <span className="nav__hamburger" onClick={() => setOpen(!open)} />
         </div>
         <div
-          ref={ref}
           className={classNames("nav-sidebar", { sidebaropen: open })}
           style={{
             backgroundColor: isNavbarNightMode
@@ -75,21 +57,17 @@ const Home: FunctionComponent = () => {
         >
           <div className="nav-sidebar-wrapper">
             <ul className="list-nav-sidebar">
-              <li className="nav-sidebar-item">
-                <Link className="nav-sidebar-link" to="">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-sidebar-item">
-                <Link className="nav-sidebar-link" to="/configurator">
-                  Configurator
-                </Link>
-              </li>
-              <li className="nav-sidebar-item">
-                <Link className="nav-sidebar-link" to="">
-                  Tie Market
-                </Link>
-              </li>
+              {list.data.map((item) => (
+                <li className="nav-sidebar-item" key={item.name}>
+                  {currentURL === item.path ? (
+                    <span className="active-link">{item.name}</span>
+                  ) : (
+                    <Link className="nav-sidebar-link" to={item.path}>
+                      {item.name}
+                    </Link>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -109,8 +87,15 @@ const Home: FunctionComponent = () => {
             <div className="row"></div>
           </div>
         </div>
-        <div className="video-block" />
-        <OrderProcess />
+        <div className="video-block">
+          <video id="background-video" className="videoTag" autoPlay loop muted>
+            <source src={videoTie} type="video/mp4" />
+          </video>
+        </div>
+        <OrderProcess
+          accentColor={accentColor}
+          isNavbarNightMode={isNavbarNightMode}
+        />
         <InfoBlock
           accentColor={accentColor}
           isNavbarNightMode={isNavbarNightMode}
@@ -128,4 +113,5 @@ const Home: FunctionComponent = () => {
     </>
   );
 };
+
 export default Home;

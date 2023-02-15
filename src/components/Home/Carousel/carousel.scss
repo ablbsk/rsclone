@@ -46,10 +46,6 @@
   margin: 0 auto;
   overflow: hidden;
   width: 100%;
-
-  @include media-small-mobile {
-    max-width: 300px;
-  }
 }
 
 .slideshowSlider {
@@ -73,7 +69,7 @@
   margin: 15px 7px 0px;
   background-color: $color-grey1;
   cursor: pointer;
-  z-index: 15;
+  z-index: 9;
 }
 
 
@@ -94,13 +90,12 @@
     margin: 0 25px 40px 25px;
   }
 
-
   @include media-mobile {
     margin: 0 0px 40px 35px;
   }
 
   @include media-small-mobile {
-    margin:0px 21px 40px 0px;
+    margin:0px 13px 40px 15px;
   }
 }
 
@@ -116,6 +111,11 @@
   padding-top: 10px;
 }
 
+.user-img-carousel {
+  width: 37px;
+  height: 37px;
+}
+
 .user-info {
   padding-left: 20px;
 }
@@ -128,27 +128,6 @@
 
 .name-user-job {
   font-family: $font-family-base;
-}
-
-.icon-one {
-  background-image: url(../../../assets/images/jpg/avarat1.jpg);
-  background-repeat: no-repeat;
-  width: 37px;
-  height: 37px;
-}
-
-.icon-two {
-  background-image: url(../../../assets/images/jpg/avatar10.jpg);
-  background-repeat: no-repeat;
-  width: 37px;
-  height: 37px;
-}
-
-.icon-tree {
-  background-image: url(../../../assets/images/jpg/avatar9.jpg);
-  background-repeat: no-repeat;
-  width: 37px;
-  height: 37px;
 }
 
 .testimonial-text {

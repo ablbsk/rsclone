@@ -2,6 +2,7 @@ import { FunctionComponent, useEffect, useState, useRef } from "react";
 import "./carousel.scss";
 import { СarouselType } from "../../../types/home";
 import { nightTheme } from "../../../data/constants";
+import carouselLang from "../../../data/carousel";
 
 const Сarousel: FunctionComponent<СarouselType> = ({
   accentColor,
@@ -35,15 +36,15 @@ const Сarousel: FunctionComponent<СarouselType> = ({
       resetTimeout();
     };
   }, [index]);
+  const lang = "ru";
+  const list = carouselLang.find((c) => c.lang === lang)!;
 
   return (
     <div className="section-testimonial">
       <div className="container">
         <div className="section-testimonial-title">
-          <span className="title-design">TESTIMONIALS</span>
-          <h2 className="testimonial-title">
-            +100500 Companies and People who have used TieConfigurator
-          </h2>
+          <span className="title-design">{list.title.littletitle}</span>
+          <h2 className="testimonial-title">{list.title.bigtitle}</h2>
         </div>
         <div className="carousel">
           <div className="slideshow">
@@ -52,62 +53,25 @@ const Сarousel: FunctionComponent<СarouselType> = ({
                 className=" slideshowSlider"
                 style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
               >
-                <div className="slide testimonial-item">
-                  <div className="testimonial-item__wrapper">
-                    <div className="user-wrapper">
-                      <div className="icon-one"></div>
-                      <div className="user-info">
-                        <p className="name-user">John Malcovich</p>
-                        <p className="name-user-job">Chimney Sweep On Call</p>
+                {list.data.map((item) => (
+                  <div className="slide testimonial-item" key={item.nameUser}>
+                    <div className="testimonial-item__wrapper">
+                      <div className="user-wrapper">
+                        <img
+                          className="user-img-carousel"
+                          src={item.image}
+                          alt=""
+                        />
+                        <div className="user-info">
+                          <p className="name-user">{item.nameUser}</p>
+                          <p className="name-user-job">{item.profUser}</p>
+                        </div>
                       </div>
+                      <p className="testimonial-text">{item.testimonials}</p>
                     </div>
-                    <p className="testimonial-text">
-                      Hi--The tie I just purchased is for a young friend's
-                      January birthday. The black tie I bought him last year
-                      with the musical notes was a first-rate home run, so I
-                      have every expectation that this year's blue tie with the
-                      la crosse pattern will be another smashing success!
-                    </p>
                   </div>
-                </div>
-                <div className="slide testimonial-item">
-                  <div className="testimonial-item__wrapper">
-                    <div className="user-wrapper">
-                      <div className="icon-two"></div>
-                      <div className="user-info">
-                        <p className="name-user">Lisa Jeffrey</p>
-                        <p className="name-user-job">Manager</p>
-                      </div>
-                    </div>
-                    <p className="testimonial-text">
-                      Thank you,TiesCreator.com,for being amazing!I placed my
-                      second order with this website for a tie for my BF to
-                      match my dress, and both have matched perfectly! This
-                      website has the best, most affordable, most diverse
-                      selection of ties with excellent customer service.
-                    </p>
-                  </div>
-                </div>
-                <div className="slide testimonial-item">
-                  <div className="testimonial-item__wrapper">
-                    <div className="user-wrapper">
-                      <div className="icon-tree"></div>
-                      <div className="user-info">
-                        <p className="name-user">Billy Bones</p>
-                        <p className="name-user-job">Donut Baker</p>
-                      </div>
-                    </div>
-                    <p className="testimonial-text">
-                      I love your company and love your great ties. The person
-                      on the phone was so helpful and courteous. The tie arrived
-                      so quickly and was wonderful. In this day and age, it's so
-                      nice to see such dedication and hard work to create and
-                      sustain a great company. Thanks!
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
-
               <div className="slideshowDots">
                 {testimonial.map((_, idx) => (
                   <div

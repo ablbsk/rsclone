@@ -4,14 +4,14 @@
 .category__list_item {
   width: calc(33.3% - 15px);
   padding: 15px;
-  background: $color-white1;
+  background: $color-grey-tie;
   border-radius: 5px;
   margin: 7px;
-
 
   @include media-mobile {
     padding: 0;
     margin: 10px 10px;
+    width: 65%;
   }
 }
 
@@ -19,7 +19,6 @@
   color: $color-white1;
   display: block;
   text-decoration: none;
- 
 }
 
 .category-img {

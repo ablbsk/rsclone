@@ -52,8 +52,8 @@ const CENT517: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_2_17_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorOne}
             d="M397.054,184c-0.442,1-0.883,2-1.318,3H380v-3
         H397.054z M340,187h34v-3h-34V187z M300,187h35v-3h-35V187z M279.058,187H295v-3h-17.261C278.182,185,278.622,186,279.058,187z
@@ -108,7 +108,7 @@ const CENT517: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="centUKmask_1_">
                 <use xlinkHref="#centUKmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#centUKmask_1_)">
+              <g clipPath="url(#centUKmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -165,7 +165,7 @@ const CENT517: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="centCmask_1_">
                 <use xlinkHref="#centCmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#centCmask_1_)">
+              <g clipPath="url(#centCmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -222,7 +222,7 @@ const CENT517: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="centBmask_1_">
                 <use xlinkHref="#centBmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#centBmask_1_)">
+              <g clipPath="url(#centBmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -283,12 +283,12 @@ const CENT517: FunctionComponent<ConfiguratorIconType> = ({
                 fill="rgb(34, 34, 34);"
               ></use>
             </clipPath>
-            <g clip-path="url(#textmask_1_)" fill="rgb(34, 34, 34);">
+            <g clipPath="url(#textmask_1_)" fill="rgb(34, 34, 34);">
               <text
                 id="tietext"
                 transform="matrix(1 0 0 1 337 700)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 700)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -333,12 +333,12 @@ const CENT517: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmasktwo_1_">
               <use xlinkHref="#textmasktwo" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmasktwo_1_)">
+            <g clipPath="url(#textmasktwo_1_)">
               <text
                 id="tietexttwo"
                 transform="matrix(1 0 0 1 337 800)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 800)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -379,12 +379,12 @@ const CENT517: FunctionComponent<ConfiguratorIconType> = ({
                 <clipPath id="textmaskthree_1_">
                   <use xlinkHref="#textmaskthree" overflow="visible"></use>
                 </clipPath>
-                <g clip-path="url(#textmaskthree_1_)">
+                <g clipPath="url(#textmaskthree_1_)">
                   <text
                     id="tietextthree"
                     transform="matrix(1 0 0 1 337 900)   matrix(1,0,0,1,0,0) translate(0 0)"
-                    font-size="40"
-                    text-anchor="middle"
+                    fontSize="40"
+                    textAnchor="middle"
                     original-transform="matrix(1 0 0 1 337 900)"
                     fill="rgb(34, 34, 34);"
                   ></text>

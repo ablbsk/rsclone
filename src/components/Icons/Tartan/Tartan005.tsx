@@ -52,8 +52,8 @@ const Tartan005: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_2_32_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorOne}
             d="M265.006,154.652
 			c-0.291-0.741-0.586-1.491-0.88-2.249c2.521-1.518,5.04-2.994,7.557-4.43L265.006,154.652L265.006,154.652z M309.068,130.54
@@ -84,8 +84,8 @@ const Tartan005: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_3_21_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorTwo}
             d="M402.549,147.461l-38.28,38.281
 			l-55.201-55.203l1.625-1.627c9.1-3.705,18.078-6.844,26.873-9.409C358.466,125.602,380.404,134.926,402.549,147.461
@@ -169,7 +169,7 @@ const Tartan005: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="br5mask_1_">
                 <use xlinkHref="#br5mask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#br5mask_1_)">
+              <g clipPath="url(#br5mask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -196,12 +196,12 @@ const Tartan005: FunctionComponent<ConfiguratorIconType> = ({
                 fill="rgb(34, 34, 34);"
               ></use>
             </clipPath>
-            <g clip-path="url(#textmask_1_)" fill="rgb(34, 34, 34);">
+            <g clipPath="url(#textmask_1_)" fill="rgb(34, 34, 34);">
               <text
                 id="tietext"
                 transform="matrix(1 0 0 1 337 700)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 700)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -246,12 +246,12 @@ const Tartan005: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmasktwo_1_">
               <use xlinkHref="#textmasktwo" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmasktwo_1_)">
+            <g clipPath="url(#textmasktwo_1_)">
               <text
                 id="tietexttwo"
                 transform="matrix(1 0 0 1 337 800)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 800)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -292,12 +292,12 @@ const Tartan005: FunctionComponent<ConfiguratorIconType> = ({
                 <clipPath id="textmaskthree_1_">
                   <use xlinkHref="#textmaskthree" overflow="visible"></use>
                 </clipPath>
-                <g clip-path="url(#textmaskthree_1_)">
+                <g clipPath="url(#textmaskthree_1_)">
                   <text
                     id="tietextthree"
                     transform="matrix(1 0 0 1 337 900)   matrix(1,0,0,1,0,0) translate(0 0)"
-                    font-size="40"
-                    text-anchor="middle"
+                    fontSize="40"
+                    textAnchor="middle"
                     original-transform="matrix(1 0 0 1 337 900)"
                     fill="rgb(34, 34, 34);"
                   ></text>

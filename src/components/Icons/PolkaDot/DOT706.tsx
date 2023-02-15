@@ -52,8 +52,8 @@ const DOT706: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_2_22_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorOne}
             d="M437.844,1227.685
           c11.669,11.668,11.669,30.596,0,42.266c-11.67,11.67-30.598,11.67-42.267,0c-11.67-11.668-11.669-30.596-0.001-42.266
@@ -73,8 +73,8 @@ const DOT706: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_3_13_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorTwo}
             d="M395.577,791.688
           c-11.67-11.67-11.67-30.598,0-42.267c11.67-11.669,30.598-11.669,42.267,0c11.669,11.669,11.67,30.598,0,42.267
@@ -113,7 +113,7 @@ const DOT706: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="dotmaskUK_1_">
                 <use xlinkHref="#dotmaskUK" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#dotmaskUK_1_)">
+              <g clipPath="url(#dotmaskUK_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -149,7 +149,7 @@ const DOT706: FunctionComponent<ConfiguratorIconType> = ({
               </clipPath>
               <g
                 transform="matrix(1 0 0 1 1.525879e-005 0)"
-                clip-path="url(#dotCmask_1_)"
+                clipPath="url(#dotCmask_1_)"
               >
                 <image
                   overflow="visible"
@@ -181,7 +181,7 @@ const DOT706: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="dotBRmask_1_">
                 <use xlinkHref="#dotBRmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#dotBRmask_1_)">
+              <g clipPath="url(#dotBRmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -200,12 +200,12 @@ const DOT706: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmask_1_">
               <use xlinkHref="#textmask" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmask_1_)">
+            <g clipPath="url(#textmask_1_)">
               <text
                 id="tietext"
                 transform="matrix(1 0 0 1 337 700)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 700)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -217,12 +217,12 @@ const DOT706: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmasktwo_1_">
               <use xlinkHref="#textmasktwo" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmasktwo_1_)">
+            <g clipPath="url(#textmasktwo_1_)">
               <text
                 id="tietexttwo"
                 transform="matrix(1 0 0 1 337 800)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 800)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -232,12 +232,12 @@ const DOT706: FunctionComponent<ConfiguratorIconType> = ({
                 <clipPath id="textmaskthree_1_">
                   <use xlinkHref="#textmaskthree" overflow="visible"></use>
                 </clipPath>
-                <g clip-path="url(#textmaskthree_1_)">
+                <g clipPath="url(#textmaskthree_1_)">
                   <text
                     id="tietextthree"
                     transform="matrix(1 0 0 1 337 900)   matrix(1,0,0,1,0,0) translate(0 0)"
-                    font-size="40"
-                    text-anchor="middle"
+                    fontSize="40"
+                    textAnchor="middle"
                     original-transform="matrix(1 0 0 1 337 900)"
                     fill="rgb(34, 34, 34);"
                   ></text>

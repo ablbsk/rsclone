@@ -26,7 +26,10 @@ export interface ISubcategory {
 export interface IViewSetting {
   type: string;
   name: string;
-  title: string;
+  data: {
+    en: string;
+    ru: string;
+  };
 }
 
 export interface IIconSetting {
