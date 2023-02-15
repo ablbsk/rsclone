@@ -13,6 +13,7 @@ import Header from "../Header";
 import Profile from "../Profile";
 import Footer from "../Footer";
 import navMenu from "../../data/navmenu";
+import { ILangReducer } from "../../interfaces/langReducer";
 
 const Configurator: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -26,7 +27,7 @@ const Configurator: FunctionComponent = () => {
   } = interfaceSettings;
   const backgroundColor = nightTheme.background.element;
 
-  const lang = "ru";
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const [type, setType] = useState<string>("");
   const [open, setOpen] = useState(false);
   const tieList = configurator.find((c) => c.lang === lang)!;

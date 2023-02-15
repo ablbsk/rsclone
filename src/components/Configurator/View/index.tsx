@@ -1,5 +1,6 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import classNames from "classnames";
+import { useSelector } from "react-redux";
 import "./view.scss";
 
 import colors from "../../../data/colors";
@@ -17,6 +18,7 @@ import { IConfigurator } from "../../../interfaces/configurator";
 import { nightTheme } from "../../../data/constants";
 import { Link } from "react-router-dom";
 import plainsLang from "../../../data/plaints";
+import { ILangReducer } from "../../../interfaces/langReducer";
 
 const View: FunctionComponent<ConfiguratorViewType> = ({
   type,
@@ -24,6 +26,7 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
   accentColor,
   isNavbarNightMode,
 }: ConfiguratorViewType) => {
+  //const {lang} = useSelector((state: ILangReducer) => state.langReducer);
   const lang = "ru";
   // const [language, setLanguage] = useState<string>("");
   const list = plainsLang.find((c) => c.lang === lang)!;

@@ -3,6 +3,8 @@ import "./carousel.scss";
 import { СarouselType } from "../../../types/home";
 import { nightTheme } from "../../../data/constants";
 import carouselLang from "../../../data/carousel";
+import { ILangReducer } from "../../../interfaces/langReducer";
+import { useSelector } from "react-redux";
 
 const Сarousel: FunctionComponent<СarouselType> = ({
   accentColor,
@@ -36,7 +38,7 @@ const Сarousel: FunctionComponent<СarouselType> = ({
       resetTimeout();
     };
   }, [index]);
-  const lang = "ru";
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const list = carouselLang.find((c) => c.lang === lang)!;
 
   return (

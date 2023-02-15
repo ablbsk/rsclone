@@ -17,9 +17,11 @@ import OrderProcess from "./OrderProcess";
 import videoTie from "../../assets/video/videoTie.mp4";
 import useOnClickOutside from "../../hook/useOnClickOutside";
 import navMenu from "../../data/navmenu";
+import { ILangReducer } from "../../interfaces/langReducer";
 
 const Home: FunctionComponent = () => {
-  const lang = "ru";
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
+
   const list = navMenu.find((c) => c.lang === lang)!;
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
   const [open, setOpen] = useState(false);

@@ -11,6 +11,7 @@ import Profile from "../Profile";
 import Footer from "../Footer";
 import useOnClickOutside from "../../hook/useOnClickOutside";
 import navMenu from "../../data/navmenu";
+import { ILangReducer } from "../../interfaces/langReducer";
 
 const TieMarket: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -27,7 +28,7 @@ const TieMarket: FunctionComponent = () => {
   const ref = useRef<HTMLDivElement>(null);
   useOnClickOutside(ref, () => setOpen(!open), open);
   const currentURL = window.location.pathname;
-  const lang = "ru";
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const list = navMenu.find((c) => c.lang === lang)!;
 
   return (
