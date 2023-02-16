@@ -1,5 +1,4 @@
 import { IUser } from "../interfaces/user";
-import { IResponce } from "../interfaces/responce";
 import { _apiBase } from "./apiBase";
 
 export const registration = async (
@@ -44,7 +43,7 @@ export const login = async (body: Pick<IUser, "email" | "password">) => {
       throw new Error(message);
     } else {
       const { user, token } = await response.json();
-      localStorage.setItem("token", JSON.stringify(token));
+      localStorage.setItem("token", token);
       return user;
     }
   } catch (e) {

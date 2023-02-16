@@ -1,9 +1,11 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import classNames from "classnames";
+import { useSelector } from "react-redux";
 import "./view.scss";
 
 import colors from "../../../data/colors";
 import tieWeaves from "../../../data/tieWeaves";
+import Hover from "../../Hover";
 import { IIconSetting, IViewSetting } from "../../../interfaces/configurator";
 import { ConfiguratorViewType } from "../../../types/configurator";
 import getTieColor from "../../../helpers/getTieColor";
@@ -11,10 +13,26 @@ import Accordion from "../../Accordion";
 import configuratorSettings from "../../../helpers/configuratorSettings";
 import iconMapping from "../../../helpers/iconMapping";
 import IconFactory from "../IconFactory";
+import configurator from "../../../data/configurator";
+import { IConfigurator } from "../../../interfaces/configurator";
+import { nightTheme } from "../../../data/constants";
+import { Link } from "react-router-dom";
+import plainsLang from "../../../data/plaints";
+import { ILangReducer } from "../../../interfaces/langReducer";
 
 const View: FunctionComponent<ConfiguratorViewType> = ({
   type,
+  price,
+  accentColor,
+  isNavbarNightMode,
 }: ConfiguratorViewType) => {
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
+  const language: "ru" | "en" = lang as "ru" | "en";
+  // const [language, setLanguage] = useState<string>("");
+  const list = plainsLang.find((c) => c.lang === lang)!;
+  // const Title = List.data.find((tie) => tie.title === language)!;
+
+  const backgroundColor = nightTheme.background.element;
   const [settings, setSettings] = useState<IIconSetting>({
     weave: "",
     bgColor: "",
@@ -35,7 +53,7 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
   }, []);
 
   return (
-    <div className="container tie__container">
+    <div className="tie__container">
       <div className="plants__block-wrapper">
         <div className="preview-panel">
           <div className="image__wrapper">
@@ -47,17 +65,18 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
           </div>
         </div>
         <div className="edit-panel">
-          <div className="title__edit-panel">
-            <ul className="title__edit-panel_list">
-              <li className="title-item">Color and Weave</li>
-            </ul>
+          <div className="edit-panel__title-wrapper">
+            <h3 className="title-item">{list.data.title}</h3>
           </div>
           <div className="form-wrapper">
             {configuratorSettings(type).map((setting: IViewSetting) => {
               if (setting.type === "color") {
                 return (
-                  <Accordion title={setting.title} key={setting.title}>
-                    <div className="title-form">Apply Color</div>
+                  <Accordion
+                    title={setting.data[language]}
+                    key={setting.data[language]}
+                  >
+                    <div className="title-form">{list.data.titleform}</div>
                     <ul className="colors-list ">
                       {colors.map((elem) => (
                         <li className="colors-item" key={elem.name}>
@@ -89,9 +108,12 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
                 );
               } else {
                 return (
-                  <Accordion title={setting.title} key={setting.title}>
+                  <Accordion
+                    title={setting.data[language]}
+                    key={setting.data[language]}
+                  >
                     <div className="weave-form__wrapper">
-                      <div className="title-form">Apply Weave</div>
+                      <div className="title-form">{list.data.wizardform}</div>
                       <div className="weave-list-wrapper">
                         <ul className="weave-list">
                           {tieWeaves.map((tieWeave) => (
@@ -126,9 +148,22 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
             })}
           </div>
           <div className="btn-next__wrapper">
-            <a href="" className="btn-link">
-              Buy
-            </a>
+            <p className="tie-price">
+              {list.data.price}: {price}$
+            </p>
+            <Hover>
+              <Link
+                to=""
+                className="btn-link"
+                style={{
+                  backgroundColor: isNavbarNightMode
+                    ? backgroundColor
+                    : accentColor.static,
+                }}
+              >
+                {list.data.btn}
+              </Link>
+            </Hover>
           </div>
         </div>
       </div>

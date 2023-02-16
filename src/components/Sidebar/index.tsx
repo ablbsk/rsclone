@@ -1,9 +1,11 @@
 import "./sidebar.scss";
 import { FunctionComponent } from "react";
+import { Link } from "react-router-dom";
 import { SidebarType } from "../../types";
 import classNames from "classnames";
 import { SidebarIcon } from "./SidebarIcon";
 import { lightTheme, nightTheme } from "../../data/constants";
+import { useTranslation } from "react-i18next";
 
 const Sidebar: FunctionComponent<SidebarType> = ({
   accentColor,
@@ -20,6 +22,8 @@ const Sidebar: FunctionComponent<SidebarType> = ({
     ? nightTheme.sidebarFontColor
     : accentColor.static;
 
+  const { t } = useTranslation("dashboard");
+
   return (
     <nav
       className={classNames(
@@ -35,22 +39,28 @@ const Sidebar: FunctionComponent<SidebarType> = ({
     >
       <div className="sidebar__wrapper">
         <ul className="sidebar__list">
-          <li className="sidebar__item">
-            <SidebarIcon color={itemColor} type={"dashboard"} />
-            <span className="sidebar__name">Dashboard</span>
-          </li>
+          <Link className="header__link" to="">
+            <li className="sidebar__item">
+              <SidebarIcon color={itemColor} type={"dashboard"} />
+              <span className="sidebar__name">{t("menu.dashboard")}</span>
+            </li>
+          </Link>
           <li className="sidebar__item">
             <SidebarIcon color={itemColor} type={"calendar"} />
-            <span className="sidebar__name">Calendar</span>
+            <span className="sidebar__name">{t("menu.calendar")}</span>
           </li>
-          <li className="sidebar__item">
-            <SidebarIcon color={itemColor} type={"orders"} />
-            <span className="sidebar__name">Orders</span>
-          </li>
-          <li className="sidebar__item">
-            <SidebarIcon color={itemColor} type={"users"} />
-            <span className="sidebar__name">Users</span>
-          </li>
+          <Link className="header__link" to="orders">
+            <li className="sidebar__item">
+              <SidebarIcon color={itemColor} type={"orders"} />
+              <span className="sidebar__name">{t("menu.orders")}</span>
+            </li>
+          </Link>
+          <Link className="header__link" to="users">
+            <li className="sidebar__item">
+              <SidebarIcon color={itemColor} type={"users"} />
+              <span className="sidebar__name">{t("menu.users")}</span>
+            </li>
+          </Link>
         </ul>
       </div>
     </nav>

@@ -3,19 +3,34 @@ import { AnyAction } from "redux";
 import { ILogin } from "../interfaces/login";
 
 const initialState: ILogin = {
-  user: { email: "", role: "" },
-  isLogin: false,
+  user: localStorage.getItem("login")
+    ? JSON.parse(localStorage.getItem("login")!).user
+    : { email: "", role: "" },
+  isLogin: localStorage.getItem("login")
+    ? JSON.parse(localStorage.getItem("login")!).isLogin
+    : false,
 };
 
 export const auth = (state: ILogin = initialState, action: AnyAction) => {
   switch (action.type) {
     case ActionTypes.authorization:
-      return {
+      state = {
         ...state,
         user: action.payload.user,
         isLogin: action.payload.isLogin,
       };
+      break;
+
     default:
       return state;
   }
+  setToLocalStorage(state);
+
+  return state;
+};
+
+const setToLocalStorage = (state: ILogin) => {
+  const newStorage = Object.assign({}, state) as ILogin;
+
+  localStorage.login = JSON.stringify(newStorage);
 };

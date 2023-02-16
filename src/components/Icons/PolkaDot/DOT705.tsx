@@ -4,7 +4,6 @@ import { FunctionComponent } from "react";
 const DOT705: FunctionComponent<ConfiguratorIconType> = ({
   settings,
 }: ConfiguratorIconType) => {
-  console.log(settings);
   return (
     <svg
       version="1.1"
@@ -53,8 +52,8 @@ const DOT705: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_2_21_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorOne}
             d="M346.604,1348.008
           c0,5.18-4.199,9.379-9.377,9.379c-5.179,0-9.378-4.199-9.378-9.379c0-5.178,4.199-9.377,9.378-9.377
@@ -161,7 +160,7 @@ const DOT705: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="dotmaskUK_1_">
                 <use xlinkHref="#dotmaskUK" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#dotmaskUK_1_)">
+              <g clipPath="url(#dotmaskUK_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -197,7 +196,7 @@ const DOT705: FunctionComponent<ConfiguratorIconType> = ({
               </clipPath>
               <g
                 transform="matrix(1 0 0 1 1.525879e-005 0)"
-                clip-path="url(#dotCmask_1_)"
+                clipPath="url(#dotCmask_1_)"
               >
                 <image
                   overflow="visible"
@@ -229,7 +228,7 @@ const DOT705: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="dotBRmask_1_">
                 <use xlinkHref="#dotBRmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#dotBRmask_1_)">
+              <g clipPath="url(#dotBRmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -248,12 +247,12 @@ const DOT705: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmask_1_">
               <use xlinkHref="#textmask" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmask_1_)">
+            <g clipPath="url(#textmask_1_)">
               <text
                 id="tietext"
                 transform="matrix(1 0 0 1 337 700)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 700)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -265,12 +264,12 @@ const DOT705: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmasktwo_1_">
               <use xlinkHref="#textmasktwo" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmasktwo_1_)">
+            <g clipPath="url(#textmasktwo_1_)">
               <text
                 id="tietexttwo"
                 transform="matrix(1 0 0 1 337 800)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 800)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -280,12 +279,12 @@ const DOT705: FunctionComponent<ConfiguratorIconType> = ({
                 <clipPath id="textmaskthree_1_">
                   <use xlinkHref="#textmaskthree" overflow="visible"></use>
                 </clipPath>
-                <g clip-path="url(#textmaskthree_1_)">
+                <g clipPath="url(#textmaskthree_1_)">
                   <text
                     id="tietextthree"
                     transform="matrix(1 0 0 1 337 900)   matrix(1,0,0,1,0,0) translate(0 0)"
-                    font-size="40"
-                    text-anchor="middle"
+                    fontSize="40"
+                    textAnchor="middle"
                     original-transform="matrix(1 0 0 1 337 900)"
                     fill="rgb(34, 34, 34);"
                   ></text>

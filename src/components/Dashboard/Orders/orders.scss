@@ -1,0 +1,25 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+
+.orders__wrapper > {
+    box-sizing: border-box;
+}
+
+.orders__wrapper {
+    width: 590px;
+    margin: 20px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $color-element-background-light;
+    padding: 0 0 10px 5px;
+    border-radius: 5px;
+
+    @include media-mobile {
+        width: 500px;
+    }
+
+    @include media-small-mobile {
+        width: 350px;
+    }
+}

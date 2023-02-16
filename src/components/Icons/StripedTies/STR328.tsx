@@ -4,7 +4,6 @@ import { ConfiguratorIconType } from "../../../types/configurator";
 const SRT328: FunctionComponent<ConfiguratorIconType> = ({
   settings,
 }: ConfiguratorIconType) => {
-  console.log(settings);
   return (
     <svg
       version="1.1"
@@ -53,8 +52,8 @@ const SRT328: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_2_7_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorOne}
             d="M470.361,1216.875l-161.197,161.197
 		l-12.025-12.028l172.405-172.404C469.813,1201.352,470.086,1209.096,470.361,1216.875z M462.447,988.27l-260.31,260.311
@@ -68,8 +67,8 @@ const SRT328: FunctionComponent<ConfiguratorIconType> = ({
           ></path>
           <path
             id="Colour_3_6_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill={settings.colorTwo}
             d="M469.544,1193.64l-172.405,172.404
 		l-12.025-12.026l183.62-183.621C469.002,1178.113,469.271,1185.861,469.544,1193.64z M461.633,965.033l-258.605,258.603
@@ -90,7 +89,7 @@ const SRT328: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="str328AOOmask_1_">
                 <use xlinkHref="#str328AOOmask" overflow="visible"></use>
               </clipPath>
-              <g id="str328AOO" clip-path="url(#str328AOOmask_1_)">
+              <g id="str328AOO" clipPath="url(#str328AOOmask_1_)">
                 <image
                   overflow="visible"
                   width="400"
@@ -214,7 +213,7 @@ const SRT328: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="str328AOTmask_1_">
                 <use xlinkHref="#str328AOTmask" overflow="visible"></use>
               </clipPath>
-              <g id="str328AOT" clip-path="url(#str328AOTmask_1_)">
+              <g id="str328AOT" clipPath="url(#str328AOTmask_1_)">
                 <image
                   overflow="visible"
                   width="400"
@@ -364,7 +363,7 @@ const SRT328: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="str328UKmask_1_">
                 <use xlinkHref="#str328UKmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#str328UKmask_1_)">
+              <g clipPath="url(#str328UKmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -398,7 +397,7 @@ const SRT328: FunctionComponent<ConfiguratorIconType> = ({
               </clipPath>
               <g
                 transform="matrix(1 0 0 1 1.525879e-005 0)"
-                clip-path="url(#str328Cmask_1_)"
+                clipPath="url(#str328Cmask_1_)"
               >
                 <image
                   overflow="visible"
@@ -434,7 +433,7 @@ const SRT328: FunctionComponent<ConfiguratorIconType> = ({
               <clipPath id="str328BRmask_1_">
                 <use xlinkHref="#str328BRmask" overflow="visible"></use>
               </clipPath>
-              <g clip-path="url(#str328BRmask_1_)">
+              <g clipPath="url(#str328BRmask_1_)">
                 <image
                   overflow="visible"
                   width="1569"
@@ -462,12 +461,12 @@ const SRT328: FunctionComponent<ConfiguratorIconType> = ({
               ></use>
             </clipPath>
 
-            <g clip-path="url(#textmask_1_)" fill="rgb(34, 34, 34);">
+            <g clipPath="url(#textmask_1_)" fill="rgb(34, 34, 34);">
               <text
                 id="tietext"
                 transform="matrix(1 0 0 1 337 700)   matrix(1,0,0,1,0,0) translate(0 0)"
-                text-anchor="middle"
-                font-size="40"
+                textAnchor="middle"
+                fontSize="40"
                 original-transform="matrix(1 0 0 1 337 700)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -479,12 +478,12 @@ const SRT328: FunctionComponent<ConfiguratorIconType> = ({
             <clipPath id="textmasktwo_1_">
               <use xlinkHref="#textmasktwo" overflow="visible"></use>
             </clipPath>
-            <g clip-path="url(#textmasktwo_1_)">
+            <g clipPath="url(#textmasktwo_1_)">
               <text
                 id="tietexttwo"
                 transform="matrix(1 0 0 1 337 800)   matrix(1,0,0,1,0,0) translate(0 0)"
-                font-size="40"
-                text-anchor="middle"
+                fontSize="40"
+                textAnchor="middle"
                 original-transform="matrix(1 0 0 1 337 800)"
                 fill="rgb(34, 34, 34);"
               ></text>
@@ -494,12 +493,12 @@ const SRT328: FunctionComponent<ConfiguratorIconType> = ({
                 <clipPath id="textmaskthree_1_">
                   <use xlinkHref="#textmaskthree" overflow="visible"></use>
                 </clipPath>
-                <g clip-path="url(#textmaskthree_1_)">
+                <g clipPath="url(#textmaskthree_1_)">
                   <text
                     id="tietextthree"
                     transform="matrix(1 0 0 1 337 900)   matrix(1,0,0,1,0,0) translate(0 0)"
-                    font-size="40"
-                    text-anchor="middle"
+                    fontSize="40"
+                    textAnchor="middle"
                     original-transform="matrix(1 0 0 1 337 900)"
                     fill="rgb(34, 34, 34);"
                   ></text>

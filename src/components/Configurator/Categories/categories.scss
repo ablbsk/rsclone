@@ -1,5 +1,5 @@
-@import "../../sass/variables";
-@import "../../sass/mixins";
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
 
 .category__list {
   list-style: none;
@@ -9,4 +9,9 @@
   justify-content: center;
   margin: 0;
   padding: 0;
+
+  @include media-small-mobile {
+    flex-direction: column;
+    align-items: center;
+  }    
 }

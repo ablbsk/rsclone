@@ -9,7 +9,10 @@ const Accordion: FunctionComponent<AccordionType> = ({
   const [active, setActive] = useState<boolean>(false);
   return (
     <>
-      <div className="wizard-item__title" onClick={() => setActive(!active)}>
+      <div
+        className={classNames("wizard-item__title", { "active-btn": active })}
+        onClick={() => setActive(!active)}
+      >
         {title}
       </div>
       <div

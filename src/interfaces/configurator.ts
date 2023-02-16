@@ -11,6 +11,7 @@ export interface ICategory {
   image: string;
   id: number;
   type: string;
+  price: string;
   subCategories?: ISubcategory[];
 }
 
@@ -19,12 +20,16 @@ export interface ISubcategory {
   image: string;
   type: string;
   id: number;
+  // tieprice: string;
 }
 
 export interface IViewSetting {
   type: string;
   name: string;
-  title: string;
+  data: {
+    en: string;
+    ru: string;
+  };
 }
 
 export interface IIconSetting {
