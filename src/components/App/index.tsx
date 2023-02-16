@@ -23,7 +23,7 @@ const App: FunctionComponent = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/configurator" element={<Configurator />} />
-        <Route path="/tiemarket" element={<TieMarket />} />
+        <Route path="/tie-market" element={<TieMarket />} />
         <Route path="/dashboard/*" element={<Dashboard />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />

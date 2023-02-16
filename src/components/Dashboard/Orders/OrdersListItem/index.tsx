@@ -15,7 +15,7 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
   const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
   const { isNightMode } = appInterfaceStore;
 
-  const { t } = useTranslation("dashboard");
+  const { t } = useTranslation("dataLang");
 
   const [selectedValue, setSelectedValue] = useState("EMPTY");
 

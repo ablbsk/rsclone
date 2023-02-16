@@ -21,7 +21,7 @@ import "./ordersList.scss";
 const OrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
   const dispatch = useDispatch();
 
-  const { t } = useTranslation("dashboard");
+  const { t } = useTranslation("dataLang");
 
   const deleteItem = async (id: string) => {
     try {
