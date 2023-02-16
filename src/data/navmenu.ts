@@ -12,7 +12,7 @@ const navMenu = [
       },
       {
         name: "Магазин",
-        path: "/tiemarket",
+        path: "/tie-market",
       },
     ],
   },

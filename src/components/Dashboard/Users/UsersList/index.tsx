@@ -36,7 +36,7 @@ const UsersList: FunctionComponent<IUsersListComponent> = ({
   const dispatch = useDispatch();
   const role = activeButton === "1" ? "USER" : "SELLER";
 
-  const { t } = useTranslation("dashboard");
+  const { t } = useTranslation("dataLang");
 
   const deleteItem = async (id: string) => {
     try {

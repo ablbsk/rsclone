@@ -5,7 +5,7 @@ import { ILogin } from "../interfaces/login";
 const initialState: ILogin = {
   user: localStorage.getItem("login")
     ? JSON.parse(localStorage.getItem("login")!).user
-    : { email: "", role: "" },
+    : {},
   isLogin: localStorage.getItem("login")
     ? JSON.parse(localStorage.getItem("login")!).isLogin
     : false,

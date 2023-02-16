@@ -2,12 +2,15 @@ import { FunctionComponent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 import { IUser } from "../../interfaces/user";
 import { login } from "../../services/apiAuth";
 import { authorization } from "../../actions";
+import { IStore } from "../../interfaces/store";
+import { nightTheme } from "../../data/constants";
 
 const FormSignIn: FunctionComponent = () => {
   const [error, setError] = useState<string>("");
@@ -19,24 +22,33 @@ const FormSignIn: FunctionComponent = () => {
     setTimeout(() => setError(""), 5000);
   }, [error]);
 
+  const { t } = useTranslation("dataLang");
+
   const click = async (body: Pick<IUser, "email" | "password">) => {
     try {
       const data = await login(body);
+      dispatch(authorization(data, true));
       if (data) {
-        dispatch(authorization(data, true));
-        setTimeout(() => navigate("/"), 3000);
+        if (data.role === "ADMIN" || data.role === "MANAGER") {
+          setTimeout(() => navigate("/dashboard"), 2000);
+        } else {
+          setTimeout(() => navigate("/"), 2000);
+        }
       }
     } catch (e) {
       setError(e as string);
     }
   };
 
+  const interfaceSettings = useSelector((state: IStore) => state.appInterface);
+
+  const { accentColor, isNavbarNightMode } = interfaceSettings;
+  const backgroundColor = nightTheme.background.element;
+
   return (
     <div className="sign__content">
-      <h2 className="sign__title">Sign In</h2>
-      <div className="sign__text">
-        To Keep connected with us please login with your personal info.
-      </div>
+      <h2 className="sign__title">{t("sign.signIn")}</h2>
+      <div className="sign__text">{t("sign.text-1")}</div>
       <Formik
         initialValues={{
           email: "",
@@ -72,16 +84,30 @@ const FormSignIn: FunctionComponent = () => {
             placeholder="Password"
           />
           <ErrorMessage className="error" name="password" component="div" />
-          <button className="sign__button" type="submit">
-            Sign In
+          <button
+            style={{
+              backgroundColor: isNavbarNightMode
+                ? backgroundColor
+                : accentColor.static,
+            }}
+            className="sign__button"
+            type="submit"
+          >
+            {t("sign.signIn")}
           </button>
           {error && <div className="error-tooltip">{error}</div>}
         </Form>
       </Formik>
       <div className="sign__text-link">
-        Create an Account{" "}
-        <Link className="text-link" to="/sign-up">
-          Sign Up
+        {t("sign.create")}{" "}
+        <Link
+          style={{
+            color: isNavbarNightMode ? backgroundColor : accentColor.static,
+          }}
+          className="text-link"
+          to="/sign-up"
+        >
+          {t("sign.signUp")}
         </Link>
       </div>
     </div>
