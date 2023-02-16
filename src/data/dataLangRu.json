@@ -7,10 +7,10 @@
     },
     "select": {
         "nonPaid": "НЕ ОПЛАЧЕНО",
-        "paid": "PAID",
-        "declined": "DECLINED",
-        "inProgress": "IN PROGRESS",
-        "finished": "FINISHED"
+        "paid": "ОПЛАЧЕНО",
+        "declined": "ОТМЕНЕНО",
+        "inProgress": "ВЫПОЛНЯЕТСЯ",
+        "finished": "ЗАВЕРШЕНО"
     },
     "buttonsUsersList": {
         "users": "Пользователи",
