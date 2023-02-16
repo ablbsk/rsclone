@@ -1,10 +1,10 @@
 import { FunctionComponent, useState, useRef, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 import FormSignIn from "../FormSignIn";
 
-import "./tiemarket.scss";
+import "./favouritetie.scss";
 import { IStore } from "../../interfaces/store";
 import { nightTheme } from "../../data/constants";
 import Header from "../Header";
@@ -13,19 +13,11 @@ import Footer from "../Footer";
 import useOnClickOutside from "../../hook/useOnClickOutside";
 import navMenu from "../../data/navmenu";
 import Hover from "../Hover";
-import tieMarketLang from "../../data/tieMarket";
-
-import {
-  tieFetching,
-  tieFetched,
-  tieFetchingError,
-} from "../../actions/tiemarket-actions/index";
-import { getTies } from "../../services/apiTies";
-import { ITiesReducer } from "../../interfaces/tieReducer";
+import favouriteTieLang from "../../data/favouritetie";
 import { ILangReducer } from "../../interfaces/langReducer";
 import { ITie } from "@/src/interfaces/tie";
 
-const TieMarket: FunctionComponent = () => {
+const FavoriteTie: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
   const {
     accentColor,
@@ -46,52 +38,23 @@ const TieMarket: FunctionComponent = () => {
   const currentURL = window.location.pathname;
   const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const list = navMenu.find((c) => c.lang === lang)!;
-  const listLang = tieMarketLang.find((c) => c.lang === lang)!;
+  const listLang = favouriteTieLang.find((c) => c.lang === lang)!;
 
-  const tiesStore = useSelector((state: ITiesReducer) => state.tiesReducer);
-  const { tieLoadingStatus, ties } = tiesStore;
+  const getfavouriteTie = localStorage.getItem("favouriteTie");
+  const favouriteTie = getfavouriteTie ? JSON.parse(getfavouriteTie) : [];
+  const [ties, setTies] = useState<ITie[]>(favouriteTie);
 
-  const dispatch = useDispatch();
+  console.log("ties2", ties);
 
-  const getTieList = async () => {
-    try {
-      dispatch(tieFetching());
-      const ties = await getTies();
-      dispatch(tieFetched(ties));
-    } catch {
-      dispatch(tieFetchingError());
-    }
+  const deleteTies = (id: string): void => {
+    const favTies = ties.filter((tie) => tie._id !== id);
+    setTies(favTies);
   };
-  useEffect(() => {
-    getTieList();
-  }, []);
 
-  const saved = localStorage.getItem("favouriteTie");
-  const initial = saved ? JSON.parse(saved) : [];
-  const [favouriteTies, setFavouriteTie] = useState<ITie[]>(initial);
-  console.log("initial", initial);
+  // useEffect(() => {
+  //   localStorage.removeItem("favouriteTie");
+  // }, []);
 
-  const addFavouriteTie = (tie: ITie): void => {
-    console.log("addFavouriteTie", tie);
-    const favourite = favouriteTies.filter(
-      (favouriteTie: ITie) => favouriteTie._id === tie._id
-    );
-    if (favourite.length > 0) {
-      setFavouriteTie(
-        favouriteTies.filter(
-          (favouriteTie: ITie) => favouriteTie._id !== tie._id
-        )
-      );
-    } else {
-      setFavouriteTie([...favouriteTies, tie]);
-    }
-  };
-  useEffect(() => {
-    localStorage.setItem("favouriteTie", JSON.stringify(favouriteTies));
-  }, [favouriteTies]);
-
-  console.log("favouriteTie", favouriteTies);
-  // localStorage.clear();
   return (
     <>
       <Header
@@ -142,9 +105,6 @@ const TieMarket: FunctionComponent = () => {
               <div className="market-block">
                 <div className="market-block__title_wrapper">
                   <h4 className="market-block__title">{listLang.data.title}</h4>
-                  <div className="link-link-block">
-                    <Link className="linkinlike" to={"/favourite-tie"}></Link>
-                  </div>
                 </div>
                 <div className="market-block__products">
                   <div className="row__products">
@@ -177,14 +137,8 @@ const TieMarket: FunctionComponent = () => {
                               </button>
                             </Hover>
                             <button
-                              className={classNames("btn__like", {
-                                nolike:
-                                  favouriteTies.filter(
-                                    (favouriteTie: ITie) =>
-                                      favouriteTie._id === tie._id
-                                  ).length !== 0,
-                              })}
-                              onClick={() => addFavouriteTie(tie)}
+                              className="btn__like"
+                              onClick={() => deleteTies(tie._id)}
                             ></button>
                           </div>
                         </div>
@@ -209,4 +163,5 @@ const TieMarket: FunctionComponent = () => {
     </>
   );
 };
-export default TieMarket;
+
+export default FavoriteTie;

@@ -5,7 +5,7 @@ import { ITiesList } from "../interfaces/tiesList";
 
 const initialState: ITiesList = {
   ties: [],
-  tieLoadingStatus: "o!",
+  tieLoadingStatus: "load",
 };
 
 export const tiesReducer = (
@@ -28,7 +28,7 @@ export const tiesReducer = (
       };
     case ActionTypes.tieDeleted:
       return {
-        ties: state.ties.filter((item) => item.id !== action.payload),
+        ties: state.ties.filter((item) => item._id !== action.payload),
       };
     default:
       return state;

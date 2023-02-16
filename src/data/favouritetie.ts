@@ -1,8 +1,8 @@
-const tieMarketLang = [
+const favouriteTieLang = [
   {
     lang: "ru",
     data: {
-      title: "Маркет",
+      title: "Вы отметили эти товары",
       price: "Цена:",
       btn: "Купить",
     },
@@ -10,10 +10,10 @@ const tieMarketLang = [
   {
     lang: "en",
     data: {
-      title: "Tie Market",
+      title: "You have tagged these products",
       price: "Price:",
       btn: "Buy",
     },
   },
 ];
-export default tieMarketLang;
+export default favouriteTieLang;
