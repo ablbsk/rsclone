@@ -7,7 +7,6 @@ import flagRU from "../../assets/images/jpg/flag-ru.jpg";
 import { HeaderType } from "../../types";
 import { showSidebar, showProfile } from "../../actions";
 import { nightTheme } from "../../data/constants";
-
 import i18n from "../../i18n";
 import { ILangReducer } from "../../interfaces/langReducer";
 import { changeLanguage } from "../../actions";

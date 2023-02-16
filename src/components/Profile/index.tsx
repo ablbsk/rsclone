@@ -21,8 +21,6 @@ import { useTranslation } from "react-i18next";
 import { IAuthReducer } from "../../interfaces/authReducer";
 import { authorization } from "../../actions";
 import { ILogin } from "../../interfaces/login";
-import { lightTheme, nightTheme } from "../../data/constants";
-import { login } from "@/src/services/apiAuth";
 
 const Profile: FunctionComponent<ProfileType> = ({
   accentColor,
@@ -41,14 +39,11 @@ const Profile: FunctionComponent<ProfileType> = ({
 
   useOnClickOutside(ref, () => dispatch(showProfile()), isProfileShow);
 
-  const { t } = useTranslation("dashboard");
+  const { t } = useTranslation("dataLang");
 
-  // const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
-  // const { isNightMode } = appInterfaceStore;
-
-  const color = isNightMode
-    ? lightTheme.background.element
-    : nightTheme.background.element;
+  const styles = {
+    backgroundColor: accentColor.static,
+  };
 
   const authStore = useSelector((state: IAuthReducer) => state.auth);
   const { user, isLogin } = authStore;
@@ -90,25 +85,32 @@ const Profile: FunctionComponent<ProfileType> = ({
         </div>
         {user.role === "USER" ? (
           <div className="links__wrapper">
-            <Link style={{ color }} className="link" to="/profile">
-              My profile
-            </Link>
-            <Link style={{ color }} className="link" to="/my-orders">
-              My orders
-            </Link>
+            <Hover>
+              <Link style={styles} className="link" to="/profile">
+                {t("profile.myProfile")}
+              </Link>
+            </Hover>
+            <Hover>
+              <Link style={styles} className="link" to="/my-orders">
+                {t("profile.myOrders")}
+              </Link>
+            </Hover>
           </div>
         ) : null}
         {user.role === "SELLER" ? (
           <div className="links__wrapper">
-            <Link style={{ color }} className="link" to="/profile">
-              My profile
-            </Link>
-            <Link style={{ color }} className="link" to="/my-ties">
-              My ties
-            </Link>
+            <Hover>
+              <Link style={styles} className="link" to="/profile">
+                {t("profile.myProfile")}
+              </Link>
+            </Hover>
+            <Hover>
+              <Link style={styles} className="link" to="/my-ties">
+                {t("profile.myTies")}
+              </Link>
+            </Hover>
           </div>
         ) : null}
-
         <div className="settings">
           <h2 className="settings__title">{t("profile.settings")}</h2>
           <ul className="settings__list">

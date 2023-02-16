@@ -11,6 +11,8 @@ import { IStore } from "../../interfaces/store";
 import classNames from "classnames";
 import Configurator from "../Configurator";
 import MyProfile from "../MyProfile";
+import MyTies from "../MyTies";
+import MyOrders from "../MyOrders";
 
 const App: FunctionComponent = () => {
   const { isNightMode } = useSelector((state: IStore) => state.appInterface);
@@ -26,8 +28,8 @@ const App: FunctionComponent = () => {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/profile" element={<MyProfile />} />
-        {/* <Route path="/my-ties" element={<MyTies />} />
-        <Route path="/my-orders" element={<MyOrders />} /> */}
+        <Route path="/my-ties" element={<MyTies />} />
+        <Route path="/my-orders" element={<MyOrders />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
-const MyProfile: FunctionComponent = () => (
+const MyTies: FunctionComponent = () => (
   <div className="my-profile__wrapper"></div>
 );
 
-export default MyProfile;
+export default MyTies;

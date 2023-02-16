@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
-const MyProfile: FunctionComponent = () => (
+const MyOrders: FunctionComponent = () => (
   <div className="my-profile__wrapper"></div>
 );
 
-export default MyProfile;
+export default MyOrders;
