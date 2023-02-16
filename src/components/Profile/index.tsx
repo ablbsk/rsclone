@@ -2,7 +2,7 @@ import "./profile.scss";
 import { FunctionComponent, useRef } from "react";
 import classNames from "classnames";
 import Hover from "../Hover";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Switch from "./Switch";
 import { ProfileType } from "../../types";
 import { accentColors } from "../../data/constants";
@@ -16,6 +16,7 @@ import {
   showProfile,
   resetInterfaceToDefault,
 } from "../../actions";
+import { IStore } from "../../interfaces/store";
 
 const Profile: FunctionComponent<ProfileType> = ({
   accentColor,
@@ -25,6 +26,8 @@ const Profile: FunctionComponent<ProfileType> = ({
   isNavbarNightMode,
   isNightMode,
 }: ProfileType) => {
+  const { email, role } = useSelector((state: IStore) => state.auth.user);
+
   const dispatch = useDispatch();
   const ref = useRef<HTMLDivElement>(null);
 
@@ -52,8 +55,8 @@ const Profile: FunctionComponent<ProfileType> = ({
       <div className="profile__wrapper">
         <div className="profile__user">
           <span className="profile__image"></span>
-          <p className="profile__email">user_ok@gmail.com</p>
-          <p className="profile__role">Admin</p>
+          <p className="profile__email">{email}</p>
+          <p className="profile__role">{role}</p>
           <Hover>
             <button className="button profile__sign-out">Sign out</button>
           </Hover>

@@ -5,6 +5,7 @@ import { specialColors } from "../../../../data/constants";
 
 const CircularProgress: FunctionComponent<CircularProgressType> = ({
   progress,
+  todaySales,
 }) => {
   const size = 200;
   const strokeWidth = 20;
@@ -34,7 +35,7 @@ const CircularProgress: FunctionComponent<CircularProgressType> = ({
       </div>
       <div>
         <h5 className="circular-progress__subtitle">Total sales made today</h5>
-        <h2 className="circular-progress__value">$178</h2>
+        <h2 className="circular-progress__value">${todaySales}</h2>
       </div>
     </div>
   );

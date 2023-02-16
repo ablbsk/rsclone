@@ -1,4 +1,5 @@
 import { ActionCreator, AnyAction } from "redux";
+import { IOrder } from "../interfaces/order";
 
 export type HeaderType = {
   accentColor: {
@@ -55,15 +56,17 @@ export type CardType = {
     background: string;
     font: string;
   };
-  value: string;
+  value: string | number;
   title: string;
   icon: string;
 };
 
 export type CircularProgressType = {
   progress: number;
+  todaySales: number;
 };
 
 export type GraphType = {
   isNightMode: boolean;
+  orders: IOrder[];
 };

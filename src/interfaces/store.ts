@@ -1,5 +1,8 @@
+import { ILogin } from "../interfaces/login";
+
 export interface IStore {
   appInterface: IAppInterface;
+  auth: ILogin;
 }
 
 export interface IAppInterface {
