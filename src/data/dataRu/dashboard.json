@@ -29,6 +29,7 @@
     },
     "profile": {
         "profile": "Профиль",
+        "signIn": "Войти",
         "signOut": "Выйти",
         "settings": "Настройки",
         "nightMode": "Ночной режим",

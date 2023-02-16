@@ -29,6 +29,7 @@
     },
     "profile": {
         "profile": "Profile",
+        "signIn": "Sign In",
         "signOut": "Sign out",
         "settings": "Settings",
         "nightMode": "Night mode",

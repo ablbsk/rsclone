@@ -10,6 +10,7 @@ import TieMarket from "../TieMarket";
 import { IStore } from "../../interfaces/store";
 import classNames from "classnames";
 import Configurator from "../Configurator";
+import MyProfile from "../MyProfile";
 
 const App: FunctionComponent = () => {
   const { isNightMode } = useSelector((state: IStore) => state.appInterface);
@@ -24,6 +25,9 @@ const App: FunctionComponent = () => {
         <Route path="/dashboard/*" element={<Dashboard />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/profile" element={<MyProfile />} />
+        {/* <Route path="/my-ties" element={<MyTies />} />
+        <Route path="/my-orders" element={<MyOrders />} /> */}
       </Routes>
     </BrowserRouter>
   );

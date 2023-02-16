@@ -1,8 +1,9 @@
 import "./profile.scss";
 import { FunctionComponent, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import Hover from "../Hover";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Switch from "./Switch";
 import { ProfileType } from "../../types";
 import { accentColors } from "../../data/constants";
@@ -17,6 +18,11 @@ import {
   resetInterfaceToDefault,
 } from "../../actions";
 import { useTranslation } from "react-i18next";
+import { IAuthReducer } from "../../interfaces/authReducer";
+import { authorization } from "../../actions";
+import { ILogin } from "../../interfaces/login";
+import { lightTheme, nightTheme } from "../../data/constants";
+import { login } from "@/src/services/apiAuth";
 
 const Profile: FunctionComponent<ProfileType> = ({
   accentColor,
@@ -28,6 +34,7 @@ const Profile: FunctionComponent<ProfileType> = ({
 }: ProfileType) => {
   const dispatch = useDispatch();
   const ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const updateColor = (color: { static: string; hover: string }) =>
     dispatch(updateAccentColor(color));
@@ -35,6 +42,24 @@ const Profile: FunctionComponent<ProfileType> = ({
   useOnClickOutside(ref, () => dispatch(showProfile()), isProfileShow);
 
   const { t } = useTranslation("dashboard");
+
+  // const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
+  // const { isNightMode } = appInterfaceStore;
+
+  const color = isNightMode
+    ? lightTheme.background.element
+    : nightTheme.background.element;
+
+  const authStore = useSelector((state: IAuthReducer) => state.auth);
+  const { user, isLogin } = authStore;
+
+  const handlerSign = () => {
+    if (isLogin) {
+      dispatch(authorization({} as ILogin, false));
+    } else {
+      navigate("/sign-in");
+    }
+  };
 
   return (
     <div
@@ -55,14 +80,35 @@ const Profile: FunctionComponent<ProfileType> = ({
       <div className="profile__wrapper">
         <div className="profile__user">
           <span className="profile__image"></span>
-          <p className="profile__email">user_ok@gmail.com</p>
-          <p className="profile__role">Admin</p>
+          <p className="profile__email">{user.email}</p>
+          <p className="profile__role">{user.role}</p>
           <Hover>
-            <button className="button profile__sign-out">
-              {t("profile.signOut")}
+            <button className="button profile__sign-out" onClick={handlerSign}>
+              {isLogin ? t("profile.signOut") : t("profile.signIn")}
             </button>
           </Hover>
         </div>
+        {user.role === "USER" ? (
+          <div className="links__wrapper">
+            <Link style={{ color }} className="link" to="/profile">
+              My profile
+            </Link>
+            <Link style={{ color }} className="link" to="/my-orders">
+              My orders
+            </Link>
+          </div>
+        ) : null}
+        {user.role === "SELLER" ? (
+          <div className="links__wrapper">
+            <Link style={{ color }} className="link" to="/profile">
+              My profile
+            </Link>
+            <Link style={{ color }} className="link" to="/my-ties">
+              My ties
+            </Link>
+          </div>
+        ) : null}
+
         <div className="settings">
           <h2 className="settings__title">{t("profile.settings")}</h2>
           <ul className="settings__list">

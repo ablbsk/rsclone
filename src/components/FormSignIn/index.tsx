@@ -22,6 +22,7 @@ const FormSignIn: FunctionComponent = () => {
   const click = async (body: Pick<IUser, "email" | "password">) => {
     try {
       const data = await login(body);
+      console.log(data);
       if (data) {
         dispatch(authorization(data, true));
         setTimeout(() => navigate("/"), 3000);
