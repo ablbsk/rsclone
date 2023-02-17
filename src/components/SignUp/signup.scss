@@ -48,6 +48,7 @@
         width: 100%;
         margin-right: 0;
         margin-bottom: 20px;
+        padding-top: 180px;
     }
 
 }
@@ -72,6 +73,7 @@
     @include media-mobile {
         width: 100%;
         margin-left: 0;
+        padding-bottom: 30px;
     }
 }
 
@@ -85,6 +87,10 @@
 .sign__title {
     font-size: $font-size-xxxlg;
     margin-bottom: 15px;
+
+    @include media-small-tablet {
+        font-size: $font-size-xxlg;
+    }
 }
 
 .sign__text {

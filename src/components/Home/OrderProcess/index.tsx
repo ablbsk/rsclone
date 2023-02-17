@@ -58,8 +58,8 @@ const OrderProcess: FunctionComponent<OrderProcessType> = ({
                     : accentColor.static,
                 }}
               >
-                <Link className="btn-video-link" to="/configurator">
-                  {list.data.button}
+                <Link className="btn-video-link" to="/cofigurator">
+                  {list.data.btn}
                 </Link>
               </button>
             </Hover>

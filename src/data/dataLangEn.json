@@ -29,7 +29,11 @@
     },
     "profile": {
         "profile": "Profile",
+        "signIn": "Sign In",
         "signOut": "Sign out",
+        "myProfile": "My profile",
+        "myOrders": "My orders",
+        "myTies": "My ties",
         "settings": "Settings",
         "nightMode": "Night mode",
         "sidebarFixed": "Sidebar fixed",
@@ -37,5 +41,15 @@
         "navbarNightMode": "Navbar night mode",
         "changeAccentColor": "Change accent color",
         "reset": "Reset to default"
-    }    
+    },
+    "sign": {
+        "signIn": "Sign In",
+        "text-1": "To Keep connected with us please login with your personal info.",
+        "create": "Create an Account",
+        "signUp": "SignUp",
+        "text-2": "Enter your personal details and start journey with us.",
+        "have": "Already have an Account",
+        "buyer": "I am BUYER",
+        "seller": "I am SELLER"
+    }
 }
