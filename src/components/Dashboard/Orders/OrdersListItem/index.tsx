@@ -44,7 +44,7 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
             className="select"
             value={selectedValue}
             onChange={(e) => setSelectedValue(e.target.value)}
-            style={{color}}
+            style={{ color }}
           >
             <option value="EMPTY" disabled hidden></option>
             <option value="NON-PAID">{t("select.nonPaid")}</option>

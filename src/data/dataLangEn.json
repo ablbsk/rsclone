@@ -51,5 +51,10 @@
         "have": "Already have an Account",
         "buyer": "I am BUYER",
         "seller": "I am SELLER"
+    },
+    "myProfile": {
+        "email": "Email",
+        "date": "Date of registration",
+        "role": "Role"
     }
 }
