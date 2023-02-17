@@ -4,7 +4,7 @@ export const getOrders = async () => {
   try {
     const response: Response = await fetch(`${_apiBase}/api/orders`, {
       headers: {
-        Authorization: `Bearer ${JSON.parse(localStorage.token)}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
 
@@ -24,7 +24,7 @@ export const getUsers = async (params: { role: string }) => {
       `${_apiBase}/api/users?${new URLSearchParams(params)}`,
       {
         headers: {
-          Authorization: `Bearer ${JSON.parse(localStorage.token)}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       }
     );

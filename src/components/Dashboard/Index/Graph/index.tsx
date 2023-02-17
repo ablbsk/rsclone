@@ -106,7 +106,9 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
       const item = moment().subtract(i, granularity);
 
       const price = obj.reduce((res, order: IOrder) => {
-        return moment(order.date).isSame(item, granularity) ? res + order.price : res;
+        return moment(order.date).isSame(item, granularity)
+          ? res + order.price
+          : res;
       }, 0 as number);
 
       const count = obj.reduce((res, order: IOrder) => {

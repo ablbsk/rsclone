@@ -10,6 +10,7 @@ import classNames from "classnames";
 import Index from "./Index/index";
 import Users from "./Users";
 import Orders from "./Orders";
+import Calendar from "./Calendar";
 
 const Dashboard: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -54,6 +55,7 @@ const Dashboard: FunctionComponent = () => {
         <div className="container">
           <Routes>
             <Route path="" element={<Index />} />
+            <Route path="calendar" element={<Calendar />} />
             <Route path="users" element={<Users />} />
             <Route path="orders" element={<Orders />} />
           </Routes>
