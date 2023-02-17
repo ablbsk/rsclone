@@ -22,6 +22,7 @@ import {
 import { GraphType } from "../../../../types";
 import moment from "moment";
 import { IOrder, IOrderForGraph } from "../../../../interfaces/order";
+import {useTranslation} from "react-i18next";
 
 const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
   ChartJS.register(
@@ -47,6 +48,8 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
 
   // ------------------------------------------------------------------------
 
+  const { t } = useTranslation("dashboard");
+
   const [value, setValues] = useState<IOrderForGraph[]>([
     { label: "1", price: 0, count: 0 },
   ]);
@@ -66,7 +69,7 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
         position: "left" as const,
         title: {
           display: true,
-          text: "Net Revenue",
+          text: t("index.graph.labelRevenue"),
         },
       },
       y1: {
@@ -75,7 +78,7 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
         position: "right" as const,
         title: {
           display: true,
-          text: "Number of Sales",
+          text: t("index.graph.labelSales"),
         },
         grid: {
           display: false,
@@ -106,13 +109,17 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
       const item = moment().subtract(i, granularity);
 
       const price = obj.reduce((res, order: IOrder) => {
-        return moment(order.date).isSame(item, granularity)
+        return order.status === "FINISHED" &&
+          moment(order.date).isSame(item, granularity)
           ? res + order.price
           : res;
       }, 0 as number);
 
       const count = obj.reduce((res, order: IOrder) => {
-        return moment(order.date).isSame(item, granularity) ? res + 1 : res;
+        return order.status === "FINISHED" &&
+          moment(order.date).isSame(item, granularity)
+          ? res + 1
+          : res;
       }, 0 as number);
 
       result.push({
@@ -132,7 +139,7 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
     datasets: [
       {
         type: "bar" as const,
-        label: "Revenue",
+        label: t("index.graph.labelRevenue"),
         data: value.map((item) => item.price),
         backgroundColor: specialColors.aqua.background,
         borderColor: specialColors.aqua.font,
@@ -141,7 +148,7 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
       },
       {
         type: "line" as const,
-        label: "Sales",
+        label: t("index.graph.labelSales"),
         fill: false,
         data: value.map((item) => item.count),
         backgroundColor: specialColors.blue.font,
@@ -156,14 +163,16 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
     <div className="graph">
       <div className="graph__wrapper">
         <div className="graph__head">
-          <h3 className="graph__header">Sales Analytics</h3>
+          <h3 className="graph__header">{t("index.graph.header")}</h3>
           <div>
-            <button onClick={() => setValues(prepareData("week"))}>Week</button>
+            <button onClick={() => setValues(prepareData("week"))}>
+              {t("index.graph.buttonWeek")}
+            </button>
             <button onClick={() => setValues(prepareData("month"))}>
-              Month
+              {t("index.graph.buttonMonth")}
             </button>
             <button onClick={() => setValues(prepareData("quarter"))}>
-              Quarter
+              {t("index.graph.buttonQuarter")}
             </button>
           </div>
         </div>

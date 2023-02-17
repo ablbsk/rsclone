@@ -9,12 +9,15 @@ import { IStore } from "../../../interfaces/store";
 import { getOrders, getUsers } from "../../../services/apiDashboard";
 import { IOrder } from "../../../interfaces/order";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
 
 const Index: FunctionComponent = () => {
   const state = useSelector((state: IStore) => state);
   const [orders, setOrders] = useState([]);
   const [users, setUsers] = useState([]);
   const [sellers, setSellers] = useState([]);
+
+  const { t } = useTranslation("dashboard");
 
   useEffect(() => {
     getOrders()
@@ -47,15 +50,21 @@ const Index: FunctionComponent = () => {
   };
 
   const getOrdersRatio = () => {
-    const current = orders.filter((order: IOrder) =>
-      moment(order.date).isSame(moment(), "month")
-    );
+    const current = orders.reduce((res, order: IOrder) => {
+      return order.status === "FINISHED" &&
+        moment(order.date).isSame(moment(), "month")
+        ? res + order.price
+        : res;
+    }, 0 as number);
 
-    const prev = orders.filter((order: IOrder) =>
-      moment(order.date).isSame(moment().subtract(1, "month"), "month")
-    );
+    const prev = orders.reduce((res, order: IOrder) => {
+      return order.status === "FINISHED" &&
+        moment(order.date).isSame(moment().subtract(1, "month"), "month")
+        ? res + order.price
+        : res;
+    }, 0 as number);
 
-    return Math.round((current.length / prev.length) * 100);
+    return { current: current, prev: prev };
   };
 
   const currentMonthRevenue = () => {
@@ -69,37 +78,36 @@ const Index: FunctionComponent = () => {
 
   return (
     <div className="index">
-      <h1 className="index__header">Welcome to dashboard</h1>
-      <p className="index__breadcrumbs">Home - Dashboard</p>
+      <h1 className="index__header">{t("index.header")}</h1>
       <div className="index__cards">
         <Card
           colors={specialColors.red}
           icon={"like"}
           value={getTotalRevenue()}
-          title={"Total Revenue"}
+          title={t("index.cards.totalRevenue")}
         />
         <Card
           colors={specialColors.aqua}
           icon={"cart"}
           value={getTodaySales()}
-          title={"Today's Sales"}
+          title={t("index.cards.todaySales")}
         />
         <Card
           colors={specialColors.blue}
           icon={"chart"}
           value={sellers.length}
-          title={"Sellers Count"}
+          title={t("index.cards.sellersCount")}
         />
         <Card
           colors={specialColors.orange}
           icon={"view"}
           value={users.length}
-          title={"Users Count"}
+          title={t("index.cards.usersCount")}
         />
       </div>
       <div className="index__additional">
         <CircularProgress
-          progress={getOrdersRatio()}
+          monthRevenue={getOrdersRatio()}
           todaySales={currentMonthRevenue()}
         />
         <Graph isNightMode={state.appInterface.isNightMode} orders={orders} />

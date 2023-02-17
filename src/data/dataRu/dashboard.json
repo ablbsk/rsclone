@@ -37,5 +37,29 @@
         "navbarNightMode": "Ночной режим меню",
         "changeAccentColor": "Сменить цвет акцента",
         "reset": "Сбросить"
-    }      
-}    
+    }  ,
+    "index": {
+        "header": "Добро пожаловать",
+        "cards": {
+            "totalRevenue": "Общий доход",
+            "todaySales": "Продано сегодня",
+            "sellersCount": "Продавцы",
+            "usersCount": "Пользователи"
+        },
+        "widget": {
+            "header": "Доход за месяц",
+            "title": "Доход",
+            "today": "Сегодня",
+            "currentMonth": "Текущий месяц",
+            "prevMonth": "Прошлый месяц"
+        },
+        "graph": {
+            "header": "Аналитика",
+            "buttonWeek": "7 дней",
+            "buttonMonth": "Месяц",
+            "buttonQuarter": "Квартал",
+            "labelRevenue": "Чистая выручка",
+            "labelSales": "Количество продаж"
+        }
+    }
+}

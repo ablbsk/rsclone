@@ -37,5 +37,29 @@
         "navbarNightMode": "Navbar night mode",
         "changeAccentColor": "Change accent color",
         "reset": "Reset to default"
-    }    
+    },
+    "index": {
+        "header": "Welcome to dashboard",
+        "cards": {
+            "totalRevenue": "Total revenue",
+            "todaySales": "Today's sales",
+            "sellersCount": "Sellers count",
+            "usersCount": "Users count"
+        },
+        "widget": {
+            "header": "Monthly revenue",
+            "title": "Revenue",
+            "today": "Today",
+            "currentMonth": "Current month",
+            "prevMonth": "Previous month"
+        },
+        "graph": {
+            "header": "Sales Analytics",
+            "buttonWeek": "7 days",
+            "buttonMonth": "Month",
+            "buttonQuarter": "Quarter",
+            "labelRevenue": "Net Revenue",
+            "labelSales": "Number of Sales"
+        }
+    }
 }

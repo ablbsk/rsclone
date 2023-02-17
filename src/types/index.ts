@@ -65,8 +65,11 @@ export type CardType = {
 };
 
 export type CircularProgressType = {
-  progress: number;
   todaySales: number;
+  monthRevenue: {
+    current: number;
+    prev: number;
+  };
 };
 
 export type GraphType = {
