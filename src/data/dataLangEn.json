@@ -56,5 +56,10 @@
         "email": "Email",
         "date": "Date of registration",
         "role": "Role"
+    },
+    "myTies": {
+        "myTies": "My ties",
+        "mySales": "My sales",
+        "delete": "Delete tie"
     }
 }

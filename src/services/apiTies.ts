@@ -37,7 +37,6 @@ export const getTiesByUserId = async (id: string): Promise<ITie[]> => {
       },
     });
     const ties = await response.json();
-    console.log(ties);
     return ties;
   } catch (e) {
     throw e;

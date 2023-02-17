@@ -3,6 +3,7 @@ import { ILogin } from "../interfaces/login";
 import { IUser } from "../interfaces/user";
 import { IOrder } from "../interfaces/order";
 import { ILang } from "../interfaces/lang";
+import { ITie } from "../interfaces/tie";
 
 export const updateFixedSidebar = (isSidebarFixed: boolean) => ({
   type: ActionTypes.updateFixedSidebar,
@@ -103,5 +104,57 @@ export const changeLanguage = (lang: ILang) => {
   return {
     type: ActionTypes.changeLanguage,
     payload: lang,
+  };
+};
+
+export const myTiesFetching = () => {
+  return {
+    type: ActionTypes.myTiesFetching,
+  };
+};
+
+export const myTiesFetched = (ties: ITie[]) => {
+  return {
+    type: ActionTypes.myTiesFetched,
+    payload: ties,
+  };
+};
+
+export const myTiesFetchingError = () => {
+  return {
+    type: ActionTypes.myTiesFetchingError,
+  };
+};
+
+export const myTieDeleted = (id: string) => {
+  return {
+    type: ActionTypes.myTieDeleted,
+    payload: id,
+  };
+};
+
+export const myOrdersFetching = () => {
+  return {
+    type: ActionTypes.myOrdersFetching,
+  };
+};
+
+export const myOrdersFetched = (orders: IOrder[]) => {
+  return {
+    type: ActionTypes.myOrdersFetched,
+    payload: orders,
+  };
+};
+
+export const myOrdersFetchingError = () => {
+  return {
+    type: ActionTypes.myOrdersFetchingError,
+  };
+};
+
+export const myOrderDeleted = (id: string) => {
+  return {
+    type: ActionTypes.myOrderDeleted,
+    payload: id,
   };
 };

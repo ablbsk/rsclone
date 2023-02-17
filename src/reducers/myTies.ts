@@ -5,28 +5,28 @@ import { ITiesList } from "../interfaces/tiesList";
 
 const initialState: ITiesList = {
   ties: [],
-  tieLoadingStatus: "o!",
+  tieLoadingStatus: "idle",
 };
 
-export const tiesReducer = (
+export const myTiesReducer = (
   state: ITiesList = initialState,
   action: AnyAction
 ) => {
   switch (action.type) {
-    case ActionTypes.tieFetching:
+    case ActionTypes.myTiesFetching:
       return {
         tieLoadingStatus: "loading",
       };
-    case ActionTypes.tieFetched:
+    case ActionTypes.myTiesFetched:
       return {
         ties: action.payload,
-        tieLoadingStatus: "loaded",
+        tieLoadingStatus: "idle",
       };
-    case ActionTypes.tieFetchingError:
+    case ActionTypes.myTiesFetchingError:
       return {
         tieLoadingStatus: "error",
       };
-    case ActionTypes.tieDeleted:
+    case ActionTypes.myTieDeleted:
       return {
         ties: state.ties.filter((item) => item._id !== action.payload),
       };
