@@ -36,6 +36,7 @@ const SignUp: FunctionComponent = () => {
   const ref = useRef<HTMLDivElement>(null);
   useOnClickOutside(ref, () => setOpen(!open), open);
 
+  // eslint-disable-next-line
   const list = navMenu.find((c) => c.lang === lang)!;
 
   const currentURL = window.location.pathname;
@@ -182,7 +183,7 @@ const SignUp: FunctionComponent = () => {
                   className="sign__button"
                   type="submit"
                 >
-                  {t("sign.signIn")}
+                  {t("sign.signUp")}
                 </button>
                 {message && <div className="message-tooltip">{message}</div>}
                 {error && <div className="error-tooltip">{error}</div>}

@@ -46,10 +46,33 @@
         "signIn": "Sign In",
         "text-1": "To Keep connected with us please login with your personal info.",
         "create": "Create an Account",
-        "signUp": "SignUp",
+        "signUp": "Sign Up",
         "text-2": "Enter your personal details and start journey with us.",
         "have": "Already have an Account",
         "buyer": "I am BUYER",
         "seller": "I am SELLER"
+    },
+    "myProfile": {
+        "email": "Email",
+        "date": "Date of registration",
+        "role": "Role"
+    },
+    "myTies": {
+        "myTies": "My ties",
+        "mySales": "My sales",
+        "delete": "Delete tie",
+        "price": "Price",
+        "name": "Vendor code"
+    },
+    "myTiesOrders": {
+        "date": "Date of sale",
+        "sum": "Sum"
+    },
+    "myOrders": {
+        "data": "Order data",
+        "date": "Date",
+        "sum": "Sum",
+        "status": "Status",
+        "delete": "Delete order"
     }
 }

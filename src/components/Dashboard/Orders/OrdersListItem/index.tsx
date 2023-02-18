@@ -23,6 +23,8 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
     ? nightTheme.background.element
     : lightTheme.background.element;
 
+  const color = nightTheme.background.element;
+
   return (
     <>
       <tr>
@@ -42,6 +44,7 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
             className="select"
             value={selectedValue}
             onChange={(e) => setSelectedValue(e.target.value)}
+            style={{ color }}
           >
             <option value="EMPTY" disabled hidden></option>
             <option value="NON-PAID">{t("select.nonPaid")}</option>

@@ -7,10 +7,10 @@ const ErrorMessage: FunctionComponent = () => {
     <img
       style={{
         display: "block",
-        width: "250px",
-        height: "250px",
+        width: "300px",
+        height: "300px",
         objectFit: "contain",
-        margin: "0 auto",
+        margin: "50px auto",
       }}
       src={img}
       alt="Error"
