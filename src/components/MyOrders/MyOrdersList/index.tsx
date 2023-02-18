@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
 import {
-  myTieDeleted,
-  myTiesFetching,
-  myTiesFetched,
-  myTiesFetchingError,
+  myOrderDeleted,
+  myOrdersFetching,
+  myOrdersFetched,
+  myOrdersFetchingError,
 } from "../../../actions";
-import { deleteTie, getTiesByUserId } from "../../../services/apiTies";
+import { deleteOrder, getOrdersByUserId } from "../../../services/apiOrders";
 import { IAuthReducer } from "../../../interfaces/authReducer";
-import { IMyTiesListComponent } from "../../../interfaces/myTiesListComponent";
+import { IOrdersListComponent } from "../../../interfaces/ordersListComponent";
 import Hover from "../../Hover";
 import { IStore } from "../../../interfaces/store";
 
-const MyTiesList: FunctionComponent<IMyTiesListComponent> = ({ ties }) => {
+const MyOrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
   const authStore = useSelector((state: IAuthReducer) => state.auth);
   const { user } = authStore;
 
@@ -26,31 +26,35 @@ const MyTiesList: FunctionComponent<IMyTiesListComponent> = ({ ties }) => {
 
   const deleteItem = async (id: string): Promise<void> => {
     try {
-      await deleteTie(id);
-      dispatch(myTieDeleted(id));
-      dispatch(myTiesFetching());
-      const ties = await getTiesByUserId(user._id);
-      dispatch(myTiesFetched(ties));
+      await deleteOrder(id);
+      dispatch(myOrderDeleted(id));
+      dispatch(myOrdersFetching());
+      const orders = await getOrdersByUserId(user._id);
+      dispatch(myOrdersFetched(orders));
     } catch {
-      dispatch(myTiesFetchingError());
+      dispatch(myOrdersFetchingError());
     }
   };
 
   return (
     <>
-      <div className="my-ties-list__wrapper">
-        {ties.map((item, i) => {
+      <div className="my-orders-list__wrapper">
+        {orders.map((item, i) => {
           return (
-            <div key={i} className="my-ties-list__item">
+            <div key={i} className="my-orders-list__item">
               <div className="item__image">
                 <img src={item.image} alt="" />
               </div>
               <div className="item__text">
-                <div className="item__name">
-                  {t("myTies.name")}: {item.name}
+                <h4>{t("myOrders.data")}</h4>
+                <div className="item__date">
+                  {t("myOrders.date")}: {item.date.slice(0, 10)}
                 </div>
                 <div className="item__price">
-                  {t("myTies.price")}: {item.price}$
+                  {t("myOrders.sum")}: {item.price}$
+                </div>
+                <div className="item__status">
+                  {t("myOrders.status")}: {item.status}
                 </div>
                 <Hover>
                   <button
@@ -58,7 +62,7 @@ const MyTiesList: FunctionComponent<IMyTiesListComponent> = ({ ties }) => {
                     className="item__button"
                     onClick={() => deleteItem(item._id)}
                   >
-                    {t("myTies.delete")}
+                    {t("myOrders.delete")}
                   </button>
                 </Hover>
               </div>
@@ -70,4 +74,4 @@ const MyTiesList: FunctionComponent<IMyTiesListComponent> = ({ ties }) => {
   );
 };
 
-export default MyTiesList;
+export default MyOrdersList;

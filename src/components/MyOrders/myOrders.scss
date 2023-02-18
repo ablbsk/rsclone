@@ -1,12 +1,12 @@
 @import "../../sass/variables";
 @import "../../sass/mixins";
 
-.my-ties__wrapper > {
+.my-orders__wrapper > {
     box-sizing: border-box;
 }
 
-.my-ties__wrapper {
-    width: 500px;
+.my-orders__wrapper {
+    width: 1000px;
     margin: 120px auto 20px;
     display: flex;
     flex-direction: column;
@@ -15,34 +15,53 @@
     padding: 80px 0 10px 5px;
     border-radius: 5px;
 
+    @include media-tablet {
+        width: 900px;
+    }
+
+    @include media-small-tablet {
+        width: 700px;
+    }
+
+    @include media-mobile {
+        padding-top: 40px;
+        width: 500px;
+    }
+
     @include media-small-mobile {
         width: 340px;
     }
 }
 
-.my-ties__header {
+.my-orders__header {
     margin-top: -70px;
 }
 
-.my-ties-list__wrapper {
+.my-orders-list__wrapper {
     display: flex;
-    flex-direction: column;
-    width: 300px;
+    justify-content: center;
+    flex-wrap: wrap;
     margin: 0 auto;
+    gap: 20px;
 }
 
-.my-ties-list__item {
+.my-orders-list__item {
+    width: 300px;
     display: flex;
     justify-content: space-between;
     border: 1px solid $font-color-dark;
     overflow: hidden;
     border-radius: 5px;
     margin-bottom: 20px;
-    height: 145px;    
+    height: 180px;    
+
+    h4 {
+        margin-bottom: 10px;
+    }
 
     .item__image {
         img {
-            width: 100px;
+            width: 130px;
         }
     }
     
@@ -52,47 +71,19 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-right: 5px;
     }
     
-    .item__name,
-    .item__price {
+    .item__date,
+    .item__price,
+    .item__status {
         margin-bottom: 10px;
     }
     
     .item__button {
-        width: 80px;
+        width: 120px;
         cursor: pointer;
         border-radius: 5px;
         border: none;
-        color: $font-color-white;
         padding: 3px;
-    }
-}
-
-.my-ties-orders-list__item {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid $font-color-dark;
-    overflow: hidden;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    height: 115px; 
-
-    .item__image {
-        img {
-            width: 80px;
-        }
-    }
-
-    .item__text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 0 10px;
-    }
-
-    .item__date {
-        margin-bottom: 10px;
     }
 }

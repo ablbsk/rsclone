@@ -67,5 +67,12 @@
     "myTiesOrders": {
         "date": "Date of sale",
         "sum": "Sum"
+    },
+    "myOrders": {
+        "data": "Order data",
+        "date": "Date",
+        "sum": "Sum",
+        "status": "Status",
+        "delete": "Delete order"
     }
 }
