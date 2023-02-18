@@ -2,7 +2,6 @@ import { FunctionComponent, useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import { useTranslation } from "react-i18next";
 
 import {
   myOrdersFetching,
@@ -57,8 +56,6 @@ const MyOrders: FunctionComponent = () => {
   const list = navMenu.find((c) => c.lang === lang)!;
 
   const currentURL = window.location.pathname;
-
-  const { t } = useTranslation("dataLang");
 
   const dispatch = useDispatch();
 

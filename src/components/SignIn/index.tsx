@@ -32,6 +32,7 @@ const SignIn: FunctionComponent = () => {
   const ref = useRef<HTMLDivElement>(null);
   useOnClickOutside(ref, () => setOpen(!open), open);
 
+  // eslint-disable-next-line
   const list = navMenu.find((c) => c.lang === lang)!;
 
   const currentURL = window.location.pathname;
