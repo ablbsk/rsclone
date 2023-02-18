@@ -5,7 +5,7 @@ import { ITiesList } from "../interfaces/tiesList";
 
 const initialState: ITiesList = {
   ties: [],
-  tieLoadingStatus: "o!",
+  tieLoadingStatus: "load",
 };
 
 export const tiesReducer = (

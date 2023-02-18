@@ -8,7 +8,11 @@ const orderprocess = [
       choose: "CHOOSE CANVAS",
       apply: "APPLY COLOURS",
       finish: "FINISH YOUR CREATION",
+<<<<<<< HEAD
+      button: "Go To Configurator",
+=======
       btn: "Go to Configurator",
+>>>>>>> 99a8e2bc5631cb50736b0e7f3c4a896474968a58
     },
   },
   {
