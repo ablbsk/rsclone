@@ -10,6 +10,7 @@ import { nightTheme } from "../../data/constants";
 import i18n from "../../i18n";
 import { ILangReducer } from "../../interfaces/langReducer";
 import { changeLanguage } from "../../actions";
+import { IAuthReducer } from "../../interfaces/authReducer";
 
 const Header: FunctionComponent<HeaderType> = ({
   accentColor,
@@ -22,7 +23,10 @@ const Header: FunctionComponent<HeaderType> = ({
 
   const lang = useSelector((state: ILangReducer) => state.langReducer);
 
-  const handleLenguageChange = () => {
+  const authStore = useSelector((state: IAuthReducer) => state.auth);
+  const { user } = authStore;
+
+  const handleLenguageChange = (): void => {
     if (lang.lang === "en") {
       i18n.changeLanguage("ru");
       dispatch(changeLanguage({ lang: "ru" }));
@@ -31,6 +35,9 @@ const Header: FunctionComponent<HeaderType> = ({
       dispatch(changeLanguage({ lang: "en" }));
     }
   };
+
+  const path =
+    user.role === "ADMIN" || user.role === "MANAGER" ? "/dashboard" : "/";
 
   return (
     <header
@@ -49,9 +56,15 @@ const Header: FunctionComponent<HeaderType> = ({
               onClick={() => dispatch(showSidebar())}
             ></span>
           )}
-          <Link className="header__link" to="/">
-            <span className="header__logo"></span>
-          </Link>
+          {user.role === "ADMIN" || user.role === "MANAGER" ? (
+            <Link className="header__link" to="/dashboard">
+              <span className="header__logo"></span>
+            </Link>
+          ) : (
+            <Link className="header__link" to="/">
+              <span className="header__logo"></span>
+            </Link>
+          )}
           {children}
           <ul className="header__list">
             <li className="header__item">

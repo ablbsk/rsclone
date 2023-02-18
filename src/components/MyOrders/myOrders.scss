@@ -12,8 +12,9 @@
     flex-direction: column;
     align-items: center;
     background-color: $color-element-background-light;
-    padding: 80px 0 10px 5px;
+    padding: 40px 0 10px 5px;
     border-radius: 5px;
+    box-shadow: $box-shadow;
 
     @include media-tablet {
         width: 900px;
@@ -41,7 +42,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 10px auto 0;
     gap: 20px;
 }
 
@@ -66,11 +67,12 @@
     }
     
     .item__text {
-        width: 160px;
+        width: 165px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 0 5px;
     }
     
     .item__date,

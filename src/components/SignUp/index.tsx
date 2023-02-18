@@ -183,7 +183,7 @@ const SignUp: FunctionComponent = () => {
                   className="sign__button"
                   type="submit"
                 >
-                  {t("sign.signIn")}
+                  {t("sign.signUp")}
                 </button>
                 {message && <div className="message-tooltip">{message}</div>}
                 {error && <div className="error-tooltip">{error}</div>}

@@ -24,18 +24,6 @@ const MyOrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
 
   const { t } = useTranslation("dataLang");
 
-  const deleteItem = async (id: string): Promise<void> => {
-    try {
-      await deleteOrder(id);
-      dispatch(myOrderDeleted(id));
-      dispatch(myOrdersFetching());
-      const orders = await getOrdersByUserId(user._id);
-      dispatch(myOrdersFetched(orders));
-    } catch {
-      dispatch(myOrdersFetchingError());
-    }
-  };
-
   return (
     <>
       <div className="my-orders-list__wrapper">
@@ -56,15 +44,6 @@ const MyOrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
                 <div className="item__status">
                   {t("myOrders.status")}: {item.status}
                 </div>
-                <Hover>
-                  <button
-                    style={{ backgroundColor: accentColor.static }}
-                    className="item__button"
-                    onClick={() => deleteItem(item._id)}
-                  >
-                    {t("myOrders.delete")}
-                  </button>
-                </Hover>
               </div>
             </div>
           );
