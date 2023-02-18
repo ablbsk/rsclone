@@ -12,10 +12,7 @@ import { IAuthReducer } from "../../../interfaces/authReducer";
 import { IMyTiesListComponent } from "../../../interfaces/myTiesListComponent";
 import { useTranslation } from "react-i18next";
 
-const MyTiesList: FunctionComponent<IMyTiesListComponent> = ({
-  ties,
-  activeButton,
-}) => {
+const MyTiesList: FunctionComponent<IMyTiesListComponent> = ({ ties }) => {
   const authStore = useSelector((state: IAuthReducer) => state.auth);
   const { user } = authStore;
 
@@ -23,7 +20,7 @@ const MyTiesList: FunctionComponent<IMyTiesListComponent> = ({
 
   const { t } = useTranslation("dataLang");
 
-  const deleteItem = async (id: string) => {
+  const deleteItem = async (id: string): Promise<void> => {
     try {
       await deleteTie(id);
       dispatch(myTieDeleted(id));
@@ -45,8 +42,12 @@ const MyTiesList: FunctionComponent<IMyTiesListComponent> = ({
                 <img src={item.image} alt="" />
               </div>
               <div className="item__text">
-                <div className="item__name">{item.name}</div>
-                <div className="item__price">{item.price}$</div>
+                <div className="item__name">
+                  {t("myTies.name")}: {item.name}
+                </div>
+                <div className="item__price">
+                  {t("myTies.price")}: {item.price}$
+                </div>
                 <button
                   className="item__button"
                   onClick={() => deleteItem(item._id)}

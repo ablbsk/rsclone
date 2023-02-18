@@ -60,6 +60,12 @@
     "myTies": {
         "myTies": "My ties",
         "mySales": "My sales",
-        "delete": "Delete tie"
+        "delete": "Delete tie",
+        "price": "Price",
+        "name": "Vendor code"
+    },
+    "myTiesOrders": {
+        "date": "Date of sale",
+        "sum": "Sum"
     }
 }

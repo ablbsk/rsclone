@@ -29,6 +29,7 @@ import { IMyTiesReducer } from "../../interfaces/myTiesReducer";
 import { IMyOrdersReducer } from "../../interfaces/myOrdersReducer";
 import ErrorMessage from "../ErrorMessage";
 import MyTiesList from "./MyTiesList";
+import MyTiesOrdersList from "./MyTiesOrdersList";
 
 import "./myTies.scss";
 
@@ -65,6 +66,7 @@ const MyTies: FunctionComponent = () => {
   const ref = useRef<HTMLDivElement>(null);
   useOnClickOutside(ref, () => setOpen(!open), open);
 
+  // eslint-disable-next-line
   const list = navMenu.find((c) => c.lang === lang)!;
 
   const currentURL = window.location.pathname;
@@ -73,10 +75,9 @@ const MyTies: FunctionComponent = () => {
 
   const dispatch = useDispatch();
 
-  const getDataList = async (n: string) => {
-    console.log(n);
+  const getDataList = async (numberButton: string): Promise<void> => {
     try {
-      if (n === "1") {
+      if (numberButton === "1") {
         dispatch(myTiesFetching());
         const ties = await getTiesByUserId(user._id);
         dispatch(myTiesFetched(ties));
@@ -86,7 +87,7 @@ const MyTies: FunctionComponent = () => {
         dispatch(myOrdersFetched(orders));
       }
     } catch {
-      if (n === "1") {
+      if (numberButton === "1") {
         dispatch(myTiesFetchingError());
       } else {
         dispatch(myOrdersFetchingError());
@@ -98,14 +99,17 @@ const MyTies: FunctionComponent = () => {
     getDataList("1");
   }, []);
 
-  const toggleHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const toggleHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
     const id = e.currentTarget.dataset.id;
     if (typeof id === "string") {
       setActiveButton(id);
     }
   };
 
-  const spinner = tieLoadingStatus === "loading" ? <Spinner /> : null;
+  const spinner =
+    tieLoadingStatus === "loading" || ordersLoadingStatus === "loading" ? (
+      <Spinner />
+    ) : null;
 
   return (
     <>
@@ -161,6 +165,7 @@ const MyTies: FunctionComponent = () => {
               data-id="1"
               onClick={(e) => {
                 toggleHandler(e);
+                // eslint-disable-next-line
                 getDataList(e.currentTarget.dataset.id!);
               }}
             >
@@ -176,6 +181,7 @@ const MyTies: FunctionComponent = () => {
               data-id="2"
               onClick={(e) => {
                 toggleHandler(e);
+                // eslint-disable-next-line
                 getDataList(e.currentTarget.dataset.id!);
               }}
             >
@@ -185,19 +191,18 @@ const MyTies: FunctionComponent = () => {
         </div>
         {spinner}
         {tieLoadingStatus === "idle" && activeButton === "1" ? (
-          <MyTiesList ties={ties} activeButton={activeButton} />
+          <MyTiesList ties={ties} />
         ) : null}
         {tieLoadingStatus === "error" && activeButton === "1" ? (
           <ErrorMessage />
         ) : null}
-        {/* {(ordersLoadingStatus === "idle"  && activeButton === "2") ? (
-        <OrdersList ties={ties} activeButton={activeButton} />
-      ) : null} */}
+        {ordersLoadingStatus === "idle" && activeButton === "2" ? (
+          <MyTiesOrdersList orders={orders} />
+        ) : null}
         {ordersLoadingStatus === "error" && activeButton === "2" ? (
           <ErrorMessage />
         ) : null}
       </div>
-
       <Footer accentColor={accentColor} isNavbarNightMode={isNavbarNightMode} />
     </>
   );

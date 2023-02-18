@@ -16,7 +16,7 @@
     border-radius: 5px;
 
     @include media-small-mobile {
-        width: 360px;
+        width: 340px;
     }
 }
 
@@ -39,29 +39,56 @@
     border-radius: 5px;
     margin-bottom: 20px;
     height: 145px;    
-}
 
-.item__image {
-    img {
-        width: 100px;
+    .item__image {
+        img {
+            width: 100px;
+        }
+    }
+    
+    .item__text {
+        width: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .item__name,
+    .item__price {
+        margin-bottom: 10px;
+    }
+    
+    .item__button {
+        width: 80px;
+        cursor: pointer;
+        border-radius: 5px;
     }
 }
 
-.item__text {
-    width: 160px;
+.my-ties-orders-list__item {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.item__name,
-.item__price {
-    margin-bottom: 10px;
-}
-
-.item__button {
-    width: 80px;
-    cursor: pointer;
+    justify-content: space-between;
+    border: 1px solid $font-color-dark;
+    overflow: hidden;
     border-radius: 5px;
+    margin-bottom: 20px;
+    height: 115px; 
+
+    .item__image {
+        img {
+            width: 80px;
+        }
+    }
+
+    .item__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 10px;
+    }
+
+    .item__date {
+        margin-bottom: 10px;
+    }
 }
