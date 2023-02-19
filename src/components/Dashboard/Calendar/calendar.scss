@@ -20,6 +20,10 @@
   display: block;
   border: 1px solid yellowgreen;
 
+  &--current {
+    color: dodgerblue;
+  }
+
   &--today {
     color: red;
   }
