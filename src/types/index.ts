@@ -1,6 +1,7 @@
 import { ActionCreator, AnyAction } from "redux";
 import { IOrder } from "../interfaces/order";
 import { ReactNode } from "react";
+import {Moment} from "moment/moment";
 
 export type HeaderType = {
   accentColor: {
@@ -75,4 +76,8 @@ export type CircularProgressType = {
 export type GraphType = {
   isNightMode: boolean;
   orders: IOrder[];
+};
+
+export type CalendarDayType = {
+  day: Moment;
 };
