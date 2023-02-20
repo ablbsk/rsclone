@@ -8,6 +8,7 @@ const Day: FunctionComponent<CalendarDayType> = ({
   day,
   isActiveMonth,
   status,
+  setFocusedDay,
 }: CalendarDayType) => {
   const data = [
     {
@@ -47,11 +48,19 @@ const Day: FunctionComponent<CalendarDayType> = ({
       </li>
     ));
 
+  const setDayProps = () => {
+    setFocusedDay({
+      day: day,
+      status: status,
+    });
+  };
+
   return (
     <div
       className={classNames("day", {
         "day--today": moment().isSame(day, "day"),
       })}
+      onClick={() => setDayProps()}
     >
       <h6
         className={classNames("day__header", {

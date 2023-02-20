@@ -30,7 +30,7 @@ const View: FunctionComponent<ConfiguratorViewType> = ({
   const language: "ru" | "en" = lang as "ru" | "en";
   // const [language, setLanguage] = useState<string>("");
   const list = plainsLang.find((c) => c.lang === lang)!;
-  // const Title = List.data.find((tie) => tie.title === language)!;
+  // const Title = Index.data.find((tie) => tie.title === language)!;
 
   const backgroundColor = nightTheme.background.element;
   const [settings, setSettings] = useState<IIconSetting>({

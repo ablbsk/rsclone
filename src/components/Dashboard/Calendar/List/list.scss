@@ -1,0 +1,32 @@
+@import "../../../../sass/variables";
+
+.list {
+  padding: 40px 25px;
+  background-color: $color-element-background-light;
+  border-radius: $border-radius-sm;
+  box-shadow: $box-shadow;
+}
+
+.list__header {
+  margin-bottom: 40px;
+  font-size: $font-size-xlg;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.list__image {
+  width: 60px;
+  height: 60px;
+}
+
+.list__item {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--warning {
+    background-color: #be6464;
+    color: white;
+  }
+}

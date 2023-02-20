@@ -2,6 +2,7 @@ import "./calendar.scss";
 import { FunctionComponent, useEffect, useState } from "react";
 import moment, { Moment } from "moment";
 import Day from "./Day";
+import List from "./List";
 import { CalendarDayType } from "../../../types";
 import { getOrdersBySellerId } from "../../../services/apiOrders";
 import { useSelector } from "react-redux";
@@ -17,6 +18,7 @@ const Calendar: FunctionComponent = () => {
 
   const [orders, setOrders] = useState<IOrder[]>([]);
   const [ordersDeadline, setOrdersDeadline] = useState<IOrder[]>([]);
+  const [focusedDay, setFocusedDay] = useState({ day: null, status: null });
   const [viewedMonth, setViewedMonth] = useState<number>(moment().month());
 
   useEffect(() => {
@@ -133,32 +135,41 @@ const Calendar: FunctionComponent = () => {
         status={item.status}
         isActiveMonth={item.isActiveMonth}
         key={item.day.format("DD-MM")}
+        setFocusedDay={setFocusedDay}
       />
     ));
+
+  console.log(focusedDay);
+
   return (
-    <div className="calendar">
-      <h1 className="calendar__header">Calendar</h1>
-      <div className="calendar__wrapper">
-        <div className="calendar__head">
-          <div>
-            <button onClick={() => changeMonth(-1)}>Prev</button>
-            <button onClick={() => changeMonth(1)}>Next</button>
+    <>
+      <div className="calendar">
+        <h1 className="calendar__header">Calendar</h1>
+        <div className="calendar__wrapper">
+          <div className="calendar__head">
+            <div>
+              <button onClick={() => changeMonth(-1)}>Prev</button>
+              <button onClick={() => changeMonth(1)}>Next</button>
+            </div>
+            <h2 className="calendar__subheader">
+              {moment()
+                .subtract(1 - viewedMonth, "month")
+                .format("MMMM")}
+            </h2>
+            <div>
+              <button onClick={() => setViewedMonth(moment().month())}>
+                Today
+              </button>
+            </div>
           </div>
-          <h2 className="calendar__subheader">
-            {moment()
-              .subtract(1 - viewedMonth, "month")
-              .format("MMMM")}
-          </h2>
-          <div>
-            <button onClick={() => setViewedMonth(moment().month())}>
-              Today
-            </button>
-          </div>
+          <div className="calendar__container">{titlesElements}</div>
+          <div className="calendar__container">{daysComponents}</div>
         </div>
-        <div className="calendar__container">{titlesElements}</div>
-        <div className="calendar__container">{daysComponents}</div>
+        {focusedDay.day ? (
+          <List day={focusedDay.day} status={focusedDay.status} />
+        ) : null}
       </div>
-    </div>
+    </>
   );
 };
 

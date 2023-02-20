@@ -6,6 +6,7 @@
   padding: 10px 0;
   display: block;
   border: $border-calendar-light;
+  cursor: pointer;
 
   &--today {
     background-color: #fffadf;
@@ -33,7 +34,7 @@
   font-weight: $font-weight-bold;
   font-size: $font-size-sm;
   border-radius: $border-radius-sm;
-  cursor: default;
+  cursor: pointer;
 
   &--non-pain {
     background-color: $color-special-5;
