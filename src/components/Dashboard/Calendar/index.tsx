@@ -1,6 +1,6 @@
 import "./calendar.scss";
 import { FunctionComponent, useEffect, useState } from "react";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import Day from "./Day";
 import { CalendarDayType } from "../../../types";
 import { getOrdersBySellerId } from "../../../services/apiOrders";
@@ -13,23 +13,34 @@ const Calendar: FunctionComponent = () => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const user: IUser = useSelector((state: IStore) => state.auth.user);
+  const deadlineStep = 7;
 
   const [orders, setOrders] = useState<IOrder[]>([]);
+  const [ordersDeadline, setOrdersDeadline] = useState<IOrder[]>([]);
   const [viewedMonth, setViewedMonth] = useState<number>(moment().month());
 
   useEffect(() => {
     getOrdersBySellerId(user._id)
-      .then((orders: IOrder[]) => setOrders(orders))
+      .then((orders: IOrder[]) => {
+        const deadlines = orders
+          .filter((order: IOrder) => order.status !== "FINISHED")
+          .filter((order: IOrder) => order.status !== "DECLINED")
+          .map((order: IOrder) => {
+            order.deadlineDate = moment(order.date)
+              .subtract(-deadlineStep, "day")
+              .toISOString();
+            return order;
+          });
+
+        setOrdersDeadline(deadlines);
+        setOrders(orders);
+      })
       .catch((e) => console.log(e));
   }, []);
 
-  console.log(orders.filter((order: IOrder) => order.status !== "FINISHED"));
+  const arr: CalendarDayType[] = [];
 
-  // const arr: CalendarDayType[] = [];
-  const arr: any[] = [];
-  const deadlinesArr: any[] = []; // { order: IOrder, date: date }
-
-  const update = () => {
+  const createCalendar = () => {
     const currentWeek = moment().get("week");
     const newWeek = moment()
       .subtract(moment().month() - viewedMonth, "month")
@@ -44,32 +55,54 @@ const Calendar: FunctionComponent = () => {
 
     for (let i = start; i < end; i++) {
       const day = moment().subtract(i, "day");
-      const dayOrders = orders.filter((order: IOrder) =>
-        day.isSame(order.date, "day")
-      );
-
-      if (dayOrders.length) {
-        deadlinesArr.push({
-          orders: dayOrders,
-          date: moment(dayOrders[0].date).subtract(-7, "day"), // deadline = 7 days
-        });
-      }
-
-      arr.push({
-        day: day,
-        orders: dayOrders,
-      });
+      const dayOrders = orders.filter((order) => day.isSame(order.date, "day"));
+      addDataToDay(day, dayOrders);
     }
-
-    arr.forEach((item) => {
-      item.dl = deadlinesArr.filter((value) =>
-        moment(item.day).isSame(value.date, "day")
-      );
-    });
   };
 
-  update();
-  console.log(arr);
+  const addDataToDay = (day: Moment, orders: IOrder[]) => {
+    const status = {
+      nonPaid: [] as IOrder[],
+      paid: [] as IOrder[],
+      inProgress: [] as IOrder[],
+      declined: [] as IOrder[],
+      finished: [] as IOrder[],
+      deadline: [] as IOrder[],
+    };
+
+    orders.forEach((order: IOrder) => {
+      switch (order.status) {
+        case "NON-PAID":
+          status.nonPaid.push(order);
+          break;
+        case "PAID":
+          status.paid.push(order);
+          break;
+        case "IN PROGRESS":
+          status.inProgress.push(order);
+          break;
+        case "DECLINED":
+          status.declined.push(order);
+          break;
+        case "FINISHED":
+          status.finished.push(order);
+          break;
+      }
+    });
+
+    const a = ordersDeadline.filter((order) => {
+      return moment(order.deadlineDate).isSame(day, "day");
+    });
+
+    if (a.length) {
+      status.deadline.push(...a);
+    }
+
+    arr.push({ day: day, status: status });
+  };
+
+  createCalendar();
+
   const changeMonth = (direction: number) => {
     if (viewedMonth === 11 && direction === 1) {
       setViewedMonth(0);
@@ -91,7 +124,7 @@ const Calendar: FunctionComponent = () => {
   const daysComponents = arr
     .reverse()
     .map((item: CalendarDayType) => (
-      <Day key={item.day.format("DD-MM")} day={item.day} />
+      <Day day={item.day} status={item.status} key={item.day.format("DD-MM")} />
     ));
 
   return (

@@ -1,7 +1,7 @@
 import { ActionCreator, AnyAction } from "redux";
 import { IOrder } from "../interfaces/order";
 import { ReactNode } from "react";
-import {Moment} from "moment/moment";
+import { Moment } from "moment/moment";
 
 export type HeaderType = {
   accentColor: {
@@ -80,4 +80,12 @@ export type GraphType = {
 
 export type CalendarDayType = {
   day: Moment;
+  status: {
+    nonPaid: IOrder[];
+    paid: IOrder[];
+    inProgress: IOrder[];
+    declined: IOrder[];
+    finished: IOrder[];
+    deadline: IOrder[];
+  };
 };

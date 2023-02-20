@@ -13,18 +13,3 @@
   display: block;
   text-align: center;
 }
-
-.calendar__day {
-  width: 150px;
-  height: 80px;
-  display: block;
-  border: 1px solid yellowgreen;
-
-  &--current {
-    color: dodgerblue;
-  }
-
-  &--today {
-    color: red;
-  }
-}

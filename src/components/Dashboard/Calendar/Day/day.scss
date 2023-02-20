@@ -1,0 +1,24 @@
+.day {
+  width: 150px;
+  height: 160px;
+  display: block;
+  border: 1px solid yellowgreen;
+
+  &--current {
+    color: dodgerblue;
+  }
+
+  &--today {
+    color: red;
+  }
+}
+
+.day__list {
+
+}
+
+.day__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
