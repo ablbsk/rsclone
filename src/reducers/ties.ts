@@ -1,7 +1,7 @@
 import { ActionTypes } from "../interfaces/store";
 import { AnyAction } from "redux";
 
-import { ITiesList } from "../interfaces/tiesList";
+import { ITiesList } from "../interfaces/tie";
 
 const initialState: ITiesList = {
   ties: [],

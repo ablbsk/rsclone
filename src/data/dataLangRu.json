@@ -40,7 +40,9 @@
         "sidebarAccentMode": "Акцент на панели",
         "navbarNightMode": "Ночной режим меню",
         "changeAccentColor": "Сменить цвет акцента",
-        "reset": "Сбросить"
+        "reset": "Сбросить",
+        "addTie": "Добавить галстук",
+        "favourite": "Мои желания"
     },
     "sign": {
         "signIn": "Войти",

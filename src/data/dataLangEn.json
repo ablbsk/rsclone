@@ -40,7 +40,9 @@
         "sidebarAccentMode": "Sidebar accent mode",
         "navbarNightMode": "Navbar night mode",
         "changeAccentColor": "Change accent color",
-        "reset": "Reset to default"
+        "reset": "Reset to default",
+        "addTie": "Add tie",
+        "favourite": "My favourites"
     },
     "sign": {
         "signIn": "Sign In",

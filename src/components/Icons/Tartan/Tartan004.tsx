@@ -14,6 +14,7 @@ const Tartan004: FunctionComponent<ConfiguratorIconType> = ({
       width="300"
       height="750"
       viewBox="0 0 674 1466"
+      id="tie-factory"
     >
       <g className="kb-view kb-view-0">
         <g id="_x30_04">
@@ -214,40 +215,7 @@ const Tartan004: FunctionComponent<ConfiguratorIconType> = ({
 			l14.095-14.097L457.43,834.815z"
           ></path>
         </g>
-        <g
-          className="field-id-6503225 data-source-item-id-6007591 data-source-id-6007383 field-type-tilepicker"
-          display="none"
-        >
-          <g id="tartan04">
-            <path
-              id="br4"
-              fill="#CFCFCF"
-              d="M223.48,1292.11c16.57,16.59,33.17,33.16,49.74,49.75c17.12,17.14,34.21,34.31,51.33,51.44
-			c2.06,2.07,4.13,4.13,6.19,6.2c1.73,1.73,3.7,2.96,6.21,3.1c2.72,0.16,4.79-1.12,6.65-2.99c2.07-2.07,4.14-4.14,6.21-6.21
-			c8.24-8.25,16.49-16.49,24.74-24.74c15.06-15.06,30.12-30.11,45.18-45.18c15.43-15.44,30.98-30.78,46.31-46.32
-			c3.02-3.06,5.34-7.12,6.21-11.35c0.56-2.71,0.27-5.49,0.18-8.24c-0.1-2.88-0.21-5.77-0.31-8.65c-0.01-0.15-0.01-0.3-0.02-0.47
-			c0-0.02,0-0.03,0-0.04c-0.59-16.54-1.18-33.09-1.76-49.63c-0.59-16.55-1.16-33.1-1.75-49.66c-0.58-16.61-1.16-33.22-1.74-49.83
-			c-0.58-16.58-1.16-33.16-1.74-49.74c-0.3-8.49-0.6-16.98-0.9-25.48L209.92,1278.6c0.51,0.49,1.02,0.97,1.5,1.45
-			C215.46,1284.05,219.46,1288.09,223.48,1292.11z"
-            ></path>
-            <g id="tartan04maskG">
-              <clipPath id="br4mask_1_">
-                <use xlinkHref="#br4mask" overflow="visible"></use>
-              </clipPath>
-              <g clipPath="url(#br4mask_1_)">
-                <image
-                  overflow="visible"
-                  width="1569"
-                  height="372"
-                  id="largelogo_4_"
-                  transform="matrix(0.1172 0 0 0.1172 269.9209 1236.7665) translate(784.5 186)  matrix(1,0,0,1,0,0) translate(-784.5 -186)"
-                  xlinkHref="https://api.kitbuilder.co.uk/Api/file/76621630?width=128&amp;distributorId=76104207"
-                  original-transform="matrix(0.1172 0 0 0.1172 269.9209 1236.7665)"
-                ></image>
-              </g>
-            </g>
-          </g>
-        </g>
+
         <g
           className="field-id-6503192 field-type-custom"
           field-key=""

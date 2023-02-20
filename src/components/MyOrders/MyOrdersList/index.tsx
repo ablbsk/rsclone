@@ -2,16 +2,9 @@ import { FunctionComponent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import {
-  myOrderDeleted,
-  myOrdersFetching,
-  myOrdersFetched,
-  myOrdersFetchingError,
-} from "../../../actions";
-import { deleteOrder, getOrdersByUserId } from "../../../services/apiOrders";
 import { IAuthReducer } from "../../../interfaces/authReducer";
 import { IOrdersListComponent } from "../../../interfaces/ordersListComponent";
-import Hover from "../../Hover";
+
 import { IStore } from "../../../interfaces/store";
 
 const MyOrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
@@ -31,7 +24,9 @@ const MyOrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
           return (
             <div key={i} className="my-orders-list__item">
               <div className="item__image">
-                <img src={item.image} alt="" />
+                <div>
+                  <img src={item.image} alt="" />
+                </div>
               </div>
               <div className="item__text">
                 <h4>{t("myOrders.data")}</h4>
