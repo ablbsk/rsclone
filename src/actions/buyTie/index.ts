@@ -19,10 +19,3 @@ export const buyTieFetchingError = () => {
     type: ActionTypes.buyTieFetchingError,
   };
 };
-
-// export const buyTieDeleted = (id: string) => {
-//   return {
-//     type: ActionTypes.tieDeleted,
-//     payload: id,
-//   };
-// };
