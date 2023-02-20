@@ -2,14 +2,6 @@
 @import "../../sass/mixins";
 
 
-.configurator-wrapper {
-  padding-top: 88px;
-
-  @include media-small-mobile {
-    padding-top: 77px;
-  }
-}
-
 .configurator {
   max-width: 1200px;
   margin: 0 auto;

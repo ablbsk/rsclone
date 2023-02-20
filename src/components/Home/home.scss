@@ -51,7 +51,6 @@
   z-index: 11;
   
   @include media-small-tablet {
-    height: calc(20vh - 22px);
     margin-top: 80px;
     display: flex;
     flex-direction: column;
@@ -66,6 +65,7 @@
     overflow: hidden;
     border-top: 2px solid #ffffff;
     z-index: 11;
+    padding-bottom: 5px;
   }
 
   @include media-small-mobile {
@@ -198,12 +198,7 @@
 #background-video{
   height: 100%;
   width: 100%;
-  padding-top: 88px;
   margin: 0;
-
-  @include media-small-mobile {
-    padding-top: 77px; 
-  }
 }
 
 // ==========================================

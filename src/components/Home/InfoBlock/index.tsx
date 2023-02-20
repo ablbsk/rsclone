@@ -28,7 +28,7 @@ const InfoBlock: FunctionComponent<InfoBlockType> = ({
                     <li className="custom-tab__item" key={item.question}>
                       <h5
                         className={classNames("tab-title", {
-                          select: tab === index + 1,
+                          "tab-title-select": tab === index + 1,
                         })}
                         style={{
                           backgroundColor: isNavbarNightMode

@@ -5,6 +5,10 @@
 .section-testimonial {
   background: $color-white1;
   padding: 30px 0;
+
+  .body--night-mode & {
+    background-color: $color-black1;
+  }
 }
 
 .section-testimonial-wrapper {
@@ -77,6 +81,7 @@
 .slide {
   display: inline-block;
   width: 94%;
+  vertical-align: middle;
 }
 
 .testimonial-item {
@@ -85,6 +90,10 @@
   border-radius: 5px; 
   white-space:normal;
   margin: 0 35px 40px 35px;
+
+  .body--night-mode & {
+    background-color: $color-element-background-night;
+  }
 
   @include media-small-tablet {
     margin: 0 25px 40px 25px;
@@ -124,6 +133,10 @@
   font-family: $font-family-base;
   font-size: $font-size-xlg;
   color: $color-black1;
+
+  .body--night-mode & {
+    color: $color-white1;
+  }
 }
 
 .name-user-job {

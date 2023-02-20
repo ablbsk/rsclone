@@ -6,23 +6,19 @@ import "./categories.scss";
 
 const Categories: FunctionComponent<CategoriesType> = ({
   tieList,
-  setType,
   accentColor,
   isNavbarNightMode,
-}: CategoriesType) => {
-  return (
-    <ul className="category__list">
-      {tieList?.data?.map((tie: ICategory) => (
-        <Category
-          tie={tie}
-          setType={setType}
-          key={tie.type}
-          accentColor={accentColor}
-          isNavbarNightMode={isNavbarNightMode}
-        />
-      ))}
-    </ul>
-  );
-};
+}: CategoriesType) => (
+  <ul className="category__list">
+    {tieList?.data?.map((tie: ICategory) => (
+      <Category
+        tie={tie}
+        key={tie.type}
+        accentColor={accentColor}
+        isNavbarNightMode={isNavbarNightMode}
+      />
+    ))}
+  </ul>
+);
 
 export default Categories;

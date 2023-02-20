@@ -1,8 +1,7 @@
 @import "../../sass/variables";
 @import "../../sass/mixins";
 
-.overlay {
-  
+.overlay { 
   display: block;
   position: fixed;
   top: 0;
@@ -14,8 +13,7 @@
 }
 
 .tiemarket-wrapper {
-padding-top: 100px;
-background: $color-grey-tie;
+  background: $color-grey-tie;
 
 }
 
@@ -157,7 +155,7 @@ background: $color-grey-tie;
 }
 
 .popup {   
-  height: calc(45vh - 22px);
+  height: calc(50vh - 22px);
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -166,7 +164,7 @@ background: $color-grey-tie;
   opacity: 0;
   background-color: $color-white1;
   transition: 0.1s ease-in-out;
-  transform: translateY(-545px);
+  transform: translateY(-615px);
   box-shadow: 0 16px 40px 0 $color-black4;
   overflow: hidden;
   border-top: 2px solid $color-white1;

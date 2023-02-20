@@ -1,8 +1,6 @@
 @import "../../../sass/mixins";
 @import "../../../sass/variables";
 
-
-
 .banner-top {
   background-image: url(../../../assets/images/jpg/BannerTie.jpg);
   background-repeat: no-repeat;
@@ -14,7 +12,11 @@
 .order-process__banner {
   margin-top: 0px;
   margin-bottom: 0px;
-  background-color: $color-white4 ;
+  background-color: $color-white4;
+
+  .body--night-mode & {
+    background-color: $color-black1;
+  }
 }
 
 .title-block {

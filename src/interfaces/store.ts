@@ -52,4 +52,11 @@ export enum ActionTypes {
   tieFetchingError = "TIE_FETCHING",
   tieDeleted = "ORDER_DELETED",
   changeLanguage = "CHANGE_LANGUAGE",
+  addtie = "ADDED_TIE",
+  addTieFetching = "ADDTIE_FETCHING",
+  addTieFetched = "ADDTIE_FETCHED",
+  addTieFetchingError = "ADDTIE_FETCHED_ERROR",
+  buyTieFetching = "buyTIE_FETCHING",
+  buyTieFetchingError = "buyTIE_FETCHED_ERROR",
+  buyTieFetched = "buyTIE_FETCHED",
 }
