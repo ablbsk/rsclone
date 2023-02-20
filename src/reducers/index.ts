@@ -7,6 +7,8 @@ import { tiesReducer } from "./ties";
 import { addTieReducer } from "./addTie";
 import { langReducer } from "./lang";
 import { buyTieReducer } from "./buyTie";
+import { myTiesReducer } from "./myTies";
+import { myOrdersReducer } from "./myOrders";
 
 const rootReducer = combineReducers({
   appInterface,
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   addTieReducer,
   langReducer,
   buyTieReducer,
+  myTiesReducer,
+  myOrdersReducer,
 });
 
 export default rootReducer;

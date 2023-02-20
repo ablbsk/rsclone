@@ -7,10 +7,10 @@
     },
     "select": {
         "nonPaid": "НЕ ОПЛАЧЕНО",
-        "paid": "PAID",
-        "declined": "DECLINED",
-        "inProgress": "IN PROGRESS",
-        "finished": "FINISHED"
+        "paid": "ОПЛАЧЕНО",
+        "declined": "ОТМЕНЕНО",
+        "inProgress": "ВЫПОЛНЯЕТСЯ",
+        "finished": "ЗАВЕРШЕНО"
     },
     "buttonsUsersList": {
         "users": "Пользователи",
@@ -40,7 +40,9 @@
         "sidebarAccentMode": "Акцент на панели",
         "navbarNightMode": "Ночной режим меню",
         "changeAccentColor": "Сменить цвет акцента",
-        "reset": "Сбросить"
+        "reset": "Сбросить",
+        "addTie": "Добавить галстук",
+        "favourite": "Мои желания"
     },
     "sign": {
         "signIn": "Войти",
@@ -51,5 +53,28 @@
         "have": "Уже есть аккаунт",
         "buyer": "Я покупатель",
         "seller": "Я продавец"
+    },
+    "myProfile": {
+        "email": "Почта",
+        "date": "Дата регистрации",
+        "role": "Роль"
+    },
+    "myTies": {
+        "myTies": "Мои галстуки",
+        "mySales": "Мои продажи",
+        "delete": "Удалить галстук",
+        "price": "Цена",
+        "name": "Артикул"
+    },
+    "myTiesOrders": {
+        "date": "Дата продажи",
+        "sum": "Сумма"
+    },
+    "myOrders": {
+        "data": "Данные о заказе",
+        "date": "Дата",
+        "sum": "Сумма",
+        "status": "Статус",
+        "delete": "Удалить заказ"
     }
 }    

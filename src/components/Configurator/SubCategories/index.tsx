@@ -48,4 +48,5 @@ const SubCategories: FunctionComponent = () => {
     </div>
   );
 };
+
 export default SubCategories;

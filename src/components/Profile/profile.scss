@@ -163,7 +163,7 @@
     color: $color-white1;
     padding: 3px 0;
 
-    &:first-child {
+    &:not(:last-child) {
       margin-bottom: 5px;
     }
   }

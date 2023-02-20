@@ -118,9 +118,6 @@ const TieMarket: FunctionComponent = () => {
               <div className="market-block">
                 <div className="market-block__title_wrapper">
                   <h4 className="market-block__title">{listLang.data.title}</h4>
-                  <div className="link-link-block">
-                    <Link className="linkinlike" to={"/favourite-tie"}></Link>
-                  </div>
                 </div>
                 <div className="market-block__products">
                   {spinner}

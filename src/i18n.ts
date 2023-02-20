@@ -15,7 +15,11 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  // lng: JSON.parse(localStorage.getItem("lang")!).lang,
+  /* eslint-disable */
+  lng: localStorage.getItem("lang")
+    ? JSON.parse(localStorage.getItem("lang")!).lang
+    : "ru",
+  /* eslint-enable */
   fallbackLng: "ru",
   keySeparator: ".",
   ns: ["dataLang"],

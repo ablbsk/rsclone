@@ -13,6 +13,8 @@ const Footer: FunctionComponent<FooterType> = ({
 }: FooterType) => {
   const backgroundColor = nightTheme.background.element;
   const { lang } = useSelector((state: ILangReducer) => state.langReducer);
+
+  // eslint-disable-next-line
   const list = footer.find((c) => c.lang === lang)!;
 
   return (
@@ -58,7 +60,7 @@ const Footer: FunctionComponent<FooterType> = ({
                   </Link>
                 </li>
                 <li className="footer__list_item">
-                  <Link className="footer__list_item-link" to={"/tiemarket"}>
+                  <Link className="footer__list_item-link" to={"/tie-market"}>
                     {list.data.market}
                   </Link>
                 </li>
@@ -85,10 +87,26 @@ const Footer: FunctionComponent<FooterType> = ({
         <div className="copyright-footer">
           <div className="copyright-wrapper">
             <span className="copyright-text">Copyright 2023 by</span>
-            <Link className="copyright-footer__link" to=""></Link>
-            <Link className="copyright-footer__link" to=""></Link>
-            <Link className="copyright-footer__link" to=""></Link>
-            <Link className="logo-link" to=""></Link>
+            <Link
+              className="copyright-footer__link"
+              to="https://github.com/siarheikliazovich"
+              target="_blank"
+            ></Link>
+            <Link
+              className="copyright-footer__link"
+              to="https://github.com/anast-ananko"
+              target="_blank"
+            ></Link>
+            <Link
+              className="copyright-footer__link"
+              to="https://github.com/ablbsk"
+              target="_blank"
+            ></Link>
+            <Link
+              className="logo-link"
+              to="https://rs.school"
+              target="_blank"
+            ></Link>
           </div>
         </div>
       </div>
