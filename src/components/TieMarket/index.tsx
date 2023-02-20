@@ -25,6 +25,8 @@ import { getTies } from "../../services/apiTies";
 import { ITiesReducer, ITie } from "../../interfaces/tie";
 import { ILangReducer } from "../../interfaces/langReducer";
 import Spinner from "../Spinner";
+import { IBuyTieReducer } from "../../interfaces/buyTie";
+import { IAuthReducer } from "../../interfaces/authReducer";
 import { IOrder } from "../../interfaces/order";
 import { createOrder } from "../../services/apiOrders";
 
@@ -46,28 +48,39 @@ const TieMarket: FunctionComponent = () => {
   const { accentColor, isNavbarNightMode } = interfaceSettings;
   const { tieLoadingStatus, ties } = tiesStore;
 
+  const buyTieStore = useSelector(
+    (state: IBuyTieReducer) => state.buyTieReducer
+  );
+  const { buyTieLoadingStatus } = buyTieStore;
+
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const listLang = tieMarketLang.find((c) => c.lang === lang)!;
   const dispatch = useDispatch();
+
+  const authStore = useSelector((state: IAuthReducer) => state.auth);
+  const { user } = authStore;
+
+  useEffect(() => {
+    dispatch(dispatch(buyTieFetching()));
+  }, []);
 
   const buyTie = async (
     formData: Pick<IOrder, "userId" | "image" | "price" | "sellerId">
   ) => {
     try {
       dispatch(buyTieFetching());
-      const login = localStorage.getItem("login");
-      const user = login ? JSON.parse(login) : [];
-      if (!user.user._id) {
+      if (!user._id) {
         setOpenPopup(!openPopup);
       } else {
-        const user = login ? JSON.parse(login) : [];
         const body = {
           ...formData,
-          userId: user.user._id,
+          userId: user._id,
         };
         const resp = await createOrder(body);
         if (resp.userId) {
           dispatch(buyTieFetched(resp));
+        } else {
+          dispatch(buyTieFetchingError());
         }
       }
     } catch (e) {
@@ -120,56 +133,82 @@ const TieMarket: FunctionComponent = () => {
                   <h4 className="market-block__title">{listLang.data.title}</h4>
                 </div>
                 <div className="market-block__products">
+                  {buyTieLoadingStatus === "error" && (
+                    <div className="error-tooltip">
+                      <i className="fa fa-warning" />
+                      {listLang.data.errortooltip}
+                    </div>
+                  )}
+                  {buyTieLoadingStatus === "loaded" && (
+                    <div className="success-tooltip">
+                      <i className="fa fa-info" />
+                      {listLang.data.tooltip}{" "}
+                      <Link to="/my-orders">{listLang.data.myorders}</Link>
+                    </div>
+                  )}
                   {spinner}
                   <div className="row__products">
-                    {ties?.map((tie) => (
-                      <div className="tie__product" key={tie.name}>
-                        <div className="tie__products_img">
-                          <img
-                            className="products_img"
-                            src={tie.image}
-                            alt=""
-                          />
-                        </div>
-                        <div className="tie__products_discription">
-                          <p className="tie__products_name">{tie.name}</p>
-                          <p className="tie__products_price">
-                            {listLang.data.price} {tie.price}$
-                          </p>
-                          <div className="tie__products_wrapper">
-                            <Hover>
-                              <button
-                                className="tie__products_btn"
-                                onClick={() =>
-                                  buyTie({
-                                    ...tie,
-                                    sellerId: tie.userId,
-                                  })
-                                }
-                                style={{
-                                  backgroundColor: isNavbarNightMode
-                                    ? backgroundColor
-                                    : accentColor.static,
-                                }}
-                              >
-                                {listLang.data.btn}
-                              </button>
-                            </Hover>
-                            <button
-                              className={classNames("btn__like", {
-                                nolike:
-                                  favouriteTies.filter(
-                                    (favouriteTie: ITie) =>
-                                      favouriteTie._id === tie._id
-                                  ).length !== 0,
-                              })}
-                              onClick={() => addFavouriteTie(tie)}
-                            ></button>
+                    {ties?.map((tie) => {
+                      const isLike =
+                        favouriteTies.filter(
+                          (favouriteTie: ITie) => favouriteTie._id === tie._id
+                        ).length !== 0;
+                      return (
+                        <div className="tie__product" key={tie.name}>
+                          <div className="tie__products_img">
+                            <img
+                              className="products_img"
+                              src={tie.image}
+                              alt=""
+                            />
+                          </div>
+                          <div className="tie__products_discription">
+                            <p className="tie__products_name">{tie.name}</p>
+                            <p className="tie__products_price">
+                              {listLang.data.price} {tie.price}$
+                            </p>
+                            <div className="tie__products_wrapper">
+                              {user.role === "USER" && (
+                                <>
+                                  <Hover>
+                                    <button
+                                      className="tie__products_btn"
+                                      onClick={() =>
+                                        buyTie({
+                                          ...tie,
+                                          sellerId: tie.userId,
+                                        })
+                                      }
+                                      style={{
+                                        backgroundColor: isNavbarNightMode
+                                          ? backgroundColor
+                                          : accentColor.static,
+                                      }}
+                                    >
+                                      <i className="fa fa-cart-plus" />
+                                      {listLang.data.btn}
+                                    </button>
+                                  </Hover>
+                                  <button
+                                    className={classNames("btn__like", {
+                                      nolike: !isLike,
+                                    })}
+                                    onClick={() => addFavouriteTie(tie)}
+                                  >
+                                    <i className="fa fa-heart" />
+                                    {isLike
+                                      ? listLang.data.favourited
+                                      : listLang.data.favourite}
+                                  </button>
+                                </>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
+                  {ties?.length === 0 && <p>{listLang.data.empty}</p>}
                 </div>
               </div>
             </div>

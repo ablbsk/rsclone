@@ -34,7 +34,8 @@
 }
 
 .my-ties__header {
-    margin-top: -70px;
+    display: flex;
+    justify-content: center;
 }
 
 .my-ties-list__wrapper {

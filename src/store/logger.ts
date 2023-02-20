@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore:next-line
 const logger = (store) => (next) => (action) => {
-  // console.group(action.type);
-  // console.info("dispatching", action);
+  console.group(action.type);
+  console.info("dispatching", action);
   const result = next(action);
-  // console.log("next state", store.getState());
-  // console.groupEnd();
+  console.log("next state", store.getState());
+  console.groupEnd();
   return result;
 };
 

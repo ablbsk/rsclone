@@ -52,3 +52,49 @@ h6 {
     background-color: $color-accent-hover;
   }
 }
+
+.error-tooltip {
+  margin-bottom: 30px;
+  color: $color-special-1;
+  padding: 10px 15px;
+  font-size: $font-size-lg;
+  background-color: $color-special-6;
+  border-radius: 5px;
+
+  .fa {
+      font-size: $font-size-xlg;
+      color: $color-special-1;
+      margin-right: 10px;
+  }
+
+  a {
+    color: $color-special-1;
+    font-weight: bold;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.success-tooltip {
+  margin-bottom: 30px;
+  color: $color-special-8;
+  padding: 10px 15px;
+  font-size: $font-size-lg;
+  background-color: $color-special-7;
+  border-radius: 5px;
+
+  .fa {
+      font-size: $font-size-xlg;
+      color: $color-special-8;
+      margin-right: 10px;
+  }
+
+  a {
+    color: $color-special-8;
+    font-weight: bold;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

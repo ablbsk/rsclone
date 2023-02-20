@@ -67,4 +67,7 @@ export enum ActionTypes {
   myOrdersFetched = "MY_ORDERS_FETCHED",
   myOrdersFetchingError = "MY_ORDERS_FETCHING_ERROR",
   myOrderDeleted = "MY_ORDER_DELETED",
+  favouriteTieFetching = "FAVOURITE_TIE_FETCHING",
+  favouriteTieFetched = "FAVOURITE_TIE_FETCHED",
+  favouriteTieFetchingError = "FAVOURITE_TIE_ERROR",
 }
