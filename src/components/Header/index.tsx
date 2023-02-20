@@ -49,6 +49,7 @@ const Header: FunctionComponent<HeaderType> = ({
         <div className="header__wrapper">
           {isButtonVisible && (
             <span
+              title="header__hamburger"
               className="header__hamburger"
               onClick={() => dispatch(showSidebar())}
             ></span>
@@ -66,7 +67,11 @@ const Header: FunctionComponent<HeaderType> = ({
           <ul className="header__list">
             <li className="header__item">
               <div className="language">
-                <button className="button__lang" onClick={handleLenguageChange}>
+                <button
+                  title="button__lang"
+                  className="button__lang"
+                  onClick={handleLenguageChange}
+                >
                   <img
                     className="language__icon"
                     src={lang.lang === "en" ? flagUS : flagRU}
@@ -79,6 +84,7 @@ const Header: FunctionComponent<HeaderType> = ({
               </div>
             </li>
             <li
+              title="header__profile"
               className="header__item"
               onClick={() => dispatch(showProfile())}
             >
