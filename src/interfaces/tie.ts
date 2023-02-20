@@ -5,3 +5,12 @@ export interface ITie {
   image: string;
   price: number;
 }
+
+export interface ITiesList {
+  ties: ITie[];
+  tieLoadingStatus: string;
+}
+
+export interface ITiesReducer {
+  tiesReducer: ITiesList;
+}

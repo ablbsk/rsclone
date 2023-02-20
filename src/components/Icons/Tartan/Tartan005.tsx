@@ -14,6 +14,7 @@ const Tartan005: FunctionComponent<ConfiguratorIconType> = ({
       width="300"
       height="750"
       viewBox="0 0 674 1466"
+      id="tie-factory"
     >
       <g className="kb-view kb-view-0">
         <g id="_x30_05">
@@ -148,41 +149,7 @@ const Tartan005: FunctionComponent<ConfiguratorIconType> = ({
 			c0.24,0.985,0.343,1.92,1.628,2.103h13.176h0.003L300.013,231.889z"
           ></path>
         </g>
-        <g
-          className="field-id-6503232 data-source-item-id-6007590 data-source-id-6007382 field-type-tilepicker"
-          display="none"
-        >
-          <g id="tartan05">
-            <path
-              id="br5"
-              fill="#E20613"
-              d="M202.27,1262.08c0.1,2.18,0.41,4.51,0.8,6.66c0.86,4.78,5.11,8.1,8.35,11.31
-			c4.04,4,8.04,8.04,12.06,12.06c16.57,16.59,33.17,33.16,49.74,49.75c17.12,17.14,34.21,34.31,51.33,51.44
-			c2.06,2.07,4.13,4.13,6.19,6.2c1.73,1.73,3.7,2.96,6.21,3.1c2.72,0.16,4.79-1.12,6.65-2.99c2.07-2.07,4.14-4.14,6.21-6.21
-			c8.24-8.25,16.49-16.49,24.74-24.74c15.06-15.06,30.12-30.11,45.18-45.18c15.43-15.44,30.98-30.78,46.31-46.32
-			c3.02-3.06,5.34-7.12,6.21-11.35c0.56-2.71,0.27-5.49,0.18-8.24c-0.1-2.88-0.21-5.77-0.31-8.65c-0.01-0.15-0.01-0.3-0.02-0.47
-			c0-0.02,0-0.03,0-0.04c-0.59-16.54-1.18-33.09-1.76-49.63c-0.59-16.55-1.16-33.1-1.75-49.66c-0.58-16.61-1.16-33.22-1.74-49.83
-			c-0.58-16.58-1.16-33.16-1.74-49.74c-0.58-16.57-1.17-33.14-1.76-49.7c-0.03-0.78-0.03-2.74-0.06-3.52l-260.89,260.89
-			C202.33,1258.44,202.21,1260.89,202.27,1262.08z"
-            ></path>
-            <g id="tartan05maskG">
-              <clipPath id="br5mask_1_">
-                <use xlinkHref="#br5mask" overflow="visible"></use>
-              </clipPath>
-              <g clipPath="url(#br5mask_1_)">
-                <image
-                  overflow="visible"
-                  width="1569"
-                  height="372"
-                  id="largelogo_2_"
-                  transform="matrix(0.1172 0 0 0.1172 269.9209 1236.7665) translate(784.5 186)  matrix(1,0,0,1,0,0) translate(-784.5 -186)"
-                  xlinkHref="https://api.kitbuilder.co.uk/Api/file/76621630?width=128&amp;distributorId=76104207"
-                  original-transform="matrix(0.1172 0 0 0.1172 269.9209 1236.7665)"
-                ></image>
-              </g>
-            </g>
-          </g>
-        </g>
+
         <g
           className="field-id-6503192 field-type-custom"
           field-key=""

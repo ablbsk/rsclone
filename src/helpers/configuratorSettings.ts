@@ -36,11 +36,12 @@ const configuratorSettings = (type: string): IViewSetting[] => {
     case "STR312":
     case "STR313":
     case "STR324":
-    case "STR326":
     case "STR327":
     case "STR328":
     case "STR329":
     case "STR330":
+    case "Tartan003":
+    case "STR326":
       return [
         {
           type: "color",
@@ -78,7 +79,6 @@ const configuratorSettings = (type: string): IViewSetting[] => {
     case "CENT507":
     case "Tartan001":
     case "Tartan005":
-    case "Tartan003":
       return [
         {
           type: "color",

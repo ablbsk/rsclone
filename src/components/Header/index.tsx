@@ -36,9 +36,6 @@ const Header: FunctionComponent<HeaderType> = ({
     }
   };
 
-  const path =
-    user.role === "ADMIN" || user.role === "MANAGER" ? "/dashboard" : "/";
-
   return (
     <header
       className="header"
@@ -99,4 +96,5 @@ const Header: FunctionComponent<HeaderType> = ({
     </header>
   );
 };
+
 export default Header;

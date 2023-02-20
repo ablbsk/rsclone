@@ -95,6 +95,11 @@ const Profile: FunctionComponent<ProfileType> = ({
                 {t("profile.myOrders")}
               </Link>
             </Hover>
+            <Hover>
+              <Link style={styles} className="link" to="/favourite-tie">
+                {t("profile.favourite")}
+              </Link>
+            </Hover>
           </div>
         ) : null}
         {user.role === "SELLER" ? (
@@ -107,6 +112,11 @@ const Profile: FunctionComponent<ProfileType> = ({
             <Hover>
               <Link style={styles} className="link" to="/my-ties">
                 {t("profile.myTies")}
+              </Link>
+            </Hover>
+            <Hover>
+              <Link style={styles} className="link" to="/add-tie">
+                {t("profile.addTie")}
               </Link>
             </Hover>
           </div>

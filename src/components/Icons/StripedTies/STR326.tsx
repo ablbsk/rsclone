@@ -31,7 +31,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               id="two_1_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill="#C40017"
+              fill={settings.colorOne}
               d="M205.548,1157.136L459.57,903.1
 			c-1.155-31.742-2.357-65.37-3.632-98.12l-246.734,246.732c-1.207,34.34-2.408,69.828-3.636,104.857L205.548,1157.136z"
             ></path>
@@ -39,7 +39,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               id="three_1_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill="#C40017"
+              fill={settings.colorOne}
               d="M214.424,907.679l235.977-235.416
 			c-1.348-31.065-2.781-65.016-4.32-97.955L218.448,801.441c-1.408,35.387-2.732,71.506-4.005,105.727L214.424,907.679z"
             ></path>
@@ -47,7 +47,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               id="four_1_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill="#C40017"
+              fill={settings.colorOne}
               d="M224.553,657.389l210.624-210.711
 			c-4.94-32.493-11.754-61.668-18.526-84.469L229.413,550.741c-1.72,36.201-3.32,71.832-4.82,105.747L224.553,657.389z"
             ></path>
@@ -55,7 +55,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               id="five_1_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill="#C40017"
+              fill={settings.colorOne}
               d="M250.042,390.511l124.77-124.771
 			c-2.645-4.789-5.118-9.278-7.355-13.565h-60.543C292.35,280.08,267.877,316.371,250.042,390.511L250.042,390.511z"
             ></path>
@@ -63,7 +63,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               id="six_1_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill="#C40017"
+              fill={settings.colorOne}
               d="M306.918,252.175
 			c-1.286-0.183-1.392-1.118-1.631-2.103c-8.066-33.132-22.499-48.872-41.541-97.843c4.785-2.88,10.327-6.021,15.095-8.602
 			l93.776,94.108c-1.204,3.696-2.519,8.196-3.528,12.336c-0.239,0.985-0.342,1.92-1.629,2.103H306.918L306.918,252.175z"
@@ -84,7 +84,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               id="two"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill="#004D9E"
+              fill={settings.bgColor}
               d="M216.866,1285.579l247.484-247.486
 			c-1.111-32.252-2.232-64.42-3.387-96.832L204.106,1198.12c-0.746,21.111-1.505,42.469-2.285,64.156
 			c-0.049,5.299,2.646,10.191,5.482,13.738c1.756,1.756,0.301,0.322,2.293,2.295L216.866,1285.579L216.866,1285.579z"
@@ -93,7 +93,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               id="three"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill="#004D9E"
+              fill={settings.bgColor}
               d="M209.204,1052.712L455.938,805.98
 			c-1.224-31.417-2.514-63.436-3.897-96.325L212.913,948.784C211.647,983.544,210.423,1018.054,209.204,1052.712L209.204,1052.712z"
             ></path>
@@ -101,7 +101,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               id="four"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill="#004D9E"
+              fill={settings.bgColor}
               d="M218.448,802.941l227.633-227.632
 			c-0.426-9.099-0.858-18.279-1.301-27.542c-1.148-24.067-2.889-46.083-5.096-66.284L222.766,698.401
 			C221.231,734.182,219.801,768.921,218.448,802.941L218.448,802.941z"
@@ -110,7 +110,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               id="five"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill="#004D9E"
+              fill={settings.bgColor}
               d="M229.413,551.447l187.738-187.738
 			c-9.035-30.425-19.062-53.36-28.374-71.847L240.151,440.488c-4.857,30.448-8.585,65.834-10.563,107.279L229.413,551.447
 			L229.413,551.447z"
@@ -119,7 +119,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
               id="six"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill="#004D9E"
+              fill={settings.bgColor}
               d="M372.409,238.368l-94.33-94.329
 			c20.146-10.908,40.059-19.148,59.109-24.706c8.223,2.398,16.606,5.298,25.099,8.694l41.327,41.326
 			C390.264,200.301,379.616,216.237,372.409,238.368L372.409,238.368z"
@@ -626,124 +626,7 @@ const SRT326: FunctionComponent<ConfiguratorIconType> = ({
             </g>
           </g>
         </g>
-        <g
-          className="field-id-6528272 data-source-item-id-6133545 data-source-id-6133429 field-type-tilepicker"
-          display="none"
-        >
-          <g id="str326UK">
-            <path
-              id="str326UKback"
-              fill="#C40017"
-              d="M427.659,405.039c-3.348-15.609-7.29-31.095-12.005-46.349
-			c-4.768-15.427-10.325-30.611-16.787-45.41c-6.262-14.34-13.427-28.237-20.962-41.944c-3.491-6.351-7.052-12.666-10.404-19.092
-			c0.808-0.114,1.172-0.621,1.395-1.244h-63.333c0.225,0.636,0.578,1.129,1.391,1.244c-5.296,10.149-11.04,20.058-16.4,30.174
-			c-5.368,10.13-10.41,20.429-14.995,30.938c-9.291,21.293-16.695,43.367-22.607,65.826c-6.023,22.879-10.535,46.139-14.008,69.535
-			c-3.49,23.514-5.943,47.179-7.631,70.888c-1.721,24.183-2.647,48.422-3.765,72.639c-0.825,17.87-2.143,46.719-2.935,64.59
-			l210.647-210.526C433.493,435.514,429.952,415.732,427.659,405.039z"
-            ></path>
-            <g id="str326UKmaskG">
-              <clipPath id="str326UKmask_2_">
-                <use xlinkHref="#str326UKmask" overflow="visible"></use>
-              </clipPath>
-              <g
-                transform="matrix(1 0 0 1 0 3.051758e-005)"
-                clipPath="url(#str326UKmask_2_)"
-              >
-                <image
-                  overflow="visible"
-                  width="1569"
-                  height="372"
-                  id="largelogo_80_"
-                  transform="matrix(0.0979 0 0 0.0979 259.4824 408.7421) translate(784.5 186)  matrix(1,0,0,1,0,0) translate(-784.5 -186)"
-                  xlinkHref="https://api.kitbuilder.co.uk/Api/file/76621630?width=64&amp;distributorId=76104207"
-                  original-transform="matrix(0.0979 0 0 0.0979 259.4824 408.7421)"
-                ></image>
-              </g>
-            </g>
-          </g>
-        </g>
-        <g
-          className="field-id-6528272 data-source-item-id-6133547 data-source-id-6133429 field-type-tilepicker"
-          display="none"
-        >
-          <g id="str326C">
-            <path
-              id="str326Cback"
-              fill="#C40017"
-              d="M444.955,550.567c-0.778-16.396-1.816-32.776-3.266-49.128
-			c-1.443-16.283-3.269-32.535-5.591-48.716c-2.293-15.981-5.054-31.897-8.44-47.684c-2.451-11.428-5.024-22.846-8.379-34.042
-			c-17.893-59.716-30.662-79.161-30.662-79.161L240.142,440.473c0,0-3.944,28.699-4.591,34.064
-			c-4.857,40.318-6.348,79.179-6.414,80.661c-0.748,16.866-3.893,87.815-4.813,108.857c-1.056,24.176-2.077,48.354-3.073,72.532
-			c-0.83,20.167-1.975,44.775-2.766,64.943l227.557-227.182C445.738,567.851,445.263,557.063,444.955,550.567z"
-            ></path>
-            <g id="str326CmaskG">
-              <defs>
-                <path
-                  id="str326Cmask"
-                  d="M444.955,550.567c-0.778-16.396-1.816-32.776-3.266-49.128c-1.443-16.283-3.269-32.535-5.591-48.716
-					c-2.293-15.981-5.054-31.897-8.44-47.684c-3.348-15.609-7.29-31.095-12.005-46.349c-1.613-5.219-15.35-45.797-21.095-55.646
-					l-156.965,156.76c-7.181,50.885-8.972,109.202-10.044,132.439c-1.105,23.936-2.178,47.874-3.224,71.812
-					c-1.056,24.176-2.077,48.354-3.073,72.532c-0.83,20.167-2.155,52.475-2.946,72.643l227.958-225.701
-					C445.959,577.033,445.263,557.063,444.955,550.567z"
-                ></path>
-              </defs>
-              <clipPath id="str326Cmask_1_">
-                <use xlinkHref="#str326Cmask" overflow="visible"></use>
-              </clipPath>
-              <g
-                transform="matrix(1 0 0 1 1.525879e-005 0)"
-                clipPath="url(#str326Cmask_1_)"
-              >
-                <image
-                  overflow="visible"
-                  width="1569"
-                  height="372"
-                  id="largelogo_79_"
-                  transform="matrix(0.1063 0 0 0.1063 253.6329 528.496) translate(784.5 186)  matrix(1,0,0,1,0,0) translate(-784.5 -186)"
-                  xlinkHref="https://api.kitbuilder.co.uk/Api/file/76621630?width=128&amp;distributorId=76104207"
-                  original-transform="matrix(0.1063 0 0 0.1063 253.6329 528.496)"
-                ></image>
-              </g>
-            </g>
-          </g>
-        </g>
-        <g
-          className="field-id-6528272 data-source-item-id-6133549 data-source-id-6133429 field-type-tilepicker"
-          display="none"
-        >
-          <g id="str326BR">
-            <path
-              id="str326BRback"
-              fill="#C40017"
-              d="M211.416,1280.047c4.015,4.027,8.043,8.042,12.063,12.064
-			c16.575,16.586,33.165,33.157,49.735,49.749c17.118,17.14,34.211,34.305,51.331,51.444c2.064,2.066,4.128,4.132,6.193,6.197
-			c1.73,1.73,3.703,2.957,6.214,3.1c2.722,0.156,4.79-1.124,6.651-2.986c2.069-2.069,4.139-4.139,6.208-6.209
-			c8.245-8.248,16.492-16.494,24.738-24.741c15.058-15.06,30.123-30.112,45.175-45.177c15.431-15.444,30.979-30.778,46.314-46.317
-			c3.02-3.06,5.335-7.118,6.206-11.352c0.558-2.713,0.274-5.494,0.175-8.239c-0.104-2.883-0.207-5.767-0.311-8.65
-			c-0.005-0.146-0.011-0.3-0.017-0.471c-0.001-0.023-0.001-0.032-0.001-0.037c-0.587-16.543-1.179-33.086-1.765-49.629
-			c-0.586-16.552-1.164-33.104-1.745-49.657c-0.583-16.609-1.163-33.219-1.743-49.828c-0.579-16.582-1.16-33.163-1.744-49.744
-			c-0.38-10.791-3.557-97.539-3.94-108.329l-257.023,256.848c0.001,0.038-1.161,43.777-1.219,44.61
-			c-0.253,3.622-0.899,13.707-0.541,21.117c0.293,6.06,1.707,7.916,2.004,8.454C206.189,1275.545,209.069,1277.693,211.416,1280.047
-			z"
-            ></path>
-            <g id="str326BRmaskG">
-              <clipPath id="str326BRmask_1_">
-                <use xlinkHref="#str326BRmask" overflow="visible"></use>
-              </clipPath>
-              <g clipPath="url(#str326BRmask_1_)">
-                <image
-                  overflow="visible"
-                  width="1569"
-                  height="372"
-                  id="largelogo_81_"
-                  transform="matrix(0.1172 0 0 0.1172 277.4752 1237.7582) translate(784.5 186)  matrix(1,0,0,1,0,0) translate(-784.5 -186)"
-                  xlinkHref="https://api.kitbuilder.co.uk/Api/file/76621630?width=128&amp;distributorId=76104207"
-                  original-transform="matrix(0.1172 0 0 0.1172 277.4752 1237.7582)"
-                ></image>
-              </g>
-            </g>
-          </g>
-        </g>
+
         <g
           className="field-id-6528268 field-type-custom"
           field-key=""
