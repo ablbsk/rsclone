@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import "./addTie.scss";
+import Hover from "../Hover";
 import { IStore } from "../../interfaces/store";
 import { nightTheme } from "../../data/constants";
 import addTie from "../../data/addTie";
@@ -59,6 +60,8 @@ const AddTie: FunctionComponent = () => {
         const resp = await createTie(body);
         if (resp.userId) {
           dispatch(addTieFetched(resp));
+        } else {
+          dispatch(addTieFetchingError());
         }
       } catch (e) {
         dispatch(addTieFetchingError());
@@ -138,27 +141,32 @@ const AddTie: FunctionComponent = () => {
                         {imageError && (
                           <p className="error">{list.data.pictureerror}</p>
                         )}
-                        <button
-                          style={{
-                            backgroundColor: isNavbarNightMode
-                              ? backgroundColor
-                              : accentColor.static,
-                          }}
-                          className="sign__button"
-                          type="submit"
-                        >
-                          {list.data.btn}
-                        </button>
+                        <Hover>
+                          <button
+                            style={{
+                              backgroundColor: isNavbarNightMode
+                                ? backgroundColor
+                                : accentColor.static,
+                            }}
+                            className="add-tie-btn"
+                            type="submit"
+                          >
+                            <i className="fa fa-align-justify" />
+                            {list.data.btn}
+                          </button>
+                        </Hover>
                       </Form>
                     </Formik>
                   )}
                   {addTieLoadingStatus === "error" && (
                     <div className="error-tooltip">
+                      <i className="fa fa-warning" />
                       {list.data.errortooltip}
                     </div>
                   )}
                   {addTieLoadingStatus === "loaded" && (
                     <div className="success-tooltip">
+                      <i className="fa fa-info" />
                       {list.data.tooltip}{" "}
                       <Link to="/tie-market">{list.data.tiemarket}</Link>
                       {list.data.or}{" "}

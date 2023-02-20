@@ -11,7 +11,7 @@ const addTie = [
       pictureerror: "Требуется изображение",
       btn: "Создать галстук",
       errortooltip:
-        "Что-то пошло не так. Ваш галстук не сработал. Пожалуйста, попробуйте еще раз",
+        "Что-то пошло не так. Ваш галстук не создан. Пожалуйста, попробуйте еще раз",
       tooltip: "Поздравляем, ваш галстук создан. Вы можете увидеть это в",
       tiemarket: "Маркет",
       or: " или в",
@@ -30,7 +30,7 @@ const addTie = [
       pictureerror: "Image Is Required",
       btn: "Create tie",
       errortooltip:
-        "Something went wrong. Your tie didn't create. Please tryonce again",
+        "Something went wrong. Your tie didn't create. Please try once again",
       tooltip: "Congratulations, your tie was created. You can see it in",
       or: " or in",
       tiemarket: "Tie Market",

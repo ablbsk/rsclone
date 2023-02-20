@@ -17,6 +17,10 @@ const plainsLang = [
       wizard: "Плетение",
       price: "Цена",
       btn: "Купить",
+      errortooltip:
+        "Что-то пошло не так. Ваш заказ не создан. Пожалуйста, попробуйте еще раз",
+      tooltip: "Поздравляем, ваш заказ создан. Вы можете увидеть его в",
+      myorders: "Мои заказы",
     },
   },
   {
@@ -37,6 +41,9 @@ const plainsLang = [
       wizard: "Weave",
       price: "Price",
       btn: "Buy",
+      errortooltip: "Something went wrong. Please try once again",
+      tooltip: "Congratulations, you buy a tie. You can see it in",
+      myorders: "My Orders",
     },
   },
 ];

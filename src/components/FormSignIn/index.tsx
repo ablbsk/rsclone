@@ -95,7 +95,11 @@ const FormSignIn: FunctionComponent = () => {
           >
             {t("sign.signIn")}
           </button>
-          {error && <div className="error-tooltip">{error}</div>}
+          {error && (
+            <div className="error-tooltip">
+              <i className="fa fa-warning" /> {error}
+            </div>
+          )}
         </Form>
       </Formik>
       <div className="sign__text-link">

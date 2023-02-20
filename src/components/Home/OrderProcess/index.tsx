@@ -58,7 +58,7 @@ const OrderProcess: FunctionComponent<OrderProcessType> = ({
                   : accentColor.static,
               }}
             >
-              <Link className="btn-video-link" to="/cofigurator">
+              <Link className="btn-video-link" to="/configurator">
                 {list.data.button}
               </Link>
             </button>
