@@ -22,7 +22,7 @@ import {
 import { GraphType } from "../../../../types";
 import moment from "moment";
 import { IOrder, IOrderForGraph } from "../../../../interfaces/order";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
   ChartJS.register(

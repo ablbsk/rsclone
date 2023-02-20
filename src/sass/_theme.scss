@@ -9,12 +9,22 @@
   .sidebar,
   .card,
   .circular-progress,
-  .graph {
+  .graph,
+  .calendar, {
     background-color: $color-element-background-night;
   }
 
   .profile__header {
     border-color: #3f4b54;
+  }
+
+  .calendar__title,
+  .day {
+    border: $border-calendar-night;
+  }
+
+  .day--today {
+    background-color: #545745;
   }
 
   h1,

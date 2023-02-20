@@ -1,15 +1,45 @@
-.calendar {
+@import "../../../sass/mixins";
+@import "../../../sass/variables";
 
+.calendar {
+  margin-top: 140px;
+  background-color: $color-element-background-light;
+  border-radius: $border-radius-sm;
+  box-shadow: $box-shadow;
+}
+
+.calendar__wrapper {
+  margin: 25px;
+}
+
+.calendar__head {
+  margin: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .calendar__container {
-  width: 1050px;
   display: flex;
   flex-wrap: wrap;
 }
 
+.calendar__header {
+  margin: 40px 0;
+  font-size: $font-size-xlg;
+  text-transform: capitalize;
+}
+
+.calendar__subheader {
+  font-size: $font-size-xlg;
+  text-transform: uppercase;
+}
+
 .calendar__title {
-  width: 100px;
+  width: calc(100% / 7);
+  padding: 10px 0;
   display: block;
+  font-weight: $font-weight-bolder;
   text-align: center;
+  border: $border-calendar-light;
 }

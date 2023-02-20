@@ -80,6 +80,7 @@ export type GraphType = {
 
 export type CalendarDayType = {
   day: Moment;
+  isActiveMonth: boolean;
   status: {
     nonPaid: IOrder[];
     paid: IOrder[];

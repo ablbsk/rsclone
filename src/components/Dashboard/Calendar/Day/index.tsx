@@ -6,23 +6,44 @@ import moment from "moment";
 
 const Day: FunctionComponent<CalendarDayType> = ({
   day,
+  isActiveMonth,
   status,
 }: CalendarDayType) => {
   const data = [
-    { header: "Non paid", value: status.nonPaid.length, style: null },
-    { header: "Paid", value: status.paid.length, style: null },
-    { header: "In progress", value: status.inProgress.length, style: null },
-    { header: "Declined", value: status.declined.length, style: null },
-    { header: "Finished", value: status.finished.length, style: null },
-    { header: "Deadline", value: status.deadline.length, style: null },
+    {
+      header: "Non paid",
+      value: status.nonPaid.length,
+      style: "day__item--non-pain",
+    },
+    { header: "Paid", value: status.paid.length, style: "day__item--pain" },
+    {
+      header: "In progress",
+      value: status.inProgress.length,
+      style: "day__item--in-progress",
+    },
+    {
+      header: "Declined",
+      value: status.declined.length,
+      style: "day__item--declined",
+    },
+    {
+      header: "Finished",
+      value: status.finished.length,
+      style: "day__item--finished",
+    },
+    {
+      header: "Deadline",
+      value: status.deadline.length,
+      style: "day__item--deadline",
+    },
   ];
 
   const markers = data
     .filter((item) => item.value !== 0)
     .map((item) => (
-      <li className="day__item" key={item.header}>
+      <li className={classNames("day__item", item.style)} key={item.header}>
         <span>{item.header}</span>
-        <span>{item.value}</span>
+        <span>x{item.value}</span>
       </li>
     ));
 
@@ -30,10 +51,15 @@ const Day: FunctionComponent<CalendarDayType> = ({
     <div
       className={classNames("day", {
         "day--today": moment().isSame(day, "day"),
-        "day--current": moment().isSame(day, "month"),
       })}
     >
-      <h6>{day.format("DD-MMM")}</h6>
+      <h6
+        className={classNames("day__header", {
+          "day__header--active": isActiveMonth,
+        })}
+      >
+        {day.format("DD-MMM")}
+      </h6>
       <ul className="day__list">{markers}</ul>
     </div>
   );

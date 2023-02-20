@@ -98,7 +98,11 @@ const Calendar: FunctionComponent = () => {
       status.deadline.push(...a);
     }
 
-    arr.push({ day: day, status: status });
+    arr.push({
+      day: day,
+      isActiveMonth: day.month() === viewedMonth,
+      status: status,
+    });
   };
 
   createCalendar();
@@ -124,17 +128,35 @@ const Calendar: FunctionComponent = () => {
   const daysComponents = arr
     .reverse()
     .map((item: CalendarDayType) => (
-      <Day day={item.day} status={item.status} key={item.day.format("DD-MM")} />
+      <Day
+        day={item.day}
+        status={item.status}
+        isActiveMonth={item.isActiveMonth}
+        key={item.day.format("DD-MM")}
+      />
     ));
-
   return (
     <div className="calendar">
       <h1 className="calendar__header">Calendar</h1>
-      <div className="calendar__container">{titlesElements}</div>
-      <div className="calendar__container">{daysComponents}</div>
-      <div>
-        <button onClick={() => changeMonth(-1)}>Prev</button>
-        <button onClick={() => changeMonth(1)}>Next</button>
+      <div className="calendar__wrapper">
+        <div className="calendar__head">
+          <div>
+            <button onClick={() => changeMonth(-1)}>Prev</button>
+            <button onClick={() => changeMonth(1)}>Next</button>
+          </div>
+          <h2 className="calendar__subheader">
+            {moment()
+              .subtract(1 - viewedMonth, "month")
+              .format("MMMM")}
+          </h2>
+          <div>
+            <button onClick={() => setViewedMonth(moment().month())}>
+              Today
+            </button>
+          </div>
+        </div>
+        <div className="calendar__container">{titlesElements}</div>
+        <div className="calendar__container">{daysComponents}</div>
       </div>
     </div>
   );

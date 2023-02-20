@@ -1,24 +1,61 @@
-.day {
-  width: 150px;
-  height: 160px;
-  display: block;
-  border: 1px solid yellowgreen;
+@import "../../../../sass/variables";
 
-  &--current {
-    color: dodgerblue;
-  }
+.day {
+  width: calc(100% / 7);
+  height: 125px;
+  padding: 10px 0;
+  display: block;
+  border: $border-calendar-light;
 
   &--today {
-    color: red;
+    background-color: #fffadf;
   }
 }
 
-.day__list {
+.day__header {
+  margin: 0 10px 10px 10px;
+  text-align: right;
+  font-weight: $font-weight-normal;
+  opacity: .3;
 
+  &--active {
+    opacity: 1;
+  }
 }
 
 .day__item {
+  margin: 2px 1px;
+  padding: 2px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: $font-color-white;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-sm;
+  border-radius: $border-radius-sm;
+  cursor: default;
+
+  &--non-pain {
+    background-color: $color-special-5;
+  }
+
+  &--pain {
+    background-color: $color-special-4;
+  }
+
+  &--in-progress {
+    background-color: $color-special-3;
+  }
+
+  &--declined {
+    background-color: $color-special-6;
+  }
+
+  &--finished {
+    background-color: $color-special-2;
+  }
+
+  &--deadline {
+    background-color: $color-special-1;
+  }
 }
