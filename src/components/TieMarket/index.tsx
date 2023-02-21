@@ -21,7 +21,7 @@ import {
   buyTieFetched,
   buyTieFetchingError,
 } from "../../actions/buyTie/index";
-import { getAnotherTiesForUser } from "../../services/apiTies";
+import { getTies, getAnotherTiesForUser } from "../../services/apiTies";
 import { ITiesReducer, ITie } from "../../interfaces/tie";
 import { ILangReducer } from "../../interfaces/langReducer";
 import Spinner from "../Spinner";
@@ -94,6 +94,13 @@ const TieMarket: FunctionComponent = () => {
       const login = localStorage.getItem("login");
       const user = login ? JSON.parse(login) : [];
       dispatch(tieFetching());
+      if (!user.user._id) {
+        const ties = await getTies();
+        dispatch(tieFetched(ties));
+      } else {
+        const ties = await getAnotherTiesForUser(user.user._id);
+        dispatch(tieFetched(ties));
+      }
       const ties = await getAnotherTiesForUser(user.user._id);
       dispatch(tieFetched(ties));
     } catch {
