@@ -2,12 +2,14 @@ import { FunctionComponent, useEffect, useState, useRef } from "react";
 import classNames from "classnames";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./view.scss";
 
 import colors from "../../../data/colors";
 import tieWeaves from "../../../data/tieWeaves";
 import useOnClickOutside from "../../../hook/useOnClickOutside";
 import Hover from "../../Hover";
+import FormSignIn from "../../FormSignIn";
 import {
   ICategory,
   IIconSetting,
@@ -25,6 +27,8 @@ import { ILangReducer } from "../../../interfaces/langReducer";
 import { svg2img } from "../../../helpers/svg2img";
 import { IStore } from "../../../interfaces/store";
 import { createOrder } from "../../../services/apiOrders";
+import { IAuthReducer } from "../../../interfaces/authReducer";
+import { IBuyTieReducer } from "../../../interfaces/buyTie";
 import {
   buyTieFetching,
   buyTieFetched,
@@ -81,6 +85,17 @@ const View: FunctionComponent = () => {
       tieList.data.find((category) => category.type === URLParams.category)!
         .price;
   const dispatch = useDispatch();
+  const authStore = useSelector((state: IAuthReducer) => state.auth);
+  const { user } = authStore;
+
+  const buyTieStore = useSelector(
+    (state: IBuyTieReducer) => state.buyTieReducer
+  );
+  const { buyTieLoadingStatus } = buyTieStore;
+
+  useEffect(() => {
+    dispatch(dispatch(buyTieFetching()));
+  }, []);
 
   useEffect(() => {
     setSettings({
@@ -95,17 +110,14 @@ const View: FunctionComponent = () => {
 
     try {
       dispatch(buyTieFetching());
-      const login = localStorage.getItem("login");
-      const user = login ? JSON.parse(login) : [];
-      if (!user.user._id) {
+      if (!user._id) {
         setOpenPopup(!openPopup);
       } else {
-        const user = login ? JSON.parse(login) : [];
         const body = {
           image,
           price: Number(price),
           sellerId: "0",
-          userId: user.user._id,
+          userId: user._id,
         };
         const resp = await createOrder(body);
         if (resp.userId) {
@@ -220,9 +232,22 @@ const View: FunctionComponent = () => {
               }
             })}
           </div>
+          {buyTieLoadingStatus === "error" && (
+            <div className="error-tooltip">
+              <i className="fa fa-warning" />
+              {list.data.errortooltip}
+            </div>
+          )}
+          {buyTieLoadingStatus === "loaded" && (
+            <div className="success-tooltip">
+              <i className="fa fa-info" />
+              {list.data.tooltip}{" "}
+              <Link to="/my-orders">{list.data.myorders}</Link>
+            </div>
+          )}
           <div className="btn-next__wrapper">
             <p className="tie-price">
-              {list.data.price}: {price}$
+              {list.data.price}: <span>{price}$</span>
             </p>
             <Hover>
               <button
@@ -234,10 +259,19 @@ const View: FunctionComponent = () => {
                 }}
                 onClick={() => createTieOrder()}
               >
+                <i className="fa fa-cart-plus" />
                 {list.data.btn}
               </button>
             </Hover>
           </div>
+        </div>
+      </div>
+      <div className={classNames("popup-overlay", { overlay: openPopup })}>
+        <div
+          className={classNames("popup", { openpopup: openPopup })}
+          ref={popupRef}
+        >
+          <FormSignIn />
         </div>
       </div>
     </div>

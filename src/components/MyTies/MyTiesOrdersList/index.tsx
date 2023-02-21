@@ -9,27 +9,27 @@ const MyTiesOrdersList: FunctionComponent<IOrdersListComponent> = ({
   const { t } = useTranslation("dataLang");
 
   return (
-    <>
-      <div className="my-ties-orders-list__wrapper">
-        {orders.map((item, i) => {
+    <div className="market-block__products">
+      <div className="row__products">
+        {orders.map((order, i) => {
           return (
-            <div key={i} className="my-ties-orders-list__item">
-              <div className="item__image">
-                <img src={item.image} alt="" />
+            <div key={i} className="tie__product">
+              <div className="tie__products_img">
+                <img src={order.image} alt="" className="products_img" />
               </div>
-              <div className="item__text">
-                <div className="item__date">
-                  {t("myTiesOrders.date")}: {item.date.slice(0, 10)}
+              <div className="tie__products_discription">
+                <div className="tie__products_name">
+                  {t("myTies.name")}: {order.date}
                 </div>
-                <div className="item__price">
-                  {t("myTiesOrders.sum")}: {item.price}$
+                <div className="tie__products_price">
+                  {t("myTies.price")}: {order.price}$
                 </div>
               </div>
             </div>
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

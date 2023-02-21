@@ -42,7 +42,7 @@
         "changeAccentColor": "Change accent color",
         "reset": "Reset to default",
         "addTie": "Add tie",
-        "favourite": "My favourites"
+        "favourite": "My wishlist"
     },
     "sign": {
         "signIn": "Sign In",
@@ -62,7 +62,7 @@
     "myTies": {
         "myTies": "My ties",
         "mySales": "My sales",
-        "delete": "Delete tie",
+        "delete": "Delete",
         "price": "Price",
         "name": "Vendor code"
     },

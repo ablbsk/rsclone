@@ -7,6 +7,7 @@ import { tiesReducer } from "./ties";
 import { addTieReducer } from "./addTie";
 import { langReducer } from "./lang";
 import { buyTieReducer } from "./buyTie";
+import { favouriteTieReducer } from "./favouriteTie";
 import { myTiesReducer } from "./myTies";
 import { myOrdersReducer } from "./myOrders";
 
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   buyTieReducer,
   myTiesReducer,
   myOrdersReducer,
+  favouriteTieReducer,
 });
 
 export default rootReducer;

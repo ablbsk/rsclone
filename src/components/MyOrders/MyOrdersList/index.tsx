@@ -1,39 +1,28 @@
 import { FunctionComponent } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { IAuthReducer } from "../../../interfaces/authReducer";
 import { IOrdersListComponent } from "../../../interfaces/ordersListComponent";
 
-import { IStore } from "../../../interfaces/store";
-
 const MyOrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
-  const authStore = useSelector((state: IAuthReducer) => state.auth);
-  const { user } = authStore;
-
-  const { accentColor } = useSelector((state: IStore) => state.appInterface);
-
-  const dispatch = useDispatch();
-
   const { t } = useTranslation("dataLang");
 
   return (
-    <>
-      <div className="my-orders-list__wrapper">
+    <div className="market-block__products">
+      <div className="row__products">
         {orders.map((item, i) => {
           return (
-            <div key={i} className="my-orders-list__item">
-              <div className="item__image">
+            <div key={i} className="tie__product">
+              <div className="tie__products_img">
                 <div>
-                  <img src={item.image} alt="" />
+                  <img className="products_img" src={item.image} alt="" />
                 </div>
               </div>
-              <div className="item__text">
-                <h4>{t("myOrders.data")}</h4>
+              <div className="tie__products_discription">
+                <p className="tie__products_name">{t("myOrders.data")}</p>
                 <div className="item__date">
                   {t("myOrders.date")}: {item.date.slice(0, 10)}
                 </div>
-                <div className="item__price">
+                <div className="tie__products_price">
                   {t("myOrders.sum")}: {item.price}$
                 </div>
                 <div className="item__status">
@@ -44,7 +33,7 @@ const MyOrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 
