@@ -25,7 +25,7 @@ describe("Header component", () => {
   });
 
   test("renders correctly", () => {
-   const container = render(
+    const container = render(
       <Provider store={store}>
         <Router>
           <Header

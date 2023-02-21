@@ -21,7 +21,7 @@ import {
   buyTieFetched,
   buyTieFetchingError,
 } from "../../actions/buyTie/index";
-import { getTies } from "../../services/apiTies";
+import { getAnotherTiesForUser } from "../../services/apiTies";
 import { ITiesReducer, ITie } from "../../interfaces/tie";
 import { ILangReducer } from "../../interfaces/langReducer";
 import Spinner from "../Spinner";
@@ -51,7 +51,7 @@ const TieMarket: FunctionComponent = () => {
   const dispatch = useDispatch();
 
   const buyTie = async (
-    formData: Pick<IOrder, "userId" | "image" | "price" | "sellerId">
+    formData: Pick<IOrder, "image" | "price" | "sellerId">
   ) => {
     try {
       dispatch(buyTieFetching());
@@ -70,6 +70,7 @@ const TieMarket: FunctionComponent = () => {
           dispatch(buyTieFetched(resp));
         }
       }
+      getTieList();
     } catch (e) {
       dispatch(buyTieFetchingError());
     }
@@ -77,13 +78,16 @@ const TieMarket: FunctionComponent = () => {
 
   const getTieList = async () => {
     try {
+      const login = localStorage.getItem("login");
+      const user = login ? JSON.parse(login) : [];
       dispatch(tieFetching());
-      const ties = await getTies();
+      const ties = await getAnotherTiesForUser(user.user._id);
       dispatch(tieFetched(ties));
     } catch {
       dispatch(tieFetchingError());
     }
   };
+
   useEffect(() => {
     getTieList();
   }, []);
@@ -142,7 +146,8 @@ const TieMarket: FunctionComponent = () => {
                                 className="tie__products_btn"
                                 onClick={() =>
                                   buyTie({
-                                    ...tie,
+                                    image: tie.image,
+                                    price: tie.price,
                                     sellerId: tie.userId,
                                   })
                                 }
