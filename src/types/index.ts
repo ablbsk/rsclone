@@ -53,6 +53,11 @@ export type HoverType = {
   children: JSX.Element;
 };
 
+export type ActiveType = {
+  children: JSX.Element;
+  classN: string;
+};
+
 export type CardType = {
   colors: {
     background: string;
