@@ -21,7 +21,7 @@ import {
   buyTieFetched,
   buyTieFetchingError,
 } from "../../actions/buyTie/index";
-import { getTies } from "../../services/apiTies";
+import { getTies, getAnotherTiesForUser } from "../../services/apiTies";
 import { ITiesReducer, ITie } from "../../interfaces/tie";
 import { ILangReducer } from "../../interfaces/langReducer";
 import Spinner from "../Spinner";
@@ -65,7 +65,7 @@ const TieMarket: FunctionComponent = () => {
   }, []);
 
   const buyTie = async (
-    formData: Pick<IOrder, "userId" | "image" | "price" | "sellerId">
+    formData: Pick<IOrder, "image" | "price" | "sellerId">
   ) => {
     try {
       dispatch(buyTieFetching());
@@ -83,6 +83,7 @@ const TieMarket: FunctionComponent = () => {
           dispatch(buyTieFetchingError());
         }
       }
+      getTieList();
     } catch (e) {
       dispatch(buyTieFetchingError());
     }
@@ -90,13 +91,23 @@ const TieMarket: FunctionComponent = () => {
 
   const getTieList = async () => {
     try {
+      const login = localStorage.getItem("login");
+      const user = login ? JSON.parse(login) : [];
       dispatch(tieFetching());
-      const ties = await getTies();
+      if (!user.user._id) {
+        const ties = await getTies();
+        dispatch(tieFetched(ties));
+      } else {
+        const ties = await getAnotherTiesForUser(user.user._id);
+        dispatch(tieFetched(ties));
+      }
+      const ties = await getAnotherTiesForUser(user.user._id);
       dispatch(tieFetched(ties));
     } catch {
       dispatch(tieFetchingError());
     }
   };
+
   useEffect(() => {
     getTieList();
   }, []);
@@ -175,7 +186,8 @@ const TieMarket: FunctionComponent = () => {
                                       className="tie__products_btn"
                                       onClick={() =>
                                         buyTie({
-                                          ...tie,
+                                          image: tie.image,
+                                          price: tie.price,
                                           sellerId: tie.userId,
                                         })
                                       }
