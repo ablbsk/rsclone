@@ -14,6 +14,7 @@ const DOT701: FunctionComponent<ConfiguratorIconType> = ({
       width="300"
       height="750"
       viewBox="0 0 674 1466"
+      id="tie-factory"
     >
       <g className="kb-view kb-view-0">
         <g id="DOT_701">
@@ -210,117 +211,6 @@ const DOT701: FunctionComponent<ConfiguratorIconType> = ({
 			C294.259,211.55,297.205,215.247,297.205,219.63z M377.565,224.672c-0.907-1.465-1.433-3.192-1.433-5.042
 			c0-4.793,3.521-8.766,8.118-9.472C381.845,215.093,379.614,219.839,377.565,224.672z"
           ></path>
-        </g>
-        <g
-          className="field-id-6503599 data-source-item-id-6201300 data-source-id-6201198 field-type-tilepicker"
-          display="none"
-        >
-          <g id="dotUK">
-            <path
-              id="dotUKback"
-              fill="#96969A"
-              d="M441.689,501.439c-1.443-16.283-3.269-32.535-5.591-48.716
-			c-2.293-15.981-5.054-31.897-8.44-47.684c-3.348-15.609-7.29-31.095-12.005-46.349c-4.768-15.427-10.325-30.611-16.787-45.41
-			c-6.262-14.34-13.427-28.237-20.962-41.944c-3.353-6.101-6.767-12.171-10.002-18.335h-61.351
-			c-5.185,9.884-10.77,19.554-15.996,29.417c-5.368,10.13-10.41,20.429-14.995,30.938c-9.291,21.293-16.695,43.367-22.607,65.826
-			c-6.023,22.879-10.535,46.139-14.008,69.535c-3.49,23.514-5.943,47.179-7.631,70.888c-1.721,24.183-2.647,48.422-3.765,72.639
-			c-1.105,23.936-2.178,47.874-3.224,71.812c-0.997,22.813-3.127,74.187-4.07,97.002l223.33-234.877
-			C443.045,517.927,442.42,509.679,441.689,501.439z"
-            ></path>
-            <g id="plnUKmaskG">
-              <clipPath id="dotmaskUK_1_">
-                <use xlinkHref="#dotmaskUK" overflow="visible"></use>
-              </clipPath>
-              <g clipPath="url(#dotmaskUK_1_)">
-                <image
-                  overflow="visible"
-                  width="1569"
-                  height="372"
-                  id="largelogo_52_"
-                  transform="matrix(0.101 0 0 0.101 257.796 430.3696) translate(784.5 186)  matrix(1,0,0,1,0,0) translate(-784.5 -186)"
-                  xlinkHref="https://api.kitbuilder.co.uk/Api/file/76621630?width=64&amp;distributorId=76104207"
-                  original-transform="matrix(0.101 0 0 0.101 257.796 430.3696)"
-                ></image>
-              </g>
-            </g>
-          </g>
-        </g>
-        <g
-          className="field-id-6503599 data-source-item-id-6201301 data-source-id-6201198 field-type-tilepicker"
-          display="none"
-        >
-          <g id="dotC_1_">
-            <path
-              id="dotCback_1_"
-              fill="#96969A"
-              d="M448.345,623.571c-0.404-8.933-0.653-14.365-1.064-23.298
-			c-0.762-16.569-1.54-33.138-2.326-49.706c-0.778-16.396-1.816-32.776-3.266-49.128c-1.443-16.283-3.269-32.535-5.591-48.716
-			c-2.293-15.981-5.054-31.897-8.44-47.684c-3.348-15.609-7.29-31.095-12.005-46.349c-1.64-5.305-3.583-11.115-5.62-16.879
-			c0,0-58.259,57.464-108.324,107.25c-10.036,9.98-19.058,19.865-27.901,28.703c-9.363,9.359-18.442,17.571-25.231,24.438
-			c-10.869,10.994-17.624,17.996-17.656,18.449c-1.721,24.183-2.255,47.375-3.373,71.591c-1.105,23.936-2.178,47.874-3.224,71.812
-			c-1.056,24.176-2.077,48.354-3.073,72.532c-0.99,24.057-1.95,48.116-2.885,72.175c-0.381,9.792-1.219,31.744-1.756,45.943
-			l13.443-13.408l23.663-22.188l10.591-11.978L448.345,623.571z"
-            ></path>
-            <g id="dotCmaskG">
-              <clipPath id="dotCmask_1_">
-                <use xlinkHref="#dotCmask" overflow="visible"></use>
-              </clipPath>
-              <g
-                transform="matrix(1 0 0 1 1.525879e-005 0)"
-                clipPath="url(#dotCmask_1_)"
-              >
-                <image
-                  overflow="visible"
-                  width="1569"
-                  height="372"
-                  id="largelogo_53_"
-                  transform="matrix(0.1172 0 0 0.1172 244.6438 526.7899) translate(784.5 186)  matrix(1,0,0,1,0,0) translate(-784.5 -186)"
-                  xlinkHref="https://api.kitbuilder.co.uk/Api/file/76621630?width=128&amp;distributorId=76104207"
-                  original-transform="matrix(0.1172 0 0 0.1172 244.6438 526.7899)"
-                ></image>
-              </g>
-            </g>
-          </g>
-        </g>
-        <g
-          className="field-id-6503599 data-source-item-id-6201302 data-source-id-6201198 field-type-tilepicker"
-          display="none"
-        >
-          <g id="dotBR">
-            <path
-              id="dotBRback"
-              fill="#96969A"
-              d="M202.237,1263.484c0.683,8.021,2.753,10.054,4.789,12.599
-			c1.756,1.756,0.301,0.324,2.293,2.297c20.992,20.988,29.49,29.498,55.563,55.574c15.794,15.789,49.375,49.379,66.273,66.275
-			c3.184,3.189,7.184,2.717,9.811,1.254l127.822-127.822c3.631-5.352,3.089-11.258,3.078-11.59
-			c-3.208-89.068-6.195-194.212-9.103-277.865l-259.842,259.645C202.921,1243.852,201.55,1255.415,202.237,1263.484z"
-            ></path>
-            <g id="dotBRmaskG">
-              <defs>
-                <path
-                  id="dotBRmask"
-                  d="M202.237,1275.802c0.683,8.021,2.753,10.054,4.789,12.599c1.756,1.756,0.301,0.324,2.293,2.297
-					c20.992,20.988,29.49,29.498,55.563,55.574c15.794,15.789,49.375,49.379,66.273,66.275c3.184,3.189,7.184,2.717,9.811,1.254
-					l127.822-127.822c3.631-5.352,3.089-11.258,3.078-11.59c-3.208-89.068-6.54-204.215-9.448-287.867l-259.497,269.648
-					C202.921,1256.169,201.55,1267.733,202.237,1275.802z"
-                ></path>
-              </defs>
-              <clipPath id="dotBRmask_1_">
-                <use xlinkHref="#dotBRmask" overflow="visible"></use>
-              </clipPath>
-              <g clipPath="url(#dotBRmask_1_)">
-                <image
-                  overflow="visible"
-                  width="1569"
-                  height="372"
-                  id="largelogo_54_"
-                  transform="matrix(0.1172 0 0 0.1172 274.2153 1236.4825) translate(784.5 186)  matrix(1,0,0,1,0,0) translate(-784.5 -186)"
-                  xlinkHref="https://api.kitbuilder.co.uk/Api/file/76621630?width=128&amp;distributorId=76104207"
-                  original-transform="matrix(0.1172 0 0 0.1172 274.2153 1236.4825)"
-                ></image>
-              </g>
-            </g>
-          </g>
         </g>
         <g className="field-id-6503603 field-type-custom" field-key="">
           <g id="tietextg">

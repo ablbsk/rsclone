@@ -2,14 +2,16 @@ import { ActionTypes } from "../interfaces/store";
 import { AnyAction } from "redux";
 import { ILogin } from "../interfaces/login";
 
+/* eslint-disable */
 const initialState: ILogin = {
   user: localStorage.getItem("login")
     ? JSON.parse(localStorage.getItem("login")!).user
-    : { email: "", role: "" },
+    : {},
   isLogin: localStorage.getItem("login")
     ? JSON.parse(localStorage.getItem("login")!).isLogin
     : false,
 };
+/* eslint-enable */
 
 export const auth = (state: ILogin = initialState, action: AnyAction) => {
   switch (action.type) {

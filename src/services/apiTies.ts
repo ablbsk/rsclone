@@ -37,7 +37,23 @@ export const getTiesByUserId = async (id: string): Promise<ITie[]> => {
       },
     });
     const ties = await response.json();
-    console.log(ties);
+    return ties;
+  } catch (e) {
+    throw e;
+  }
+};
+
+export const getAnotherTiesForUser = async (id: string): Promise<ITie[]> => {
+  try {
+    const response: Response = await fetch(
+      `${_apiBase}/api/ties/user/another/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+    const ties = await response.json();
     return ties;
   } catch (e) {
     throw e;

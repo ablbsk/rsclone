@@ -7,11 +7,7 @@ import FormSignIn from "../FormSignIn";
 import "./tiemarket.scss";
 import { IStore } from "../../interfaces/store";
 import { nightTheme } from "../../data/constants";
-import Header from "../Header";
-import Profile from "../Profile";
-import Footer from "../Footer";
 import useOnClickOutside from "../../hook/useOnClickOutside";
-import navMenu from "../../data/navmenu";
 import Hover from "../Hover";
 import tieMarketLang from "../../data/tieMarket";
 
@@ -19,94 +15,126 @@ import {
   tieFetching,
   tieFetched,
   tieFetchingError,
-} from "../../actions/tiemarket-actions/index";
-import { getTies } from "../../services/apiTies";
-import { ITiesReducer } from "../../interfaces/tieReducer";
+} from "../../actions/tieMarket/index";
+import {
+  buyTieFetching,
+  buyTieFetched,
+  buyTieFetchingError,
+} from "../../actions/buyTie/index";
+import { getTies, getAnotherTiesForUser } from "../../services/apiTies";
+import { ITiesReducer, ITie } from "../../interfaces/tie";
 import { ILangReducer } from "../../interfaces/langReducer";
+import Spinner from "../Spinner";
+import { IBuyTieReducer } from "../../interfaces/buyTie";
+import { IAuthReducer } from "../../interfaces/authReducer";
+import { IOrder } from "../../interfaces/order";
+import { createOrder } from "../../services/apiOrders";
 
 const TieMarket: FunctionComponent = () => {
-  const interfaceSettings = useSelector((state: IStore) => state.appInterface);
-  const {
-    accentColor,
-    isSidebarFixed,
-    isSidebarAccentMode,
-    isNavbarNightMode,
-    isProfileShow,
-    isNightMode,
-  } = interfaceSettings;
-
   const backgroundColor = nightTheme.background.element;
-  const [open, setOpen] = useState(false);
+
+  const saved = localStorage.getItem("favouriteTie");
+  const [favouriteTies, setFavouriteTie] = useState<ITie[]>(
+    saved ? JSON.parse(saved) : []
+  );
+
   const [openPopup, setOpenPopup] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
   useOnClickOutside(popupRef, () => setOpenPopup(!openPopup), openPopup);
-  useOnClickOutside(ref, () => setOpen(!open), open);
-  const currentURL = window.location.pathname;
-  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
-  const list = navMenu.find((c) => c.lang === lang)!;
-  const listLang = tieMarketLang.find((c) => c.lang === lang)!;
 
+  const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const tiesStore = useSelector((state: ITiesReducer) => state.tiesReducer);
+  const interfaceSettings = useSelector((state: IStore) => state.appInterface);
+  const { accentColor, isNavbarNightMode } = interfaceSettings;
   const { tieLoadingStatus, ties } = tiesStore;
 
+  const buyTieStore = useSelector(
+    (state: IBuyTieReducer) => state.buyTieReducer
+  );
+  const { buyTieLoadingStatus } = buyTieStore;
+
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const listLang = tieMarketLang.find((c) => c.lang === lang)!;
   const dispatch = useDispatch();
+
+  const authStore = useSelector((state: IAuthReducer) => state.auth);
+  const { user } = authStore;
+
+  useEffect(() => {
+    dispatch(dispatch(buyTieFetching()));
+  }, []);
+
+  const buyTie = async (
+    formData: Pick<IOrder, "image" | "price" | "sellerId">
+  ) => {
+    try {
+      dispatch(buyTieFetching());
+      if (!user._id) {
+        setOpenPopup(!openPopup);
+      } else {
+        const body = {
+          ...formData,
+          userId: user._id,
+        };
+        const resp = await createOrder(body);
+        if (resp.userId) {
+          dispatch(buyTieFetched(resp));
+        } else {
+          dispatch(buyTieFetchingError());
+        }
+      }
+      getTieList();
+    } catch (e) {
+      dispatch(buyTieFetchingError());
+    }
+  };
 
   const getTieList = async () => {
     try {
+      const login = localStorage.getItem("login");
+      const user = login ? JSON.parse(login) : [];
       dispatch(tieFetching());
-      const ties = await getTies();
+      if (!user.user._id) {
+        const ties = await getTies();
+        dispatch(tieFetched(ties));
+      } else {
+        const ties = await getAnotherTiesForUser(user.user._id);
+        dispatch(tieFetched(ties));
+      }
+      const ties = await getAnotherTiesForUser(user.user._id);
       dispatch(tieFetched(ties));
     } catch {
       dispatch(tieFetchingError());
     }
   };
+
   useEffect(() => {
     getTieList();
   }, []);
+
+  const addFavouriteTie = (tie: ITie): void => {
+    const favourite = favouriteTies.filter(
+      (favouriteTie: ITie) => favouriteTie._id === tie._id
+    );
+    if (favourite.length > 0) {
+      setFavouriteTie(
+        favouriteTies.filter(
+          (favouriteTie: ITie) => favouriteTie._id !== tie._id
+        )
+      );
+    } else {
+      setFavouriteTie([...favouriteTies, tie]);
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("favouriteTie", JSON.stringify(favouriteTies));
+  }, [favouriteTies]);
+
+  const spinner = tieLoadingStatus === "loading" ? <Spinner /> : null;
+
   return (
     <>
-      <Header
-        accentColor={accentColor}
-        isNavbarNightMode={isNavbarNightMode}
-        isButtonVisible={false}
-      >
-        <div className="nav__hamburger_wrapper" ref={ref}>
-          <span className="nav__hamburger" onClick={() => setOpen(!open)} />
-        </div>
-        <div
-          className={classNames("nav-sidebar", { sidebaropen: open })}
-          style={{
-            backgroundColor: isNavbarNightMode
-              ? backgroundColor
-              : accentColor.static,
-          }}
-        >
-          <div className="nav-sidebar-wrapper">
-            <ul className="list-nav-sidebar">
-              {list.data.map((item) => (
-                <li className="nav-sidebar-item" key={item.name}>
-                  {currentURL === item.path ? (
-                    <span className="active-link">{item.name}</span>
-                  ) : (
-                    <Link className="nav-sidebar-link" to={item.path}>
-                      {item.name}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Header>
-      <Profile
-        accentColor={accentColor}
-        isProfileShow={isProfileShow}
-        isSidebarFixed={isSidebarFixed}
-        isSidebarAccentMode={isSidebarAccentMode}
-        isNavbarNightMode={isNavbarNightMode}
-        isNightMode={isNightMode}
-      />
       <main className="main-market">
         <div className="tiemarket-wrapper">
           <div className="container">
@@ -116,41 +144,83 @@ const TieMarket: FunctionComponent = () => {
                   <h4 className="market-block__title">{listLang.data.title}</h4>
                 </div>
                 <div className="market-block__products">
+                  {buyTieLoadingStatus === "error" && (
+                    <div className="error-tooltip">
+                      <i className="fa fa-warning" />
+                      {listLang.data.errortooltip}
+                    </div>
+                  )}
+                  {buyTieLoadingStatus === "loaded" && (
+                    <div className="success-tooltip">
+                      <i className="fa fa-info" />
+                      {listLang.data.tooltip}{" "}
+                      <Link to="/my-orders">{listLang.data.myorders}</Link>
+                    </div>
+                  )}
+                  {spinner}
                   <div className="row__products">
-                    {ties?.map((item) => (
-                      <div className="tie__product" key={item.name}>
-                        <div className="tie__products_img">
-                          <img
-                            className="products_img"
-                            src={item.image}
-                            alt=""
-                          />
-                        </div>
-                        <div className="tie__products_discription">
-                          <p className="tie__products_name">{item.name}</p>
-                          <p className="tie__products_price">
-                            {listLang.data.prace} 20$
-                          </p>
-                          <div className="tie__products_wrapper">
-                            <Hover>
-                              <button
-                                className="tie__products_btn"
-                                onClick={() => setOpenPopup(!openPopup)}
-                                style={{
-                                  backgroundColor: isNavbarNightMode
-                                    ? backgroundColor
-                                    : accentColor.static,
-                                }}
-                              >
-                                {listLang.data.btn}
-                              </button>
-                            </Hover>
-                            <button className="btn__like"></button>
+                    {ties?.map((tie) => {
+                      const isLike =
+                        favouriteTies.filter(
+                          (favouriteTie: ITie) => favouriteTie._id === tie._id
+                        ).length !== 0;
+                      return (
+                        <div className="tie__product" key={tie.name}>
+                          <div className="tie__products_img">
+                            <img
+                              className="products_img"
+                              src={tie.image}
+                              alt=""
+                            />
+                          </div>
+                          <div className="tie__products_discription">
+                            <p className="tie__products_name">{tie.name}</p>
+                            <p className="tie__products_price">
+                              {listLang.data.price} {tie.price}$
+                            </p>
+                            <div className="tie__products_wrapper">
+                              {user.role === "USER" && (
+                                <>
+                                  <Hover>
+                                    <button
+                                      className="tie__products_btn"
+                                      onClick={() =>
+                                        buyTie({
+                                          image: tie.image,
+                                          price: tie.price,
+                                          sellerId: tie.userId,
+                                        })
+                                      }
+                                      style={{
+                                        backgroundColor: isNavbarNightMode
+                                          ? backgroundColor
+                                          : accentColor.static,
+                                      }}
+                                    >
+                                      <i className="fa fa-cart-plus" />
+                                      {listLang.data.btn}
+                                    </button>
+                                  </Hover>
+                                  <button
+                                    className={classNames("btn__like", {
+                                      nolike: !isLike,
+                                    })}
+                                    onClick={() => addFavouriteTie(tie)}
+                                  >
+                                    <i className="fa fa-heart" />
+                                    {isLike
+                                      ? listLang.data.favourited
+                                      : listLang.data.favourite}
+                                  </button>
+                                </>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
+                  {ties?.length === 0 && <p>{listLang.data.empty}</p>}
                 </div>
               </div>
             </div>
@@ -165,7 +235,6 @@ const TieMarket: FunctionComponent = () => {
           </div>
         </div>
       </main>
-      <Footer accentColor={accentColor} isNavbarNightMode={isNavbarNightMode} />
     </>
   );
 };

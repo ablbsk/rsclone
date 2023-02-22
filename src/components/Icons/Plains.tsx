@@ -13,6 +13,7 @@ const Plains: FunctionComponent<ConfiguratorIconType> = ({
     width="300"
     height="750"
     viewBox="0 0 674 1466"
+    id="tie-factory"
   >
     <g>
       <g id="PLN_801">

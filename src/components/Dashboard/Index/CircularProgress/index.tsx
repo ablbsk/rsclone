@@ -14,7 +14,7 @@ const CircularProgress: FunctionComponent<CircularProgressType> = ({
   const arcLength = 2 * Math.PI * (size / 2 - strokeWidth); // = 2*PI*R
   const progressArcLength = (arcLength * ((100 - progress) / 100)).toFixed(1);
 
-  const { t } = useTranslation("dashboard");
+  const { t } = useTranslation("dataLang");
 
   return (
     <div className="circular-progress">

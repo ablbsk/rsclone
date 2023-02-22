@@ -1,4 +1,4 @@
-import { ITie } from "@/src/interfaces/tie";
+import { ITie } from "../../../src/interfaces/tie";
 import { ActionTypes } from "../../interfaces/store";
 
 export const tieFetching = () => {

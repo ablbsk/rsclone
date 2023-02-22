@@ -22,7 +22,7 @@ const Sidebar: FunctionComponent<SidebarType> = ({
     ? nightTheme.sidebarFontColor
     : accentColor.static;
 
-  const { t } = useTranslation("dashboard");
+  const { t } = useTranslation("dataLang");
 
   return (
     <nav

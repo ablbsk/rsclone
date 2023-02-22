@@ -39,6 +39,7 @@ const Сarousel: FunctionComponent<СarouselType> = ({
     };
   }, [index]);
   const { lang } = useSelector((state: ILangReducer) => state.langReducer);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const list = carouselLang.find((c) => c.lang === lang)!;
 
   return (

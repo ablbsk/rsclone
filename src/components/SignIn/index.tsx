@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
-import "./signin.scss";
-
 import FormSignIn from "../FormSignIn";
+
+import "./signin.scss";
 
 const SignIn: FunctionComponent = () => (
   <div className="sign__wrapper">

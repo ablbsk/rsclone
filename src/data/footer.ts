@@ -2,7 +2,7 @@ const footerLang = [
   {
     lang: "ru",
     data: {
-      title: "Спасибо что выбрали нас",
+      title: "Спасибо, что выбрали нас",
       menu: "МЕНЮ",
       home: "Главная",
       config: "Конфигуратор",

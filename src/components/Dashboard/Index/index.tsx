@@ -17,7 +17,7 @@ const Index: FunctionComponent = () => {
   const [users, setUsers] = useState([]);
   const [sellers, setSellers] = useState([]);
 
-  const { t } = useTranslation("dashboard");
+  const { t } = useTranslation("dataLang");
 
   useEffect(() => {
     getOrders()

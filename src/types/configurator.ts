@@ -14,8 +14,6 @@ export type AccordionType = {
 
 export type CategoriesType = {
   tieList: IConfigurator;
-  type: string;
-  setType: (type: string) => void;
   accentColor: {
     static: string;
     hover: string;
@@ -25,19 +23,6 @@ export type CategoriesType = {
 
 export type CategoryType = {
   tie: ICategory;
-  setType: (type: string) => void;
-  accentColor: {
-    static: string;
-    hover: string;
-  };
-  isNavbarNightMode: boolean;
-};
-
-export type SubCategoriesType = {
-  subCategories: ISubcategory[];
-  price: string | undefined;
-  type: string;
-  setType: (type: string) => void;
   accentColor: {
     static: string;
     hover: string;
@@ -49,20 +34,9 @@ export type ConfiguratorIconType = {
   settings: IIconSetting;
 };
 
-export type ConfiguratorViewType = {
-  type: string;
-  price: string | undefined;
-  accentColor: {
-    static: string;
-    hover: string;
-  };
-  isNavbarNightMode: boolean;
-};
-
 export type SubCategoryType = {
   subCategory: ISubcategory;
-  type: string;
-  setType: (type: string) => void;
+  category: string;
   accentColor: {
     static: string;
     hover: string;

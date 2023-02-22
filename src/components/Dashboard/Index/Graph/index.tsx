@@ -48,7 +48,7 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
 
   // ------------------------------------------------------------------------
 
-  const { t } = useTranslation("dashboard");
+  const { t } = useTranslation("dataLang");
 
   const [value, setValues] = useState<IOrderForGraph[]>([
     { label: "1", price: 0, count: 0 },

@@ -32,7 +32,7 @@ const Users: FunctionComponent = () => {
 
   const dispatch = useDispatch();
 
-  const { t } = useTranslation("dashboard");
+  const { t } = useTranslation("dataLang");
 
   const getUsersList = async (role: string) => {
     try {

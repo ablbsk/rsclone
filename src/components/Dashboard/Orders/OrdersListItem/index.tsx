@@ -15,13 +15,15 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
   const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
   const { isNightMode } = appInterfaceStore;
 
-  const { t } = useTranslation("dashboard");
+  const { t } = useTranslation("dataLang");
 
   const [selectedValue, setSelectedValue] = useState("EMPTY");
 
   const backgroundColor = isNightMode
     ? nightTheme.background.element
     : lightTheme.background.element;
+
+  const color = nightTheme.background.element;
 
   return (
     <>
@@ -42,6 +44,7 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
             className="select"
             value={selectedValue}
             onChange={(e) => setSelectedValue(e.target.value)}
+            style={{ color }}
           >
             <option value="EMPTY" disabled hidden></option>
             <option value="NON-PAID">{t("select.nonPaid")}</option>

@@ -8,7 +8,7 @@ const orderprocess = [
       choose: "CHOOSE CANVAS",
       apply: "APPLY COLOURS",
       finish: "FINISH YOUR CREATION",
-      button: "Go To Configurator",
+      button: "GO TO CONFIGURATOR",
     },
   },
   {
@@ -20,7 +20,7 @@ const orderprocess = [
       choose: "ВЫБЕРИТЕ ХОЛСТ",
       apply: "ПРИМЕНИТЕ ЦВЕТА",
       finish: "ЗАВЕРШИТЕ ВАШЕ ТВОРЕНИЕ",
-      button: "Перейти к Конфигуратору",
+      button: "КОНФИГУРАТОР",
     },
   },
 ];
