@@ -25,7 +25,7 @@ const Users: FunctionComponent = () => {
   const usersStore = useSelector((state: IUsersReducer) => state.usersReducer);
   const { usersLoadingStatus, users } = usersStore;
   const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
-  const { accentColor, isNightMode } = appInterfaceStore;
+  const { isNightMode } = appInterfaceStore;
 
   const backgroundColor = isNightMode
     ? nightTheme.background.element
