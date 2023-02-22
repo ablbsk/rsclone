@@ -62,7 +62,6 @@ const Users: FunctionComponent = () => {
       <div className="users__header">
         <Hover>
           <button
-            style={{ backgroundColor: accentColor.static }}
             className={`users__header-button ${
               activeButton == "1" ? "users__header-button_active" : ""
             }`}
@@ -77,7 +76,6 @@ const Users: FunctionComponent = () => {
         </Hover>
         <Hover>
           <button
-            style={{ backgroundColor: accentColor.static }}
             className={`users__header-button ${
               activeButton == "2" ? "users__header-button_active" : ""
             }`}

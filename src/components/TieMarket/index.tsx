@@ -94,15 +94,13 @@ const TieMarket: FunctionComponent = () => {
       const login = localStorage.getItem("login");
       const user = login ? JSON.parse(login) : [];
       dispatch(tieFetching());
-      if (!user.user._id) {
-        const ties = await getTies();
-        dispatch(tieFetched(ties));
-      } else {
+      if (user.user.role === "USER" && user.user._id) {
         const ties = await getAnotherTiesForUser(user.user._id);
         dispatch(tieFetched(ties));
+      } else {
+        const ties = await getTies();
+        dispatch(tieFetched(ties));
       }
-      const ties = await getAnotherTiesForUser(user.user._id);
-      dispatch(tieFetched(ties));
     } catch {
       dispatch(tieFetchingError());
     }

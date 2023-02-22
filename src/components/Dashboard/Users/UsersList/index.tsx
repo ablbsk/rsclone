@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import {
   deleteUser,
@@ -16,7 +17,7 @@ import { lightTheme, nightTheme } from "../../../../data/constants";
 import { IStore } from "../../../../interfaces/store";
 import { IAuthReducer } from "../../../../interfaces/authReducer";
 import { IUsersListComponent } from "../../../../interfaces/usersListComponent";
-import { useTranslation } from "react-i18next";
+import Hover from "../../../Hover";
 
 import "./usersList.scss";
 
@@ -25,7 +26,7 @@ const UsersList: FunctionComponent<IUsersListComponent> = ({
   activeButton,
 }) => {
   const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
-  const { isNightMode } = appInterfaceStore;
+  const { isNightMode, isNavbarNightMode, accentColor } = appInterfaceStore;
   const authStore = useSelector((state: IAuthReducer) => state.auth);
   const { user } = authStore;
 
@@ -88,15 +89,27 @@ const UsersList: FunctionComponent<IUsersListComponent> = ({
                       <>
                         <th>
                           <button
-                            style={{ backgroundColor }}
-                            className="icon"
+                            className="button__delete-order"
                             onClick={() => deleteItem(item._id)}
-                          ></button>
+                          >
+                            <i className="fa fa-remove"></i>
+                            {t("ordersTable.delete")}
+                          </button>
                         </th>
                         <th className="table-promotion">
-                          <button onClick={() => updateItem(item._id)}>
-                            {t("usersTable.promote")}
-                          </button>
+                          <Hover>
+                            <button
+                              style={{
+                                backgroundColor: isNavbarNightMode
+                                  ? backgroundColor
+                                  : accentColor.static,
+                              }}
+                              className="button__promo"
+                              onClick={() => updateItem(item._id)}
+                            >
+                              {t("usersTable.promote")}
+                            </button>
+                          </Hover>
                         </th>
                       </>
                     ) : null}
