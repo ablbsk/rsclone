@@ -19,10 +19,10 @@ const MyTiesOrdersList: FunctionComponent<IOrdersListComponent> = ({
               </div>
               <div className="tie__products_discription">
                 <div className="tie__products_name">
-                  {t("myTies.name")}: {order.date}
+                  {t("myTiesOrders.date")}: {order.date.slice(0, 10)}
                 </div>
                 <div className="tie__products_price">
-                  {t("myTies.price")}: {order.price}$
+                  {t("myTiesOrders.sum")}: {order.price}$
                 </div>
               </div>
             </div>

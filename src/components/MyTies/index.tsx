@@ -22,6 +22,8 @@ import { IMyOrdersReducer } from "../../interfaces/myOrdersReducer";
 import ErrorMessage from "../ErrorMessage";
 import MyTiesList from "./MyTiesList";
 import MyTiesOrdersList from "./MyTiesOrdersList";
+import Hover from "../Hover";
+import Active from "../Active";
 
 import "./myTies.scss";
 import classNames from "classnames";
@@ -92,37 +94,60 @@ const MyTies: FunctionComponent = () => {
     ) : null;
 
   return (
-    <div className="tiemarket-wrapper" style={{ backgroundColor }}>
-      <div className="tiemarket__banner-wrapper">
+    <div className="tiemarket-wrapper">
+      <div
+        className="my-ties__wrapper"
+        style={{
+          backgroundColor: isNightMode
+            ? nightTheme.background.page
+            : lightTheme.background.page,
+        }}
+      >
         <div className="container">
-          <div className="market-block">
+          <div className="market-block" style={{ backgroundColor }}>
             <div className="my-ties__header">
-              <button
-                className={classNames("users__header-button", {
-                  "users__header-button_active": activeButton === "1",
-                })}
-                data-id="1"
-                onClick={(e) => {
-                  toggleHandler(e);
-                  // eslint-disable-next-line
+              <Hover>
+                <Active
+                  classN={`users__header-button ${
+                    activeButton == "1" ? "users__header-button_active" : ""
+                  }`}
+                >
+                  <button
+                    className={classNames("users__header-button", {
+                      "users__header-button_active": activeButton === "1",
+                    })}
+                    data-id="1"
+                    onClick={(e) => {
+                      toggleHandler(e);
+                      // eslint-disable-next-line
                     getDataList(e.currentTarget.dataset.id!);
-                }}
-              >
-                {t("myTies.myTies")}
-              </button>
-              <button
-                className={classNames("users__header-button", {
-                  "users__header-button_active": activeButton === "2",
-                })}
-                data-id="2"
-                onClick={(e) => {
-                  toggleHandler(e);
-                  // eslint-disable-next-line
+                    }}
+                  >
+                    {t("myTies.myTies")}
+                  </button>
+                </Active>
+              </Hover>
+              <Hover>
+                <Active
+                  classN={`users__header-button ${
+                    activeButton == "2" ? "users__header-button_active" : ""
+                  }`}
+                >
+                  <button
+                    className={classNames("users__header-button", {
+                      "users__header-button_active": activeButton === "2",
+                    })}
+                    data-id="2"
+                    onClick={(e) => {
+                      toggleHandler(e);
+                      // eslint-disable-next-line
                 getDataList(e.currentTarget.dataset.id!);
-                }}
-              >
-                {t("myTies.mySales")}
-              </button>
+                    }}
+                  >
+                    {t("myTies.mySales")}
+                  </button>
+                </Active>
+              </Hover>
             </div>
             {spinner}
             {tieLoadingStatus === "idle" && activeButton === "1" ? (

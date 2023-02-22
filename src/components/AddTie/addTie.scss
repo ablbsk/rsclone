@@ -22,6 +22,7 @@
   height: calc(100% - 30px);
   border: none;
   background: #ffffff;
+  border-radius: 5px;
 }
 
 .form-addtie__wrapper {
@@ -53,6 +54,7 @@
 .tieadd-form {
   display: flex;
   flex-direction: column;
+  margin-right: 10px;
 }
 
 .tieadd-form__label {
