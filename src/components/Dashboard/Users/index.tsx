@@ -15,6 +15,7 @@ import UsersList from "./UsersList";
 import Spinner from "../../Spinner";
 import ErrorMessage from "../../ErrorMessage";
 import Hover from "../../Hover";
+import Active from "../../Active";
 import { useTranslation } from "react-i18next";
 
 import "./users.scss";
@@ -24,7 +25,7 @@ const Users: FunctionComponent = () => {
   const usersStore = useSelector((state: IUsersReducer) => state.usersReducer);
   const { usersLoadingStatus, users } = usersStore;
   const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
-  const { accentColor, isNightMode } = appInterfaceStore;
+  const { isNightMode } = appInterfaceStore;
 
   const backgroundColor = isNightMode
     ? nightTheme.background.element
@@ -61,37 +62,46 @@ const Users: FunctionComponent = () => {
     <div className="users__wrapper" style={{ backgroundColor }}>
       <div className="users__header">
         <Hover>
-          <button
-            style={{ backgroundColor: accentColor.static }}
-            className={`users__header-button ${
+          <Active
+            classN={`users__header-button ${
               activeButton == "1" ? "users__header-button_active" : ""
             }`}
-            data-id="1"
-            onClick={(e) => {
-              getUsersList("USER");
-              toggleHandler(e);
-            }}
           >
-            {t("buttonsUsersList.users")}
-          </button>
+            <button
+              className={`users__header-button ${
+                activeButton == "1" ? "users__header-button_active" : ""
+              }`}
+              data-id="1"
+              onClick={(e) => {
+                getUsersList("USER");
+                toggleHandler(e);
+              }}
+            >
+              {t("buttonsUsersList.users")}
+            </button>
+          </Active>
         </Hover>
         <Hover>
-          <button
-            style={{ backgroundColor: accentColor.static }}
-            className={`users__header-button ${
+          <Active
+            classN={`users__header-button ${
               activeButton == "2" ? "users__header-button_active" : ""
             }`}
-            data-id="2"
-            onClick={(e) => {
-              getUsersList("SELLER");
-              toggleHandler(e);
-            }}
           >
-            {t("buttonsUsersList.sellers")}
-          </button>
+            <button
+              className={`users__header-button ${
+                activeButton == "2" ? "users__header-button_active" : ""
+              }`}
+              data-id="2"
+              onClick={(e) => {
+                getUsersList("SELLER");
+                toggleHandler(e);
+              }}
+            >
+              {t("buttonsUsersList.sellers")}
+            </button>
+          </Active>
         </Hover>
       </div>
-
       {spinner}
       {usersLoadingStatus === "idle" ? (
         <UsersList users={users} activeButton={activeButton} />

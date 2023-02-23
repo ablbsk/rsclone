@@ -14,7 +14,6 @@
 
 .tiemarket-wrapper {
   background: $color-grey-tie;
-
 }
 
 .tiemarket__banner-wrapper {
@@ -27,6 +26,7 @@
   height: calc(100% - 30px);
   border: none;
   background:  $color-white1;
+  border-radius: 5px;
 }
 
 .market-block__title_wrapper {

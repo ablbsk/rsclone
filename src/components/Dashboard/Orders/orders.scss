@@ -6,7 +6,7 @@
 }
 
 .orders__wrapper {
-    width: 590px;
+    width: 800px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -16,11 +16,15 @@
     border-radius: 5px;
     box-shadow: $box-shadow;
 
+    @include media-small-tablet {
+        width: 710px;
+    }
+
     @include media-mobile {
         width: 500px;
     }
 
     @include media-small-mobile {
-        width: 350px;
+        width: 340px;
     }
 }

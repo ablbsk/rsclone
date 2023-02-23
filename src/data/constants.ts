@@ -39,7 +39,7 @@ export const specialColors = {
 export const lightTheme = {
   background: {
     element: "#ffffff",
-    page: "#fafbfe",
+    page: "#f6f6f6",
   },
   fontColor: "#535f6b",
   graph: {

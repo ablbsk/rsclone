@@ -19,6 +19,7 @@ const SignUp: FunctionComponent = () => {
 
   const [message, setMessage] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const [isSpiner, setIsSpiner] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -31,10 +32,13 @@ const SignUp: FunctionComponent = () => {
 
   const click = async (body: Pick<IUser, "email" | "password" | "role">) => {
     try {
+      setIsSpiner(true);
       const message = await registration(body);
+      setIsSpiner(false);
       setMessage(message);
       setTimeout(() => navigate("/sign-in"), 3000);
     } catch (e) {
+      setIsSpiner(false);
       setError(e as string);
     }
   };
@@ -115,6 +119,7 @@ const SignUp: FunctionComponent = () => {
               >
                 {t("sign.signUp")}
               </button>
+              {isSpiner && <span className="sign-spiner"></span>}
               {message && <div className="message-tooltip">{message}</div>}
               {error && <div className="error-tooltip">{error}</div>}
             </Form>

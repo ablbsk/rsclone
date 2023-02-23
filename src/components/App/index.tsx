@@ -1,5 +1,5 @@
 import "./app.scss";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import { FunctionComponent } from "react";
 import { useSelector } from "react-redux";
 import Dashboard from "../Dashboard";
@@ -18,10 +18,13 @@ import AddTie from "../AddTie";
 import Landing from "../Landing";
 import SubCategories from "../Configurator/SubCategories";
 import View from "../Configurator/View";
+import { IAuthReducer } from "../../interfaces/authReducer";
 
 const App: FunctionComponent = () => {
   const { isNightMode } = useSelector((state: IStore) => state.appInterface);
   document.body.className = classNames("", { "body--night-mode": isNightMode });
+
+  const { user } = useSelector((state: IAuthReducer) => state.auth);
 
   return (
     <BrowserRouter>
@@ -39,9 +42,14 @@ const App: FunctionComponent = () => {
           <Route path="/my-orders" element={<MyOrders />} />
           <Route path="/add-tie" element={<AddTie />} />
         </Route>
-        <Route path="/dashboard/*" element={<Dashboard />} />
+        {user.role === "ADMIN" || user.role === "MANAGER" ? (
+          <Route path="/dashboard/*" element={<Dashboard />} />
+        ) : (
+          <Route path="/dashboard" element={<Navigate to="/" />} />
+        )}
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );

@@ -78,7 +78,6 @@ const Index: FunctionComponent = () => {
 
   return (
     <div className="index">
-      <h1 className="index__header">{t("index.header")}</h1>
       <div className="index__cards">
         <Card
           colors={specialColors.red}

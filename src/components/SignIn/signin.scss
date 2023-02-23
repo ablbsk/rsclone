@@ -120,7 +120,7 @@
 .sign__button {
     margin-top: 30px;
     margin-bottom: 15px;
-    width: 90px;
+    width: 170px;
     height: 40px;
     color: $font-color-white;
     border: none;
@@ -141,5 +141,13 @@
     &:active {
         color: $color-accent-hover;
     }
+}
+
+.sign-spiner {
+    margin-left: 70px;
+    background-image: url("../../assets/images/svg/spiner.svg");
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
 }
 

@@ -37,10 +37,12 @@ const OrdersList: FunctionComponent<IOrdersListComponent> = ({ orders }) => {
 
   const updateItem = async (id: string, status: string) => {
     try {
-      await updateOrder(id, { status: status });
-      dispatch(ordersFetching());
-      const orders = await getOrders();
-      dispatch(ordersFetched(orders));
+      if (status !== "EMPTY") {
+        await updateOrder(id, { status: status });
+        dispatch(ordersFetching());
+        const orders = await getOrders();
+        dispatch(ordersFetched(orders));
+      }
     } catch {
       dispatch(ordersFetchingError());
     }

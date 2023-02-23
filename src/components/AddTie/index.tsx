@@ -7,7 +7,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import "./addTie.scss";
 import Hover from "../Hover";
 import { IStore } from "../../interfaces/store";
-import { nightTheme } from "../../data/constants";
+import { nightTheme, lightTheme } from "../../data/constants";
 import addTie from "../../data/addTie";
 import { createTie } from "../../services/apiTies";
 import { ITie } from "../../interfaces/tie";
@@ -23,8 +23,7 @@ import Spinner from "../Spinner";
 
 const AddTie: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
-  const { accentColor, isNavbarNightMode } = interfaceSettings;
-  const backgroundColor = nightTheme.background.element;
+  const { accentColor, isNavbarNightMode, isNightMode } = interfaceSettings;
   const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const list = addTie.find((c) => c.lang === lang)!;
@@ -35,6 +34,10 @@ const AddTie: FunctionComponent = () => {
     (state: IAddTieReducer) => state.addTieReducer
   );
   const { addTieLoadingStatus } = addTiesStore;
+
+  const backgroundColor = isNightMode
+    ? nightTheme.background.element
+    : lightTheme.background.element;
 
   const uploadImage = async (event: ChangeEvent<HTMLInputElement>) => {
     setImageError(false);
@@ -72,10 +75,24 @@ const AddTie: FunctionComponent = () => {
 
   return (
     <main className="main-market">
-      <div className="tieaddform__wrapper">
+      <div
+        className="tieaddform__wrapper"
+        style={{
+          backgroundColor: isNightMode
+            ? nightTheme.background.page
+            : lightTheme.background.page,
+        }}
+      >
         <div className="container">
-          <div className="tieaddform__banner-wrapper">
-            <div className="tieaddform-block">
+          <div
+            className="tieaddform__banner-wrapper"
+            style={{
+              backgroundColor: isNightMode
+                ? nightTheme.background.page
+                : lightTheme.background.page,
+            }}
+          >
+            <div className="tieaddform-block" style={{ backgroundColor }}>
               <div className="form-addtie__title">{list.data.titleblock}</div>
               <div className="form-addtie__wrapper">
                 <div className="form-addtie__content">

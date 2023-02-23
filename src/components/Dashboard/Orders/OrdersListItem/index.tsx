@@ -1,10 +1,11 @@
 import { FunctionComponent, useState } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import { lightTheme, nightTheme } from "../../../../data/constants";
 import { IStore } from "../../../../interfaces/store";
-import { IOrdersListItem } from "@/src/interfaces/ordersListItem";
-import { useTranslation } from "react-i18next";
+import { IOrdersListItem } from "../../../../interfaces/ordersListItem";
+import Hover from "../../../Hover";
 
 const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
   item,
@@ -13,7 +14,7 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
   updateItem,
 }) => {
   const appInterfaceStore = useSelector((state: IStore) => state.appInterface);
-  const { isNightMode } = appInterfaceStore;
+  const { isNightMode, isNavbarNightMode, accentColor } = appInterfaceStore;
 
   const { t } = useTranslation("dataLang");
 
@@ -34,10 +35,12 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
         <th>{item.status}</th>
         <th>
           <button
-            style={{ backgroundColor }}
-            className="icon"
+            className="button__delete-order"
             onClick={() => deleteItem(item._id)}
-          ></button>
+          >
+            <i className="fa fa-remove"></i>
+            {t("ordersTable.delete")}
+          </button>
         </th>
         <th className="table-select">
           <select
@@ -46,7 +49,9 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
             onChange={(e) => setSelectedValue(e.target.value)}
             style={{ color }}
           >
-            <option value="EMPTY" disabled hidden></option>
+            <option value="EMPTY" disabled hidden>
+              {t("select.change")}
+            </option>
             <option value="NON-PAID">{t("select.nonPaid")}</option>
             <option value="PAID">{t("select.paid")}</option>
             <option value="DECLINED">{t("select.declined")}</option>
@@ -55,12 +60,19 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
           </select>
         </th>
         <th>
-          <button
-            className="button-apply"
-            onClick={() => updateItem(item._id, selectedValue)}
-          >
-            {t("ordersTable.apply")}
-          </button>
+          <Hover>
+            <button
+              style={{
+                backgroundColor: isNavbarNightMode
+                  ? backgroundColor
+                  : accentColor.static,
+              }}
+              className="button-apply"
+              onClick={() => updateItem(item._id, selectedValue)}
+            >
+              {t("ordersTable.apply")}
+            </button>
+          </Hover>
         </th>
       </tr>
     </>
