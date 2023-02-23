@@ -14,6 +14,7 @@ import { nightTheme } from "../../data/constants";
 
 const FormSignIn: FunctionComponent = () => {
   const [error, setError] = useState<string>("");
+  const [isSpiner, setIsSpiner] = useState<boolean>(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,16 +27,18 @@ const FormSignIn: FunctionComponent = () => {
 
   const click = async (body: Pick<IUser, "email" | "password">) => {
     try {
+      setIsSpiner(true);
       const data = await login(body);
-      dispatch(authorization(data, true));
       if (data) {
+        dispatch(authorization(data, true));
         if (data.role === "ADMIN" || data.role === "MANAGER") {
-          setTimeout(() => navigate("/dashboard"), 2000);
+          setTimeout(() => navigate("/dashboard"), 3000);
         } else {
-          setTimeout(() => navigate("/"), 2000);
+          setTimeout(() => navigate("/"), 3000);
         }
       }
     } catch (e) {
+      setIsSpiner(false);
       setError(e as string);
     }
   };
@@ -95,6 +98,7 @@ const FormSignIn: FunctionComponent = () => {
           >
             {t("sign.signIn")}
           </button>
+          {isSpiner && <span className="sign-spiner"></span>}
           {error && (
             <div className="error-tooltip">
               <i className="fa fa-warning" /> {error}
