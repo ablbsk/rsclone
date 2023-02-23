@@ -94,7 +94,7 @@ export type CalendarDayType = {
 };
 
 export type CalendarListType = {
-  day: Moment | null;
+  day: Moment;
   status: {
     nonPaid: IOrder[];
     paid: IOrder[];

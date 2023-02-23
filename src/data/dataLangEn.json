@@ -10,7 +10,8 @@
         "paid": "PAID",
         "declined": "DECLINED",
         "inProgress": "IN PROGRESS",
-        "finished": "FINISHED"
+        "finished": "FINISHED",
+        "deadline": "DEADLINE"
     },
     "buttonsUsersList": {
         "users": "Users",
@@ -78,7 +79,6 @@
         "delete": "Delete order"
     },
     "index": {
-        "header": "Welcome to dashboard",
         "cards": {
             "totalRevenue": "Total revenue",
             "todaySales": "Today's sales",
@@ -102,11 +102,26 @@
         }
     },
     "calendar": {
-        "header": "Calendar",
         "buttons": {
             "previous": "Prev",
             "next": "Next",
             "current": "Today"
+        },
+        "list": {
+            "id": "Order ID",
+            "product": "Product",
+            "date": "Date",
+            "price": "Price",
+            "status": "Order status",
+            "deadline": "Deadline"
+        }
+    },
+    "dashboard": {
+        "headers": {
+            "calendar": "Calendar",
+            "index": "Welcome to dashboard",
+            "orders": "Orders list",
+            "users": "Users list"
         }
     }
 }

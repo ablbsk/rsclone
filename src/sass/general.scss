@@ -35,6 +35,10 @@ h6 {
   @include media-small-mobile {
     padding: 0 15px;
   }
+
+  &--full-width {
+    max-width: none;
+  }
 }
 
 .button {
@@ -46,6 +50,7 @@ h6 {
   border-radius: $border-radius-sm;
   transition: $transition;
   text-transform: capitalize;
+  outline: none;
   cursor: pointer;
 
   &:hover {
@@ -54,6 +59,19 @@ h6 {
 }
 
 .marker {
+  display: inline-block;
+  padding: 5px;
+  color: $font-color-white;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-md;
+  border-radius: $border-radius-sm;
+  text-transform: lowercase;
+  cursor: default;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+
   &--non-pain {
     background-color: $color-special-5;
   }

@@ -2,18 +2,17 @@
 @import "../../../sass/variables";
 
 .calendar {
-  margin-top: 140px;
   background-color: $color-element-background-light;
   border-radius: $border-radius-sm;
   box-shadow: $box-shadow;
 }
 
 .calendar__wrapper {
-  margin: 25px;
+  padding: 25px;
 }
 
 .calendar__head {
-  margin: 25px 0;
+  margin-bottom: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,6 +21,10 @@
 .calendar__container {
   display: flex;
   flex-wrap: wrap;
+
+  @include media-tablet {
+    width: 1100px;
+  }
 }
 
 .calendar__header {
@@ -31,8 +34,11 @@
 }
 
 .calendar__subheader {
+  display: inline;
+  flex-grow: 2;
   font-size: $font-size-xlg;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .calendar__title {
@@ -41,5 +47,17 @@
   display: block;
   font-weight: $font-weight-bolder;
   text-align: center;
+  text-transform: capitalize;
   border: $border-calendar-light;
+  cursor: default;
+}
+
+.calendar__button {
+  &--left {
+    border-radius: $border-radius-sm 0 0 $border-radius-sm;
+  }
+
+  &--right {
+    border-radius: 0 $border-radius-sm $border-radius-sm 0;
+  }
 }

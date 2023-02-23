@@ -6,6 +6,8 @@
   padding: 10px 0;
   display: block;
   border: $border-calendar-light;
+  overflow-x: overlay;
+  overflow-y: hidden;
   cursor: pointer;
 
   &--today {
@@ -25,14 +27,17 @@
 }
 
 .day__item {
-  margin: 2px 1px;
-  padding: 2px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: $font-color-white;
-  font-weight: $font-weight-bold;
+  cursor: pointer;
+  margin: 2px 1px;
+  padding: 2px 10px;
   font-size: $font-size-sm;
   border-radius: $border-radius-sm;
-  cursor: pointer;
+
+  &>.marker {
+    padding: 0;
+  }
 }

@@ -12,6 +12,7 @@ import { IOrder } from "../../../interfaces/order";
 import { IDayData } from "../../../interfaces/dayData";
 import Day from "./Day";
 import List from "./List";
+import Hover from "../../Hover";
 
 const Calendar: FunctionComponent = () => {
   const { t } = useTranslation("dataLang");
@@ -34,6 +35,8 @@ const Calendar: FunctionComponent = () => {
     },
   });
   const [viewedMonth, setViewedMonth] = useState<number>(moment().month());
+  const [prevButton, setPrevButton] = useState<boolean>();
+  const [nextButton, setNextButton] = useState<boolean>();
 
   const deadlineStep = 7;
   const dayDataArr: CalendarDayType[] = [];
@@ -135,10 +138,19 @@ const Calendar: FunctionComponent = () => {
   createCalendar();
 
   const changeMonth = (direction: number) => {
-    let value = viewedMonth + direction;
+    const value = viewedMonth + direction;
 
-    if (viewedMonth === 11 && direction === 1) value = 0;
-    if (viewedMonth === 0 && direction === -1) value = 11;
+    setNextButton(false);
+    setPrevButton(false);
+
+    if (viewedMonth === 10 && direction === 1) {
+      setPrevButton(false);
+      setNextButton(true);
+    }
+    if (viewedMonth === 1 && direction === -1) {
+      setNextButton(false);
+      setPrevButton(true);
+    }
 
     setViewedMonth(value);
   };
@@ -147,7 +159,7 @@ const Calendar: FunctionComponent = () => {
     .fill(0)
     .map((item: string, i: number) => (
       <span className="calendar__title" key={i}>
-        {moment().startOf("week").subtract(-i, "day").format("dddd")}
+        {moment().startOf("week").subtract(-i, "day").format("ddd")}
       </span>
     ));
 
@@ -165,26 +177,42 @@ const Calendar: FunctionComponent = () => {
 
   return (
     <div className="calendar">
-      <h1 className="calendar__header">{t("calendar.header")}</h1>
       <div className="calendar__wrapper">
         <div className="calendar__head">
-          <div>
-            <button onClick={() => changeMonth(-1)}>
-              {t("calendar.buttons.previous")}
-            </button>
-            <button onClick={() => changeMonth(1)}>
-              {t("calendar.buttons.next")}
-            </button>
+          <div className="calendar__head-column">
+            <Hover>
+              <button
+                className="button calendar__button--left"
+                onClick={() => changeMonth(-1)}
+                disabled={prevButton}
+              >
+                {t("calendar.buttons.previous")}
+              </button>
+            </Hover>
+            <Hover>
+              <button
+                className="button calendar__button--right"
+                onClick={() => changeMonth(1)}
+                disabled={nextButton}
+              >
+                {t("calendar.buttons.next")}
+              </button>
+            </Hover>
           </div>
           <h2 className="calendar__subheader">
             {moment()
               .subtract(1 - viewedMonth, "month")
               .format("MMMM")}
           </h2>
-          <div>
-            <button onClick={() => setViewedMonth(moment().month())}>
-              {t("calendar.buttons.current")}
-            </button>
+          <div className="calendar__head-column">
+            <Hover>
+              <button
+                className="button"
+                onClick={() => setViewedMonth(moment().month())}
+              >
+                {t("calendar.buttons.current")}
+              </button>
+            </Hover>
           </div>
         </div>
         <div className="calendar__container">{titlesElements}</div>
