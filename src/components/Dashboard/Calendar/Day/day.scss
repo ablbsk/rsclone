@@ -35,28 +35,4 @@
   font-size: $font-size-sm;
   border-radius: $border-radius-sm;
   cursor: pointer;
-
-  &--non-pain {
-    background-color: $color-special-5;
-  }
-
-  &--pain {
-    background-color: $color-special-4;
-  }
-
-  &--in-progress {
-    background-color: $color-special-3;
-  }
-
-  &--declined {
-    background-color: $color-special-9;
-  }
-
-  &--finished {
-    background-color: $color-special-2;
-  }
-
-  &--deadline {
-    background-color: $color-special-1;
-  }
 }

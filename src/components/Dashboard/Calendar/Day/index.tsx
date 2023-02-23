@@ -14,33 +14,33 @@ const Day: FunctionComponent<CalendarDayType> = ({
     {
       header: "Non paid",
       value: status.nonPaid.length,
-      style: "day__item--non-pain",
+      style: "marker--non-pain",
     },
-    { header: "Paid", value: status.paid.length, style: "day__item--pain" },
+    { header: "Paid", value: status.paid.length, style: "marker--pain" },
     {
       header: "In progress",
       value: status.inProgress.length,
-      style: "day__item--in-progress",
+      style: "marker--in-progress",
     },
     {
       header: "Declined",
       value: status.declined.length,
-      style: "day__item--declined",
+      style: "marker--declined",
     },
     {
       header: "Finished",
       value: status.finished.length,
-      style: "day__item--finished",
+      style: "marker--finished",
     },
     {
       header: "Deadline",
       value: status.deadline.length,
-      style: "day__item--deadline",
+      style: "marker--deadline",
     },
   ];
 
   const markers = data
-    .filter((item) => item.value !== 0)
+    .filter((item) => item.value !== 0) // delete markers with empty value
     .map((item) => (
       <li className={classNames("day__item", item.style)} key={item.header}>
         <span>{item.header}</span>
@@ -49,10 +49,7 @@ const Day: FunctionComponent<CalendarDayType> = ({
     ));
 
   const setDayProps = () => {
-    setFocusedDay({
-      day: day,
-      status: status,
-    });
+    if (setFocusedDay) setFocusedDay({ day: day, status: status });
   };
 
   return (

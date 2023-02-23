@@ -1,27 +1,38 @@
 import "./calendar.scss";
 import { FunctionComponent, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import moment, { Moment } from "moment";
 import "moment/locale/ru";
-import Day from "./Day";
-import List from "./List";
-import { CalendarDayType } from "../../../types";
 import { getOrdersBySellerId } from "../../../services/apiOrders";
-import { useSelector } from "react-redux";
+import { CalendarDayType } from "../../../types";
 import { IStore } from "../../../interfaces/store";
 import { IUser } from "../../../interfaces/user";
 import { IOrder } from "../../../interfaces/order";
-import { useTranslation } from "react-i18next";
+import { IDayData } from "../../../interfaces/dayData";
+import Day from "./Day";
+import List from "./List";
 
 const Calendar: FunctionComponent = () => {
+  const { t } = useTranslation("dataLang");
   const language = useSelector((state: IStore) => state.langReducer.lang);
   moment.locale(language);
-  const { t } = useTranslation("dataLang");
 
   const user: IUser = useSelector((state: IStore) => state.auth.user);
 
   const [orders, setOrders] = useState<IOrder[]>([]);
   const [ordersDeadline, setOrdersDeadline] = useState<IOrder[]>([]);
-  const [focusedDay, setFocusedDay] = useState({ day: null, status: null });
+  const [focusedDay, setFocusedDay] = useState<IDayData>({
+    day: null,
+    status: {
+      nonPaid: [],
+      paid: [],
+      inProgress: [],
+      declined: [],
+      finished: [],
+      deadline: [],
+    },
+  });
   const [viewedMonth, setViewedMonth] = useState<number>(moment().month());
 
   const deadlineStep = 7;
@@ -112,9 +123,7 @@ const Calendar: FunctionComponent = () => {
       moment(order.deadlineDate).isSame(day, "day")
     );
 
-    if (ordersWithDeadline.length) {
-      status.deadline.push(...ordersWithDeadline);
-    }
+    if (ordersWithDeadline.length) status.deadline.push(...ordersWithDeadline);
 
     dayDataArr.push({
       day: day,
@@ -144,12 +153,12 @@ const Calendar: FunctionComponent = () => {
 
   const daysComponents = dayDataArr
     .reverse()
-    .map((item: CalendarDayType) => (
+    .map((item: CalendarDayType, i: number) => (
       <Day
         day={item.day}
         status={item.status}
         isActiveMonth={item.isActiveMonth}
-        key={item.day.format("DD-MM")}
+        key={`${i}-${item.day.format("DD-MM")}`}
         setFocusedDay={setFocusedDay}
       />
     ));

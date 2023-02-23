@@ -1,7 +1,8 @@
 import { ActionCreator, AnyAction } from "redux";
 import { IOrder } from "../interfaces/order";
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 import { Moment } from "moment/moment";
+import { IDayData } from "../interfaces/dayData";
 
 export type HeaderType = {
   accentColor: {
@@ -89,7 +90,7 @@ export type CalendarDayType = {
     finished: IOrder[];
     deadline: IOrder[];
   };
-  setFocusedDay?: any;
+  setFocusedDay?: Dispatch<SetStateAction<IDayData>>;
 };
 
 export type CalendarListType = {
@@ -101,5 +102,5 @@ export type CalendarListType = {
     declined: IOrder[];
     finished: IOrder[];
     deadline: IOrder[];
-  } | null;
+  };
 };

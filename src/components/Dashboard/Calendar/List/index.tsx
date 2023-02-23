@@ -1,6 +1,6 @@
 import "./list.scss";
 import moment from "moment";
-import {FunctionComponent, ReactElement} from "react";
+import { FunctionComponent, ReactElement } from "react";
 import { CalendarListType } from "../../../../types";
 import { IOrder } from "../../../../interfaces/order";
 import classNames from "classnames";
@@ -9,10 +9,11 @@ const Index: FunctionComponent<CalendarListType> = ({
   day,
   status,
 }: CalendarListType) => {
-  const statusKeys = Object.keys(status);
-  const elements: any[] = [];
+  const elements: ReactElement[] = [];
 
-  statusKeys.forEach((key: string) => {
+  for (const key in status) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     status[key].forEach((item: IOrder) => {
       const el = (
         <div
@@ -30,7 +31,7 @@ const Index: FunctionComponent<CalendarListType> = ({
       );
       elements.push(el);
     });
-  });
+  }
 
   return (
     <div className="list">
