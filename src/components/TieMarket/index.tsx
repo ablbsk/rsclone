@@ -6,7 +6,7 @@ import FormSignIn from "../FormSignIn";
 
 import "./tiemarket.scss";
 import { IStore } from "../../interfaces/store";
-import { nightTheme } from "../../data/constants";
+import { nightTheme, lightTheme } from "../../data/constants";
 import useOnClickOutside from "../../hook/useOnClickOutside";
 import Hover from "../Hover";
 import tieMarketLang from "../../data/tieMarket";
@@ -31,8 +31,6 @@ import { IOrder } from "../../interfaces/order";
 import { createOrder } from "../../services/apiOrders";
 
 const TieMarket: FunctionComponent = () => {
-  const backgroundColor = nightTheme.background.element;
-
   const saved = localStorage.getItem("favouriteTie");
   const [favouriteTies, setFavouriteTie] = useState<ITie[]>(
     saved ? JSON.parse(saved) : []
@@ -45,7 +43,7 @@ const TieMarket: FunctionComponent = () => {
   const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const tiesStore = useSelector((state: ITiesReducer) => state.tiesReducer);
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
-  const { accentColor, isNavbarNightMode } = interfaceSettings;
+  const { accentColor, isNavbarNightMode, isNightMode } = interfaceSettings;
   const { tieLoadingStatus, ties } = tiesStore;
 
   const buyTieStore = useSelector(
@@ -59,6 +57,10 @@ const TieMarket: FunctionComponent = () => {
 
   const authStore = useSelector((state: IAuthReducer) => state.auth);
   const { user } = authStore;
+
+  const backgroundColor = isNightMode
+    ? nightTheme.background.element
+    : lightTheme.background.element;
 
   useEffect(() => {
     dispatch(dispatch(buyTieFetching()));
@@ -94,15 +96,13 @@ const TieMarket: FunctionComponent = () => {
       const login = localStorage.getItem("login");
       const user = login ? JSON.parse(login) : [];
       dispatch(tieFetching());
-      if (!user.user._id) {
-        const ties = await getTies();
-        dispatch(tieFetched(ties));
-      } else {
+      if (user.user.role === "USER" && user.user._id) {
         const ties = await getAnotherTiesForUser(user.user._id);
         dispatch(tieFetched(ties));
+      } else {
+        const ties = await getTies();
+        dispatch(tieFetched(ties));
       }
-      const ties = await getAnotherTiesForUser(user.user._id);
-      dispatch(tieFetched(ties));
     } catch {
       dispatch(tieFetchingError());
     }
@@ -136,10 +136,24 @@ const TieMarket: FunctionComponent = () => {
   return (
     <>
       <main className="main-market">
-        <div className="tiemarket-wrapper">
+        <div
+          className="tiemarket-wrapper"
+          style={{
+            backgroundColor: isNightMode
+              ? nightTheme.background.page
+              : lightTheme.background.page,
+          }}
+        >
           <div className="container">
-            <div className="tiemarket__banner-wrapper">
-              <div className="market-block">
+            <div
+              className="tiemarket__banner-wrapper"
+              style={{
+                backgroundColor: isNightMode
+                  ? nightTheme.background.page
+                  : lightTheme.background.page,
+              }}
+            >
+              <div className="market-block" style={{ backgroundColor }}>
                 <div className="market-block__title_wrapper">
                   <h4 className="market-block__title">{listLang.data.title}</h4>
                 </div>

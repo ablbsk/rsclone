@@ -24,27 +24,20 @@
             }
 
             @include media-mobile {
-
-                &:nth-child(2) {
-                    display: none;
-                }
-
+                &:nth-child(2),
                 &:nth-child(3) {
-                    width: 40px;
+                    display: none;
                 }
             }
 
             @include media-small-mobile {
-                
-            &:first-child {
-                width: 20px;
-            }
-                &:nth-child(3) {
+                &:nth-child(6),
+                &:nth-child(7) {
                     display: none;
                 }
-
             }
         }
+
         tr {
             vertical-align: middle;
         }
@@ -52,33 +45,40 @@
 }
 
 .select {
-
-    @include media-mobile {
-        max-width: 120px;    
-    }  
-
-    @include media-small-mobile {
-        max-width: 80px;    
-    }  
-    
+    max-width: 165px;
+    font-size: 14px;
+    height: 25px;
+    margin-right: 5px;    
 }
 
-.icon {
-    background-image: url("../../../../assets/images/png/icon-1.png");
-    background-size: contain;
+.button__delete-order {
     background-repeat: no-repeat;
-    width: 30px;
-    height: 35px;
     border: none;
+    padding: 3px;
+    border-radius: 5px;
+    width: 90px;
+    background-color: red;
+    transition: 0.4s ease-in-out;
     cursor: pointer;
+    text-align: left;
+    color: $color-white1;
+    margin: 0 5px;
 
-    @include media-small-mobile {
-        width: 20px; 
-        background-position: center;
+    .fa {
+        margin-right: 10px;
+        color: $color-white1;
+    }
+
+    &:hover {
+        background-color: $color-red3;
     }
 }
 
 .button-apply {
     cursor: pointer;
     border-radius: 5px;
+    border: none;
+    padding: 3px 5px;
+    color: $color-white1;
+    margin-right: 5px;
 }

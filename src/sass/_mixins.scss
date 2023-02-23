@@ -18,8 +18,6 @@
   @media (max-width: 576px) { @content; }
 }
 
-
-
 @mixin icon-background($url, $height, $width: $height) {
   display: inline-block;
   height: $height;

@@ -3,9 +3,11 @@
         "date": "Date",
         "price": "Price",
         "status": "Status",
-        "apply": "Apply"
+        "apply": "Apply",
+        "delete": "Delete"
     },
     "select": {
+        "change": "CHANGE STATUS",
         "nonPaid": "NON-PAID",
         "paid": "PAID",
         "declined": "DECLINED",
