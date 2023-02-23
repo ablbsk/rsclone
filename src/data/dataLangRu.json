@@ -100,5 +100,13 @@
             "labelRevenue": "Чистая выручка",
             "labelSales": "Количество продаж"
         }
+    },
+    "calendar": {
+        "header": "Календарь",
+        "buttons": {
+            "previous": "Прошлый",
+            "next": "Следующий",
+            "current": "Текущий"
+        }
     }
 }

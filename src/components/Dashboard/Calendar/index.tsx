@@ -1,6 +1,7 @@
 import "./calendar.scss";
 import { FunctionComponent, useEffect, useState } from "react";
 import moment, { Moment } from "moment";
+import "moment/locale/ru";
 import Day from "./Day";
 import List from "./List";
 import { CalendarDayType } from "../../../types";
@@ -9,55 +10,70 @@ import { useSelector } from "react-redux";
 import { IStore } from "../../../interfaces/store";
 import { IUser } from "../../../interfaces/user";
 import { IOrder } from "../../../interfaces/order";
+import { useTranslation } from "react-i18next";
 
 const Calendar: FunctionComponent = () => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+  const language = useSelector((state: IStore) => state.langReducer.lang);
+  moment.locale(language);
+  const { t } = useTranslation("dataLang");
+
   const user: IUser = useSelector((state: IStore) => state.auth.user);
-  const deadlineStep = 7;
 
   const [orders, setOrders] = useState<IOrder[]>([]);
   const [ordersDeadline, setOrdersDeadline] = useState<IOrder[]>([]);
   const [focusedDay, setFocusedDay] = useState({ day: null, status: null });
   const [viewedMonth, setViewedMonth] = useState<number>(moment().month());
 
+  const deadlineStep = 7;
+  const dayDataArr: CalendarDayType[] = [];
+
   useEffect(() => {
     getOrdersBySellerId(user._id)
       .then((orders: IOrder[]) => {
-        const deadlines = orders
-          .filter((order: IOrder) => order.status !== "FINISHED")
-          .filter((order: IOrder) => order.status !== "DECLINED")
-          .map((order: IOrder) => {
-            order.deadlineDate = moment(order.date)
-              .subtract(-deadlineStep, "day")
-              .toISOString();
-            return order;
-          });
-
-        setOrdersDeadline(deadlines);
+        setOrdersDeadline(prepareOrdersToDeadline(orders));
         setOrders(orders);
       })
       .catch((e) => console.log(e));
+
+    const prepareOrdersToDeadline = (orders: IOrder[]) => {
+      return orders
+        .filter((order: IOrder) => order.status !== "FINISHED")
+        .filter((order: IOrder) => order.status !== "DECLINED")
+        .map((order: IOrder) => {
+          order.deadlineDate = moment(order.date)
+            .subtract(-deadlineStep, "day")
+            .toISOString();
+          return order;
+        });
+    };
   }, []);
 
-  const arr: CalendarDayType[] = [];
-
   const createCalendar = () => {
-    const currentWeek = moment().get("week");
-    const newWeek = moment()
-      .subtract(moment().month() - viewedMonth, "month")
-      .get("week");
-
-    const offset = (currentWeek - newWeek) * 7;
-
     const size = 42; // 7 days * 6 weeks
-    const today = moment().date();
-    const end = today + moment().subtract(today, "day").day() + offset; // past (+)
-    const start = -size + end; // future (-)
+    let start =
+      moment()
+        .locale("en") // important!
+        .subtract(moment().month() - viewedMonth, "month")
+        .startOf("month")
+        .startOf("isoWeek")
+        .dayOfYear() - 1;
 
-    for (let i = start; i < end; i++) {
+    if (language !== "ru") start = start - 1;
+
+    const end = start + size;
+    const now = moment().dayOfYear();
+
+    const startI = now - end;
+    const endI = now - start;
+
+    for (let i = startI; i < endI; i++) {
       const day = moment().subtract(i, "day");
-      const dayOrders = orders.filter((order) => day.isSame(order.date, "day"));
+      const dayOrders = orders.filter((order) => {
+        return day.year() !== moment().year()
+          ? day.format("DD-MM") === moment(order.date).format("DD-MM")
+          : day.isSame(order.date, "day");
+      });
+
       addDataToDay(day, dayOrders);
     }
   };
@@ -92,15 +108,15 @@ const Calendar: FunctionComponent = () => {
       }
     });
 
-    const a = ordersDeadline.filter((order) => {
-      return moment(order.deadlineDate).isSame(day, "day");
-    });
+    const ordersWithDeadline = ordersDeadline.filter((order) =>
+      moment(order.deadlineDate).isSame(day, "day")
+    );
 
-    if (a.length) {
-      status.deadline.push(...a);
+    if (ordersWithDeadline.length) {
+      status.deadline.push(...ordersWithDeadline);
     }
 
-    arr.push({
+    dayDataArr.push({
       day: day,
       isActiveMonth: day.month() === viewedMonth,
       status: status,
@@ -110,24 +126,23 @@ const Calendar: FunctionComponent = () => {
   createCalendar();
 
   const changeMonth = (direction: number) => {
-    if (viewedMonth === 11 && direction === 1) {
-      setViewedMonth(0);
-    } else if (viewedMonth === 0 && direction === -1) {
-      setViewedMonth(11);
-    } else {
-      setViewedMonth(viewedMonth + direction);
-    }
+    let value = viewedMonth + direction;
+
+    if (viewedMonth === 11 && direction === 1) value = 0;
+    if (viewedMonth === 0 && direction === -1) value = 11;
+
+    setViewedMonth(value);
   };
 
-  const titlesArr = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+  const titlesElements = Array(7)
+    .fill(0)
+    .map((item: string, i: number) => (
+      <span className="calendar__title" key={i}>
+        {moment().startOf("week").subtract(-i, "day").format("dddd")}
+      </span>
+    ));
 
-  const titlesElements = titlesArr.map((item: string) => (
-    <span className="calendar__title" key={item}>
-      {item}
-    </span>
-  ));
-
-  const daysComponents = arr
+  const daysComponents = dayDataArr
     .reverse()
     .map((item: CalendarDayType) => (
       <Day
@@ -139,37 +154,37 @@ const Calendar: FunctionComponent = () => {
       />
     ));
 
-  console.log(focusedDay);
-
   return (
-    <>
-      <div className="calendar">
-        <h1 className="calendar__header">Calendar</h1>
-        <div className="calendar__wrapper">
-          <div className="calendar__head">
-            <div>
-              <button onClick={() => changeMonth(-1)}>Prev</button>
-              <button onClick={() => changeMonth(1)}>Next</button>
-            </div>
-            <h2 className="calendar__subheader">
-              {moment()
-                .subtract(1 - viewedMonth, "month")
-                .format("MMMM")}
-            </h2>
-            <div>
-              <button onClick={() => setViewedMonth(moment().month())}>
-                Today
-              </button>
-            </div>
+    <div className="calendar">
+      <h1 className="calendar__header">{t("calendar.header")}</h1>
+      <div className="calendar__wrapper">
+        <div className="calendar__head">
+          <div>
+            <button onClick={() => changeMonth(-1)}>
+              {t("calendar.buttons.previous")}
+            </button>
+            <button onClick={() => changeMonth(1)}>
+              {t("calendar.buttons.next")}
+            </button>
           </div>
-          <div className="calendar__container">{titlesElements}</div>
-          <div className="calendar__container">{daysComponents}</div>
+          <h2 className="calendar__subheader">
+            {moment()
+              .subtract(1 - viewedMonth, "month")
+              .format("MMMM")}
+          </h2>
+          <div>
+            <button onClick={() => setViewedMonth(moment().month())}>
+              {t("calendar.buttons.current")}
+            </button>
+          </div>
         </div>
-        {focusedDay.day ? (
-          <List day={focusedDay.day} status={focusedDay.status} />
-        ) : null}
+        <div className="calendar__container">{titlesElements}</div>
+        <div className="calendar__container">{daysComponents}</div>
       </div>
-    </>
+      {focusedDay.day ? (
+        <List day={focusedDay.day} status={focusedDay.status} />
+      ) : null}
+    </div>
   );
 };
 

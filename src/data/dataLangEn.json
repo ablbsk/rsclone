@@ -100,5 +100,13 @@
             "labelRevenue": "Net Revenue",
             "labelSales": "Number of Sales"
         }
+    },
+    "calendar": {
+        "header": "Calendar",
+        "buttons": {
+            "previous": "Prev",
+            "next": "Next",
+            "current": "Today"
+        }
     }
 }
