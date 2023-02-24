@@ -14,6 +14,7 @@ const InfoBlock: FunctionComponent<InfoBlockType> = ({
   const [tab, setTab] = useState<number>(1);
   const backgroundColor = nightTheme.background.element;
   const { lang } = useSelector((state: ILangReducer) => state.langReducer);
+  // eslint-disable-next-line
   const list = infoSection.find((c) => c.lang === lang)!;
 
   return (

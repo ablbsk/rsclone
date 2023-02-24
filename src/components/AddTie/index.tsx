@@ -18,7 +18,7 @@ import {
   addTieFetchingError,
 } from "../../actions/addTie";
 import { IAddTieReducer } from "../../interfaces/addTie";
-import { convertBase64 } from "../../helpers/convertBase64";
+import { convertBase64 } from "../../helpers/convertBase64/convertBase64";
 import Spinner from "../Spinner";
 
 const AddTie: FunctionComponent = () => {
