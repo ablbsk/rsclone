@@ -2,11 +2,11 @@ import { render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
-import Header from ".";
+import Carousel from ".";
 
 const mockStore = configureStore([]);
 
-describe("Header", () => {
+describe("Carousel", () => {
   // eslint-disable-next-line
   let store: any;
 
@@ -15,27 +15,26 @@ describe("Header", () => {
       langReducer: {
         lang: "en",
       },
-      auth: {
-        user: {
-          role: "USER",
-        },
-      },
     });
   });
 
   test("renders correctly", () => {
+    const accentColor = {
+      static: "#000000",
+      hover: "#ffffff",
+    };
+    const isNavbarNightMode = false;
+
     const { container } = render(
       <Provider store={store}>
         <Router>
-          <Header
-            accentColor={{ static: "#fff", hover: "#000" }}
-            isNavbarNightMode={false}
-            isButtonVisible={true}
+          <Carousel
+            accentColor={accentColor}
+            isNavbarNightMode={isNavbarNightMode}
           />
         </Router>
       </Provider>
     );
-
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

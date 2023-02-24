@@ -7,7 +7,7 @@ import configureStore from "../../store/configureStore";
 const store = configureStore();
 
 describe("Footer component", () => {
-  test("should render all expected sections", () => {
+  test("renders correctly", () => {
     const container = render(
       <Provider store={store}>
         <Router>

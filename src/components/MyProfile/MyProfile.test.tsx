@@ -1,23 +1,30 @@
 import { render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
-import Header from ".";
+import { Provider } from "react-redux";
+import MyProfile from ".";
 
 const mockStore = configureStore([]);
 
-describe("Header", () => {
+describe("MyProfile", () => {
   // eslint-disable-next-line
-  let store: any;
+let store: any;
 
   beforeEach(() => {
     store = mockStore({
+      appInterface: {
+        accentColor: {
+          static: "#000",
+          hover: "#fff",
+        },
+      },
       langReducer: {
         lang: "en",
       },
       auth: {
         user: {
           role: "USER",
+          date: "2000-23-12",
         },
       },
     });
@@ -27,15 +34,10 @@ describe("Header", () => {
     const { container } = render(
       <Provider store={store}>
         <Router>
-          <Header
-            accentColor={{ static: "#fff", hover: "#000" }}
-            isNavbarNightMode={false}
-            isButtonVisible={true}
-          />
+          <MyProfile />
         </Router>
       </Provider>
     );
-
     expect(container.firstChild).toMatchSnapshot();
   });
 });
