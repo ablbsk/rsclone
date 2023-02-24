@@ -1,14 +1,37 @@
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
 import configureStore from "redux-mock-store";
-import FavoriteTie from ".";
+import UsersList from ".";
 
 const mockStore = configureStore([]);
 
-describe("FavoriteTie", () => {
+describe("UsersList", () => {
   // eslint-disable-next-line
   let store: any;
+
+  const users = [
+    {
+      _id: "1",
+      email: "test1@test.com",
+      password: "password",
+      role: "role",
+      date: "date",
+    },
+    {
+      _id: "2",
+      email: "test2@test.com",
+      password: "password",
+      role: "role",
+      date: "date",
+    },
+    {
+      _id: "3",
+      email: "test3@test.com",
+      password: "password",
+      role: "role",
+      date: "date",
+    },
+  ];
 
   beforeEach(() => {
     store = mockStore({
@@ -35,9 +58,7 @@ describe("FavoriteTie", () => {
   test("renders correctly", () => {
     const { container } = render(
       <Provider store={store}>
-        <Router>
-          <FavoriteTie />
-        </Router>
+        <UsersList users={users} activeButton="1" />
       </Provider>
     );
     expect(container).toMatchSnapshot();

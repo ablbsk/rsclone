@@ -17,7 +17,6 @@ import {
   showProfile,
   resetInterfaceToDefault,
 } from "../../actions";
-import { IStore } from "../../interfaces/store";
 import { useTranslation } from "react-i18next";
 import { IAuthReducer } from "../../interfaces/authReducer";
 import { authorization } from "../../actions";
@@ -31,8 +30,6 @@ const Profile: FunctionComponent<ProfileType> = ({
   isNavbarNightMode,
   isNightMode,
 }: ProfileType) => {
-  const { email, role } = useSelector((state: IStore) => state.auth.user);
-
   const dispatch = useDispatch();
   const ref = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();

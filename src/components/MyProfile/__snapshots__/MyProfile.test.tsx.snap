@@ -6,7 +6,7 @@ exports[`MyProfile renders correctly 1`] = `
   style="background-color: rgb(0, 0, 0);"
 >
   <div
-    class="container"
+    class="container container--full-width"
   >
     <div
       class="header__wrapper"

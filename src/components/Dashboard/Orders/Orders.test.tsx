@@ -1,8 +1,7 @@
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
 import configureStore from "redux-mock-store";
-import FavoriteTie from ".";
+import Orders from ".";
 
 const mockStore = configureStore([]);
 
@@ -18,16 +17,9 @@ describe("FavoriteTie", () => {
           hover: "#fff",
         },
       },
-      langReducer: {
-        lang: "en",
-      },
-      favouriteTieReducer: {
-        addTieLoadingStatus: "load",
-      },
-      auth: {
-        user: {
-          role: "USER",
-        },
+      ordersReducer: {
+        ordersLoadingStatus: "idle",
+        orders: [],
       },
     });
   });
@@ -35,9 +27,7 @@ describe("FavoriteTie", () => {
   test("renders correctly", () => {
     const { container } = render(
       <Provider store={store}>
-        <Router>
-          <FavoriteTie />
-        </Router>
+        <Orders />
       </Provider>
     );
     expect(container).toMatchSnapshot();

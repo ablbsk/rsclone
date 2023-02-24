@@ -1,4 +1,4 @@
-import getTieColor from "../getTieColor";
+import getTieColor from "./getTieColor";
 
 describe("getTieColor", () => {
   test("returns an rgba color string", () => {

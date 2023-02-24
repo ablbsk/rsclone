@@ -15,7 +15,7 @@ import {
   IIconSetting,
   IViewSetting,
 } from "../../../interfaces/configurator";
-import getTieColor from "../../../helpers/getTieColor";
+import getTieColor from "../../../helpers/getTieColor/getTieColor";
 import Accordion from "../../Accordion";
 import configuratorSettings from "../../../helpers/configuratorSettings";
 import iconMapping from "../../../helpers/iconMapping";
@@ -24,7 +24,7 @@ import configurator from "../../../data/configurator";
 import { nightTheme } from "../../../data/constants";
 import plainsLang from "../../../data/plaints";
 import { ILangReducer } from "../../../interfaces/langReducer";
-import { svg2img } from "../../../helpers/svg2img";
+import { svg2img } from "../../../helpers/svg2img/svg2img";
 import { IStore } from "../../../interfaces/store";
 import { createOrder } from "../../../services/apiOrders";
 import { IAuthReducer } from "../../../interfaces/authReducer";

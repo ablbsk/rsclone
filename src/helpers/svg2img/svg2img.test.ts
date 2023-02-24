@@ -1,5 +1,4 @@
-import { render } from "@testing-library/react";
-import { svg2img } from "../svg2img";
+import { svg2img } from "./svg2img";
 
 describe("svg2img", () => {
   test("returns base64 image string", () => {

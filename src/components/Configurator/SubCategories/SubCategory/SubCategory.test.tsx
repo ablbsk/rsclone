@@ -16,7 +16,7 @@ describe("SubCategory", () => {
   };
   const isNavbarNightMode = false;
 
-  it("renders correctly", () => {
+  test("renders correctly", () => {
     const { container } = render(
       <Router>
         <SubCategory

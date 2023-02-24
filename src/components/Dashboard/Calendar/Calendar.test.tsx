@@ -1,12 +1,11 @@
 import { render } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
-import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
-import Switch from ".";
+import configureStore from "redux-mock-store";
+import Calendar from ".";
 
 const mockStore = configureStore([]);
 
-describe("Switch", () => {
+describe("Calendar", () => {
   // eslint-disable-next-line
   let store: any;
 
@@ -18,17 +17,23 @@ describe("Switch", () => {
           hover: "#fff",
         },
       },
+      langReducer: {
+        lang: "en",
+      },
+      auth: {
+        user: {
+          role: "USER",
+        },
+      },
     });
   });
 
   test("renders correctly", () => {
     const { container } = render(
       <Provider store={store}>
-        <Router>
-          <Switch />
-        </Router>
+        <Calendar />
       </Provider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

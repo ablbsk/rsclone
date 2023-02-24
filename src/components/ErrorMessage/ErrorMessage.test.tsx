@@ -3,7 +3,7 @@ import ErrorMessage from ".";
 
 describe("ErrorMessage", () => {
   test("renders correctly", () => {
-    const container = render(<ErrorMessage />);
+    const { container } = render(<ErrorMessage />);
     expect(container).toMatchSnapshot();
   });
 });

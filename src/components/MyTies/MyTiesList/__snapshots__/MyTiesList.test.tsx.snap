@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MyTiesList should match snapshot 1`] = `
+exports[`MyTiesList renders correctly 1`] = `
 <div
   class="market-block__products"
 >

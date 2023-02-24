@@ -3,9 +3,11 @@ import { AnyAction } from "redux";
 import { ILang } from "../interfaces/lang";
 
 const initialState: ILang = {
+  /* eslint-disable */
   lang: localStorage.getItem("lang")
     ? JSON.parse(localStorage.getItem("lang")!).lang
     : "ru",
+  /* eslint-enable */
 };
 
 export const langReducer = (state: ILang = initialState, action: AnyAction) => {

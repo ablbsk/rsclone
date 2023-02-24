@@ -1,5 +1,5 @@
-import { render, waitFor } from "@testing-library/react";
-import { convertBase64 } from "../convertBase64";
+import { waitFor } from "@testing-library/react";
+import { convertBase64 } from "./convertBase64";
 
 describe("convertBase64 function", () => {
   test("should convert a file to base64 string", async () => {

@@ -19,7 +19,7 @@ describe("MyTiesList", () => {
     });
   });
 
-  test("should match snapshot", () => {
+  test("renders correctly", () => {
     const ties = [
       {
         _id: "1",
