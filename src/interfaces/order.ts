@@ -6,4 +6,11 @@ export interface IOrder {
   price: number;
   status: string;
   date: string;
+  deadlineDate?: string;
+}
+
+export interface IOrderForGraph {
+  label: string;
+  price: number;
+  count: number;
 }

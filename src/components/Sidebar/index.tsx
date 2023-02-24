@@ -45,10 +45,12 @@ const Sidebar: FunctionComponent<SidebarType> = ({
               <span className="sidebar__name">{t("menu.dashboard")}</span>
             </li>
           </Link>
-          <li className="sidebar__item">
-            <SidebarIcon color={itemColor} type={"calendar"} />
-            <span className="sidebar__name">{t("menu.calendar")}</span>
-          </li>
+          <Link className="header__link" to="calendar">
+            <li className="sidebar__item">
+              <SidebarIcon color={itemColor} type={"calendar"} />
+              <span className="sidebar__name">{t("menu.calendar")}</span>
+            </li>
+          </Link>
           <Link className="header__link" to="orders">
             <li className="sidebar__item">
               <SidebarIcon color={itemColor} type={"orders"} />

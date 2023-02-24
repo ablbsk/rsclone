@@ -1,5 +1,5 @@
 import "./graph.scss";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   LinearScale,
@@ -14,15 +14,17 @@ import {
   defaults,
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
 import {
   specialColors,
   lightTheme,
   nightTheme,
 } from "../../../../data/constants";
 import { GraphType } from "../../../../types";
+import moment from "moment";
+import { IOrder, IOrderForGraph } from "../../../../interfaces/order";
+import { useTranslation } from "react-i18next";
 
-const Graph: FunctionComponent<GraphType> = ({ isNightMode }) => {
+const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
   ChartJS.register(
     LinearScale,
     CategoryScale,
@@ -44,6 +46,14 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode }) => {
     ? nightTheme.graph.gridColor
     : lightTheme.graph.gridColor;
 
+  // ------------------------------------------------------------------------
+
+  const { t } = useTranslation("dataLang");
+
+  const [value, setValues] = useState<IOrderForGraph[]>([
+    { label: "1", price: 0, count: 0 },
+  ]);
+
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -59,7 +69,7 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode }) => {
         position: "left" as const,
         title: {
           display: true,
-          text: "Net Revenue",
+          text: t("index.graph.labelRevenue"),
         },
       },
       y1: {
@@ -68,7 +78,7 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode }) => {
         position: "right" as const,
         title: {
           display: true,
-          text: "Number of Sales",
+          text: t("index.graph.labelSales"),
         },
         grid: {
           display: false,
@@ -77,28 +87,60 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode }) => {
     },
   };
 
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ]; // fake data labels
+  const prepareData = (period: string) => {
+    const result = [];
+    const format = period === "quarter" ? "MM-YYYY" : "DD-MM";
+    const granularity = period === "quarter" ? "month" : "day";
+    let ii = 3;
+
+    if (period !== "quarter") {
+      ii = period === "week" ? 7 : moment().date();
+    }
+
+    const obj =
+      period === "quarter"
+        ? orders
+        : orders.filter(
+            (order: IOrder) =>
+              moment(order.date).quarter() === moment().quarter()
+          );
+
+    for (let i = 0; i < ii; i++) {
+      const item = moment().subtract(i, granularity);
+
+      const price = obj.reduce((res, order: IOrder) => {
+        return order.status === "FINISHED" &&
+          moment(order.date).isSame(item, granularity)
+          ? res + order.price
+          : res;
+      }, 0 as number);
+
+      const count = obj.reduce((res, order: IOrder) => {
+        return order.status === "FINISHED" &&
+          moment(order.date).isSame(item, granularity)
+          ? res + 1
+          : res;
+      }, 0 as number);
+
+      result.push({
+        label: item.format(format),
+        price: price,
+        count: count,
+      });
+    }
+
+    return result.reverse();
+  };
+
+  useEffect(() => setValues(prepareData("week")), [orders]);
 
   const data = {
-    labels,
+    labels: value.map((item) => item.label),
     datasets: [
       {
         type: "bar" as const,
-        label: "Revenue",
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })), // fake data values
+        label: t("index.graph.labelRevenue"),
+        data: value.map((item) => item.price),
         backgroundColor: specialColors.aqua.background,
         borderColor: specialColors.aqua.font,
         borderWidth: 2,
@@ -106,9 +148,9 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode }) => {
       },
       {
         type: "line" as const,
-        label: "Sales",
+        label: t("index.graph.labelSales"),
         fill: false,
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })), // fake data values
+        data: value.map((item) => item.count),
         backgroundColor: specialColors.blue.font,
         borderColor: specialColors.blue.background,
         borderWidth: 4,
@@ -120,7 +162,20 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode }) => {
   return (
     <div className="graph">
       <div className="graph__wrapper">
-        <h3 className="graph__header">Sales Analytics</h3>
+        <div className="graph__head">
+          <h3 className="graph__header">{t("index.graph.header")}</h3>
+          <div>
+            <button onClick={() => setValues(prepareData("week"))}>
+              {t("index.graph.buttonWeek")}
+            </button>
+            <button onClick={() => setValues(prepareData("month"))}>
+              {t("index.graph.buttonMonth")}
+            </button>
+            <button onClick={() => setValues(prepareData("quarter"))}>
+              {t("index.graph.buttonQuarter")}
+            </button>
+          </div>
+        </div>
         <div className="graph__container">
           <Chart
             className="graph__canvas"

@@ -12,7 +12,8 @@
         "paid": "PAID",
         "declined": "DECLINED",
         "inProgress": "IN PROGRESS",
-        "finished": "FINISHED"
+        "finished": "FINISHED",
+        "deadline": "DEADLINE"
     },
     "buttonsUsersList": {
         "users": "Users",
@@ -78,5 +79,51 @@
         "sum": "Sum",
         "status": "Status",
         "delete": "Delete order"
+    },
+    "index": {
+        "cards": {
+            "totalRevenue": "Total revenue",
+            "todaySales": "Today's sales",
+            "sellersCount": "Sellers count",
+            "usersCount": "Users count"
+        },
+        "widget": {
+            "header": "Monthly revenue",
+            "title": "Revenue",
+            "today": "Today",
+            "currentMonth": "Current month",
+            "prevMonth": "Previous month"
+        },
+        "graph": {
+            "header": "Sales Analytics",
+            "buttonWeek": "7 days",
+            "buttonMonth": "Month",
+            "buttonQuarter": "Quarter",
+            "labelRevenue": "Net Revenue",
+            "labelSales": "Number of Sales"
+        }
+    },
+    "calendar": {
+        "buttons": {
+            "previous": "Prev",
+            "next": "Next",
+            "current": "Today"
+        },
+        "list": {
+            "id": "Order ID",
+            "product": "Product",
+            "date": "Date",
+            "price": "Price",
+            "status": "Order status",
+            "deadline": "Deadline"
+        }
+    },
+    "dashboard": {
+        "headers": {
+            "calendar": "Calendar",
+            "index": "Welcome to dashboard",
+            "orders": "Orders list",
+            "users": "Users list"
+        }
     }
 }

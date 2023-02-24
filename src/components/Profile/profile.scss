@@ -67,6 +67,11 @@
 
 .profile__role {
   font-size: $font-size-lg;
+  text-transform: lowercase;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
 }
 
 .profile__title,
@@ -149,8 +154,7 @@
 
 .links__wrapper {
   display: flex;
-  flex-direction: column;  
-  margin-bottom: 10px;
+  flex-direction: column;
   width: 300px;
   margin: 15px 0;
 

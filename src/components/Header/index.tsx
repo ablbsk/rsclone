@@ -45,7 +45,7 @@ const Header: FunctionComponent<HeaderType> = ({
           : accentColor.static,
       }}
     >
-      <div className="container">
+      <div className="container container--full-width">
         <div className="header__wrapper">
           {isButtonVisible && (
             <span
