@@ -1,5 +1,10 @@
+import { ILogin } from "../interfaces/login";
+import { ILang } from "../interfaces/lang";
+
 export interface IStore {
   appInterface: IAppInterface;
+  auth: ILogin;
+  langReducer: ILang;
 }
 
 export interface IAppInterface {

@@ -1,5 +1,8 @@
 import { ActionCreator, AnyAction } from "redux";
-import { ReactNode } from "react";
+import { IOrder } from "../interfaces/order";
+import { Dispatch, ReactNode, SetStateAction } from "react";
+import { Moment } from "moment/moment";
+import { IDayData } from "../interfaces/dayData";
 
 export type HeaderType = {
   accentColor: {
@@ -63,15 +66,46 @@ export type CardType = {
     background: string;
     font: string;
   };
-  value: string;
+  value: string | number;
   title: string;
   icon: string;
 };
 
 export type CircularProgressType = {
-  progress: number;
+  todaySales: number;
+  monthRevenue: {
+    current: number;
+    prev: number;
+  };
 };
 
 export type GraphType = {
   isNightMode: boolean;
+  orders: IOrder[];
+};
+
+export type CalendarDayType = {
+  day: Moment;
+  isActiveMonth: boolean;
+  status: {
+    nonPaid: IOrder[];
+    paid: IOrder[];
+    inProgress: IOrder[];
+    declined: IOrder[];
+    finished: IOrder[];
+    deadline: IOrder[];
+  };
+  setFocusedDay?: Dispatch<SetStateAction<IDayData>>;
+};
+
+export type CalendarListType = {
+  day: Moment;
+  status: {
+    nonPaid: IOrder[];
+    paid: IOrder[];
+    inProgress: IOrder[];
+    declined: IOrder[];
+    finished: IOrder[];
+    deadline: IOrder[];
+  };
 };

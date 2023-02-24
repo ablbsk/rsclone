@@ -12,7 +12,8 @@
         "paid": "ОПЛАЧЕНО",
         "declined": "ОТМЕНЕНО",
         "inProgress": "ВЫПОЛНЯЕТСЯ",
-        "finished": "ЗАВЕРШЕНО"
+        "finished": "ЗАВЕРШЕНО",
+        "deadline": "КРАЙНИЙ СРОК"
     },
     "buttonsUsersList": {
         "users": "Пользователи",
@@ -78,5 +79,51 @@
         "sum": "Сумма",
         "status": "Статус",
         "delete": "Удалить заказ"
+    },
+    "index": {
+        "cards": {
+            "totalRevenue": "Общий доход",
+            "todaySales": "Продано сегодня",
+            "sellersCount": "Продавцы",
+            "usersCount": "Пользователи"
+        },
+        "widget": {
+            "header": "Доход за месяц",
+            "title": "Доход",
+            "today": "Сегодня",
+            "currentMonth": "Текущий месяц",
+            "prevMonth": "Прошлый месяц"
+        },
+        "graph": {
+            "header": "Аналитика",
+            "buttonWeek": "7 дней",
+            "buttonMonth": "Месяц",
+            "buttonQuarter": "Квартал",
+            "labelRevenue": "Чистая выручка",
+            "labelSales": "Количество продаж"
+        }
+    },
+    "calendar": {
+        "buttons": {
+            "previous": "Назад",
+            "next": "Вперед",
+            "current": "Сегодня"
+        },
+        "list": {
+            "id": "Номер",
+            "product": "Продукт",
+            "date": "Дата",
+            "price": "Стоимость",
+            "status": "Статус",
+            "deadline": "Конец срока"
+        }
+    },
+    "dashboard": {
+        "headers": {
+            "calendar": "Календарь",
+            "index": "Добро пожаловать",
+            "orders": "Список заказов",
+            "users": "Список пользователей"
+        }
     }
-}    
+}
