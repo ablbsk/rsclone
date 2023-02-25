@@ -23,6 +23,7 @@ import { GraphType } from "../../../../types";
 import moment from "moment";
 import { IOrder, IOrderForGraph } from "../../../../interfaces/order";
 import { useTranslation } from "react-i18next";
+import Hover from "../../../Hover";
 
 const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
   ChartJS.register(
@@ -165,15 +166,30 @@ const Graph: FunctionComponent<GraphType> = ({ isNightMode, orders }) => {
         <div className="graph__head">
           <h3 className="graph__header">{t("index.graph.header")}</h3>
           <div>
-            <button onClick={() => setValues(prepareData("week"))}>
-              {t("index.graph.buttonWeek")}
-            </button>
-            <button onClick={() => setValues(prepareData("month"))}>
-              {t("index.graph.buttonMonth")}
-            </button>
-            <button onClick={() => setValues(prepareData("quarter"))}>
-              {t("index.graph.buttonQuarter")}
-            </button>
+            <Hover>
+              <button
+                className="button graph__button graph__button--left"
+                onClick={() => setValues(prepareData("week"))}
+              >
+                {t("index.graph.buttonWeek")}
+              </button>
+            </Hover>
+            <Hover>
+              <button
+                className="button graph__button graph__button--center"
+                onClick={() => setValues(prepareData("month"))}
+              >
+                {t("index.graph.buttonMonth")}
+              </button>
+            </Hover>
+            <Hover>
+              <button
+                className="button graph__button graph__button--right"
+                onClick={() => setValues(prepareData("quarter"))}
+              >
+                {t("index.graph.buttonQuarter")}
+              </button>
+            </Hover>
           </div>
         </div>
         <div className="graph__container">

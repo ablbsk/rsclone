@@ -12,7 +12,8 @@ const CircularProgress: FunctionComponent<CircularProgressType> = ({
   const size = 200;
   const strokeWidth = 20;
   const arcLength = 2 * Math.PI * (size / 2 - strokeWidth); // = 2*PI*R
-  const progressArcLength = (arcLength * ((100 - progress) / 100)).toFixed(1);
+  const n = progress > 100 ? 100 : progress;
+  const progressArcLength = (arcLength * ((100 - n) / 100)).toFixed(1);
 
   const { t } = useTranslation("dataLang");
 
@@ -46,15 +47,15 @@ const CircularProgress: FunctionComponent<CircularProgressType> = ({
       <div className="circular-progress__additional">
         <div className="circular-progress__month">
           <h6 className="circular-progress__small-title">
-            {t("index.widget.currentMonth")}
-          </h6>
-          <p className="circular-progress__value">${monthRevenue.current}</p>
-        </div>
-        <div className="circular-progress__month">
-          <h6 className="circular-progress__small-title">
             {t("index.widget.prevMonth")}
           </h6>
           <p className="circular-progress__value">${monthRevenue.prev}</p>
+        </div>
+        <div className="circular-progress__month">
+          <h6 className="circular-progress__small-title">
+            {t("index.widget.currentMonth")}
+          </h6>
+          <p className="circular-progress__value">${monthRevenue.current}</p>
         </div>
       </div>
     </div>

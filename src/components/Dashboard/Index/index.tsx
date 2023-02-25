@@ -64,9 +64,17 @@ const Index: FunctionComponent = () => {
   };
 
   const getTodaySales = () => {
+    return orders.filter(
+      (order: IOrder) =>
+        order.status === "FINISHED" && moment().isSame(order.date, "day")
+    ).length;
+  };
+
+  const getTodaySalesRevenue = () => {
     return orders.reduce((res, order: IOrder) => {
-      return order.status === "FINISHED" && moment().isSame(order.date, "day")
-        ? res++
+      return order.status === "FINISHED" &&
+        moment(order.date).isSame(moment(), "day")
+        ? res + order.price
         : res;
     }, 0 as number);
   };
@@ -87,15 +95,6 @@ const Index: FunctionComponent = () => {
     }, 0 as number);
 
     return { current: current, prev: prev };
-  };
-
-  const currentMonthRevenue = () => {
-    return orders.reduce((res, order: IOrder) => {
-      return order.status === "FINISHED" &&
-        moment(order.date).isSame(moment(), "month")
-        ? res + order.price
-        : res;
-    }, 0 as number);
   };
 
   return (
@@ -139,9 +138,12 @@ const Index: FunctionComponent = () => {
             <div className="index__additional">
               <CircularProgress
                 monthRevenue={getOrdersRatio()}
-                todaySales={currentMonthRevenue()}
+                todaySales={getTodaySalesRevenue()}
               />
-              <Graph isNightMode={state.appInterface.isNightMode} orders={orders} />
+              <Graph
+                isNightMode={state.appInterface.isNightMode}
+                orders={orders}
+              />
             </div>
           </div>
         </>
