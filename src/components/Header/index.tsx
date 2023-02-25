@@ -1,5 +1,5 @@
 import "./header.scss";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import flagUS from "../../assets/images/jpg/flag-us.jpg";
@@ -11,6 +11,8 @@ import i18n from "../../i18n";
 import { ILangReducer } from "../../interfaces/langReducer";
 import { changeLanguage } from "../../actions";
 import { IAuthReducer } from "../../interfaces/authReducer";
+import { useLocation } from "react-router";
+import classNames from "classnames";
 
 const Header: FunctionComponent<HeaderType> = ({
   accentColor,
@@ -22,6 +24,14 @@ const Header: FunctionComponent<HeaderType> = ({
   const backgroundColor = nightTheme.background.element;
 
   const lang = useSelector((state: ILangReducer) => state.langReducer);
+
+  const location = useLocation();
+
+  const [isFullWidth, setIsFullWidth] = useState<boolean>();
+
+  useEffect(() => {
+    if (location.pathname.includes("dashboard")) setIsFullWidth(true);
+  }, [location]);
 
   const authStore = useSelector((state: IAuthReducer) => state.auth);
   const { user } = authStore;
@@ -45,7 +55,11 @@ const Header: FunctionComponent<HeaderType> = ({
           : accentColor.static,
       }}
     >
-      <div className="container container--full-width">
+      <div
+        className={classNames("container", {
+          "container--full-width": isFullWidth,
+        })}
+      >
         <div className="header__wrapper">
           {isButtonVisible && (
             <span
