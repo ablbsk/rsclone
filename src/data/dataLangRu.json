@@ -22,7 +22,8 @@
     "usersTable":  {
         "email": "Почта",
         "id": "Идент.",
-        "promote": "Повысить"
+        "promote": "Повысить",
+        "date": "Дата"
     },
     "menu": {
         "dashboard": "Доска",

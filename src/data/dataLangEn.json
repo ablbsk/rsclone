@@ -22,7 +22,8 @@
     "usersTable": {
         "email": "Email",
         "id": "Id",
-        "promote": "Promote"
+        "promote": "Promote",
+        "date": "Date"
     },
     "menu": {
         "dashboard": "Dashboard",
