@@ -52,6 +52,16 @@ export type SidebarIconType = {
   type: string;
 };
 
+export type SidebarLinkType = {
+  type: string;
+  to: string;
+  title: string;
+  color: {
+    static: string;
+    hover: string;
+  };
+};
+
 export type HoverType = {
   children: JSX.Element;
 };

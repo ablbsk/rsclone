@@ -7,13 +7,13 @@
         "delete": "Удалить"
     },
     "select": {
-        "change": "ИЗМЕНИТЬ СТАТУС",
-        "nonPaid": "НЕ ОПЛАЧЕНО",
-        "paid": "ОПЛАЧЕНО",
-        "declined": "ОТМЕНЕНО",
-        "inProgress": "ВЫПОЛНЯЕТСЯ",
-        "finished": "ЗАВЕРШЕНО",
-        "deadline": "КРАЙНИЙ СРОК"
+        "change": "Изменить статус",
+        "nonPaid": "Не оплачено",
+        "paid": "Оплачено",
+        "declined": "Отменено",
+        "inProgress": "Выполняется",
+        "finished": "Завершено",
+        "deadline": "Крайний срок"
     },
     "buttonsUsersList": {
         "users": "Пользователи",
@@ -22,7 +22,8 @@
     "usersTable":  {
         "email": "Почта",
         "id": "Идент.",
-        "promote": "Повысить"
+        "promote": "Повысить",
+        "date": "Дата"
     },
     "menu": {
         "dashboard": "Доска",

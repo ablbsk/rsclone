@@ -26,21 +26,36 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
 
   const color = nightTheme.background.element;
 
+  let statusText = null;
+
+  const addStatusStyle = () => {
+    switch (item.status) {
+      case "NON-PAID":
+        statusText = t("select.nonPaid");
+        return "marker marker--non-pain";
+      case "PAID":
+        statusText = t("select.paid");
+        return "marker marker--pain";
+      case "IN PROGRESS":
+        statusText = t("select.inProgress");
+        return "marker marker--in-progress";
+      case "DECLINED":
+        statusText = t("select.declined");
+        return "marker marker--declined";
+      case "FINISHED":
+        statusText = t("select.finished");
+        return "marker marker--finished";
+    }
+  };
+
   return (
     <>
-      <tr>
+      <tr className="table-line">
         <th>{i + 1}</th>
         <th>{item.date.slice(0, 10)}</th>
         <th>{item.price}</th>
-        <th>{item.status}</th>
         <th>
-          <button
-            className="button__delete-order"
-            onClick={() => deleteItem(item._id)}
-          >
-            <i className="fa fa-remove"></i>
-            {t("ordersTable.delete")}
-          </button>
+          <span className={addStatusStyle()}>{statusText}</span>
         </th>
         <th className="table-select">
           <select
@@ -67,12 +82,21 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
                   ? backgroundColor
                   : accentColor.static,
               }}
-              className="button-apply"
+              className="button button-apply"
               onClick={() => updateItem(item._id, selectedValue)}
             >
               {t("ordersTable.apply")}
             </button>
           </Hover>
+        </th>
+        <th>
+          <button
+            className="button button__delete-order"
+            onClick={() => deleteItem(item._id)}
+          >
+            <i className="fa fa-remove"></i>
+            {t("ordersTable.delete")}
+          </button>
         </th>
       </tr>
     </>

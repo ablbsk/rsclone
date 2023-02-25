@@ -56,58 +56,65 @@ const Users: FunctionComponent = () => {
     }
   };
 
-  const spinner = usersLoadingStatus === "loading" ? <Spinner /> : null;
-
   return (
-    <div className="users__wrapper" style={{ backgroundColor }}>
-      <div className="users__header">
-        <Hover>
-          <Active
-            classN={`users__header-button ${
-              activeButton == "1" ? "users__header-button_active" : ""
-            }`}
-          >
-            <button
-              className={`users__header-button ${
-                activeButton == "1" ? "users__header-button_active" : ""
-              }`}
-              data-id="1"
-              onClick={(e) => {
-                getUsersList("USER");
-                toggleHandler(e);
-              }}
-            >
-              {t("buttonsUsersList.users")}
-            </button>
-          </Active>
-        </Hover>
-        <Hover>
-          <Active
-            classN={`users__header-button ${
-              activeButton == "2" ? "users__header-button_active" : ""
-            }`}
-          >
-            <button
-              className={`users__header-button ${
-                activeButton == "2" ? "users__header-button_active" : ""
-              }`}
-              data-id="2"
-              onClick={(e) => {
-                getUsersList("SELLER");
-                toggleHandler(e);
-              }}
-            >
-              {t("buttonsUsersList.sellers")}
-            </button>
-          </Active>
-        </Hover>
-      </div>
-      {spinner}
-      {usersLoadingStatus === "idle" ? (
-        <UsersList users={users} activeButton={activeButton} />
-      ) : null}
-      {usersLoadingStatus === "error" ? <ErrorMessage /> : null}
-    </div>
+    <>
+      {usersLoadingStatus === "loading" ? (
+        <div className="dashboard__spinner">
+          <Spinner />
+        </div>
+      ) : usersLoadingStatus === "error" ? (
+        <ErrorMessage />
+      ) : (
+        <>
+          <h1 className="dashboard__header">{t("dashboard.headers.users")}</h1>
+          <div className="users__wrapper" style={{ backgroundColor }}>
+            <div className="users__header">
+              <Hover>
+                <Active
+                  classN={`users__header-button ${
+                    activeButton == "1" ? "users__header-button_active" : ""
+                  }`}
+                >
+                  <button
+                    className={`users__header-button ${
+                      activeButton == "1" ? "users__header-button_active" : ""
+                    }`}
+                    data-id="1"
+                    onClick={(e) => {
+                      getUsersList("USER");
+                      toggleHandler(e);
+                    }}
+                  >
+                    {t("buttonsUsersList.users")}
+                  </button>
+                </Active>
+              </Hover>
+              <Hover>
+                <Active
+                  classN={`users__header-button ${
+                    activeButton == "2" ? "users__header-button_active" : ""
+                  }`}
+                >
+                  <button
+                    className={`users__header-button ${
+                      activeButton == "2" ? "users__header-button_active" : ""
+                    }`}
+                    data-id="2"
+                    onClick={(e) => {
+                      getUsersList("SELLER");
+                      toggleHandler(e);
+                    }}
+                  >
+                    {t("buttonsUsersList.sellers")}
+                  </button>
+                </Active>
+              </Hover>
+            </div>
+            <UsersList users={users} activeButton={activeButton} />
+          </div>
+        </>
+      )}
+    </>
   );
 };
 

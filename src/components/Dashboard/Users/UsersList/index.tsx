@@ -72,6 +72,7 @@ const UsersList: FunctionComponent<IUsersListComponent> = ({
                 <th>#</th>
                 <th>{t("usersTable.email")}</th>
                 <th>{t("usersTable.id")}</th>
+                <th>{t("usersTable.date")}</th>
                 {user.role === "ADMIN" ? (
                   <>
                     <th className="image-column"></th>
@@ -81,21 +82,13 @@ const UsersList: FunctionComponent<IUsersListComponent> = ({
               </tr>
               {users.map((item, i) => {
                 return (
-                  <tr key={item._id}>
+                  <tr className="table-line" key={item._id}>
                     <th>{i + 1}</th>
                     <th>{item.email}</th>
                     <th>{item._id.slice(0, 8).toLocaleUpperCase()}</th>
+                    <th>{item.date.slice(0, 10)}</th>
                     {user.role === "ADMIN" ? (
                       <>
-                        <th>
-                          <button
-                            className="button__delete-order"
-                            onClick={() => deleteItem(item._id)}
-                          >
-                            <i className="fa fa-remove"></i>
-                            {t("ordersTable.delete")}
-                          </button>
-                        </th>
                         <th className="table-promotion">
                           <Hover>
                             <button
@@ -104,12 +97,21 @@ const UsersList: FunctionComponent<IUsersListComponent> = ({
                                   ? backgroundColor
                                   : accentColor.static,
                               }}
-                              className="button__promo"
+                              className="button__promo button"
                               onClick={() => updateItem(item._id)}
                             >
                               {t("usersTable.promote")}
                             </button>
                           </Hover>
+                        </th>
+                        <th>
+                          <button
+                            className="button__delete-order"
+                            onClick={() => deleteItem(item._id)}
+                          >
+                            <i className="fa fa-remove"></i>
+                            {t("ordersTable.delete")}
+                          </button>
                         </th>
                       </>
                     ) : null}

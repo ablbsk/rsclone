@@ -3,7 +3,6 @@
 
 .dashboard {
   transition: $transition;
-  margin-top: 86px;
 
   &--indent {
     margin-left: 100px;
@@ -22,4 +21,11 @@
 
 .dashboard__text {
   font-size: $font-size-lg;
+}
+
+.dashboard__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 75%);
 }

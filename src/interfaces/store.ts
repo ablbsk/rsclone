@@ -1,10 +1,12 @@
 import { ILogin } from "../interfaces/login";
 import { ILang } from "../interfaces/lang";
+import { IOrdersList } from "../interfaces/ordersList";
 
 export interface IStore {
   appInterface: IAppInterface;
   auth: ILogin;
   langReducer: ILang;
+  ordersReducer: IOrdersList;
 }
 
 export interface IAppInterface {

@@ -3,6 +3,14 @@
 
 .list {
   padding: 40px 25px;
+
+  @include media-small-tablet {
+    width: 100%;
+  }
+}
+
+.list__wrapper {
+  overflow-x: auto;
 }
 
 .list__header {
@@ -10,6 +18,10 @@
   font-size: $font-size-xlg;
   text-transform: capitalize;
   text-align: center;
+}
+
+.list__list {
+  min-width: 1000px;
 }
 
 .list__item {
