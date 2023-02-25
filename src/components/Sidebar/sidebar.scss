@@ -2,13 +2,12 @@
 @import "../../sass/variables";
 
 .sidebar {
-  margin-top: 0;
+  height: 100vh;
+  padding-top: 90px;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: -20px;
-  left: 0;
-  bottom: -80px;
+  position: fixed;
+  top: 0;
   opacity: 0;
   background-color: $color-element-background-light;
   transition: $transition;
@@ -37,7 +36,7 @@
   }
 
   @include media-small-mobile {
-    margin-top: 70px;
+    padding-top: 70px;
   }
 }
 
@@ -74,4 +73,5 @@
 .sidebar__name {
   font-size: $font-size-lg;
   font-weight: $font-weight-bold;
+  transition: $transition;
 }
