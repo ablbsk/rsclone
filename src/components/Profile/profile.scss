@@ -67,11 +67,6 @@
 
 .profile__role {
   font-size: $font-size-lg;
-  text-transform: lowercase;
-
-  &:first-letter {
-    text-transform: uppercase;
-  }
 }
 
 .profile__title,
