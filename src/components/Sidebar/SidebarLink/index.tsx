@@ -19,11 +19,11 @@ const SidebarLink: FunctionComponent<SidebarLinkType> = ({
         onMouseOut={() => setIsHovered(false)}
       >
         <SidebarIcon
-          color={isHovered ? color.static : color.hover}
+          color={isHovered ? color.hover : color.static}
           type={type}
         />
         <span
-          style={{ color: isHovered ? color.static : color.hover }}
+          style={{ color: isHovered ? color.hover : color.static }}
           className="sidebar__name"
         >
           {title}
