@@ -2,10 +2,11 @@ import { FunctionComponent, useState } from "react";
 import { useSelector } from "react-redux";
 import "./infoblock.scss";
 import classNames from "classnames";
-import { nightTheme } from "../../../data/constants";
 import { InfoBlockType } from "../../../types/home";
 import infoSection from "../../../data/infoSection";
 import { ILangReducer } from "../../../interfaces/langReducer";
+import { IStore } from "../../../interfaces/store";
+import { nightTheme, lightTheme } from "../../../data/constants";
 
 const InfoBlock: FunctionComponent<InfoBlockType> = ({
   accentColor,
@@ -14,17 +15,40 @@ const InfoBlock: FunctionComponent<InfoBlockType> = ({
   const [tab, setTab] = useState<number>(1);
   const backgroundColor = nightTheme.background.element;
   const { lang } = useSelector((state: ILangReducer) => state.langReducer);
+  const { isNightMode } = useSelector((state: IStore) => state.appInterface);
   // eslint-disable-next-line
   const list = infoSection.find((c) => c.lang === lang)!;
 
   return (
     <section className="section-space">
-      <div className="section-space__banner">
+      <div
+        className="section-space__banner"
+        style={{
+          backgroundColor: isNightMode
+            ? nightTheme.background.page
+            : lightTheme.background.page,
+          opacity: 0.7,
+        }}
+      >
         <div className="container">
-          <div className="row-points-wrapper">
+          <div
+            className="row-points-wrapper"
+            style={{
+              backgroundColor: isNightMode
+                ? lightTheme.background.page
+                : nightTheme.background.page,
+            }}
+          >
             <div className="points-wrapper">
               <div className="custom-tab">
-                <ul className="custom-tab__nav_list">
+                <ul
+                  className="custom-tab__nav_list"
+                  style={{
+                    backgroundColor: isNightMode
+                      ? nightTheme.background.page
+                      : lightTheme.background.page,
+                  }}
+                >
                   {list.data.map((item, index) => (
                     <li className="custom-tab__item" key={item.question}>
                       <h5

@@ -77,7 +77,7 @@ const Profile: FunctionComponent<ProfileType> = ({
         <div className="profile__user">
           <span className="profile__image"></span>
           <p className="profile__email">{user.email}</p>
-          <p className="profile__role">{user.role}</p>
+          <p className="profile__role">{user.role.toLocaleUpperCase()}</p>
           <Hover>
             <button className="button profile__sign-out" onClick={handlerSign}>
               {isLogin ? t("profile.signOut") : t("profile.signIn")}
