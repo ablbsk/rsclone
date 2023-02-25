@@ -45,7 +45,7 @@ const Index: FunctionComponent<CalendarListType> = ({
 
       const el = (
         <li
-          className={classNames("list__item", {
+          className={classNames("table-line list__item", {
             "list__item--warning": moment(day).isSame(item.deadlineDate, "day"),
           })}
           key={item._id}
@@ -81,20 +81,22 @@ const Index: FunctionComponent<CalendarListType> = ({
 
   return (
     <div className="list">
-      <h4 className="list__header">{moment(day).format("D MMMM")}</h4>
-      <ul className="list__list">
-        <li className="list__item">
-          <span className="list__column">{t("calendar.list.id")}</span>
-          <span className="list__column">{t("calendar.list.product")}</span>
-          <span className="list__column">{t("calendar.list.date")}</span>
-          <span className="list__column">{t("calendar.list.price")}</span>
-          <span className="list__column">{t("calendar.list.status")}</span>
-          <span className="list__column list__column--last">
-            {t("calendar.list.deadline")}
-          </span>
-        </li>
-        {elements}
-      </ul>
+      <div className="list__wrapper">
+        <h4 className="list__header">{moment(day).format("D MMMM")}</h4>
+        <ul className="list__list">
+          <li className="list__item">
+            <span className="list__column">{t("calendar.list.id")}</span>
+            <span className="list__column">{t("calendar.list.product")}</span>
+            <span className="list__column">{t("calendar.list.date")}</span>
+            <span className="list__column">{t("calendar.list.price")}</span>
+            <span className="list__column">{t("calendar.list.status")}</span>
+            <span className="list__column list__column--last">
+              {t("calendar.list.deadline")}
+            </span>
+          </li>
+          {elements}
+        </ul>
+      </div>
     </div>
   );
 };

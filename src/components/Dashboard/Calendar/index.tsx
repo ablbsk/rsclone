@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import moment, { Moment } from "moment";
 import "moment/locale/ru";
-import { getOrdersBySellerId } from "../../../services/apiOrders";
+import { getOrders } from "../../../services/apiOrders";
 import { CalendarDayType } from "../../../types";
 import { IStore } from "../../../interfaces/store";
 import { IUser } from "../../../interfaces/user";
@@ -54,8 +54,7 @@ const Calendar: FunctionComponent = () => {
   const getOrdersList = async () => {
     try {
       dispatch(ordersFetching());
-      // const orders = await getOrdersBySellerId(user._id);
-      const orders = await getOrdersBySellerId("63e3fb253a85875ab9a671c4");
+      const orders = await getOrders();
       dispatch(ordersFetched(orders));
       setOrdersDeadline(prepareOrdersToDeadline(orders));
       setOrders(orders);
@@ -203,7 +202,9 @@ const Calendar: FunctionComponent = () => {
         <ErrorMessage />
       ) : (
         <>
-          <h1 className="dashboard__header">{t("dashboard.headers.calendar")}</h1>
+          <h1 className="dashboard__header">
+            {t("dashboard.headers.calendar")}
+          </h1>
           <div className="calendar">
             <div className="calendar__wrapper">
               <div className="calendar__head">
