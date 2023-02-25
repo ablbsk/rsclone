@@ -27,10 +27,9 @@
 .points-wrapper {
   width: 33%;
   text-align: center;
-  background:$color-white3;
+  background: $color-white3;
   z-index: 1;
   padding: 15px 15px 15px 15px;
-  
   
   @include media-mobile {
     width: 100%;
@@ -96,7 +95,7 @@
 }
 
 .points-info-block {
-  width: 66%;
+  width: 67%;
   background:$color-white3;
   z-index: 1;
   padding: 18px 19px 1px 0px;

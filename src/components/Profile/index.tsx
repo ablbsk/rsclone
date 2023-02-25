@@ -1,6 +1,6 @@
 import "./profile.scss";
 import { FunctionComponent, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import classNames from "classnames";
 import Hover from "../Hover";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,6 +33,7 @@ const Profile: FunctionComponent<ProfileType> = ({
   const dispatch = useDispatch();
   const ref = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const URLParams = useParams();
 
   const updateColor = (color: { static: string; hover: string }) =>
     dispatch(updateAccentColor(color));
@@ -76,7 +77,7 @@ const Profile: FunctionComponent<ProfileType> = ({
         <div className="profile__user">
           <span className="profile__image"></span>
           <p className="profile__email">{user.email}</p>
-          <p className="profile__role">{user.role}</p>
+          <p className="profile__role">{user.role.toLocaleUpperCase()}</p>
           <Hover>
             <button className="button profile__sign-out" onClick={handlerSign}>
               {isLogin ? t("profile.signOut") : t("profile.signIn")}
@@ -133,28 +134,32 @@ const Profile: FunctionComponent<ProfileType> = ({
                 isNightMode={isNightMode}
               />
             </li>
-            <li className="settings__item">
-              <span className="settings__name">
-                {t("profile.sidebarFixed")}
-              </span>
-              <Switch
-                action={updateFixedSidebar}
-                accentColor={accentColor}
-                isChecked={isSidebarFixed}
-                isNightMode={isNightMode}
-              />
-            </li>
-            <li className="settings__item">
-              <span className="settings__name">
-                {t("profile.sidebarAccentMode")}
-              </span>
-              <Switch
-                action={updateSidebarAccentMode}
-                accentColor={accentColor}
-                isChecked={isSidebarAccentMode}
-                isNightMode={isNightMode}
-              />
-            </li>
+            {Object.entries(URLParams).length !== 0 ? (
+              <>
+                <li className="settings__item">
+                  <span className="settings__name">
+                    {t("profile.sidebarFixed")}
+                  </span>
+                  <Switch
+                    action={updateFixedSidebar}
+                    accentColor={accentColor}
+                    isChecked={isSidebarFixed}
+                    isNightMode={isNightMode}
+                  />
+                </li>
+                <li className="settings__item">
+                  <span className="settings__name">
+                    {t("profile.sidebarAccentMode")}
+                  </span>
+                  <Switch
+                    action={updateSidebarAccentMode}
+                    accentColor={accentColor}
+                    isChecked={isSidebarAccentMode}
+                    isNightMode={isNightMode}
+                  />
+                </li>
+              </>
+            ) : null}
             <li className="settings__item">
               <span className="settings__name">
                 {t("profile.navbarNightMode")}
