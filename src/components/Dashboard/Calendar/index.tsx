@@ -1,6 +1,6 @@
 import "./calendar.scss";
 import { FunctionComponent, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import moment, { Moment } from "moment";
 import "moment/locale/ru";
@@ -13,11 +13,20 @@ import { IDayData } from "../../../interfaces/dayData";
 import Day from "./Day";
 import List from "./List";
 import Hover from "../../Hover";
+import Spinner from "../../Spinner";
+import ErrorMessage from "../../ErrorMessage";
+import {
+  ordersFetched,
+  ordersFetching,
+  ordersFetchingError,
+} from "../../../actions";
 
 const Calendar: FunctionComponent = () => {
   const { t } = useTranslation("dataLang");
-  const language = useSelector((state: IStore) => state.langReducer.lang);
-  moment.locale(language);
+  const state = useSelector((state: IStore) => state);
+  moment.locale(state.langReducer.lang);
+
+  const loadingStatus = state.ordersReducer.ordersLoadingStatus;
 
   const user: IUser = useSelector((state: IStore) => state.auth.user);
 
@@ -41,25 +50,34 @@ const Calendar: FunctionComponent = () => {
   const deadlineStep = 7;
   const dayDataArr: CalendarDayType[] = [];
 
-  useEffect(() => {
-    getOrdersBySellerId(user._id)
-      .then((orders: IOrder[]) => {
-        setOrdersDeadline(prepareOrdersToDeadline(orders));
-        setOrders(orders);
-      })
-      .catch((e) => console.log(e));
+  const dispatch = useDispatch();
+  const getOrdersList = async () => {
+    try {
+      dispatch(ordersFetching());
+      // const orders = await getOrdersBySellerId(user._id);
+      const orders = await getOrdersBySellerId("63e3fb253a85875ab9a671c4");
+      dispatch(ordersFetched(orders));
+      setOrdersDeadline(prepareOrdersToDeadline(orders));
+      setOrders(orders);
+    } catch {
+      dispatch(ordersFetchingError());
+    }
+  };
 
-    const prepareOrdersToDeadline = (orders: IOrder[]) => {
-      return orders
-        .filter((order: IOrder) => order.status !== "FINISHED")
-        .filter((order: IOrder) => order.status !== "DECLINED")
-        .map((order: IOrder) => {
-          order.deadlineDate = moment(order.date)
-            .subtract(-deadlineStep, "day")
-            .toISOString();
-          return order;
-        });
-    };
+  const prepareOrdersToDeadline = (orders: IOrder[]) => {
+    return orders
+      .filter((order: IOrder) => order.status !== "FINISHED")
+      .filter((order: IOrder) => order.status !== "DECLINED")
+      .map((order: IOrder) => {
+        order.deadlineDate = moment(order.date)
+          .subtract(-deadlineStep, "day")
+          .toISOString();
+        return order;
+      });
+  };
+
+  useEffect(() => {
+    getOrdersList();
   }, []);
 
   const createCalendar = () => {
@@ -72,7 +90,7 @@ const Calendar: FunctionComponent = () => {
         .startOf("isoWeek")
         .dayOfYear() - 1;
 
-    if (language !== "ru") start = start - 1;
+    if (state.langReducer.lang !== "ru") start = start - 1;
 
     const end = start + size;
     const now = moment().dayOfYear();
@@ -176,52 +194,65 @@ const Calendar: FunctionComponent = () => {
     ));
 
   return (
-    <div className="calendar">
-      <div className="calendar__wrapper">
-        <div className="calendar__head">
-          <div className="calendar__head-column">
-            <Hover>
-              <button
-                className="button calendar__button--left"
-                onClick={() => changeMonth(-1)}
-                disabled={prevButton}
-              >
-                {t("calendar.buttons.previous")}
-              </button>
-            </Hover>
-            <Hover>
-              <button
-                className="button calendar__button--right"
-                onClick={() => changeMonth(1)}
-                disabled={nextButton}
-              >
-                {t("calendar.buttons.next")}
-              </button>
-            </Hover>
-          </div>
-          <h2 className="calendar__subheader">
-            {moment()
-              .subtract(1 - viewedMonth, "month")
-              .format("MMMM")}
-          </h2>
-          <div className="calendar__head-column">
-            <Hover>
-              <button
-                className="button"
-                onClick={() => setViewedMonth(moment().month())}
-              >
-                {t("calendar.buttons.current")}
-              </button>
-            </Hover>
-          </div>
+    <>
+      {loadingStatus === "loading" ? (
+        <div className="dashboard__spinner">
+          <Spinner />
         </div>
-        <div className="calendar__container">{titlesElements}</div>
-        <div className="calendar__container">{daysComponents}</div>
-      </div>
-      {focusedDay.day ? (
-        <List day={focusedDay.day} status={focusedDay.status} />
-      ) : null}
-    </div>
+      ) : loadingStatus === "error" ? (
+        <ErrorMessage />
+      ) : (
+        <>
+          <h1 className="dashboard__header">{t("dashboard.headers.calendar")}</h1>
+          <div className="calendar">
+            <div className="calendar__wrapper">
+              <div className="calendar__head">
+                <div className="calendar__head-column">
+                  <Hover>
+                    <button
+                      className="button calendar__button--left"
+                      onClick={() => changeMonth(-1)}
+                      disabled={prevButton}
+                    >
+                      {t("calendar.buttons.previous")}
+                    </button>
+                  </Hover>
+                  <Hover>
+                    <button
+                      className="button calendar__button--right"
+                      onClick={() => changeMonth(1)}
+                      disabled={nextButton}
+                    >
+                      {t("calendar.buttons.next")}
+                    </button>
+                  </Hover>
+                </div>
+                <h2 className="calendar__subheader">
+                  {moment()
+                    .subtract(1 - viewedMonth, "month")
+                    .format("MMMM")}
+                </h2>
+                <div className="calendar__head-column">
+                  <Hover>
+                    <button
+                      className="button"
+                      onClick={() => setViewedMonth(moment().month())}
+                    >
+                      {t("calendar.buttons.current")}
+                    </button>
+                  </Hover>
+                </div>
+              </div>
+              <div className="calendar__container">{titlesElements}</div>
+              <div className="calendar__container">{daysComponents}</div>
+            </div>
+            {focusedDay.day ? (
+              <List day={focusedDay.day} status={focusedDay.status} />
+            ) : null}
+          </div>
+        </>
+      )}
+    </>
   );
 };
 
