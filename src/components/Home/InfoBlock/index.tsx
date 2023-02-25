@@ -13,7 +13,6 @@ const InfoBlock: FunctionComponent<InfoBlockType> = ({
   isNavbarNightMode,
 }: InfoBlockType) => {
   const [tab, setTab] = useState<number>(1);
-  const backgroundColor = nightTheme.background.element;
   const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   const { isNightMode } = useSelector((state: IStore) => state.appInterface);
   // eslint-disable-next-line
@@ -50,17 +49,20 @@ const InfoBlock: FunctionComponent<InfoBlockType> = ({
                   }}
                 >
                   {list.data.map((item, index) => (
-                    <li className="custom-tab__item" key={item.question}>
+                    <li
+                      className="custom-tab__item"
+                      key={item.question}
+                      style={{
+                        color: isNavbarNightMode ? "#ffffff" : "#303030",
+                      }}
+                    >
                       <h5
                         className={classNames("tab-title", {
                           "tab-title-select": tab === index + 1,
                         })}
                         style={{
-                          backgroundColor: isNavbarNightMode
-                            ? backgroundColor
-                            : tab === index + 1
-                            ? accentColor.static
-                            : "",
+                          backgroundColor:
+                            tab === index + 1 ? accentColor.static : "",
                         }}
                         onClick={() => setTab(index + 1)}
                       >
