@@ -7,13 +7,13 @@
         "delete": "Delete"
     },
     "select": {
-        "change": "CHANGE STATUS",
-        "nonPaid": "NON-PAID",
-        "paid": "PAID",
-        "declined": "DECLINED",
-        "inProgress": "IN PROGRESS",
-        "finished": "FINISHED",
-        "deadline": "DEADLINE"
+        "change": "Change status",
+        "nonPaid": "Non-paid",
+        "paid": "Paid",
+        "declined": "Declined",
+        "inProgress": "In progress",
+        "finished": "Finished",
+        "deadline": "Deadline"
     },
     "buttonsUsersList": {
         "users": "Users",
@@ -22,7 +22,8 @@
     "usersTable": {
         "email": "Email",
         "id": "Id",
-        "promote": "Promote"
+        "promote": "Promote",
+        "date": "Date"
     },
     "menu": {
         "dashboard": "Dashboard",

@@ -6,35 +6,29 @@
 }
 
 .users__wrapper {
-    width: 600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: $color-element-background-light;
-    padding: 0 0 10px 5px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: $border-radius-sm;
     box-shadow: $box-shadow;
+    overflow-y: auto;
+}
 
-    @include media-mobile {
-        width: 500px;
-    }
-
-    @include media-small-mobile {
-        width: 360px;
-    }
+.users__header {
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .users__header-button {
-    margin-top: 30px;
     margin-bottom: 15px;
-    width: 150px;
-    height: 45px;
+    padding: 10px 20px;
     color: $font-color-white;
     border: none;
-    border-radius: 5px;
+    border-radius: $border-radius-sm;
     background-color: $color-accent;
-    font-size: 20px;
+    font-size: $font-size-lg;
     cursor: pointer;
 
     &_active {

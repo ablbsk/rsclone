@@ -5,10 +5,15 @@
   background-color: $color-element-background-light;
   border-radius: $border-radius-sm;
   box-shadow: $box-shadow;
+
+  @include media-tablet {
+    width: 100%;
+  }
 }
 
 .calendar__wrapper {
   padding: 25px;
+  overflow-x: auto;
 }
 
 .calendar__head {
@@ -16,6 +21,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include media-tablet {
+    width: 1200px;
+  }
 }
 
 .calendar__container {
@@ -23,7 +32,7 @@
   flex-wrap: wrap;
 
   @include media-tablet {
-    width: 1100px;
+    width: 1200px;
   }
 }
 

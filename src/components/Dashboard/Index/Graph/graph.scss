@@ -21,6 +21,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  @include media-mobile {
+    width: 700px;
+  }
 }
 
 .graph__container {
@@ -35,4 +39,20 @@
 .graph__canvas {
   height: 100%;
   width: 100%;
+}
+
+.graph__button {
+  padding: 5px 10px;
+
+  &--left {
+    border-radius: $border-radius-sm 0 0 $border-radius-sm;
+  }
+
+  &--center {
+    border-radius: 0;
+  }
+
+  &--right {
+    border-radius: 0 $border-radius-sm $border-radius-sm 0;
+  }
 }

@@ -15,6 +15,10 @@
     background-color: $color-element-background-night;
   }
 
+  .table-line:nth-child(even) {
+    background-color: #2f3941;
+  }
+
   .profile__header {
     border-color: #3f4b54;
   }

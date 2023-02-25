@@ -14,6 +14,7 @@ import { lightTheme, nightTheme } from "../../../data/constants";
 import OrdersList from "./OrdersList";
 import Spinner from "../../Spinner";
 import ErrorMessage from "../../ErrorMessage";
+import { useTranslation } from "react-i18next";
 
 import "./orders.scss";
 
@@ -28,6 +29,8 @@ const Orders: FunctionComponent = () => {
   const backgroundColor = isNightMode
     ? nightTheme.background.element
     : lightTheme.background.element;
+
+  const { t } = useTranslation("dataLang");
 
   const dispatch = useDispatch();
 
@@ -45,14 +48,23 @@ const Orders: FunctionComponent = () => {
     getOrdersList();
   }, []);
 
-  const spinner = ordersLoadingStatus === "loading" ? <Spinner /> : null;
-
   return (
-    <div className="orders__wrapper" style={{ backgroundColor }}>
-      {spinner}
-      {ordersLoadingStatus === "idle" ? <OrdersList orders={orders} /> : null}
-      {ordersLoadingStatus === "error" ? <ErrorMessage /> : null}
-    </div>
+    <>
+      {ordersLoadingStatus === "loading" ? (
+        <div className="dashboard__spinner">
+          <Spinner />
+        </div>
+      ) : ordersLoadingStatus === "error" ? (
+        <ErrorMessage />
+      ) : (
+        <>
+          <h1 className="dashboard__header">{t("dashboard.headers.orders")}</h1>
+          <div className="orders__wrapper" style={{ backgroundColor }}>
+            <OrdersList orders={orders} />
+          </div>
+        </>
+      )}
+    </>
   );
 };
 

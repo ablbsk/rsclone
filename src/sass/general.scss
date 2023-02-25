@@ -142,3 +142,7 @@ h6 {
     }
   }
 }
+
+.table-line:nth-child(even) {
+  background-color: #f7f7f7;
+}
