@@ -79,7 +79,8 @@
         "date": "Date",
         "sum": "Sum",
         "status": "Status",
-        "delete": "Delete order"
+        "delete": "Delete order",
+        "isEmptyMessage": "Your order list is empty"
     },
     "index": {
         "cards": {

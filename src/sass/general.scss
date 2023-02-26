@@ -97,6 +97,19 @@ h6 {
   }
 }
 
+.empty-message {
+  margin: 150px 0;
+  width: 100%;
+  font-size: $font-size-xxxlg;
+  text-align: center;
+  transition: $transition;
+
+  @include media-small-mobile {
+    margin: 100px 0;
+    font-size: $font-size-xxlg;
+  }
+}
+
 .error-tooltip {
   margin-bottom: 30px;
   color: $color-special-1;
