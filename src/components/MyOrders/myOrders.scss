@@ -47,45 +47,18 @@
 }
 
 .my-orders-list__item {
-    width: 300px;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid $font-color-dark;
-    overflow: hidden;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    height: 180px;    
-
-    h4 {
-        margin-bottom: 10px;
-    }
-
-    .item__image {
-        img {
-            width: 130px;
-        }
-    }
-    
-    .item__text {
-        width: 165px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 5px;
-    }
-    
+ 
     .item__date,
     .item__price,
     .item__status {
         margin-bottom: 10px;
     }
-    
-    .item__button {
-        width: 120px;
-        cursor: pointer;
-        border-radius: 5px;
-        border: none;
-        padding: 3px;
+
+    .item__date {
+        padding-top: 10px;
     }
+}
+
+.my-ties {
+    height: 190px;
 }
