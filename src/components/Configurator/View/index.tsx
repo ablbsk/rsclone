@@ -249,7 +249,7 @@ const View: FunctionComponent = () => {
             <p className="tie-price">
               {list.data.price}: <span>{price}$</span>
             </p>
-            <Hover>
+            {user.role === "USER" ? (<Hover>
               <button
                 className="btn-link"
                 style={{
@@ -262,7 +262,7 @@ const View: FunctionComponent = () => {
                 <i className="fa fa-cart-plus" />
                 {list.data.btn}
               </button>
-            </Hover>
+            </Hover>): null}            
           </div>
         </div>
       </div>
