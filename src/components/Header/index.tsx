@@ -81,20 +81,16 @@ const Header: FunctionComponent<HeaderType> = ({
           <ul className="header__list">
             <li className="header__item">
               <div className="language">
-                <button
-                  title="button__lang"
-                  className="button__lang"
-                  onClick={handleLenguageChange}
-                >
+                <button className="button__lang" onClick={handleLenguageChange}>
                   <img
                     className="language__icon"
                     src={lang.lang === "en" ? flagUS : flagRU}
                     alt="Current language"
                   />
+                  <span className="language__title">
+                    {lang.lang === "en" ? "en" : "ru"}
+                  </span>
                 </button>
-                <span className="language__title">
-                  {lang.lang === "en" ? "en" : "ru"}
-                </span>
               </div>
             </li>
             <li
