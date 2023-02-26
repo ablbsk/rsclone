@@ -99,7 +99,6 @@ const MyProfile: FunctionComponent = () => {
           <div className="my-profile__email">{user.role}</div>
         </div>
       </div>
-      <Footer accentColor={accentColor} isNavbarNightMode={isNavbarNightMode} />
     </>
   );
 };
