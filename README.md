@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+## TieCreators
+Для приложения реализован и задеплоен Back-end: https://github.com/anast-ananko/server
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Back-end:
+- Использован REST API, +20
+- Использован MVC паттерн, +10
+- Подключение и работа с БД (MongoDB), +10
+- Используется ORM(mongoose), +10
+- Приложение разбито на микросервисы, +10
+- Регистрация, +10
+- Аутентификация, +10
+- Авторизация, +10
+- Приложение отображает статистику и график, данные для которых получает от бекенда, +20
+- Реализован nodejs и express, +10
+- Сервер отдаёт корректные ответы, отдаёт HTTP ошибки с нормальными body, по которым можно понять, что произошло, пишет читаемые логи, +20
+- Использован eslint, +10 ????
+  
+**Итого: 140 + ? баллов**  
 
-## Available Scripts
+### Front-end
+Приложение реализовано с использованием библиотеки React
 
-In the project directory, you can run:
+#### Технический стек
+- Работа с Audio API, +10
+- Написаны тесты с использованием React Tecting Library, +20
+- Использован webpack, +10 ?????
+- Сохранение и загрузка данных с использованием Local storage, +10
+- Есть возможность переключения языков (русский и англиский), +10
+- Приложение работает на телефоне/планшете/PC, +30
+- Реализован routing, +10
+- Возможность кастомизации приложения, настроек пользователя (ночной режим, ночной режим заголовка и футера, выбор цвета акцента), +20
 
-### `npm start`
+**Итого: 120 баллов**  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+В приложении реализовано 4 роли для взаимодействия с данными: 
+- Администратор
+- Менеджер
+- Продавец
+- Покупатель
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Регистрация и Аутентификация
+Пользователь может зарегистрироваться или залогиниться, если у него уже есть аккакунт.
 
-### `npm test`
+- Реализована страница регистрации, +10
+- Реализована страница аутентификации, +10
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Итого: 20 баллов**  
 
-### `npm run build`
+После аутентификации пользователь попадает либо на главную страницу (роли Продавец и Пользователь), либо на страницу Dashboard (роли Администратор и Менеджер).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Dashboard
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Для ролей Администратор и Менеджер доступен Dashboard, где они могут посмотреть общую сумму, полученную от продажи галстуков, количество проданных товаров за сегодня, общее количество покупателей и продавцов, доход за текущий месяц по сравнению с предыдущим, график продаж за неделю, месяц и квартал. Доступен календарь, на котором отображены все продажи галстуков с их текущими статусами. Также можно получить список всех пользователей и всех заказов. Администратор может удалять пользователей (продавцы и покупатели) и повышать их до менеджера, менять статус заказа и удалять заказы. Менеджер может только просматривать пользователей (продавцы и покупатели), менять статус заказа и удалять заказы.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Реализована главная страница Dashboard, +
+    - Плитка Общий доход, +5
+    - Плитка Продано сегодня, +5
+    - Плитка Количество продавцов, +5
+    - Плитка Количество покупателей, +5
+    - Плитка Доход за месяц, +5
+    - График, отображающий количество продаж и чистую выручку по месяцам, +
+- Реализован Календарь, +
+- Реализован Список заказов, +15
+    - Отображение всех заказов с их текущими статусами, +5
+    - Удаление заказа, +5
+    - Обновление статуса заказа, +5
+- Реализован Список пользователей, +15
+    - Отображение всех пользователей с разделением на вкладки Пользователи и Продавцы, +5
+    - Удаление пользователя (только для роли Администратор), +5
+    - Повышение пользователя/продавца (изменение роли на Менеджер), +5 
 
-### `npm run eject`
+**Итого: 55 + ? баллов**  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Главная страница
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Видео, 
+- Реализован Header, +
+- Реализован Footer, +
+- Реализован Блок с отзывами, +
+- Реализован Блок с вопросами, +
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Итого: ... баллов** 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Конфигуратор
 
-## Learn More
+На странице конфигуратора можно сконфигурировать галстуки, купить этот галстук могут лишь зарегистрированные пользователи
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Конфигуратор, +
+- Оформление заказа, +
+- Перевод полученного изображения в base64, +
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Итого: ... баллов** 
 
-### Code Splitting
+#### Магазин 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Все пользователи могут посмотреть магазин готовых галстуков, размещенных продавцами, зарегистрированные покупатели могут отложить или купить галстук
 
-### Analyzing the Bundle Size
+- Купить галстук, +
+- Отложить в избранное, +
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Итого: ... баллов** 
 
-### Making a Progressive Web App
+#### Страница Мой профиль и Мои Галстуки/Мои заказы
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Зарегистрированный покупатель может посмотреть свой профиль, Продавец может добавить новый галстук, посмотреть свои галстуки, а также проданные галстуки. Покупатель может посмотреть свои заказы
 
-### Advanced Configuration
+- Профиль, +5
+- Реализована страница Мои галстуки для продавца, +10
+    - Просмотр галстуков, размещенных продавцом, +5
+    - Просмотр проданных галстуков, +5
+- Реализована страница Мои заказы для покупателя, +5
+- Реализована страница для добавления нового галстука продавцом, +
+- Реализована страница Мои желания для покупателя, +
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Итого: 30 + ? баллов** 

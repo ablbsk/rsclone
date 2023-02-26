@@ -57,12 +57,16 @@ const MyOrders: FunctionComponent = () => {
   const spinner = ordersLoadingStatus === "loading" ? <Spinner /> : null;
 
   return (
-    <div className="tiemarket-wrapper" style={{ backgroundColor }}>
-      <div className="tiemarket__banner-wrapper">
+    <div className="tiemarket-wrapper">
+      <div className="tiemarket__banner-wrapper" style={{
+      backgroundColor: isNightMode
+        ? nightTheme.background.page
+        : lightTheme.background.page,
+    }}>
         <div className="container">
-          <div className="market-block">
+          <div className="market-block" style={{ backgroundColor }}>
             <div className="market-block__title_wrapper">
-              <h4 className="market-block__title">{list.data.myorders}</h4>
+              <h4 className="market-block__title" style={{ color: isNightMode ? nightTheme.fontColor : lightTheme.fontColor }}>{list.data.myorders}</h4>
             </div>
             {spinner}
             {ordersLoadingStatus === "idle" ? (

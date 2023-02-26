@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import "./favouritetie.scss";
 import { IStore } from "../../interfaces/store";
-import { nightTheme } from "../../data/constants";
+import { nightTheme, lightTheme } from "../../data/constants";
 
 import useOnClickOutside from "../../hook/useOnClickOutside";
 import Hover from "../Hover";
@@ -25,9 +25,12 @@ import { createOrder } from "../../services/apiOrders";
 
 const FavoriteTie: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
-  const { accentColor, isNavbarNightMode } = interfaceSettings;
+  const { accentColor, isNavbarNightMode, isNightMode } = interfaceSettings;
 
-  const backgroundColor = nightTheme.background.element;
+  const backgroundColor = isNightMode
+    ? nightTheme.background.element
+    : lightTheme.background.element;
+
   const [open, setOpen] = useState(false);
   const [openPopup, setOpenPopup] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -92,12 +95,20 @@ const FavoriteTie: FunctionComponent = () => {
 
   return (
     <main className="main-market">
-      <div className="tiemarket-wrapper">
+      <div className="tiemarket-wrapper" style={{
+          backgroundColor: isNightMode
+            ? nightTheme.background.page
+            : lightTheme.background.page,
+        }}>
         <div className="container">
-          <div className="tiemarket__banner-wrapper">
-            <div className="market-block">
+          <div className="tiemarket__banner-wrapper" style={{
+          backgroundColor: isNightMode
+            ? nightTheme.background.page
+            : lightTheme.background.page,
+        }}>
+            <div className="market-block" style={{ backgroundColor }}>
               <div className="market-block__title_wrapper">
-                <h4 className="market-block__title">{listLang.data.title}</h4>
+                <h4 className="market-block__title" style={{ color: isNightMode ? nightTheme.fontColor : lightTheme.fontColor }}>{listLang.data.title}</h4>
               </div>
               {favouriteTieLoadingStatus === "error" && (
                 <div className="error-tooltip">
