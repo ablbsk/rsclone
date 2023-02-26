@@ -249,20 +249,22 @@ const View: FunctionComponent = () => {
             <p className="tie-price">
               {list.data.price}: <span>{price}$</span>
             </p>
-            {user.role === "USER" ? (<Hover>
-              <button
-                className="btn-link"
-                style={{
-                  backgroundColor: isNavbarNightMode
-                    ? backgroundColor
-                    : accentColor.static,
-                }}
-                onClick={() => createTieOrder()}
-              >
-                <i className="fa fa-cart-plus" />
-                {list.data.btn}
-              </button>
-            </Hover>): null}            
+            {user.role === "USER" ? (
+              <Hover>
+                <button
+                  className="btn-link"
+                  style={{
+                    backgroundColor: isNavbarNightMode
+                      ? backgroundColor
+                      : accentColor.static,
+                  }}
+                  onClick={() => createTieOrder()}
+                >
+                  <i className="fa fa-cart-plus" />
+                  {list.data.btn}
+                </button>
+              </Hover>
+            ) : null}
           </div>
         </div>
       </div>
