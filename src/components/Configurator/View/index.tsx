@@ -256,25 +256,6 @@ const View: FunctionComponent = () => {
                 <Link to="/my-orders">{list.data.myorders}</Link>
               </div>
             )}
-            {/* <div className="btn-next__wrapper">
-              <p className="tie-price">
-                {list.data.price}: <span>{price}$</span>
-              </p>
-              <Hover>
-                <button
-                  className="btn-link"
-                  style={{
-                    backgroundColor: isNavbarNightMode
-                      ? backgroundColor
-                      : accentColor.static,
-                  }}
-                  onClick={() => createTieOrder()}
-                >
-                  <i className="fa fa-cart-plus" />
-                  {list.data.btn}
-                </button>
-              </Hover>
-            </div> */}
 
             <div className="btn-next__wrapper">
               <p className="tie-price">
