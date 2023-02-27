@@ -29,6 +29,7 @@ const AddTie: FunctionComponent = () => {
   const list = addTie.find((c) => c.lang === lang)!;
   const [base64Image, setBase64Image] = useState<string>("");
   const [imageError, setImageError] = useState<boolean>(false);
+  const [success, setSuccess] = useState<boolean>(false);
   const dispatch = useDispatch();
   const addTiesStore = useSelector(
     (state: IAddTieReducer) => state.addTieReducer
@@ -63,6 +64,8 @@ const AddTie: FunctionComponent = () => {
         const resp = await createTie(body);
         if (resp.userId) {
           dispatch(addTieFetched(resp));
+          setSuccess(true);
+          setTimeout(() => setSuccess(false), 10000);
         } else {
           dispatch(addTieFetchingError());
         }
@@ -71,6 +74,7 @@ const AddTie: FunctionComponent = () => {
       }
     }
   };
+
   const isLoading = addTieLoadingStatus === "loading";
 
   return (
@@ -181,7 +185,7 @@ const AddTie: FunctionComponent = () => {
                       {list.data.errortooltip}
                     </div>
                   )}
-                  {addTieLoadingStatus === "loaded" && (
+                  {success && addTieLoadingStatus === "loaded" && (
                     <div className="success-tooltip">
                       <i className="fa fa-info" />
                       {list.data.tooltip}{" "}
