@@ -29,8 +29,8 @@ const SubCategories: FunctionComponent = () => {
 
   return (
     <>
-      <Breadcrumbs />
       <div className="tie-category-wrapper">
+        <Breadcrumbs />
         <div
           className="subcategories-wrapper"
           style={{

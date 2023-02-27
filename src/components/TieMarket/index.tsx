@@ -84,8 +84,8 @@ const TieMarket: FunctionComponent = () => {
         } else {
           dispatch(buyTieFetchingError());
         }
+        getTieList();
       }
-      getTieList();
     } catch (e) {
       dispatch(buyTieFetchingError());
     }
@@ -193,7 +193,8 @@ const TieMarket: FunctionComponent = () => {
                               {listLang.data.price} {tie.price}$
                             </p>
                             <div className="tie__products_wrapper">
-                              {user.role === "USER" && (
+                              {(!Object.keys(user).length ||
+                                user.role === "USER") && (
                                 <>
                                   <Hover>
                                     <button
