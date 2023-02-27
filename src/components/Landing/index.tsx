@@ -12,6 +12,7 @@ import { ILangReducer } from "../../interfaces/langReducer";
 import useOnClickOutside from "../../hook/useOnClickOutside";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import AudioPlayer from "../Home/AudioPlayer";
 
 const Landing: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -40,6 +41,7 @@ const Landing: FunctionComponent = () => {
         isNavbarNightMode={isNavbarNightMode}
         isButtonVisible={false}
       >
+        <AudioPlayer />
         <div className="nav__hamburger_wrapper" ref={ref}>
           <span className="nav__hamburger" onClick={() => setOpen(!open)} />
         </div>

@@ -8,6 +8,7 @@ import { IStore } from "../../../interfaces/store";
 import subcategoriesLang from "../../../data/subcategories";
 import { ILangReducer } from "../../../interfaces/langReducer";
 import configurator from "../../../data/configurator";
+import Breadcrumbs from "../Breadcrumbs";
 
 const SubCategories: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -26,26 +27,29 @@ const SubCategories: FunctionComponent = () => {
   )!.subCategories!;
 
   return (
-    <div className="tie-category-wrapper">
-      <div className="subcategories-wrapper">
-        <h4 className="title-subcategories">
-          {list.data.titleTie} | {list.data.titleWoven} |{" "}
-          {list.data.titleDesign}
-        </h4>
-        <ul className="images-list">
-          {subCategories.map((subCategory: ISubcategory) => (
-            <SubCategory
-              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-              category={URLParams.category!}
-              subCategory={subCategory}
-              key={subCategory.type}
-              accentColor={accentColor}
-              isNavbarNightMode={isNavbarNightMode}
-            />
-          ))}
-        </ul>
+    <>
+      <Breadcrumbs />
+      <div className="tie-category-wrapper">
+        <div className="subcategories-wrapper">
+          <h4 className="title-subcategories">
+            {list.data.titleTie} | {list.data.titleWoven} |{" "}
+            {list.data.titleDesign}
+          </h4>
+          <ul className="images-list">
+            {subCategories.map((subCategory: ISubcategory) => (
+              <SubCategory
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                category={URLParams.category!}
+                subCategory={subCategory}
+                key={subCategory.type}
+                accentColor={accentColor}
+                isNavbarNightMode={isNavbarNightMode}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
