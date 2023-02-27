@@ -18,7 +18,6 @@ const Breadcrumbs = () => {
   const location = useLocation();
 
   const locationURL = location.pathname.split("/");
-  console.log("locationURL", locationURL);
   const isPlains = Object.keys(URLParams).length === 0;
   const type = isPlains // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     ? locationURL[locationURL.length - 1]!
