@@ -146,3 +146,16 @@ h6 {
 .table-line:nth-child(even) {
   background-color: #f7f7f7;
 }
+
+.empty-message {
+  margin: 150px 0;
+  width: 100%;
+  font-size: $font-size-xxxlg;
+  text-align: center;
+  transition: $transition;
+
+  @include media-small-mobile {
+    margin: 100px 0;
+    font-size: $font-size-xxlg;
+  }
+}
