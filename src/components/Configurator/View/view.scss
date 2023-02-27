@@ -3,7 +3,7 @@
 
 .tie__container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 .plants__block-wrapper {
@@ -75,12 +75,12 @@
 
     @include media-small-mobile {
       content: "";
-    } 
+    }
   }
 
   @include media-small-mobile {
     font-size: $font-size-llg;
-  }  
+  }
 }
 
 .form-color__wrapper {
@@ -225,7 +225,7 @@
   position: relative;
 
   &::after {
-    content: url(https://api.kitbuilder.co.uk/client/css/skin/tick.png); 
+    content: url(https://api.kitbuilder.co.uk/client/css/skin/tick.png);
     position: absolute;
     right: -5px;
     top: -9px;

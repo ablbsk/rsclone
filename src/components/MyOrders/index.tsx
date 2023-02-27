@@ -66,7 +66,7 @@ const MyOrders: FunctionComponent = () => {
             : lightTheme.background.page,
         }}
       >
-        <div className="container">
+        <div className="container container--high">
           <div className="market-block" style={{ backgroundColor }}>
             <div className="market-block__title_wrapper">
               <h4

@@ -27,12 +27,15 @@ const SubCategories: FunctionComponent = () => {
   )!.subCategories!;
 
   return (
-    <div className="tie-category-wrapper">
-      <div className="subcategories-wrapper" style={{
+    <div className="tie-category-wrapper container--high">
+      <div
+        className="subcategories-wrapper"
+        style={{
           backgroundColor: isNightMode
             ? nightTheme.background.page
             : lightTheme.background.page,
-        }}>
+        }}
+      >
         <h4 className="title-subcategories">
           {list.data.titleTie} | {list.data.titleWoven} |{" "}
           {list.data.titleDesign}
