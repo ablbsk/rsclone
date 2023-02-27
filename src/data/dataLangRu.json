@@ -68,18 +68,21 @@
         "mySales": "Мои продажи",
         "delete": "Удалить",
         "price": "Цена",
-        "name": "Артикул"
+        "name": "Артикул",
+        "isEmptyMessage": "Ваш список галстуков пуст"
     },
     "myTiesOrders": {
         "date": "Дата продажи",
-        "sum": "Сумма"
+        "sum": "Сумма",
+        "isEmptyMessage": "Ваш список продаж пуст"
     },
     "myOrders": {
         "data": "Данные о заказе",
         "date": "Дата",
         "sum": "Сумма",
         "status": "Статус",
-        "delete": "Удалить заказ"
+        "delete": "Удалить заказ",
+        "isEmptyMessage": "Ваш список заказов пуст"
     },
     "index": {
         "cards": {
