@@ -11,6 +11,7 @@ import { login } from "../../services/apiAuth";
 import { authorization } from "../../actions";
 import { IStore } from "../../interfaces/store";
 import { nightTheme } from "../../data/constants";
+import Hover from "../Hover";
 
 const FormSignIn: FunctionComponent = () => {
   const [error, setError] = useState<string>("");
@@ -87,17 +88,11 @@ const FormSignIn: FunctionComponent = () => {
             placeholder="Password"
           />
           <ErrorMessage className="error" name="password" component="div" />
-          <button
-            style={{
-              backgroundColor: isNavbarNightMode
-                ? backgroundColor
-                : accentColor.static,
-            }}
-            className="sign__button"
-            type="submit"
-          >
-            {t("sign.signIn")}
-          </button>
+          <Hover>
+            <button className="sign__button" type="submit">
+              {t("sign.signIn")}
+            </button>
+          </Hover>
           {isSpiner && <span className="sign-spiner"></span>}
           {error && (
             <div className="error-tooltip">
@@ -109,9 +104,7 @@ const FormSignIn: FunctionComponent = () => {
       <div className="sign__text-link">
         {t("sign.create")}{" "}
         <Link
-          style={{
-            color: isNavbarNightMode ? backgroundColor : accentColor.static,
-          }}
+          style={{ color: accentColor.static }}
           className="text-link"
           to="/sign-up"
         >
