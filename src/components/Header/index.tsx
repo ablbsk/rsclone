@@ -94,7 +94,6 @@ const Header: FunctionComponent<HeaderType> = ({
               </div>
             </li>
             <li
-              title="header__profile"
               className="header__item"
               onClick={() => dispatch(showProfile())}
             >

@@ -33,7 +33,6 @@ const Profile: FunctionComponent<ProfileType> = ({
   const dispatch = useDispatch();
   const ref = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  const URLParams = useParams();
 
   const updateColor = (color: { static: string; hover: string }) =>
     dispatch(updateAccentColor(color));
@@ -88,17 +87,29 @@ const Profile: FunctionComponent<ProfileType> = ({
         {user.role === "USER" ? (
           <div className="links__wrapper">
             <Hover>
-              <Link style={styles} className="link" to="/profile">
+              <Link
+                style={styles}
+                className="button button__link"
+                to="/profile"
+              >
                 {t("profile.myProfile")}
               </Link>
             </Hover>
             <Hover>
-              <Link style={styles} className="link" to="/my-orders">
+              <Link
+                style={styles}
+                className="button button__link"
+                to="/my-orders"
+              >
                 {t("profile.myOrders")}
               </Link>
             </Hover>
             <Hover>
-              <Link style={styles} className="link" to="/favourite-tie">
+              <Link
+                style={styles}
+                className="button button__link"
+                to="/favourite-tie"
+              >
                 {t("profile.favourite")}
               </Link>
             </Hover>
@@ -107,17 +118,29 @@ const Profile: FunctionComponent<ProfileType> = ({
         {user.role === "SELLER" ? (
           <div className="links__wrapper">
             <Hover>
-              <Link style={styles} className="link" to="/profile">
+              <Link
+                style={styles}
+                className="button button__link"
+                to="/profile"
+              >
                 {t("profile.myProfile")}
               </Link>
             </Hover>
             <Hover>
-              <Link style={styles} className="link" to="/my-ties">
+              <Link
+                style={styles}
+                className="button button__link"
+                to="/my-ties"
+              >
                 {t("profile.myTies")}
               </Link>
             </Hover>
             <Hover>
-              <Link style={styles} className="link" to="/add-tie">
+              <Link
+                style={styles}
+                className="button button__link"
+                to="/add-tie"
+              >
                 {t("profile.addTie")}
               </Link>
             </Hover>
@@ -135,7 +158,7 @@ const Profile: FunctionComponent<ProfileType> = ({
                 isNightMode={isNightMode}
               />
             </li>
-            {Object.entries(URLParams).length !== 0 ? (
+            {user.role === "ADMIN" || user.role === "MANAGER" ? (
               <>
                 <li className="settings__item">
                   <span className="settings__name">
