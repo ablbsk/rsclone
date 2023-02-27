@@ -42,31 +42,33 @@ const Landing: FunctionComponent = () => {
         isButtonVisible={false}
       >
         <AudioPlayer />
-        <div className="nav__hamburger_wrapper" ref={ref}>
-          <span className="nav__hamburger" onClick={() => setOpen(!open)} />
-        </div>
-        <div
-          className={classNames("nav-sidebar", { sidebaropen: open })}
-          style={{
-            backgroundColor: isNavbarNightMode
-              ? backgroundColor
-              : accentColor.static,
-          }}
-        >
-          <div className="nav-sidebar-wrapper">
-            <ul className="list-nav-sidebar">
-              {list.data.map((item) => (
-                <li className="nav-sidebar-item" key={item.name}>
-                  {location.pathname === item.path ? (
-                    <span className="active-link">{item.name}</span>
-                  ) : (
-                    <Link className="nav-sidebar-link" to={item.path}>
-                      {item.name}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
+        <div className="nav__hamburger-menu_wrapper" ref={ref}>
+          <div className="nav__hamburger_wrapper">
+            <span className="nav__hamburger" onClick={() => setOpen(!open)} />
+          </div>
+          <div
+            className={classNames("nav-sidebar", { sidebaropen: open })}
+            style={{
+              backgroundColor: isNavbarNightMode
+                ? backgroundColor
+                : accentColor.static,
+            }}
+          >
+            <div className="nav-sidebar-wrapper">
+              <ul className="list-nav-sidebar">
+                {list.data.map((item) => (
+                  <li className="nav-sidebar-item" key={item.name}>
+                    {location.pathname === item.path ? (
+                      <span className="active-link">{item.name}</span>
+                    ) : (
+                      <Link className="nav-sidebar-link" to={item.path}>
+                        {item.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </Header>
