@@ -9,7 +9,7 @@
 }
 
 .breadcrumb-span {
-  color: #000000;
+  color: $color-black1;
 }
 
 .breadcrumb-not-active .breadcrumb-active {
@@ -17,11 +17,11 @@
 }
 
 .breadcrumb-not-active {
-  color: #939191;
+  color: $color-grey1;
   padding-left: 12px;
   padding-right: 12px;
   text-decoration: none;
-  border-right: 2px solid #000000;
+  border-right: 2px solid $color-black1;
   
   &:last-child {
     border-right: none
@@ -29,11 +29,11 @@
 }
   
 .breadcrumb-active {
-  color: #000000;
+  color: $color-accent;
   padding-left: 5px;
   padding-right: 5px;
   text-decoration: none;
-  border-right: 2px solid #000000;
+  border-right: 2px solid $color-black1;
     &:last-child {
       border-right: none
     }
