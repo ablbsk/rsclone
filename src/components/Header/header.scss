@@ -25,15 +25,14 @@
 }
 
 .header__logo {
-  transition: 0.5s;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
   @include icon-background('../../assets/images/png/logo.png', 50px, 200px);
   margin: 15px;
+  transition: $transition;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   @include media-small-mobile {
     width: 150px;
