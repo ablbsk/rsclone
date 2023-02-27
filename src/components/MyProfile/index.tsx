@@ -8,6 +8,7 @@ import { lightTheme, nightTheme } from "../../data/constants";
 import { IStore } from "../../interfaces/store";
 import Profile from "../Profile";
 import Header from "../Header";
+import Footer from "../Footer";
 import useOnClickOutside from "../../hook/useOnClickOutside";
 import navMenu from "../../data/navmenu";
 import { ILangReducer } from "../../interfaces/langReducer";

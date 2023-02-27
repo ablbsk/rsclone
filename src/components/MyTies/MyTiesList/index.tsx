@@ -35,36 +35,32 @@ const MyTiesList: FunctionComponent<IMyTiesListComponent> = ({ ties }) => {
   return (
     <div className="market-block__products">
       <div className="row__products">
-        {ties.length ? (
-          ties.map((item, i) => {
-            return (
-              <div key={i} className="tie__product">
-                <div className="tie__products_img">
-                  <img src={item.image} alt="" className="products_img" />
+        {ties.map((item, i) => {
+          return (
+            <div key={i} className="tie__product">
+              <div className="tie__products_img">
+                <img src={item.image} alt="" className="products_img" />
+              </div>
+              <div className="tie__products_discription">
+                <div className="tie__products_name">
+                  {t("myTies.name")}: {item.name}
                 </div>
-                <div className="tie__products_discription">
-                  <div className="tie__products_name">
-                    {t("myTies.name")}: {item.name}
-                  </div>
-                  <div className="tie__products_price">
-                    {t("myTies.price")}: {item.price}$
-                  </div>
-                  <div className="tie__products_wrapper">
-                    <button
-                      className="btn__like"
-                      onClick={() => deleteItem(item._id)}
-                    >
-                      <i className="fa fa-remove" />
-                      {t("myTies.delete")}
-                    </button>
-                  </div>
+                <div className="tie__products_price">
+                  {t("myTies.price")}: {item.price}$
+                </div>
+                <div className="tie__products_wrapper">
+                  <button
+                    className="btn__like"
+                    onClick={() => deleteItem(item._id)}
+                  >
+                    <i className="fa fa-remove" />
+                    {t("myTies.delete")}
+                  </button>
                 </div>
               </div>
-            );
-          })
-        ) : (
-          <p className="empty-message">{t("myTies.isEmptyMessage")}</p>
-        )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

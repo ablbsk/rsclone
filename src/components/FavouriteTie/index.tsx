@@ -95,35 +95,20 @@ const FavoriteTie: FunctionComponent = () => {
 
   return (
     <main className="main-market">
-      <div
-        className="tiemarket-wrapper"
-        style={{
+      <div className="tiemarket-wrapper" style={{
           backgroundColor: isNightMode
             ? nightTheme.background.page
             : lightTheme.background.page,
-        }}
-      >
-        <div className="container container--high">
-          <div
-            className="tiemarket__banner-wrapper"
-            style={{
-              backgroundColor: isNightMode
-                ? nightTheme.background.page
-                : lightTheme.background.page,
-            }}
-          >
+        }}>
+        <div className="container">
+          <div className="tiemarket__banner-wrapper" style={{
+          backgroundColor: isNightMode
+            ? nightTheme.background.page
+            : lightTheme.background.page,
+        }}>
             <div className="market-block" style={{ backgroundColor }}>
               <div className="market-block__title_wrapper">
-                <h4
-                  className="market-block__title"
-                  style={{
-                    color: isNightMode
-                      ? nightTheme.fontColor
-                      : lightTheme.fontColor,
-                  }}
-                >
-                  {listLang.data.title}
-                </h4>
+                <h4 className="market-block__title" style={{ color: isNightMode ? nightTheme.fontColor : lightTheme.fontColor }}>{listLang.data.title}</h4>
               </div>
               {favouriteTieLoadingStatus === "error" && (
                 <div className="error-tooltip">
@@ -195,9 +180,7 @@ const FavoriteTie: FunctionComponent = () => {
                       </div>
                     );
                   })}
-                  {ties.length === 0 && (
-                    <p className="favourite-empty">{listLang.data.empty}</p>
-                  )}
+                  {ties.length === 0 && <p className="favourite-empty">{listLang.data.empty}</p>}
                 </div>
               </div>
             </div>

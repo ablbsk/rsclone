@@ -39,10 +39,6 @@ h6 {
   &--full-width {
     max-width: none;
   }
-
-  &--high {
-    min-height: 60vh;
-  }
 }
 
 .button {
@@ -98,19 +94,6 @@ h6 {
 
   &--deadline {
     background-color: $color-special-1;
-  }
-}
-
-.empty-message {
-  margin: 150px 0;
-  width: 100%;
-  font-size: $font-size-xxxlg;
-  text-align: center;
-  transition: $transition;
-
-  @include media-small-mobile {
-    margin: 100px 0;
-    font-size: $font-size-xxlg;
   }
 }
 

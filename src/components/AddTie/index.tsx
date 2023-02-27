@@ -87,7 +87,7 @@ const AddTie: FunctionComponent = () => {
             : lightTheme.background.page,
         }}
       >
-        <div className="container container--high">
+        <div className="container">
           <div
             className="tieaddform__banner-wrapper"
             style={{

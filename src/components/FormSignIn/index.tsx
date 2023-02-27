@@ -11,7 +11,6 @@ import { login } from "../../services/apiAuth";
 import { authorization } from "../../actions";
 import { IStore } from "../../interfaces/store";
 import { nightTheme } from "../../data/constants";
-import Hover from "../Hover";
 
 const FormSignIn: FunctionComponent = () => {
   const [error, setError] = useState<string>("");
@@ -46,7 +45,8 @@ const FormSignIn: FunctionComponent = () => {
 
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
 
-  const { accentColor } = interfaceSettings;
+  const { accentColor, isNavbarNightMode } = interfaceSettings;
+  const backgroundColor = nightTheme.background.element;
 
   return (
     <div className="sign__content">
@@ -87,11 +87,17 @@ const FormSignIn: FunctionComponent = () => {
             placeholder="Password"
           />
           <ErrorMessage className="error" name="password" component="div" />
-          <Hover>
-            <button className="sign__button" type="submit">
-              {t("sign.signIn")}
-            </button>
-          </Hover>
+          <button
+            style={{
+              backgroundColor: isNavbarNightMode
+                ? backgroundColor
+                : accentColor.static,
+            }}
+            className="sign__button"
+            type="submit"
+          >
+            {t("sign.signIn")}
+          </button>
           {isSpiner && <span className="sign-spiner"></span>}
           {error && (
             <div className="error-tooltip">
@@ -103,7 +109,9 @@ const FormSignIn: FunctionComponent = () => {
       <div className="sign__text-link">
         {t("sign.create")}{" "}
         <Link
-          style={{ color: accentColor.static }}
+          style={{
+            color: isNavbarNightMode ? backgroundColor : accentColor.static,
+          }}
           className="text-link"
           to="/sign-up"
         >
