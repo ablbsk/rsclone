@@ -76,10 +76,9 @@ const Breadcrumbs = () => {
   return (
     <div className="wrapper-breadcrumb">
       <div className="breadcrumb">
-        <Link
-          className="breadcrumb-link-house breadcrumb-not-active"
-          to="/"
-        ></Link>
+        <Link className="breadcrumb-link-house breadcrumb-not-active" to="/">
+          <i className="fa fa-home" />
+        </Link>
         {routes.map((item, key) => {
           if (routes.length - 1 === key) {
             return (

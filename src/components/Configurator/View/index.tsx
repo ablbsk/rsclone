@@ -132,8 +132,8 @@ const View: FunctionComponent = () => {
 
   return (
     <>
-      <Breadcrumbs />
       <div className="tie__container">
+        <Breadcrumbs />
         <div className="plants__block-wrapper">
           <div className="preview-panel">
             <div className="image__wrapper">
@@ -261,7 +261,7 @@ const View: FunctionComponent = () => {
               <p className="tie-price">
                 {list.data.price}: <span>{price}$</span>
               </p>
-              {user.role === "USER" ? (
+              {!Object.keys(user).length || user.role === "USER" ? (
                 <Hover>
                   <button
                     className="btn-link"

@@ -1,11 +1,8 @@
 @import "../../../sass/variables";
 @import "../../../sass/mixins";
 
-
-.breadcrumb-link-house {
-  background-image: url(../../../assets/images/png/home.png);
-  background-repeat: no-repeat;
-  margin-left: 15px;
+.wrapper-breadcrumb {
+  padding: 20px 0;
 }
 
 .breadcrumb-span {
@@ -22,6 +19,17 @@
   padding-right: 12px;
   text-decoration: none;
   border-right: 2px solid $color-black1;
+  font-weight: $font-weight-bolder;
+
+  .body--night-mode & {
+    color: $color-white1;
+    border-right: 2px solid $color-white1;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
   
   &:last-child {
     border-right: none
@@ -29,13 +37,20 @@
 }
   
 .breadcrumb-active {
-  color: $color-accent;
-  padding-left: 5px;
+  padding-left: 10px;
   padding-right: 5px;
   text-decoration: none;
   border-right: 2px solid $color-black1;
-    &:last-child {
-      border-right: none
-    }
+  font-weight: $font-weight-light;
+  color: $color-grey1;
+  
+  .body--night-mode & {
+    color: $color-white1;
+    border-right: 2px solid $color-white1;
+  }
+
+  &:last-child {
+    border-right: none
+  }
 }
 
