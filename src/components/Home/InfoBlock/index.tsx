@@ -26,7 +26,7 @@ const InfoBlock: FunctionComponent<InfoBlockType> = ({
           backgroundColor: isNightMode
             ? nightTheme.background.page
             : lightTheme.background.page,
-          opacity: 0.7,
+          opacity: 0.9,
         }}
       >
         <div className="container">
