@@ -98,7 +98,7 @@
 }
 
 .settings__colors {
-  margin: 40px 0;
+  margin: 20px 0;
 }
 
 .settings__subtitle {
@@ -151,7 +151,8 @@
 .links__wrapper {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  width: 300px;
+  margin: 15px 0;
 
   .link {
     display: block;
@@ -166,8 +167,4 @@
       margin-bottom: 5px;
     }
   }
-}
-
-.button__link {
-  text-align: center;
 }

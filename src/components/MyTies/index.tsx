@@ -103,7 +103,7 @@ const MyTies: FunctionComponent = () => {
             : lightTheme.background.page,
         }}
       >
-        <div className="container container--high">
+        <div className="container">
           <div className="market-block" style={{ backgroundColor }}>
             <div className="my-ties__header">
               <Hover>

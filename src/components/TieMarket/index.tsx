@@ -144,7 +144,7 @@ const TieMarket: FunctionComponent = () => {
               : lightTheme.background.page,
           }}
         >
-          <div className="container container--high">
+          <div className="container">
             <div
               className="tiemarket__banner-wrapper"
               style={{

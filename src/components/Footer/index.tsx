@@ -33,6 +33,18 @@ const Footer: FunctionComponent<FooterType> = ({
               <Link to={"/"}>
                 <span className="footer-logo"></span>
               </Link>
+              <p className="section__logo_text">{list.data.title}</p>
+              <ul className="footer__section__list">
+                <li className="footer__list_item">
+                  <Link className="item-link_sci" to=""></Link>
+                </li>
+                <li className="footer__list_item">
+                  <Link className="footer__list_item-link" to=""></Link>
+                </li>
+                <li className="footer__list_item">
+                  <Link className="footer__list_item-link" to=""></Link>
+                </li>
+              </ul>
             </div>
             <div className="section__menu">
               <h3 className="footer-title">{list.data.menu}</h3>
@@ -58,15 +70,13 @@ const Footer: FunctionComponent<FooterType> = ({
               <h3 className="footer-title">{list.data.contact}</h3>
               <ul className="footer__section__list">
                 <li className="footer__list_item">
-                  <Link className="footer__list_item-link" to="">
-                    <span className="footer__contact-icon-phone"></span>
-                    <span className="footer__contact-value">0123 456 7890</span>
+                  <Link className="section__contact_link" to="">
+                    +0123456789
                   </Link>
                 </li>
                 <li className="footer__list_item">
-                  <Link className="footer__list_item-link" to="">
-                    <span className="footer__contact-icon-email"></span>
-                    <span className="footer__contact-value">info@tiecreators.com</span>
+                  <Link className="section__contact_link" to="">
+                    <span>TieConfigSupport@.com</span>
                   </Link>
                 </li>
                 <li></li>
@@ -76,37 +86,27 @@ const Footer: FunctionComponent<FooterType> = ({
         </div>
         <div className="copyright-footer">
           <div className="copyright-wrapper">
-            <div className="copyright__column">
-              <span className="copyright-text">Copyright 2023</span>
-            </div>
-            <div className="copyright__column">
-              <Link
-                className="copyright-footer__link"
-                to="https://github.com/siarheikliazovich"
-                target="_blank"
-                title="Github: siarheikliazovich"
-              ></Link>
-              <Link
-                className="copyright-footer__link"
-                to="https://github.com/anast-ananko"
-                target="_blank"
-                title="Github: anast-ananko"
-              ></Link>
-              <Link
-                className="copyright-footer__link"
-                to="https://github.com/ablbsk"
-                target="_blank"
-                title="Github: ablbsk"
-              ></Link>
-            </div>
-            <div className="copyright__column">
-              <Link
-                className="logo-link"
-                to="https://rs.school"
-                target="_blank"
-                title="Rolling Scope School: JavaScript course"
-              ></Link>
-            </div>
+            <span className="copyright-text">Copyright 2023 by</span>
+            <Link
+              className="copyright-footer__link"
+              to="https://github.com/siarheikliazovich"
+              target="_blank"
+            ></Link>
+            <Link
+              className="copyright-footer__link"
+              to="https://github.com/anast-ananko"
+              target="_blank"
+            ></Link>
+            <Link
+              className="copyright-footer__link"
+              to="https://github.com/ablbsk"
+              target="_blank"
+            ></Link>
+            <Link
+              className="logo-link"
+              to="https://rs.school"
+              target="_blank"
+            ></Link>
           </div>
         </div>
       </div>
