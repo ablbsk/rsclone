@@ -46,8 +46,7 @@ const FormSignIn: FunctionComponent = () => {
 
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
 
-  const { accentColor, isNavbarNightMode } = interfaceSettings;
-  const backgroundColor = nightTheme.background.element;
+  const { accentColor } = interfaceSettings;
 
   return (
     <div className="sign__content">
