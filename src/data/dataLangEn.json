@@ -68,18 +68,21 @@
         "mySales": "My sales",
         "delete": "Delete",
         "price": "Price",
-        "name": "Vendor code"
+        "name": "Vendor code",
+        "isEmptyMessage": "You ties list is empty"
     },
     "myTiesOrders": {
         "date": "Date of sale",
-        "sum": "Sum"
+        "sum": "Sum",
+        "isEmptyMessage": "You sales list is empty"
     },
     "myOrders": {
         "data": "Order data",
         "date": "Date",
         "sum": "Sum",
         "status": "Status",
-        "delete": "Delete order"
+        "delete": "Delete order",
+        "isEmptyMessage": "Your order list is empty"
     },
     "index": {
         "cards": {

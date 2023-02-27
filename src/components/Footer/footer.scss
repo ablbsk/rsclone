@@ -2,8 +2,7 @@
 @import "../../sass/mixins";
 
 .footer-wrapper {
-  padding-top: 100px;
-  padding-bottom: 45px;
+  padding: 40px 0;
 }
 
 .footer__columns_section {
@@ -11,10 +10,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
 
-    @include media-small-mobile {
-      flex-direction: column;
-      align-items: center;
-    }
+  @include media-mobile {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 50px;
+  }
 }
 
 .section__logo {
@@ -25,18 +25,17 @@
 
 .footer-logo {
   display: inline-block;
-  height: 50px;
-  width: 200px;
+  height: 60px;
+  width: 250px;
   background-image: url(../../assets/images/png/logo.png);
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  margin: 0px 1px 15px;
   cursor: pointer;
   transition: 0.5s;
 
   &:hover {
-    transform: scale(1.2); 
+    transform: scale(1.05);
   }
 }
 
@@ -47,10 +46,10 @@
 }
 
 .footer-title {
-  font-size: $font-size-xlg;
-  font-family: $font-family-base;
+  font-size: $font-size-xxlg;
+  font-weight: $font-weight-bolder;
   color:$color-white1;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
 }
 
 .footer__list_item {
@@ -60,12 +59,24 @@
 }
 
 .footer__list_item-link {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
   color: $color-white1;
   list-style: none;
 
   &:hover {
-    opacity: 0.6; 
+    opacity: 0.6;
   }
+}
+
+.footer__contact-icon-phone {
+  @include icon-background("../../assets/images/svg/phone.svg", 20px);
+}
+
+.footer__contact-icon-email {
+  @include icon-background("../../assets/images/svg/email.svg", 20px);
 }
 
 .item-link__social_face {
@@ -90,52 +101,49 @@
 }
 
 .copyright-footer {
-  padding: 30px 1px;
+  padding: 10px 0;
   border-top: 3px solid $color-grey5;
 }
 
 .copyright-wrapper {
   display: flex;
-  padding: 0 30px;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
   @include media-small-mobile {
     flex-direction: column;
+    gap: 15px;
   }
 }
 
 .copyright-text {
-  font-size: $font-size-xlg;
+  font-size: $font-size-llg;
   font-family: $font-family-base;
   color: $color-white1;
+  cursor: default;
+}
+
+.copyright__column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .copyright-footer__link {
-  background-image: url(../../assets/images/png/pngwin.png);
-  background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
-  display: inline-block; 
-  overflow: hidden; 
-  transition: 0.5s;
+  @include icon-background("../../assets/images/svg/github.svg", 40px);
+  transition: $transition;
 
-    &:hover {
-      transform: scale(1.2); 
+  &:hover {
+      transform: scale(1.2);
     }
 }
 
 .logo-link {
-  background-image: url(../../assets/images/svg/rs_school_js.svg);
-  background-repeat: no-repeat;
-  width: 100px;
-  height: 40px;
-  display: inline-block; 
-  overflow: hidden; 
-  transition: 0.5s;
+  @include icon-background("../../assets/images/svg/rs-school.svg", 40px, 100px);
+  transition: $transition;
 
   &:hover {
-    transform: scale(1.2); 
+    transform: scale(1.2);
   }
 }

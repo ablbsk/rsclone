@@ -11,6 +11,7 @@ import { IStore } from "../../interfaces/store";
 import { nightTheme } from "../../data/constants";
 
 import "./signup.scss";
+import Hover from "../Hover";
 
 const SignUp: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -108,17 +109,11 @@ const SignUp: FunctionComponent = () => {
                   {t("sign.seller")}
                 </label>
               </div>
-              <button
-                style={{
-                  backgroundColor: isNavbarNightMode
-                    ? backgroundColor
-                    : accentColor.static,
-                }}
-                className="sign__button"
-                type="submit"
-              >
-                {t("sign.signUp")}
-              </button>
+              <Hover>
+                <button className="sign__button" type="submit">
+                  {t("sign.signUp")}
+                </button>
+              </Hover>
               {isSpiner && <span className="sign-spiner"></span>}
               {message && <div className="message-tooltip">{message}</div>}
               {error && <div className="error-tooltip">{error}</div>}
@@ -127,9 +122,7 @@ const SignUp: FunctionComponent = () => {
           <div className="sign__text-link">
             {t("sign.have")}{" "}
             <Link
-              style={{
-                color: isNavbarNightMode ? backgroundColor : accentColor.static,
-              }}
+              style={{ color: accentColor.static }}
               className="text-link"
               to="/sign-in"
             >

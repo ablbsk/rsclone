@@ -18,7 +18,7 @@ const Configurator: FunctionComponent = () => {
     <>
       <div className="configurator-wrapper">
         <div className="tie-category-banner">
-          <div className="container">
+          <div className="container container--high">
             <div className="tie-category">
               <Categories
                 tieList={tieList}

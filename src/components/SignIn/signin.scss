@@ -12,7 +12,7 @@
     justify-content: center;
     align-content: center;
     height: calc(100vh - 200px);
-    padding: 30px 20px 0;   
+    padding: 30px 20px 0;
 
     @include media-desktop {
         width: 1200px;
@@ -37,7 +37,7 @@
     }
 }
 
-.sign__image {    
+.sign__image {
     width: calc(50% - 20px);
     display: flex;
     justify-content: center;
@@ -94,7 +94,6 @@
 
 .sign__text {
     font-size: $font-size-lg;
-    color: $font-color-dark;
 }
 
 .form {
@@ -118,14 +117,14 @@
 }
 
 .sign__button {
-    margin-top: 30px;
-    margin-bottom: 15px;
-    width: 170px;
-    height: 40px;
+    margin: 40px auto;
+    padding: 10px 20px;
+    width: 200px;
     color: $font-color-white;
     border: none;
     border-radius: 5px;
     background-color: $color-accent;
+    transition: $transition;
     cursor: pointer;
 
     &:hover,
@@ -144,7 +143,8 @@
 }
 
 .sign-spiner {
-    margin-left: 70px;
+    display: inline-block;
+    margin: 0 auto 20px auto;
     background-image: url("../../assets/images/svg/spiner.svg");
     background-repeat: no-repeat;
     width: 30px;
