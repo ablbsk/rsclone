@@ -46,7 +46,7 @@ const MyProfile: FunctionComponent = () => {
   const { t } = useTranslation("dataLang");
 
   return (
-    <>      
+    <>
       <div className="my-profile__wrapper">
         <div className="my-profile__content" style={{ backgroundColor }}>
           <div className="my-profile__image"></div>

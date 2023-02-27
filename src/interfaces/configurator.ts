@@ -20,7 +20,6 @@ export interface ISubcategory {
   image: string;
   type: string;
   id: number;
-  // tieprice: string;
 }
 
 export interface IViewSetting {

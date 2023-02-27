@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import "./home.scss";
 import { IStore } from "../../interfaces/store";
 import InfoBlock from "./InfoBlock";
-import AudioPlayer from "./AudioPlayer";
 import Сarousel from "./Carousel";
 import OrderProcess from "./OrderProcess";
 import videoTie from "../../assets/video/videoTie.mp4";
@@ -16,7 +15,6 @@ const Home: FunctionComponent = () => {
 
   return (
     <>
-      <AudioPlayer />
       <main className="main">
         <div className="nav-block">
           <div className="container-fluid">

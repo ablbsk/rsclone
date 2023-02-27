@@ -5,6 +5,7 @@ import configurator from "../../data/configurator";
 import Categories from "./Categories";
 import { IStore } from "../../interfaces/store";
 import { ILangReducer } from "../../interfaces/langReducer";
+import Breadcrumbs from "./Breadcrumbs";
 
 const Configurator: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
@@ -19,6 +20,7 @@ const Configurator: FunctionComponent = () => {
       <div className="configurator-wrapper">
         <div className="tie-category-banner">
           <div className="container">
+            <Breadcrumbs />
             <div className="tie-category">
               <Categories
                 tieList={tieList}
