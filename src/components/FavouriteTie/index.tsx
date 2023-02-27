@@ -195,7 +195,9 @@ const FavoriteTie: FunctionComponent = () => {
                       </div>
                     );
                   })}
-                  {ties.length === 0 && <p>{listLang.data.empty}</p>}
+                  {ties.length === 0 && (
+                    <p className="favourite-empty">{listLang.data.empty}</p>
+                  )}
                 </div>
               </div>
             </div>

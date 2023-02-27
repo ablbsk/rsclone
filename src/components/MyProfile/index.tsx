@@ -47,47 +47,6 @@ const MyProfile: FunctionComponent = () => {
 
   return (
     <>
-      <Header
-        accentColor={accentColor}
-        isNavbarNightMode={isNavbarNightMode}
-        isButtonVisible={false}
-      >
-        <div className="nav__hamburger_wrapper" ref={ref}>
-          <span className="nav__hamburger" onClick={() => setOpen(!open)} />
-        </div>
-        <div
-          className={classNames("nav-sidebar", { sidebaropen: open })}
-          style={{
-            backgroundColor: isNavbarNightMode
-              ? backgroundColor
-              : accentColor.static,
-          }}
-        >
-          <div className="nav-sidebar-wrapper">
-            <ul className="list-nav-sidebar">
-              {list.data.map((item) => (
-                <li className="nav-sidebar-item" key={item.name}>
-                  {currentURL === item.path ? (
-                    <span className="active-link">{item.name}</span>
-                  ) : (
-                    <Link className="nav-sidebar-link" to={item.path}>
-                      {item.name}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Header>
-      <Profile
-        accentColor={accentColor}
-        isProfileShow={isProfileShow}
-        isSidebarFixed={isSidebarFixed}
-        isSidebarAccentMode={isSidebarAccentMode}
-        isNavbarNightMode={isNavbarNightMode}
-        isNightMode={isNightMode}
-      />
       <div className="my-profile__wrapper">
         <div className="my-profile__content" style={{ backgroundColor }}>
           <div className="my-profile__image"></div>
@@ -99,7 +58,6 @@ const MyProfile: FunctionComponent = () => {
           <div className="my-profile__email">{user.role}</div>
         </div>
       </div>
-      <Footer accentColor={accentColor} isNavbarNightMode={isNavbarNightMode} />
     </>
   );
 };

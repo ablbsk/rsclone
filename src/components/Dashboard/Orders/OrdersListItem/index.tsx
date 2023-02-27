@@ -70,7 +70,7 @@ const OrdersListItem: FunctionComponent<IOrdersListItem> = ({
             <option value="NON-PAID">{t("select.nonPaid")}</option>
             <option value="PAID">{t("select.paid")}</option>
             <option value="DECLINED">{t("select.declined")}</option>
-            <option value="IN-PROGRESS">{t("select.inProgress")}</option>
+            <option value="IN PROGRESS">{t("select.inProgress")}</option>
             <option value="FINISHED">{t("select.finished")}</option>
           </select>
         </th>

@@ -52,6 +52,7 @@ const Profile: FunctionComponent<ProfileType> = ({
   const handlerSign = () => {
     if (isLogin) {
       dispatch(authorization({} as ILogin, false));
+      localStorage.removeItem("favouriteTie");
     } else {
       navigate("/sign-in");
     }

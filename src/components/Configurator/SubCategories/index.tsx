@@ -9,10 +9,11 @@ import subcategoriesLang from "../../../data/subcategories";
 import { ILangReducer } from "../../../interfaces/langReducer";
 import configurator from "../../../data/configurator";
 import Breadcrumbs from "../Breadcrumbs";
+import { nightTheme, lightTheme } from "../../../data/constants";
 
 const SubCategories: FunctionComponent = () => {
   const interfaceSettings = useSelector((state: IStore) => state.appInterface);
-  const { accentColor, isNavbarNightMode } = interfaceSettings;
+  const { accentColor, isNavbarNightMode, isNightMode } = interfaceSettings;
   const { lang } = useSelector((state: ILangReducer) => state.langReducer);
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const list = subcategoriesLang.find((c) => c.lang === lang)!;
@@ -30,7 +31,14 @@ const SubCategories: FunctionComponent = () => {
     <>
       <Breadcrumbs />
       <div className="tie-category-wrapper">
-        <div className="subcategories-wrapper">
+        <div
+          className="subcategories-wrapper"
+          style={{
+            backgroundColor: isNightMode
+              ? nightTheme.background.page
+              : lightTheme.background.page,
+          }}
+        >
           <h4 className="title-subcategories">
             {list.data.titleTie} | {list.data.titleWoven} |{" "}
             {list.data.titleDesign}
