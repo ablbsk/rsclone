@@ -40,18 +40,20 @@ const SubCategories: FunctionComponent = () => {
           {list.data.titleTie} | {list.data.titleWoven} |{" "}
           {list.data.titleDesign}
         </h4>
-        <ul className="images-list">
-          {subCategories.map((subCategory: ISubcategory) => (
-            <SubCategory
-              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-              category={URLParams.category!}
-              subCategory={subCategory}
-              key={subCategory.type}
-              accentColor={accentColor}
-              isNavbarNightMode={isNavbarNightMode}
-            />
-          ))}
-        </ul>
+        <div className="container">
+          <ul className="images-list">
+            {subCategories.map((subCategory: ISubcategory) => (
+              <SubCategory
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                category={URLParams.category!}
+                subCategory={subCategory}
+                key={subCategory.type}
+                accentColor={accentColor}
+                isNavbarNightMode={isNavbarNightMode}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

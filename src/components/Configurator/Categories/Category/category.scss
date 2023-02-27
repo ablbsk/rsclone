@@ -2,13 +2,17 @@
 @import "../../../../sass/mixins";
 
 .category__list_item {
-  width: calc(33.3% - 15px);
+  width: 32%;
   padding: 15px;
   background: $color-grey-tie;
   border-radius: 5px;
   overflow: hidden;
 
   @include media-mobile {
+    width: 48.5%;
+  }
+
+  @include media-small-mobile {
     padding: 0;
     margin: 10px 10px;
     width: 65%;
@@ -39,8 +43,6 @@
   cursor: pointer;
   border: none;
   font-size: $font-size-lg;
-
-  &:hover {
-   opacity: 0.8;
-  }
+  text-align: center;
+  transition: $transition;
 }

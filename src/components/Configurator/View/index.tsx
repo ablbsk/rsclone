@@ -21,7 +21,7 @@ import configuratorSettings from "../../../helpers/configuratorSettings";
 import iconMapping from "../../../helpers/iconMapping";
 import IconFactory from "../IconFactory";
 import configurator from "../../../data/configurator";
-import { nightTheme } from "../../../data/constants";
+import { lightTheme, nightTheme } from "../../../data/constants";
 import plainsLang from "../../../data/plaints";
 import { ILangReducer } from "../../../interfaces/langReducer";
 import { svg2img } from "../../../helpers/svg2img/svg2img";
@@ -143,7 +143,9 @@ const View: FunctionComponent = () => {
         </div>
         <div className="edit-panel">
           <div className="edit-panel__title-wrapper">
-            <h3 className="title-item">{list.data.title}</h3>
+            <h3 className="title-item" style={{ color: lightTheme.fontColor }}>
+              {list.data.title}
+            </h3>
           </div>
           <div className="form-wrapper">
             {configuratorSettings(type).map((setting: IViewSetting) => {
