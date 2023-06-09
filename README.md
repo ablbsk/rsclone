@@ -2,7 +2,103 @@
 
 1. ТЗ: [open](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/rsclone/rsclone.md)
 2. Скриншоты
-3. Деплой: [open](https://zingy-kelpie-133b6c.netlify.app/)  
+   
+   <details>
+      <summary>Home page</summary>
+      <p></p>
+      <table>
+      <tr>
+        <td>Desktop view</td>
+        <td>Mobile view</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <img src="https://github.com/ablbsk/bookworm-react/assets/42908323/0b018805-d571-4f33-ac0e-ab2a437cb46d" alt="TieCreators home page screenshot" width="500" />
+        </td>
+        <td valign="top">
+          <img src="https://github.com/ablbsk/bookworm-react/assets/42908323/788a2c65-9515-40aa-beea-6d7b48f1b37b" alt="TieCreators home page screenshot" width="250" />
+        </td>
+      </tr>
+     </table>
+    </details>
+    
+    <details>
+      <summary>Tie configurator page</summary>
+      <p></p>
+      <table>
+      <tr>
+        <td>Desktop view</td>
+        <td>Mobile view</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <img src="https://github.com/ablbsk/bookworm-react/assets/42908323/3c070b7a-ae2b-4ff3-9a65-f4ffb097570f" alt="TieCreators configurator page screenshot" width="500" />
+        </td>
+        <td valign="top">
+          <img src="https://github.com/ablbsk/bookworm-react/assets/42908323/87fe0aaa-3cbc-422b-8628-9e9c526b6923" alt="TieCreators configurator page screenshot" width="250" />
+        </td>
+      </tr>
+     </table>
+    </details>
+    
+    <details>
+      <summary>Dashboard home page</summary>
+      <p></p>
+      <table>
+      <tr>
+        <td>Desktop view</td>
+        <td>Mobile view</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <img src="https://github.com/ablbsk/bookworm-react/assets/42908323/9597fb1b-87fc-4598-b59d-e13cab779fcf" alt="TieCreators dashboard home page screenshot" width="500" />
+        </td>
+        <td valign="top">
+          <img src="https://github.com/ablbsk/bookworm-react/assets/42908323/49204946-778b-439f-b845-193c7ed9f32c" alt="TieCreators dashboard home page screenshot" width="250" />
+        </td>
+      </tr>
+     </table>
+    </details>
+    
+    <details>
+      <summary>Dashboard calendar page</summary>
+      <p></p>
+      <table>
+      <tr>
+        <td>Desktop view</td>
+        <td>Mobile view</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <img src="https://github.com/ablbsk/bookworm-react/assets/42908323/f8e4402d-7c81-4d81-9ffa-3f3105d19265" alt="TieCreators dashboard calendar page screenshot" width="500" />
+        </td>
+        <td valign="top">
+          <img src="https://github.com/ablbsk/bookworm-react/assets/42908323/2e8bc134-316d-45a3-8e74-6f80967f5ab8" alt="TieCreators dashboard calendar page screenshot" width="250" />
+        </td>
+      </tr>
+     </table>
+    </details>
+    
+    <details>
+      <summary>Dark mode example</summary>
+      <p></p>
+      <table>
+      <tr>
+        <td>Configurator page</td>
+        <td>Dashboard calendar page</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <img src="https://github.com/ablbsk/bookworm-react/assets/42908323/feb76052-9fe6-448c-8fcd-c814eb1f9278" alt="TieCreators configurator page screenshot" width="400" />
+        </td>
+        <td valign="top">
+          <img src="https://github.com/ablbsk/bookworm-react/assets/42908323/ade9c833-15dd-4e12-b5b7-c8125e5b2acc" alt="TieCreators dashboard calendar page screenshot" width="400" />
+        </td>
+      </tr>
+     </table>
+    </details>
+    
+4. Деплой: [open](https://zingy-kelpie-133b6c.netlify.app/)  
    Для приложения реализован и задеплоен Back-end: [open repo](https://github.com/anast-ananko/server)  
 4. Crosscheck оценка: 620/620  
 5. Список функций:
