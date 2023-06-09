@@ -1,7 +1,7 @@
 ## TieCreators — final project from Rolling Scope School JavaScript/Front-end (JSFE2022Q3) 
 
-1. ТЗ: [open](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/rsclone/rsclone.md)
-2. Скриншоты
+1. Task: [open](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/rsclone/rsclone.md)
+2. Screenshots:
    
    <details>
       <summary>Home page</summary>
@@ -98,13 +98,13 @@
      </table>
     </details>
     
-4. Деплой: [open](https://zingy-kelpie-133b6c.netlify.app/)  
-   Для приложения реализован и задеплоен Back-end: [open repo](https://github.com/anast-ananko/server)  
-4. Crosscheck оценка: 620/620  
-5. Список функций:
+4. Deploy: [open](https://zingy-kelpie-133b6c.netlify.app/)  
+   Deploy back-end: [open repo](https://github.com/anast-ananko/server)  
+4. Crosscheck final score: 620/620  
+5. Features list:
     <p></p>
     <details>
-      <summary>Back-end — 140 баллов:</summary>
+      <summary>Back-end — 140 points:</summary>
       <p></p>
       <ul>
         <li>Использован REST API, +20</li>
@@ -261,7 +261,7 @@
       </ul>
   
       <p></p>
-      <h5>Конфигуратор — 140 баллов:</h5>
+      <h5>Конфигуратор — 140 points:</h5>
       <p></p>
       <p>На странице конфигуратора можно сконфигурировать галстук, купить этот галстук могут лишь зарегистрированные пользователи (роль Покупатель(USER))</p>
       <p></p>
@@ -301,4 +301,4 @@
       </ul>
     </details>
   
-    **Итого за все приложение: 620 баллов**
+    **Project final score: 620**
